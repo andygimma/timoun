@@ -54,3 +54,7 @@ Check out our issues list. If you see something you think you can solve, create 
 ### Testing
 
 Are you good at making Lettuce tests and want to add more coverage? Create a branch in the format tests/<description>. When you feel the code is well-written, send a pull request.
+
+### Style Guidelines
+
+Follow the [PEP 8](https://www.python.org/dev/peps/pep-0008/) guidelines.
