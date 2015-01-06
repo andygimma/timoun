@@ -8,6 +8,8 @@ A partnership between Catholic Relief Services, Institut du Bien-Être Social et
 ### Set up your environment
 1. Download Google App Engine for Python. https://cloud.google.com/appengine/downloads
 
+We will be using Python 2.7.
+
 2. Clone this repository
 
     $ cd google_appengine && git clone https://github.com/andygimma/timoun.git
