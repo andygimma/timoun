@@ -11,6 +11,7 @@ Timoun
     $ cd google_appengine && git clone https://github.com/andygimma/timoun.git
     
 3. Test the application
+
     $ lettuce /tests/features
 
 4. Run the application
@@ -23,4 +24,5 @@ Timoun
 Timoun employs behavioral testing, and uses [lettuce_webdriver](https://pypi.python.org/pypi/lettuce_webdriver). Docs for terrain.py setup can be found [here](http://lettuce.it/reference/terrain.html).
 
 To test the application
+
     $ lettuce /tests/features
