@@ -3,7 +3,7 @@ Timoun
 
 ## Open Source Resource Map for Children's Services in Haiti
 
-A partnership between Catholic Relief Services, Institut du Bien-Être Social et de Recherches, the Government University Department of Social Work and VisionLink to map projects and services, with a focus on mental health for vulnerable children and their families in Haiti.
+A partnership between Catholic Relief Services, Institut du Bien-Être Social et de Recherches, the Government University Department of Social Work, VisionLink and CrisisCleanup.org to map projects and services, with a focus on mental health for vulnerable children and their families in Haiti.
 
 ### Set up your environment
 1. Download Google App Engine for Python. https://cloud.google.com/appengine/downloads
