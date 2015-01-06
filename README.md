@@ -1,22 +1,26 @@
 Timoun
 ======
 
-Open Source Resource Map for Children's Services in Haiti
+## Open Source Resource Map for Children's Services in Haiti
 
-To begin, download Google App Engine for Python. https://cloud.google.com/appengine/downloads
+### Set up your environment
+1. Download Google App Engine for Python. https://cloud.google.com/appengine/downloads
 
-Clone this repository into the main folder.
+2. Clone this repository
 
-$ cd google_appengine && git clone https://github.com/andygimma/timoun.git
+    $ cd google_appengine && git clone https://github.com/andygimma/timoun.git
+    
+3. Test the application
+    $ lettuce /tests/features
 
-To run the web app.
+4. Run the application
 
-$ python dev_appserver.py timoun
+    $ python dev_appserver.py timoun
+    
+    
 
-Tested using lettuce_webdriver: https://pypi.python.org/pypi/lettuce_webdriver
+### Testing
+Timoun employs behavioral testing, and uses [lettuce_webdriver](https://pypi.python.org/pypi/lettuce_webdriver). Docs for terrain.py setup can be found [here](http://lettuce.it/reference/terrain.html).
 
-terrain.py docs: http://lettuce.it/reference/terrain.html
-
-To test, go to /tests and run the command
-
-$ lettuce
+To test the application
+    $ lettuce /tests/features
