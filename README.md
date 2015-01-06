@@ -13,11 +13,15 @@ A partnership between Catholic Relief Services, Institut du Bien-Être Social et
     $ cd google_appengine && git clone https://github.com/andygimma/timoun.git
     
 3. Set up virtualenv
+
     $ pip install virtualenv
+
     $ virtualenv timoun
+
     $ source timoun/bin/activate
     
     To deactivate virtualenv
+    
     $ deactivate
     
 4. Install dependencies from requirements.txt
