@@ -45,12 +45,12 @@ To test the application
 
     $ lettuce /tests/features
     
-### Contribute
+## Contribute
 
-## Developers
+### Developers
 
 Check out our issues list. If you see something you think you can solve, create a branch in the format Issue-<issue-#>/<description>. When you feel the code is well-written and well-tested, send a pull request.
 
-## Testing
+### Testing
 
 Are you good at making Lettuce tests and want to add more coverage? Create a branch in the format tests/<description>. When you feel the code is well-written, send a pull request.
