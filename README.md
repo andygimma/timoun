@@ -8,7 +8,7 @@ A partnership between Catholic Relief Services (CRS), Institut du Bien-Être Soc
 ### Set up your environment
 1. Download Google App Engine for Python. https://cloud.google.com/appengine/downloads
 
-    We will be using Python 2.7.
+    We are using Python 2.7 and Google App Engine version 1.9.17
 
 2. Clone this repository
 
