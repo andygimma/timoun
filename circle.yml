@@ -1,3 +1,12 @@
+deployment:
+  staging:
+    branch: master
+    
+dependencies:
+  pre:
+    - curl -o $HOME/google_appengine_1.9.13.zip https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.13.zip
+    - unzip -q -d $HOME $HOME/google_appengine_1.9.13.zip
+
 test:
   pre:
     - lettuce tests/features
