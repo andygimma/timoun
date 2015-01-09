@@ -1,10 +1,9 @@
 import webapp2
+import jinja2
+import os
 
-class MainPage(webapp2.RequestHandler):
-    def get(self):
-        self.response.headers['Content-Type'] = 'text/plain'
-        self.response.write('Future home of Timoun')
+from handlers import MainHandler
 
 app = webapp2.WSGIApplication([
-    ('/', MainPage),
+    ('/', MainHandler.MainHandler),
 ], debug=True)
