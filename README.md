@@ -29,14 +29,14 @@ A partnership between Catholic Relief Services (CRS), Institut du Bien-Être Soc
 4. Install dependencies from requirements.txt
 
     $ pip install -r requirements.txt
-    
-5. Test the application
 
-    $ lettuce /tests/features
-
-6. Run the application
+5. Run the application
 
     $ python dev_appserver.py timoun
+    
+6. Run tests
+
+    $ lettuce /tests/features
     
     
 
