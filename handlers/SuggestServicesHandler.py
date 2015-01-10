@@ -1,6 +1,7 @@
 import os
 import jinja2
 import webapp2
+from LegacyHandler import LegacyHandler
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname( __file__ ), '..', 'templates')))
@@ -8,7 +9,9 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 TEMPLATE = JINJA_ENVIRONMENT.get_template('base.html')
 LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('suggest_services.html')
 
-class SuggestServicesHandler(webapp2.RequestHandler):
+class SuggestServicesHandler(LegacyHandler):
   def get(self):
+    if not self.legacy:
+      self.redirect("/#/suggest_services")
     template_values = {}
     self.response.write(LEGACY_TEMPLATE.render(template_values))

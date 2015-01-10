@@ -11,11 +11,15 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="assets/js/bootstrap.min.js"></script>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
+    <script src="assets/js/angular/app.js"></script>
+    
     <!-- Add viewport for smart phone responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
   <body>
-    <div class="container">
+    <div class="container" ng-app="myApp">
 
       <!-- Static navbar -->
       <div class="navbar navbar-default" role="navigation">
@@ -31,30 +35,22 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">About</a></li>
-              <li><a href="#">Search</a></li>
-              <li><a href="#">Contact IBESR</a></li>
-              <li><a href="#">Suggest Service</a></li>
-              <li><a href="#">Mental Illness Services</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/search">Search</a></li>
+              <li><a href="/contact">Contact IBESR</a></li>
+              <li><a href="/suggest_services">Suggest Services</a></li>
+              <li><a href="/mental_illness_services">Mental Illness Services</a></li>
               <li><a href="#">Login</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>
       
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-          <ul class="breadcrumb">
-            <li><a href="/">Home</a></li>
-          </ul>
-        </div>
-      </div>
+
       
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-          <h1>Future Home of Timoun</h1>
-        </div>
-      </div>
+
+      <ng-view></ng-view>          
+
       
     </div> <!-- /container -->
 

@@ -4,10 +4,11 @@ import logging
 
 class LegacyHandler(webapp2.RequestHandler):
   def dispatch(self):
+    #raise Exception(self.request.url)
     USER_AGENT = self.request.headers['User-Agent']
     legacy_param = self.request.params.get("legacy")
     logging.info(USER_AGENT)
-    legacy_param = True
+    #legacy_param = False
     if legacy_param or "MSIE 6" in USER_AGENT or "MSIE 7" in USER_AGENT:
       self.legacy = True
     else:
