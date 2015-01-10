@@ -2,7 +2,7 @@ dependencies:
   pre:
     - curl -o $HOME/google_appengine_1.9.17.zip https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.17.zip
     - unzip -q -d $HOME $HOME/google_appengine_1.9.17.zip
-    - python $HOME/google_appengine/dev_appserver.py timoun/
+    - python $HOME/google_appengine/dev_appserver.py $HOME/google_appengine/timoun/
 
 test:
   pre:
