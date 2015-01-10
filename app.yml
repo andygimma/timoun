@@ -8,13 +8,19 @@ handlers:
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
+  secure: always
+
 
 - url: /assets
   static_dir: assets
   expiration: "7d"
+  secure: always
+
   
 - url: .*
   script: main.app
+  secure: always
+
 
   
 libraries:
