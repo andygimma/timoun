@@ -1,8 +1,8 @@
 import os
 import jinja2
 import webapp2
-import logging
-import re
+from LegacyHandler import LegacyHandler
+
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname( __file__ ), '..', 'templates')))
@@ -10,14 +10,10 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 TEMPLATE = JINJA_ENVIRONMENT.get_template('base.html')
 LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('index.html')
 
-class MainHandler(webapp2.RequestHandler):
+class MainHandler(LegacyHandler):
   def get(self):
-    USER_AGENT = self.request.headers['User-Agent']
-    legacy = self.request.params.get("legacy")
-    logging.info(USER_AGENT)
     template_values = {}
-    legacy = False
-    if legacy or "MSIE 6" in USER_AGENT or "MSIE 7" in self.request.headers["User-Agent"] or "MSIE 8" in self.request.headers["User-Agent"]:
+    if self.legacy:
       template = LEGACY_TEMPLATE
     else:
       template = TEMPLATE
