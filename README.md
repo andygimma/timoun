@@ -1,7 +1,7 @@
 Timoun
 ======
 
-Tests (via Circle CI): [![Circle CI](https://circleci.com/gh/andygimma/timoun.svg?style=svg)](https://circleci.com/gh/andygimma/timoun)
+Tests: [![Circle CI](https://circleci.com/gh/andygimma/timoun.svg?style=svg)](https://circleci.com/gh/andygimma/timoun)
 
 ## Open Source Resource Map for Children's Services in Haiti
 
