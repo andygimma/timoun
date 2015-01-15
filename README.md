@@ -1,6 +1,8 @@
 Timoun
 ======
 
+[![Circle CI](https://circleci.com/gh/andygimma/timoun.svg?style=svg)](https://circleci.com/gh/andygimma/timoun)
+
 ## Open Source Resource Map for Children's Services in Haiti
 
 A partnership between Catholic Relief Services (CRS), Institut du Bien-Être Social et de Recherches (IBESR), the Government University Department of Social Work, VisionLink and CrisisCleanup.org to map projects and services, with a focus on mental health for vulnerable children and their families in Haiti. "Timoun" is Haitian Creole for "children."
