@@ -1,0 +1,49 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_admin" href="/admin">Admin</a> / <a id="breadcrumb_admin_users" href="/admin/users">Users</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Users</h2>
+  <a href="/admin/users/new" class="btn btn-a">Add User</a>
+  <a href="/admin/users/dashboard" class="btn btn-b">See User Changes</a>
+
+  {% if users.count() > 0 %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Name</th>
+          <th>Organization</th>
+          <th>Phone</th>
+          <th>Role</th>
+          <th>Email Confirmed</th>
+        </tr>
+      </thead>
+
+    {% for user in users %}
+
+        <tbody>
+          <tr>
+            <td><a href="/users/{{ user.key.id() }}/edit">{{ user.email }}</a></td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.organization }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.role }}</td>
+            <td>{{ user.email_authorized }}</td>
+          </tr>
+        </tbody>
+    {% endfor %}
+  {% endif %}
+  </table>
+
+
+  {% if users.count() == 0 %}
+    <p>No users added</p>
+  {% endif %}
+{% endblock %}

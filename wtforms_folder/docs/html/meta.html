@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>WTForms Documentation</title>
+    <link rel="stylesheet" href="_static/main.css" type="text/css">
+    <link rel="stylesheet" href="_static/docstyles.css" type="text/css">
+    <link rel="stylesheet" href="_static/print.css" type="text/css" media="print">
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css">
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:   './',
+        VERSION:    '2.0.1'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/searchtools.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="contents" title="Global table of contents" href="contents.html">
+    <link rel="index" title="Global index" href="genindex.html">
+    <link rel="search" title="Search" href="search.html">
+    <link rel="top" title="WTForms 2.0.1 documentation" href="index.html">
+    <link rel="next" title="CSRF Protection" href="csrf.html">
+    <link rel="prev" title="Widgets" href="widgets.html">
+    
+  </head>
+  <body>
+    <div id="body">
+      <div id="header">
+        <h1 id="logo"><a href="index.html"
+          title="back to the documentation overview"><img src="_static/wtforms.png" alt="WTForms" /></a></h1>
+        <ul id="menu">
+          <li><a href="http://wtforms.simplecodes.com/">Website</li>
+          <li><a href="index.html">Documentation</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="http://groups.google.com/group/wtforms/">Mailing List</a></li>
+          <li><a href="http://github.com/wtforms/wtforms/">Code</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        
+  <div class="section" id="module-wtforms.meta">
+<span id="class-meta"></span><h1>class Meta<a class="headerlink" href="#module-wtforms.meta" title="Permalink to this headline">¶</a></h1>
+<p>the <cite>class Meta</cite> paradigm allows WTForms features to be customized, and even
+new behaviors to be introduced. It also supplies a place where configuration
+for any complementary modules can be done.</p>
+<p>Typical usage looks something like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">csrf</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">locales</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;en_US&#39;</span><span class="p">,</span> <span class="s">&#39;en&#39;</span><span class="p">)</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">TextField</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="c"># and so on...</span>
+</pre></div>
+</div>
+<p>For the majority of users, using a class Meta is mostly going to be done for
+customizing options used by the default behaviors, however for completeness
+the entire API of the <cite>Meta</cite> interface is shown here.</p>
+<dl class="class">
+<dt id="wtforms.meta.DefaultMeta">
+<em class="property">class </em><tt class="descclassname">wtforms.meta.</tt><tt class="descname">DefaultMeta</tt><a class="headerlink" href="#wtforms.meta.DefaultMeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the default Meta class which defines all the default values and
+therefore also the &#8216;API&#8217; of the class Meta interface.</p>
+<p><strong>Configuration</strong></p>
+<dl class="attribute">
+<dt id="wtforms.meta.DefaultMeta.csrf">
+<tt class="descname">csrf</tt><em class="property"> = False</em><a class="headerlink" href="#wtforms.meta.DefaultMeta.csrf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting <tt class="docutils literal"><span class="pre">csrf</span></tt> to <cite>True</cite> will enable CSRF for the form. The value can
+also be overridden per-instance via instantiation-time customization
+(for example, if csrf needs to be turned off only in a special case)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">form</span> <span class="o">=</span> <span class="n">MyForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;csrf&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wtforms.meta.DefaultMeta.csrf_class">
+<tt class="descname">csrf_class</tt><em class="property"> = None</em><a class="headerlink" href="#wtforms.meta.DefaultMeta.csrf_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, this is a class which is used to implement CSRF protection.
+Read the <a class="reference internal" href="csrf.html"><em>CSRF Documentation</em></a> to get more information on
+how to use.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wtforms.meta.DefaultMeta.csrf_field_name">
+<tt class="descname">csrf_field_name</tt><em class="property"> = 'csrf_token'</em><a class="headerlink" href="#wtforms.meta.DefaultMeta.csrf_field_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the automatically added CSRF token field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wtforms.meta.DefaultMeta.locales">
+<tt class="descname">locales</tt><em class="property"> = False</em><a class="headerlink" href="#wtforms.meta.DefaultMeta.locales" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting to a sequence of strings specifies the priority order
+of locales to try to find translations for built-in messages of
+WTForms. If the value <cite>False</cite>, then strings are not translated
+(the translations provider is a dummy provider)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wtforms.meta.DefaultMeta.cache_translations">
+<tt class="descname">cache_translations</tt><em class="property"> = True</em><a class="headerlink" href="#wtforms.meta.DefaultMeta.cache_translations" title="Permalink to this definition">¶</a></dt>
+<dd><p>If <cite>True</cite> (the default) then cache translation objects. The default
+cache is done at class-level so it&#8217;s shared with all class Meta.</p>
+</dd></dl>
+
+<p><strong>Advanced Customization</strong></p>
+<p>Usually, you do not need to override these methods, as they provide core
+behaviors of WTForms.</p>
+<dl class="method">
+<dt id="wtforms.meta.DefaultMeta.build_csrf">
+<tt class="descname">build_csrf</tt><big>(</big><em>form</em><big>)</big><a class="headerlink" href="#wtforms.meta.DefaultMeta.build_csrf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a CSRF implementation. This is called once per form instance.</p>
+<p>The default implementation builds the class referenced to by
+<a class="reference internal" href="#wtforms.meta.DefaultMeta.csrf_class" title="wtforms.meta.DefaultMeta.csrf_class"><tt class="xref py py-attr docutils literal"><span class="pre">csrf_class</span></tt></a> with zero arguments. If <cite>csrf_class</cite> is <tt class="docutils literal"><span class="pre">None</span></tt>,
+will instead use the default implementation
+<a class="reference internal" href="csrf.html#wtforms.csrf.session.SessionCSRF" title="wtforms.csrf.session.SessionCSRF"><tt class="xref py py-class docutils literal"><span class="pre">wtforms.csrf.session.SessionCSRF</span></tt></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>form</strong> &#8211; The form.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A CSRF implementation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wtforms.meta.DefaultMeta.get_translations">
+<tt class="descname">get_translations</tt><big>(</big><em>form</em><big>)</big><a class="headerlink" href="#wtforms.meta.DefaultMeta.get_translations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override in subclasses to provide alternate translations factory.
+See the i18n documentation for more.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>form</strong> &#8211; The form.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An object that provides gettext() and ngettext() methods.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wtforms.meta.DefaultMeta.bind_field">
+<tt class="descname">bind_field</tt><big>(</big><em>form</em>, <em>unbound_field</em>, <em>options</em><big>)</big><a class="headerlink" href="#wtforms.meta.DefaultMeta.bind_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>bind_field allows potential customization of how fields are bound.</p>
+<p>The default implementation simply passes the options to
+<tt class="xref py py-meth docutils literal"><span class="pre">UnboundField.bind()</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>form</strong> &#8211; The form.</li>
+<li><strong>unbound_field</strong> &#8211; The unbound field.</li>
+<li><strong>options</strong> &#8211; A dictionary of options which are typically passed to the field.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A bound field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wtforms.meta.DefaultMeta.wrap_formdata">
+<tt class="descname">wrap_formdata</tt><big>(</big><em>form</em>, <em>formdata</em><big>)</big><a class="headerlink" href="#wtforms.meta.DefaultMeta.wrap_formdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>wrap_formdata allows doing custom wrappers of WTForms formdata.</p>
+<p>The default implementation detects webob-style multidicts and wraps
+them, otherwise passes formdata back un-changed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>form</strong> &#8211; The form.</li>
+<li><strong>formdata</strong> &#8211; Form data.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A form-input wrapper compatible with WTForms.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wtforms.meta.DefaultMeta.render_field">
+<tt class="descname">render_field</tt><big>(</big><em>field</em>, <em>render_kw</em><big>)</big><a class="headerlink" href="#wtforms.meta.DefaultMeta.render_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>render_field allows customization of how widget rendering is done.</p>
+<p>The default implementation calls <tt class="docutils literal"><span class="pre">field.widget(field,</span> <span class="pre">**render_kw)</span></tt></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+        <div style="clear: both"></div>
+      </div>
+      <div id="footer">
+        © Copyright 2010 by the <a href="http://wtforms.simplecodes.com">WTForms Team</a>,
+        documentation generated by <a href="http://sphinx.pocoo.org/">Sphinx</a>
+      </div>
+    </div>
+  </body>
+</html>

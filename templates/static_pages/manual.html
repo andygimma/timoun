@@ -1,0 +1,69 @@
+{% extends "legacy_base.html" %}
+{% block breadcrumbs %}
+  <div class="container">
+    <div class="breadcrumbs">
+      <a id="breadcrumb_home" href="/">Home</a> / Manual
+    </div>
+  </div>
+{% endblock %}
+{% block content %}
+<hr>
+  <div class="msg">
+          <h1>Timoun Manual</h1>
+  </div>
+
+  <div class="container main">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#browser_versions_chapter">Browser Versions</a></li>
+      <li><a href="#home_page_chapter">Home Page and Navigation</a></li>
+      <li><a href="#authentication_chapter">Users and Login/Logout</a></li>
+      <li><a href="#dashboard_chapter">Dashboard and Audits</a></li>
+    </ul>
+
+    <h2 id="browser_versions_chapter">Browser Versions</h2>
+    <p>There will be two different designs used for this website. This is to handle anyone using Internet Explorer before version 9. We are currently showing the IE compatible version.</p>
+
+    <h2 id="home_page_chapter">Home Page and Navigation</h2>
+    <p>The home page is located at https://timoun-production.appspot.com. On this page, you will see a welcome message and a brief overview of Timoun.</p>
+    <p>INCLUDE IMAGE HERE | SHOW BOTH LEGACY AND MODERN BROWSER SCREENSHOTS</p>
+    <p>The Navigation bar has several links, each which lead to a separate page.</p>
+    <ul>
+      <li>About</li>
+      <li>Search</li>
+      <li>Contact IBESR</li>
+      <li>Suggest Services</li>
+      <li>Mental Illness Services</li>
+      <li>Login/Logout</li>
+    </ul>
+    <h3>About</h3>
+    <p>The about page is meant to give the public more information about Timoun.</p>
+    <h3>Search</h3>
+    <p>This page will allow for users to search for services in the Timoun database. It will also explain how best to search the database. How to use filters, keywords etc to narrow down their search.
+    <h3>Contact IBESR</h3>
+    <p>This page will explain a little bit about IBESR(Institut du Bien-Etre Social et de recherches), and give contact information for that organization.</p>
+    <h3>Suggest Services</h3>
+    <p>This page will allow the public to suggest new community services.</p>
+    <h3>Mental Illness Services</h3>
+    <p>This page will serve as a directory of mental illness services in the database.</p>
+    <h3>Login/Logout</h3>
+    <p>This page will allow users to login or logout. This process will be described in more detail <a href="#authentication_chapter">below</a></p>
+
+
+    <h2 id="authentication_chapter">Users and Login/Logout</h2>
+    <h3>Add a User</h3>
+    <p>Users are added by an admin.</p>
+    <p>An Admin will click <a href="/admin/users">Users</a> on the navigation bar. After that, the admin will click the <a href="/admin/users/new">Add User</a> button.</p>
+    <p>After the admin fills out the form, the user will get a confirmation email, which will explain how they can set their password.</p>
+    <h3>View and Delete Users</h3>
+    <p>An Admin can click <a gref="/admin/users">Users</a> on the navigation bar to see all users. On that page, they can see basic user information, and can click on the email to edit or delete that user.</p>
+    <h3>Forgot Password</h3>
+    <p>If a user forgets their password, they can click <a href="/users/login">Login</a> and click <a href="/users/reset_password">Forgot Password</a>. Clicking either of these links will log you out. So you'll have to log back in if you use them.</p>
+    <p>From here, a user will enter their email, and receive and email link explaining how they can reset their password safely.</p>
+
+    <h2 id="dashboard_chapter">Dashboard and Audits</h2>
+    <h3>View Audits on the Dashboard</h3>
+    <p>Timoun keeps track of all changes to the database.</p>
+    <p>An admin can see all changes by clicking <a href="/admin/dashboard">Dashboard</a> on the navigation panel.</p>
+  </div>
+{% endblock %}

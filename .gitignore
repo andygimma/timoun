@@ -1,3 +1,4 @@
 timoun/*
 .coverage
 *.pyc
+env.py

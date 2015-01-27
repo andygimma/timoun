@@ -5,9 +5,12 @@ from lettuce import step, world
 def when_i_click_on_group1(step, keyword):
     world.browser.find_element_by_link_text(keyword).click()
     world.browser.implicitly_wait(2)
-    
+
 @step(u'When I click on the "([^"]*)" breadcrumb')
 def when_i_click_on_the_group1_breadcrumb(step, keyword):
     world.browser.find_element_by_id("breadcrumb_" + str(keyword)).click()
     world.browser.implicitly_wait(5)
 
+@step(u'And I wait "([^"]*)" seconds')
+def and_i_wait_group1_seconds(step, seconds):
+    world.browser.implicitly_wait(seconds)

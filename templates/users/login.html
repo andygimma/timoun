@@ -1,0 +1,37 @@
+{% extends "legacy_base.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Home</a> / Login
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Login to Timoun</h2>
+  {% if form.errors %}
+    <ul class="errors">
+        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+  {% endif %}
+  <form method="POST" action="/users/login">
+    <table>
+      <tr>
+        <td>{{ form.email.label }}</td>
+        <td>{{ form.email()|safe }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label }}</td>
+        <td>{{ form.password()|safe }}</td>
+      </tr>
+    </table>
+    <br>
+    <input type=submit value=Submit>
+  </form>
+  <a href="/users/reset_password">Forgot Password?</a>
+{% endblock %}
