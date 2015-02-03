@@ -1,0 +1,38 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_admin" href="/admin">Admin</a> / <a id="breadcrumb_admin_organizations" href="/admin/programs">Programs</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Programs</h2>
+  <a href="/admin/programs/new" class="btn btn-a">Add Program</a>
+  <a href="/admin/programs/dashboard" class="btn btn-b">See Program Changes</a>
+
+  {% if programs.count() > 0 %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+    {% for program in programs %}
+        <tbody>
+          <tr>
+            <td><a href="/programs/{{ program.key.id() }}/edit">{{ program.name }}</a></td>
+          </tr>
+        </tbody>
+    {% endfor %}
+  {% endif %}
+  </table>
+
+
+  {% if programs.count() == 0 %}
+    <p>No programs added</p>
+  {% endif %}
+{% endblock %}

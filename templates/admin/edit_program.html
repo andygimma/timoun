@@ -3,13 +3,13 @@
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_admin" href="/admin">Admin</a> / Edit Organization
+    <a id="breadcrumb_admin" href="/admin">Admin</a> / Edit Program
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
-  <h2>{{ org_name }} Profile</h2>
+  <h2>{{ program_name }} Profile</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -19,7 +19,7 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/organizations/{{ org_key }}/edit">
+  <form method="POST" action="/programs/{{ program_key }}/edit">
     <table>
       <tr>
         <td>{{ form.name.label }}</td>
@@ -29,6 +29,6 @@
     <br>
     <input type=submit value=Submit>
   </form>
-   <a href="/organizations/{{ org_key }}/delete" onclick="return confirm('Are you sure you want to delete this organiation?');">Delete Organization</a>
+   <a href="/programs/{{ program_key }}/delete" onclick="return confirm('Are you sure you want to delete this program?');">Delete Program</a>
 
 {% endblock %}

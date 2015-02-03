@@ -7,13 +7,17 @@ from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, Emai
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
 from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler
-
+from handlers.admin.programs import AdminProgramIndexHandler, AdminProgramNewHandler, AdminProgramEditHandler, AdminProgramDeleteHandler
+from handlers.admin.services import AdminServiceIndexHandler, AdminServiceNewHandler, AdminServiceEditHandler, AdminServiceDeleteHandler
 config = {}
 config['webapp2_extras.sessions'] = {
     'secret_key': 'LK@#J$LK@#J$@#IUR(E*R)WE(FIUAFOJOWE%IUQ#)(%*TU$OIJQTJRWKGUWRE(T*W)$#(*%W$#%OIJRWOIEUWR"0t9*',
 }
 
+#from models import User
 
+#user = User.User(name = "admin", email = "admin@example.com", organization = "org", phone = "phone", role = "admin", password_digest = User.hash_password("secret"), email_authorized = True)
+#user.put()
 
 def handle_404(request, response, exception):
     response.write('Page not found')
@@ -41,10 +45,18 @@ app = webapp2.WSGIApplication([
     ('/admin/dashboard/([^/]+)', DashboardItemHandler.DashboardItemHandler),
     ('/admin/organizations', AdminOrgIndexHandler.AdminOrgIndexHandler),
     ('/admin/organizations/new', AdminOrgNewHandler.AdminOrgNewHandler),
-    ('/users/([^/]+)/edit', EditHandler.EditHandler),
-    ('/users/([^/]+)/delete', DeleteHandler.DeleteHandler),
     ('/organizations/([^/]+)/edit', AdminOrgEditHandler.AdminOrgEditHandler),
     ('/organizations/([^/]+)/delete', AdminOrgDeleteHandler.AdminOrgDeleteHandler),
+    ('/admin/programs', AdminProgramIndexHandler.AdminProgramIndexHandler),
+    ('/admin/programs/new', AdminProgramNewHandler.AdminProgramNewHandler),
+    ('/programs/([^/]+)/edit', AdminProgramEditHandler.AdminProgramEditHandler),
+    ('/programs/([^/]+)/delete', AdminProgramDeleteHandler.AdminProgramDeleteHandler),
+    ('/admin/services', AdminServiceIndexHandler.AdminServiceIndexHandler),
+    ('/admin/services/new', AdminServiceNewHandler.AdminServiceNewHandler),
+    ('/services/([^/]+)/edit', AdminServiceEditHandler.AdminServiceEditHandler),
+    ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
+    ('/users/([^/]+)/edit', EditHandler.EditHandler),
+    ('/users/([^/]+)/delete', DeleteHandler.DeleteHandler),
     ('/users/login', LoginHandler.LoginHandler),
     ('/users/logout', LogoutHandler.LogoutHandler),
     ('/users/profile', ProfileHandler.ProfileHandler),

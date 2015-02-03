@@ -2,8 +2,8 @@ from google.appengine.ext import ndb
 
 
 CLEARANCE_OPTIONS = ["admin", "organization", "field manager", "visitor"]
-ACTIONS = ["Create User", "Update User", "User Confirmation", "User Set Password", "Delete User", "Create Organization", "Edit Organization", "Delete Organization"]
-MODELS = ["User", "Organization"]
+ACTIONS = ["Create User", "Update User", "User Confirmation", "User Set Password", "Delete User", "Create Organization", "Edit Organization", "Delete Organization", "Create Program", "Edit Program", "Delete Program", "Create Service", "Edit Service", "Delete Service"]
+MODELS = ["User", "Organization", "Program", "Service"]
 
 class Audit(ndb.Model):
   initiated_by = ndb.StringProperty(required=True)

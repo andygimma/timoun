@@ -8,9 +8,7 @@ import env
 import Audit
 import json
 
-ROLES = ["admin", "organization","field manager", "visitor"]
 class Organization(ndb.Model):
-  """Models an User."""
   name = ndb.StringProperty(required=True)
 
 def save(self, form, LEGACY_TEMPLATE):

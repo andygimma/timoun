@@ -1,0 +1,38 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_admin" href="/admin">Admin</a> / <a id="breadcrumb_admin_services" href="/admin/services">Services</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Services</h2>
+  <a href="/admin/services/new" class="btn btn-a">Add Services</a>
+  <a href="/admin/services/dashboard" class="btn btn-b">See Service Changes</a>
+
+  {% if services.count() > 0 %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+    {% for service in services %}
+        <tbody>
+          <tr>
+            <td><a href="/services/{{ service.key.id() }}/edit">{{ service.name }}</a></td>
+          </tr>
+        </tbody>
+    {% endfor %}
+  {% endif %}
+  </table>
+
+
+  {% if services.count() == 0 %}
+    <p>No services added</p>
+  {% endif %}
+{% endblock %}
