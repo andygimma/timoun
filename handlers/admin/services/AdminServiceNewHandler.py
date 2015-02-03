@@ -24,7 +24,7 @@ class AdminServiceNewHandler(BaseHandler.BaseHandler):
     if not self.legacy:
       self.redirect("/#/admin/programs/new")
 
-    form = Program.NewProgramForm()
+    form = Service.NewServiceForm()
     template_values = {
       "form": form,
       "user_session": user_session

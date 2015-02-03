@@ -18,7 +18,7 @@ def save(self, form, LEGACY_TEMPLATE):
       }
       service_json = json.dumps(service_dict)
       service_audit = Audit.save(initiated_by = self.session.get("user"), organization_affected = self.request.get("name"), security_clearance = "admin", json_data = service_json, model= "Service", action = "Create Service")
-      self.redirect("/admin/programs?message=Service {0} added".format(self.request.get("name")))
+      self.redirect("/admin/services?message=Service {0} added".format(self.request.get("name")))
     else:
       self.response.write(LEGACY_TEMPLATE.render({"form": form, "message": "Service not saved, contact administrator"}))
   else:
