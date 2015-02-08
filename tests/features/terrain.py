@@ -6,7 +6,7 @@ import os
 @before.all
 def setup_browser():
     world.browser = webdriver.Firefox()
-    
+
 @after.all
 def shutdown_browser(results):
     world.browser.close()

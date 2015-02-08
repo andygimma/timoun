@@ -1,6 +1,6 @@
 Feature: Testing the Navigation Bar
   Scenario: Make sure the navigation bar has the correct links
-    Given I go to "http://localhost:8080"
+    Given I go to "http://localhost:8080/users/login"
       Then I should see "About"
       Then I should see "Search"
       Then I should see "Contact IBESR"

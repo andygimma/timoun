@@ -2,6 +2,7 @@ import webapp2
 import jinja2
 import os
 
+
 from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler
 from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
@@ -14,10 +15,8 @@ config['webapp2_extras.sessions'] = {
     'secret_key': 'LK@#J$LK@#J$@#IUR(E*R)WE(FIUAFOJOWE%IUQ#)(%*TU$OIJQTJRWKGUWRE(T*W)$#(*%W$#%OIJRWOIEUWR"0t9*',
 }
 
-#from models import User
 
-#user = User.User(name = "admin", email = "admin@example.com", organization = "org", phone = "phone", role = "admin", password_digest = User.hash_password("secret"), email_authorized = True)
-#user.put()
+
 
 def handle_404(request, response, exception):
     response.write('Page not found')

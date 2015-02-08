@@ -28,6 +28,11 @@ class LoginHandler(BaseHandler.BaseHandler):
       'form': User.UserLoginForm(self.request.POST),
       'message': self.request.get("message")
     }
+
+    users = User.User.query(User.User.email == "admin@example.com")
+    if users.count() == 0:
+      user = User.User(name = "admin", email = "admin@example.com", organization = "org", phone = "phone", role = "admin", password_digest = User.hash_password("secret"), email_authorized = True)
+      user.put()
     self.response.write(TEMPLATE.render(template_values))
 
   def post(self):
