@@ -1,5 +1,5 @@
 Feature: Ensure that all admin program pages work
-  Scenario: Make sure the admin new program page loads
+  Scenario: Make sure the admin new progrm page loads
     Given I sign is as an admin user
       And I go to "http://localhost:8080/admin/programs/new"
       Then I should see "New Program"
@@ -17,7 +17,7 @@ Feature: Ensure that all admin program pages work
       And I should see "Create Program"
 
 
-  Scenario: I should be able to view an existing user
+  Scenario: I should be able to view an existing program
     Given I sign is as an admin user
       And I go to "http://localhost:8080/admin/programs"
       Then I should see "Program name"
@@ -38,3 +38,9 @@ Feature: Ensure that all admin program pages work
       And I should see "Program edit"
       When I go to "http://localhost:8080/admin/dashboard"
       Then I should see "Edit Program"
+
+  Scenario: I should be able to see the Audit page for Programs
+    Given I sign is as an admin user
+      And I go to "http://localhost:8080/admin/programs"
+      When I click on "See Program Changes"
+      Then I should see "Program Affected"

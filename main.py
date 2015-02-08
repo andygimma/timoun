@@ -7,9 +7,10 @@ from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, Sea
 from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
-from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler
-from handlers.admin.programs import AdminProgramIndexHandler, AdminProgramNewHandler, AdminProgramEditHandler, AdminProgramDeleteHandler
-from handlers.admin.services import AdminServiceIndexHandler, AdminServiceNewHandler, AdminServiceEditHandler, AdminServiceDeleteHandler
+from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler, AdminOrgDashboardHandler
+from handlers.admin.programs import AdminProgramIndexHandler, AdminProgramNewHandler, AdminProgramEditHandler, AdminProgramDeleteHandler, AdminProgramDashboardHandler
+from handlers.admin.services import AdminServiceIndexHandler, AdminServiceNewHandler, AdminServiceEditHandler, AdminServiceDeleteHandler, AdminServiceDashboardHandler
+
 config = {}
 config['webapp2_extras.sessions'] = {
     'secret_key': 'LK@#J$LK@#J$@#IUR(E*R)WE(FIUAFOJOWE%IUQ#)(%*TU$OIJQTJRWKGUWRE(T*W)$#(*%W$#%OIJRWOIEUWR"0t9*',
@@ -46,14 +47,17 @@ app = webapp2.WSGIApplication([
     ('/admin/organizations/new', AdminOrgNewHandler.AdminOrgNewHandler),
     ('/organizations/([^/]+)/edit', AdminOrgEditHandler.AdminOrgEditHandler),
     ('/organizations/([^/]+)/delete', AdminOrgDeleteHandler.AdminOrgDeleteHandler),
+    ('/admin/organizations/dashboard', AdminOrgDashboardHandler.AdminOrgDashboardHandler),
     ('/admin/programs', AdminProgramIndexHandler.AdminProgramIndexHandler),
     ('/admin/programs/new', AdminProgramNewHandler.AdminProgramNewHandler),
     ('/programs/([^/]+)/edit', AdminProgramEditHandler.AdminProgramEditHandler),
     ('/programs/([^/]+)/delete', AdminProgramDeleteHandler.AdminProgramDeleteHandler),
+    ('/admin/programs/dashboard', AdminProgramDashboardHandler.AdminProgramDashboardHandler),
     ('/admin/services', AdminServiceIndexHandler.AdminServiceIndexHandler),
     ('/admin/services/new', AdminServiceNewHandler.AdminServiceNewHandler),
     ('/services/([^/]+)/edit', AdminServiceEditHandler.AdminServiceEditHandler),
     ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
+    ('/admin/services/dashboard', AdminServiceDashboardHandler.AdminServiceDashboardHandler),
     ('/users/([^/]+)/edit', EditHandler.EditHandler),
     ('/users/([^/]+)/delete', DeleteHandler.DeleteHandler),
     ('/users/login', LoginHandler.LoginHandler),

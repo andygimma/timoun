@@ -38,3 +38,10 @@ Feature: Ensure that all admin service pages work
       And I should see "Service edit"
       When I go to "http://localhost:8080/admin/dashboard"
       Then I should see "Edit Service"
+
+  Scenario: I should be able to see the Audit page for Services
+    Given I sign is as an admin user
+      And I go to "http://localhost:8080/admin/services"
+      When I click on "See Service Changes"
+      Then I should see "Service Affected"
+

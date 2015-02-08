@@ -38,3 +38,9 @@ Feature: Ensure that all admin organization pages work
       And I should see "Org edit"
       When I go to "http://localhost:8080/admin/dashboard"
       Then I should see "Edit Organization"
+
+  Scenario: I should be able to see the Audit page for Organizations
+    Given I sign is as an admin user
+      And I go to "http://localhost:8080/admin/organizations"
+      When I click on "See Organization Changes"
+      Then I should see "Organization Affected"
