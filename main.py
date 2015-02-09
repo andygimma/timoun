@@ -16,7 +16,6 @@ config['webapp2_extras.sessions'] = {
     'secret_key': 'LK@#J$LK@#J$@#IUR(E*R)WE(FIUAFOJOWE%IUQ#)(%*TU$OIJQTJRWKGUWRE(T*W)$#(*%W$#%OIJRWOIEUWR"0t9*',
 }
 
-
 def handle_404(request, response, exception):
     response.write('Page not found')
     response.set_status(404)
