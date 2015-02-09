@@ -1,0 +1,24 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_admin" href="/admin">Admin</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Record</h2>
+  <h3>{{ record.nom_de_lorganisation }}</h3>
+  <p>id: {{ record.ID }}</p>
+  <p>created by: {{ record.CREATED_BY }}</p>
+  <p>created date: {{ record.CREATED_DATE }}</p>
+  <p>Created device id: {{ record.CREATED_DEVICE_ID }}</p>
+  <p>adresse: {{ record.adresse }}</p>
+  <p>commune: {{ record.commune }}</p>
+  <p>departement: {{ record.departement }}</p>
+  <p>precisez_autres_sources_financements: {{ record.precisez_autres_sources_financements }}</p>
+  <p>record_source: {{ record.record_source }}</p>
+  <p>source_de_financement: {{ record.source_de_financement }}</p>
+{% endblock %}
