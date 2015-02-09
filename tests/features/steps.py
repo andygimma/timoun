@@ -30,16 +30,10 @@ def when_i_change_group1_to_group2_on_the_form(step, element, value):
     world.browser.find_element_by_id(element).clear()
     world.browser.find_element_by_id(element).send_keys(value)
 
-
 @step(u'When I click "([^"]*)" and confirm the popup')
 def when_i_click_group1_and_confirm_the_popup(step, element):
-    pass
-    #try:
     world.browser.find_element_by_link_text(element).click()
     alert = world.browser.switch_to_alert()
     alert.accept()
 
-
-    #except:
-      #raise Exception(1)
 
