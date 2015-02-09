@@ -45,3 +45,14 @@ Feature: Ensure that all admin service pages work
       When I click on "See Service Changes"
       Then I should see "Service Affected"
 
+  Scenario: I should be able to delete an existing service, and see it reflected on the Audit page
+    Given I sign is as an admin user
+      And I go to "http://localhost:8080/admin/services"
+      Then I should see "Service edit"
+      When I click on "Service edit"
+      Then I should see "Service edit Profile"
+      When I click "Delete Service" and confirm the popup
+      And I wait "2" seconds
+      Then I should see "deleted"
+      When I go to "http://localhost:8080/admin/dashboard"
+      Then I should see "Delete Service"

@@ -13,7 +13,7 @@ Feature: Ensure that all admin user pages work
       And I fill in "phone" with "1234567890"
       And I select "admin" from "role"
       When I press "Submit"
-      And I wait "3" seconds
+      And I wait "2" seconds
       And I go to "http://localhost:8080/admin/users"
       Then I should see "user2@example.com"
       When I go to "http://localhost:8080/admin/dashboard"
@@ -58,4 +58,7 @@ Feature: Ensure that all admin user pages work
       When I click on "user2@example.com"
       Then I should see "user2@example.com Profile"
       When I click "Delete User" and confirm the popup
-      
+      And I wait "2" seconds
+      Then I should see "deleted"
+      When I go to "http://localhost:8080/admin/dashboard"
+      Then I should see "Delete User"

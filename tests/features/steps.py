@@ -35,9 +35,9 @@ def when_i_change_group1_to_group2_on_the_form(step, element, value):
 def when_i_click_group1_and_confirm_the_popup(step, element):
     pass
     #try:
-      #world.browser.find_element_by_link_text(element).click()
-      #world.browser.execute_script("$('#delete-user').find('a').trigger('click'); ")
-      #alert = world.browser.switch_to.alert
+    world.browser.find_element_by_link_text(element).click()
+    alert = world.browser.switch_to_alert()
+    alert.accept()
 
 
     #except:

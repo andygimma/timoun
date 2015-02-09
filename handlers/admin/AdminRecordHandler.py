@@ -18,21 +18,17 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
     role = self.session.get('role')
     user_session = self.session.get("user")
 
-    #if role != "admin":
-      #self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
-      #return
-
-    record = Record.Record(one=1, two=2, three=3, nom_de_lorganisation="name")
-    #record.put()
+    if role != "admin":
+      self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
+      return
 
     if not self.legacy:
       self.redirect("/#/admin")
 
-    #records = Record.Record.query().order(Record.Record.created_at).fetch(projection=[Record.nom_de_lorganisation])
     records = Record.Record.all()
-    #records = q.fetch(limit=50)
-    #query_string = "SELECT id, nom_de_lorganisation FROM Record"
-    #records = db.GqlQuery(query_string)
+    if records.count() == 0:
+      Record.Record(nom_de_lorganisation="First org").put()
+
     template_values = {
       "message": self.request.get("message"),
       "user_session": user_session,
