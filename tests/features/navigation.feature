@@ -6,6 +6,7 @@ Feature: Testing the Navigation Bar
       Then I should see "Contact IBESR"
       Then I should see "Suggest Services"
       Then I should see "Mental Illness Service"
+      Then I should see "Manual"
       Then I should see "Login"
 
   Scenario: Ensure that each nav link works
@@ -20,3 +21,8 @@ Feature: Testing the Navigation Bar
       Then I should see "Suggest Services for Timoun"
       When I click on "Mental Illness Services"
       Then I should see "Timoun Mental Illness Services"
+      When I click on "Manual"
+      Then I should see "Timoun Manual"
+      When I click on "Login"
+      Then I should see "Login to Timoun"
+
