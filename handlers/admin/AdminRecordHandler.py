@@ -25,7 +25,7 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
     if not self.legacy:
       self.redirect("/#/admin")
 
-    records = Record.Record.all()
+    records = Record.Record.query()
     if records.count() == 0:
       Record.Record(nom_de_lorganisation="First org").put()
 

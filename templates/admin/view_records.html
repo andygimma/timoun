@@ -9,16 +9,142 @@
 {% endblock %}
 
 {% block content %}
-  <h2>Record</h2>
-  <h3>{{ record.nom_de_lorganisation }}</h3>
-  <p>id: {{ record.ID }}</p>
-  <p>created by: {{ record.CREATED_BY }}</p>
-  <p>created date: {{ record.CREATED_DATE }}</p>
-  <p>Created device id: {{ record.CREATED_DEVICE_ID }}</p>
-  <p>adresse: {{ record.adresse }}</p>
-  <p>commune: {{ record.commune }}</p>
-  <p>departement: {{ record.departement }}</p>
-  <p>precisez_autres_sources_financements: {{ record.precisez_autres_sources_financements }}</p>
-  <p>record_source: {{ record.record_source }}</p>
-  <p>source_de_financement: {{ record.source_de_financement }}</p>
+  {% if record.nom_de_lorganisation %}<h3>{{ record.nom_de_lorganisation }}</h3>{% endif %}
+  {% if record.created_at %}<p>created_at: {{ record.created_at }}</p>{% endif %}
+  {% if record.record_id %}<p>record_id: {{ record.record_id }}</p>{% endif %}
+  {% if record.parent_record_id %}<p>parent_record_id: {{ record.parent_record_id }}</p>{% endif %}
+  {% if record.parent_page_id %}<p>parent_page_id: {{ record.parent_page_id }}</p>{% endif %}
+  {% if record.parent_element_id %}<p>parent_element_id: {{ record.parent_element_id }}</p>{% endif %}
+  {% if record.created_date %}<p>created_date: {{ record.created_date }}</p>{% endif %}
+  {% if record.created_by %} <p>created_by: {{ record.created_by }}</p>{% endif %}
+  {% if record.created_location %}<p>created_location: {{ record.created_location }}</p>{% endif %}
+  {% if record.created_device_id %}<p>created_device_id: {{ record.created_device_id }}</p>{% endif %}
+  {% if record.modified_date %}<p>modified_date: {{ record.modified_date }}</p>{% endif %}
+  {% if record.modified_by %}<p>modified_by: {{ record.modified_by }}</p>{% endif %}
+  {% if record.modified_location %}<p>modified_location: {{ record.modified_location }}</p>{% endif %}
+  {% if record.modified_device_id %}<p>modified_device_id: {{ record.modified_device_id }}</p>{% endif %}
+  {% if record.server_modified_date %}<p>server_modified_date: {{ record.server_modified_date }}</p>{% endif %}
+  {% if record.si_autre_precisez_ %}<p>si_autre_precisez_: {{ record.si_autre_precisez_ }}</p>{% endif %}
+  {% if record.soins_de_sant_communautaires_informels %}<p>soins_de_sant_communautaires_informels: {{ record.soins_de_sant_communautaires_informels }}</p>{% endif %}
+  {% if record.soins_de_sant_primaire %}<p>soins_de_sant_primaire: {{ record.soins_de_sant_primaire }}</p>{% endif %}
+  {% if record.si_oui_prciser__plusieurs_rponses_possibles %}<p>si_oui_prciser__plusieurs_rponses_possibles: {{ record.si_oui_prciser__plusieurs_rponses_possibles }}</p>{% endif %}
+  {% if record.soins_psychiatriques %}<p>soins_psychiatriques: {{ record.soins_psychiatriques }}</p>{% endif %}
+  {% if record.soins_psychologiques %}<p>soins_psychologiques: {{ record.soins_psychologiques }}</p>{% endif %}
+  {% if record.relation_daide %}<p>relation_daide: {{ record.relation_daide }}</p>{% endif %}
+  {% if record.counseling %}<p>counseling: {{ record.counseling }}</p>{% endif %}
+  {% if record.precisez2 %}<p>precisez2: {{ record.precisez2 }}</p>{% endif %}
+  {% if record.autre_petita %}<p>autre_petita: {{ record.autre_petita }}</p>{% endif %}
+  {% if record.preciser_autres %}<p>preciser_autres: {{ record.preciser_autres }}</p>{% endif %}
+  {% if record.sant_communautaires %}<p>sant_communautaires: {{ record.sant_communautaires }}</p>{% endif %}
+  {% if record.santprimaire2 %}<p>santprimaire2: {{ record.santprimaire2 }}</p>{% endif %}
+  {% if record.soins_de_counseling %}<p>soins_de_counseling: {{ record.soins_de_counseling }}</p>{% endif %}
+
+  {% if record.soins_sante_psychologiques2 %}<p>soins_sante_psychologiques2: {{ record.soins_sante_psychologiques2 }}</p>{% endif %}
+  {% if record.soins_santepsychiatriques3 %}<p>soins_santepsychiatriques3: {{ record.soins_santepsychiatriques3 }}</p>{% endif %}
+  {% if record.grille_tarifaire_relation3 %}<p>grille_tarifaire_relation3: {{ record.grille_tarifaire_relation3 }}</p>{% endif %}
+  {% if record.combien_mensuellement %}<p>combien_mensuellement: {{ record.combien_mensuellement }}</p>{% endif %}
+  {% if record.pour_quelles_raisons %}<p>pour_quelles_raisons: {{ record.pour_quelles_raisons }}</p>{% endif %}
+  {% if record.approx_precisez %}<p>approx_precisez: {{ record.approx_precisez }}</p>{% endif %}
+  {% if record.comment_publicisez %}<p>comment_publicisez: {{ record.comment_publicisez }}</p>{% endif %}
+  {% if record.precisez_autres2 %}<p>precisez_autres2: {{ record.precisez_autres2 }}</p>{% endif %}
+
+  {% if record.otre_precisez %}<p>otre_precisez: {{ record.otre_precisez }}</p>{% endif %}
+  {% if record.catgories_denfants_vulnrables_que_vous_recevez %}<p>catgories_denfants_vulnrables_que_vous_recevez: {{ record.catgories_denfants_vulnrables_que_vous_recevez }}</p>{% endif %}
+  {% if record.autre_categorie %}<p>autre_categorie: {{ record.autre_categorie }}</p>{% endif %}
+  {% if record.dcrire_les_catgories_dintervenants_ %}<p>dcrire_les_catgories_dintervenants_: {{ record.dcrire_les_catgories_dintervenants_ }}</p>{% endif %}
+  {% if record.autre_categorie_intervenants %}<p>autre_categorie_intervenants: {{ record.autre_categorie_intervenants }}</p>{% endif %}
+  {% if record.autres_categories_precisez %}<p>autres_categories_precisez: {{ record.autres_categories_precisez }}</p>{% endif %}
+  {% if record.endroits_formation_precisez_autres %}<p>endroits_formation_precisez_autres: {{ record.endroits_formation_precisez_autres }}</p>{% endif %}
+  {% if record.autres_endroit_de_suivi_formation %}<p>autres_endroit_de_suivi_formation: {{ record.autres_endroit_de_suivi_formation }}</p>{% endif %}
+  {% if record.quels_organismes_vous_rfrez_les_demandes %}<p>quels_organismes_vous_rfrez_les_demandes: {{ record.quels_organismes_vous_rfrez_les_demandes }}</p>{% endif %}
+  {% if record.organisme_relation_de_formation %}<p>organisme_relation_de_formation: {{ record.organisme_relation_de_formation }}</p>{% endif %}
+  {% if record.organisme_relation_dchanges_de_pratique %}<p>organisme_relation_dchanges_de_pratique: {{ record.organisme_relation_dchanges_de_pratique }}</p>{% endif %}
+  {% if record.autres_organismes_relations %}<p>autres_organismes_relations: {{ record.autres_organismes_relations }}</p>{% endif %}
+  {% if record.obstacles_rencontre_dispensation_services %}<p>obstacles_rencontre_dispensation_services: {{ record.obstacles_rencontre_dispensation_services }}</p>{% endif %}
+  {% if record.autres_obstacles_precisez %}<p>autres_obstacles_precisez: {{ record.autres_obstacles_precisez }}</p>{% endif %}
+  {% if record.obstacles_rencontre_par_patients %}<p>obstacles_rencontre_par_patients: {{ record.obstacles_rencontre_par_patients }}</p>{% endif %}
+  {% if record.si_oui_savezvous_pourquoi %}<p>si_oui_savezvous_pourquoi: {{ record.si_oui_savezvous_pourquoi }}</p>{% endif %}
+
+  {% if record.demandes_pas_de_specialites %}<p>demandes_pas_de_specialites: {{ record.demandes_pas_de_specialites }}</p>{% endif %}
+  {% if record.connaissezvous_gens_communaute_formation_academik %}<p>connaissezvous_gens_communaute_formation_academik: {{ record.connaissezvous_gens_communaute_formation_academik }}</p>{% endif %}
+  {% if record.estce_que_votre_organisation_offre_des_services_en_sant_men %}<p>estce_que_votre_organisation_offre_des_services_en_sant_men: {{ record.estce_que_votre_organisation_offre_des_services_en_sant_men }}</p>{% endif %}
+  {% if record.sant_communautaires_informels %}<p>sant_communautaires_informels: {{ record.sant_communautaires_informels }}</p>{% endif %}
+  {% if record.sant_primaire %}<p>sant_primaire: {{ record.sant_primaire }}</p>{% endif %}
+  {% if record.counseling2 %}<p>counseling2: {{ record.counseling2 }}</p>{% endif %}
+  {% if record.soins_psychologiques2 %}<p>soins_psychologiques2: {{ record.soins_psychologiques2 }}</p>{% endif %}
+  {% if record.psychiatriques2 %}<p>psychiatriques2: {{ record.psychiatriques2 }}</p>{% endif %}
+  {% if record.nombres_de_demandes %}<p>nombres_de_demandes: {{ record.nombres_de_demandes }}</p>{% endif %}
+  {% if record.relation_daide2 %}<p>relation_daide2: {{ record.relation_daide2 }}</p>{% endif %}
+  {% if record.c_estce_que_les_services_sont_gratuits__ %}<p>c_estce_que_les_services_sont_gratuits__: {{ record.c_estce_que_les_services_sont_gratuits__ }}</p>{% endif %}
+  {% if record.approximation_de_la_distance %}<p>approximation_de_la_distance: {{ record.approximation_de_la_distance }}</p>{% endif %}
+  {% if record.refuser_des_demandes %}<p>refuser_des_demandes: {{ record.refuser_des_demandes }}</p>{% endif %}
+  {% if record.autre_centre_offrant_des_services %}<p>autre_centre_offrant_des_services: {{ record.autre_centre_offrant_des_services }}</p>{% endif %}
+  {% if record.recevezvous_des_enfants_vulnrables_ou_leurs_parents %}<p>recevezvous_des_enfants_vulnrables_ou_leurs_parents: {{ record.recevezvous_des_enfants_vulnrables_ou_leurs_parents }}</p>{% endif %}
+  {% if record.formations_en_sant_mentale_amliorer_comptences %}<p>formations_en_sant_mentale_amliorer_comptences: {{ record.formations_en_sant_mentale_amliorer_comptences }}</p>{% endif %}
+  {% if record.nombre_intervenants_travaillant %}<p>nombre_intervenants_travaillant: {{ record.nombre_intervenants_travaillant }}</p>{% endif %}
+
+  {% if record.commune %}<p>commune: {{ record.commune }}</p>{% endif %}
+  {% if record.departement %}<p>departement: {{ record.departement }}</p>{% endif %}
+  {% if record.adresse %}<p>adresse: {{ record.adresse }}</p>{% endif %}
+  {% if record.nom_de_lorganisation %}<p>nom_de_lorganisation: {{ record.nom_de_lorganisation }}</p>{% endif %}
+  {% if record.gps_ %}<p>gps_: {{ record.gps_ }}</p>{% endif %}
+  {% if record.telephone %}<p>telephone: {{ record.telephone }}</p>{% endif %}
+  {% if record.personne_de_contact %}<p>personne_de_contact: {{ record.personne_de_contact }}</p>{% endif %}
+  {% if record.email %}<p>email: {{ record.email }}</p>{% endif %}
+  {% if record.site_web %}<p>site_web: {{ record.site_web }}</p>{% endif %}
+
+  {% if record.type_plusieurs_rponses_possibles %}<p>type_plusieurs_rponses_possibles: {{ record.type_plusieurs_rponses_possibles }}</p>{% endif %}
+
+
+  {% if record.statut %}<p>statut: {{ record.statut }}</p>{% endif %}
+  {% if record.jour %}<p>jour: {{ record.jour }}</p>{% endif %}
+  {% if record.huere %}<p>heure: {{ record.heure }}</p>{% endif %}
+
+
+  {% if record.precisez_autres_sources_financements %}<p>precisez_autres_sources_financements: {{ record.precisez_autres_sources_financements }}</p>{% endif %}
+  {% if record.my_element14 %}<p>my_element14: {{ record.my_element14 }}</p>{% endif %}
+  {% if record.precisez_type_organisme %}<p>precisez_type_organisme: {{ record.precisez_type_organisme }}</p>{% endif %}
+  {% if record.source_de_financement %}<p>source_de_financement: {{ record.source_de_financement }}</p>{% endif %}
+  {% if record.niveau_de_formation_intervenants %}<p>niveau_de_formation_intervenants: {{ record.niveau_de_formation_intervenants }}</p>{% endif %}
+  {% if record.quel_endroit %}<p>quel_endroit: {{ record.quel_endroit }}</p>{% endif %}
+  {% if record.autre_status %}<p>autre_status: {{ record.autre_status }}</p>{% endif %}
+  {% if record.les_principaux_motifs_de_consultation_plusieurs_rponses_possib %}<p>les_principaux_motifs_de_consultation_plusieurs_rponses_possib: {{ record.les_principaux_motifs_de_consultation_plusieurs_rponses_possib }}</p>{% endif %}
+  {% if record.preciser_autres_motifs_consultation %}<p>preciser_autres_motifs_consultation: {{ record.preciser_autres_motifs_consultation }}</p>{% endif %}
+  {% if record.types_de_thrapie_utiliss_plusieurs_rponses_possibles %}<p>types_de_thrapie_utiliss_plusieurs_rponses_possibles: {{ record.types_de_thrapie_utiliss_plusieurs_rponses_possibles }}</p>{% endif %}
+  {% if record.si_autres_precisez_types_de_therapie %}<p>si_autres_precisez_types_de_therapie: {{ record.si_autres_precisez_types_de_therapie }}</p>{% endif %}
+  {% if record.globalement__combien_estimezvous_le_cot_annuel_de_ces_servic %}<p>globalement__combien_estimezvous_le_cot_annuel_de_ces_servic: {{ record.globalement__combien_estimezvous_le_cot_annuel_de_ces_servic }}</p>{% endif %}
+  {% if record.prcisez_leur_groupe_dge %}<p>prcisez_leur_groupe_dge: {{ record.prcisez_leur_groupe_dge }}</p>{% endif %}
+
+  {% if record.services_sontils_disponibles_pour_les_enfants_vulnrables %}<p>services_sontils_disponibles_pour_les_enfants_vulnrables: {{ record.services_sontils_disponibles_pour_les_enfants_vulnrables }}</p>{% endif %}
+  {% if record.activits_socioculturelles %}<p>activits_socioculturelles: {{ record.activits_socioculturelles }}</p>{% endif %}
+  {% if record.mdication %}<p>mdication: {{ record.mdication }}</p>{% endif %}
+  {% if record.activits_psychosociales %}<p>activits_psychosociales: {{ record.activits_psychosociales }}</p>{% endif %}
+  {% if record.psychanalyse %}<p>psychanalyse: {{ record.psychanalyse }}</p>{% endif %}
+  {% if record.accompagnement_psychosocial %}<p>accompagnement_psychosocial: {{ record.accompagnement_psychosocial }}</p>{% endif %}
+  {% if record.musicothrapie %}<p>musicothrapie: {{ record.musicothrapie }}</p>{% endif %}
+  {% if record.club_denfants %}<p>club_denfants: {{ record.club_denfants }}</p>{% endif %}
+  {% if record.niveau_de_formation_intervenants %}<p>niveau_de_formation_intervenants: {{ record.niveau_de_formation_intervenants }}</p>{% endif %}
+  {% if record.psychoducation %}<p>psychoducation: {{ record.psychoducation }}</p>{% endif %}
+  {% if record.thrapie_par_le_thtre %}<p>thrapie_par_le_thtre: {{ record.thrapie_par_le_thtre }}</p>{% endif %}
+  {% if record.thrapie_corporelle %}<p>thrapie_corporelle: {{ record.thrapie_corporelle }}</p>{% endif %}
+  {% if record.thrapie_cognitive_et_comportementale %}<p>thrapie_cognitive_et_comportementale: {{ record.thrapie_cognitive_et_comportementale }}</p>{% endif %}
+  {% if record.autres %}<p>autres: {{ record.autres }}</p>{% endif %}
+  {% if record.si_vous_referez_precisez_ou %}<p>si_vous_referez_precisez_ou: {{ record.si_vous_referez_precisez_ou }}</p>{% endif %}
+  {% if record.quels_sont_les_organismes_qui_vous_rfrent_des_demandes_ %}<p>quels_sont_les_organismes_qui_vous_rfrent_des_demandes_: {{ record.quels_sont_les_organismes_qui_vous_rfrent_des_demandes_ }}</p>{% endif %}
+  {% if record.de_rfrencement %}<p>de_rfrencement: {{ record.de_rfrencement }}</p>{% endif %}
+
+  {% if record.votre_organisation_offre_des_services_de_types_psychosociaux %}<p>votre_organisation_offre_des_services_de_types_psychosociaux: {{ record.votre_organisation_offre_des_services_de_types_psychosociaux }}</p>{% endif %}
+  {% if record.de_rfrencement %}<p>si_oui_preciser_types_de_services_psycho: {{ record.si_oui_preciser_types_de_services_psycho }}</p>{% endif %}
+  {% if record.si_oui_preciser_types_de_services_psycho %}<p>precisez_autres_types_services_psycho: {{ record.precisez_autres_types_services_psycho }}</p>{% endif %}
+  {% if record.connaissezvous_centre_offrant_des_services_sante %}<p>connaissezvous_centre_offrant_des_services_sante: {{ record.connaissezvous_centre_offrant_des_services_sante }}</p>{% endif %}
+  {% if record.question_a %}<p>question_a: {{ record.question_a }}</p>{% endif %}
+  {% if record.question_b %}<p>question_b: {{ record.question_b }}</p>{% endif %}
+  {% if record.question_c %}<p>question_c: {{ record.question_c }}</p>{% endif %}
+  {% if record.question_d %}<p>question_d: {{ record.question_d }}</p>{% endif %}
+  {% if record.a %}<p>a: {{ record.a }}</p>{% endif %}
+  {% if record.b %}<p>b: {{ record.b }}</p>{% endif %}
+  {% if record.c %}<p>c: {{ record.c }}</p>{% endif %}
+  {% if record.d %}<p>d: {{ record.d }}</p>{% endif %}
+
+
 {% endblock %}

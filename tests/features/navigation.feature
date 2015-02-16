@@ -25,4 +25,3 @@ Feature: Testing the Navigation Bar
       Then I should see "Timoun Manual"
       When I click on "Login"
       Then I should see "Login to Timoun"
-
