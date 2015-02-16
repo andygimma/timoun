@@ -23,6 +23,7 @@ class MainHandler(BaseHandler.BaseHandler):
     template_values = {
       "role": self.session.get("role"),
       "user_session": user_session,
-      "message": self.request.get("message")
+      "message": self.request.get("message"),
+      "records": [1]
     }
     self.response.write(template.render(template_values))

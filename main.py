@@ -2,7 +2,6 @@ import webapp2
 import jinja2
 import os
 
-
 from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler
 from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
@@ -33,7 +32,7 @@ app = webapp2.WSGIApplication([
     ('/mental_illness_services', ServicesHandler.ServicesHandler),
     ('/manual', ManualHandler.ManualHandler),
     ('/admin', IndexHandler.IndexHandler),
-    ('/admin/iformbuilder_task', AdminIFormBuilderHandler.AdminIFormBuilderHandler),
+    #('/admin/iformbuilder_task', AdminIFormBuilderHandler.AdminIFormBuilderHandler),
     ('/admin/users', UsersIndexHandler.UsersIndexHandler),
     ('/admin/users/new', NewUserHandler.NewUserHandler),
     ('/admin/users/dashboard', UserDashboardHandler.UserDashboardHandler),

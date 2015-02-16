@@ -26,12 +26,24 @@ class AdminIFormBuilderHandler(BaseHandler.BaseHandler):
       logging.info("First data")
       logging.info(data[0]["record"])
       count = 0
+      error_count = 0
       for obj in data:
-        if count < 10: 
+        if count < 150:
           record = Record.Record()
           full_obj = obj["record"]
           for k in full_obj:
-            setattr(record, k.lower(), full_obj[k])
+            try:
+              if not full_obj[k] == None:
+                if isinstance( full_obj[k], ( int, long ) ):
+                  full_obj[k] = str(full_obj[k])
+                setattr(record, k.lower(), full_obj[k].encode("utf-8").strip())
+            except Exception as e:
+              error_count += 1
+              logging.info("error_count")
+              logging.info(error_count)
+              logging.info(k)
+              logging.info(full_obj[k])
+              logging.info(e)
           record.put()
           count += 1
       logging.info("Finished")
