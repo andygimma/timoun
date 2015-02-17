@@ -1,4 +1,4 @@
 cron:
 - description: daily-summary-job
   url: /admin/iformbuilder_task
-  schedule: every 100 minutes
+  schedule: every 3 minutes

@@ -132,3 +132,10 @@ class Record(ndb.Model):
   question_b = ndb.StringProperty()
   question_c = ndb.StringProperty()
   question_d = ndb.StringProperty()
+
+  latitude = ndb.StringProperty()
+  longitude = ndb.StringProperty()
+
+
+def save():
+  pass
