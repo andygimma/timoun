@@ -44,3 +44,15 @@ Feature: Ensure that all admin program pages work
       And I go to "http://localhost:8080/admin/programs"
       When I click on "See Program Changes"
       Then I should see "Program Affected"
+
+  Scenario: I should be able to delete an existing program, and see it reflected on the Audit page
+    Given I sign is as an admin user
+      And I go to "http://localhost:8080/admin/programs"
+      Then I should see "Program edit"
+      When I click on "Program edit"
+      Then I should see "Program edit Profile"
+      When I click "Delete Program" and confirm the popup
+      And I wait "2" seconds
+      Then I should see "deleted"
+      When I go to "http://localhost:8080/admin/dashboard"
+      Then I should see "Delete Program"

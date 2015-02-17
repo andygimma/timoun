@@ -1,0 +1,37 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_admin" href="/admin">Admin</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Records</h2>
+  <a href="#" class="btn btn-b">See Record History</a>
+
+  {% if records.count() > 0 %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name of Organization</th>
+        </tr>
+      </thead>
+
+    {% for record in records %}
+        <tbody>
+          <tr>
+            <td><a href="/admin/records/{{ record.key.id() }}">{{ record.nom_de_lorganisation }}</a></td>
+          </tr>
+        </tbody>
+    {% endfor %}
+  {% endif %}
+  </table>
+
+
+  {% if records.count() == 0 %}
+    <p>No records added</p>
+  {% endif %}
+{% endblock %}

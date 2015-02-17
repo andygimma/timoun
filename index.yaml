@@ -15,6 +15,11 @@ indexes:
   - name: model_affected
   - name: created_at
 
+- kind: Record
+  properties:
+  - name: id
+  - name: nom_de_lorganisation
+
 - kind: User
   properties:
   - name: email_endpoint

@@ -1,7 +1,6 @@
 from lettuce import before, after, world
 from selenium import webdriver
 import lettuce_webdriver.webdriver
-import os
 
 @before.all
 def setup_browser():

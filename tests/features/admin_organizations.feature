@@ -44,3 +44,15 @@ Feature: Ensure that all admin organization pages work
       And I go to "http://localhost:8080/admin/organizations"
       When I click on "See Organization Changes"
       Then I should see "Organization Affected"
+
+  Scenario: I should be able to delete an existing organization, and see it reflected on the Audit page
+    Given I sign is as an admin user
+      And I go to "http://localhost:8080/admin/organizations"
+      Then I should see "Org edit"
+      When I click on "Org edit"
+      Then I should see "Org edit Profile"
+      When I click "Delete Organization" and confirm the popup
+      And I wait "2" seconds
+      Then I should see "deleted"
+      When I go to "http://localhost:8080/admin/dashboard"
+      Then I should see "Delete Organization"

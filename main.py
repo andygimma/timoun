@@ -2,22 +2,18 @@ import webapp2
 import jinja2
 import os
 
-
 from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler
-from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler
+from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
 from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler, AdminOrgDashboardHandler
 from handlers.admin.programs import AdminProgramIndexHandler, AdminProgramNewHandler, AdminProgramEditHandler, AdminProgramDeleteHandler, AdminProgramDashboardHandler
 from handlers.admin.services import AdminServiceIndexHandler, AdminServiceNewHandler, AdminServiceEditHandler, AdminServiceDeleteHandler, AdminServiceDashboardHandler
-  
+
 config = {}
 config['webapp2_extras.sessions'] = {
     'secret_key': 'LK@#J$LK@#J$@#IUR(E*R)WE(FIUAFOJOWE%IUQ#)(%*TU$OIJQTJRWKGUWRE(T*W)$#(*%W$#%OIJRWOIEUWR"0t9*',
 }
-
-
-
 
 def handle_404(request, response, exception):
     response.write('Page not found')
@@ -36,6 +32,7 @@ app = webapp2.WSGIApplication([
     ('/mental_illness_services', ServicesHandler.ServicesHandler),
     ('/manual', ManualHandler.ManualHandler),
     ('/admin', IndexHandler.IndexHandler),
+    #('/admin/iformbuilder_task', AdminIFormBuilderHandler.AdminIFormBuilderHandler),
     ('/admin/users', UsersIndexHandler.UsersIndexHandler),
     ('/admin/users/new', NewUserHandler.NewUserHandler),
     ('/admin/users/dashboard', UserDashboardHandler.UserDashboardHandler),
@@ -44,6 +41,8 @@ app = webapp2.WSGIApplication([
     ('/admin/dashboard', DashboardHandler.DashboardHandler),
     ('/admin/dashboard/([^/]+)', DashboardItemHandler.DashboardItemHandler),
     ('/admin/organizations', AdminOrgIndexHandler.AdminOrgIndexHandler),
+    ('/admin/records', AdminRecordHandler.AdminRecordHandler),
+    ('/admin/records/([^/]+)', AdminViewRecordHandler.AdminViewRecordHandler),
     ('/admin/organizations/new', AdminOrgNewHandler.AdminOrgNewHandler),
     ('/organizations/([^/]+)/edit', AdminOrgEditHandler.AdminOrgEditHandler),
     ('/organizations/([^/]+)/delete', AdminOrgDeleteHandler.AdminOrgDeleteHandler),
