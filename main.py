@@ -32,7 +32,7 @@ app = webapp2.WSGIApplication([
     ('/mental_illness_services', ServicesHandler.ServicesHandler),
     ('/manual', ManualHandler.ManualHandler),
     ('/admin', IndexHandler.IndexHandler),
-    ('/admin/iformbuilder_task', AdminIFormBuilderHandler.AdminIFormBuilderHandler),
+    #('/admin/iformbuilder_task', AdminIFormBuilderHandler.AdminIFormBuilderHandler),
     ('/admin/users', UsersIndexHandler.UsersIndexHandler),
     ('/admin/users/new', NewUserHandler.NewUserHandler),
     ('/admin/users/dashboard', UserDashboardHandler.UserDashboardHandler),
