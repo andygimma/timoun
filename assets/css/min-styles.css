@@ -2,21 +2,42 @@
 
 
 /* BASE STYLES */
-.container {margin: 0 auto;}
 body {font-family: verdana, sans-serif;}
+.container {margin: 0 auto;}
+
+/* NAV */
+.nav, .nav .current, .nav a:hover {background: #187d9f; color:#fff;}
+.nav a {color: #e2eff8;}
 .nav {height: 30px;} 
 .nav .container {margin: 0 20px;}
-.breadcrumbs {background: #e6e6e6; width: 100%;}
-
+.breadcrumbs {background: #e6e6e6;}
+.breadcrumbs a {color: #187d9f;}
+a#breadcrumb_home {margin-left: 5px;}
+@media (max-width: 500px) {
+.nav div:before {background: #187d9f;}
+}
 /* BRANDING */
+.genericon {color: #b199c2;}
+
+/* FOOTER */
+#footer {background: #302e2c; height: 40px; bottom: 0;}
+p.copy {color: #fff; padding: 14px 0 0 0; font-size: 12px;}
+
 
 /* TYPOGRAPHY */
-h2, h3, p {margin-left: 20px;}
+h1, h2, h3, h4, h5, h6, p {margin-left: 20px; margin-right: 20px;}
+h1 {color: #187d9f; font-size: 2.5em;}
+h2 {color: #258db1;}
+h3 {color: #339ec3;}
 
 /* LINKS */
 a:link {text-decoration: none;}
 
-
+/* MAP */
+#map {width: 96%; margin-left: 1.5%;}
+.cta {float: left; width: 100%; clear:both;}
+.cta .btn {float: right; margin: 10px 32px 20px 0; background: #00643f;}
+.cta .btn:hover {background: #0e8c75;}
 
 /* MIN+ PLUGIN */
 message {
