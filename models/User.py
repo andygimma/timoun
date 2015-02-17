@@ -4,7 +4,7 @@ from wtforms.ext.appengine.db import model_form
 import hashlib
 import datetime
 from google.appengine.api import mail
-import env
+
 import Audit
 import json
 
@@ -110,7 +110,7 @@ def authenticate(self, TEMPLATE, form):
 
 
 def create_email_endpoint():
-  return hashlib.sha224(str(datetime.datetime.now()) + env.EMAIL_SALT).hexdigest()
+  return hashlib.sha224(str(datetime.datetime.now()) + "1").hexdigest()
 
 
 def hash_password(password):
