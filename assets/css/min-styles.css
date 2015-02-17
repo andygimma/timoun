@@ -20,8 +20,8 @@ a#breadcrumb_home {margin-left: 5px;}
 .genericon {color: #b199c2;}
 
 /* FOOTER */
-#footer {background: #302e2c; height: 40px; bottom: 0;}
-p.copy {color: #fff; padding: 14px 0 0 0; font-size: 12px;}
+#footer {width: 100%; float: left; background: #302e2c; height: 40px; bottom: 0;}
+p.copy {color: #fff; padding: 0; font-size: 12px;}
 
 
 /* TYPOGRAPHY */
@@ -36,9 +36,12 @@ a:link {text-decoration: none;}
 /* MAP */
 #map {width: 96%; margin-left: 1.5%;}
 .cta {float: left; width: 100%; clear:both;}
-.cta .btn {float: right; margin: 10px 32px 20px 0; background: #00643f;}
+.cta .btn {float: right; margin: 10px 32px 25px 0; background: #00643f;}
 .cta .btn:hover {background: #0e8c75;}
 
+.services {float: left; padding: 0; border-radius: 6px; padding: 10px 0 10px 0; margin-bottom: 0; background: #e2eff8;}
+.services .btn {float: right; background: #dbbe01; margin: 0 32px 30px 0}
+.services .btn:hover {background: #fade29;}
 /* MIN+ PLUGIN */
 message {
     display: block;
