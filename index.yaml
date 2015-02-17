@@ -24,3 +24,9 @@ indexes:
   properties:
   - name: email_endpoint
   - name: email
+
+- kind: Record
+  properties:
+  - name: gps_
+  - name: latitude
+  - name: longitude
