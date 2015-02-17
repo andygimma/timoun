@@ -2,6 +2,7 @@ import os
 import jinja2
 import webapp2
 from handlers import BaseHandler
+from models import Record
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -20,10 +21,13 @@ class MainHandler(BaseHandler.BaseHandler):
       template = TEMPLATE
     role = self.session.get('role')
     user_session = self.session.get("user")
+    records = Record.Record.query()
+    records = records.fetch(records.count(), projection=[Record.Record.gps_])
+    #raise Exception(len(records))
     template_values = {
       "role": self.session.get("role"),
       "user_session": user_session,
       "message": self.request.get("message"),
-      "records": [1]
+      "records": records
     }
     self.response.write(template.render(template_values))

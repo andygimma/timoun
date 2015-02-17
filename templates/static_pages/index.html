@@ -13,7 +13,7 @@
 
   <div id="map"></div>
     <script>
-  var map = L.map('map').setView([51.505, -0.09], 13);
+  var map = L.map('map').setView([18.533, -72.333], 8);
 
   // add an OpenStreetMap tile layer
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -24,9 +24,10 @@
 
   {% for record in records %}
   // add a marker in the given location, attach some popup content to it and open the popup
-  L.marker([51.5, -0.09]).addTo(map)
-      .bindPopup('A pretty CSS3 popup|. <br> Easily customizable.')
-      .openPopup();
+    L.marker([18.533, -72.333]).addTo(map)
+        .bindPopup('A pretty CSS3 popup|. <br> Easily customizable.')
+        .openPopup();
+
   {% endfor %}
   </script>
 {% endblock %}
