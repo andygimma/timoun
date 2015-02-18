@@ -21,8 +21,9 @@ class MainHandler(BaseHandler.BaseHandler):
       template = TEMPLATE
     role = self.session.get('role')
     user_session = self.session.get("user")
-    records = Record.Record.query()
-    records = records.fetch(1, projection=[Record.Record.gps_])
+    records = Record.Record.query(Record.Record.latitude != "empty")
+    #raise Exception(records.count())
+    records = records.fetch(1000, projection=[Record.Record.gps_, Record.Record.latitude, Record.Record.longitude, Record.Record.nom_de_lorganisation])
     #raise Exception(len(records))
     template_values = {
       "role": self.session.get("role"),

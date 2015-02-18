@@ -30,9 +30,9 @@
 <div class="services">
 <h3>Are there more services you would like to see?</h3>
     <p><strong>We want to hear from you</strong>. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <a href="/suggest_services"></a><div class="btn">Let Us Know!</div></a> 
+    <a href="/suggest_services"></a><div class="btn">Let Us Know!</div></a>
 </div>
-<!-- Scripts Go Here --> 
+<!-- Scripts Go Here -->
 
 <script>
   var map = L.map('map').setView([18.533, -72.333], 8);
@@ -46,10 +46,12 @@
 
   {% for record in records %}
   // add a marker in the given location, attach some popup content to it and open the popup
-    L.marker([18.533, -72.333]).addTo(map)
-        .bindPopup('A pretty CSS3 popup|. <br> Easily customizable.')
+    console.log("record");
+    L.marker([{{ record.latitude }}, {{ record.longitude }}]).addTo(map)
+        .bindPopup("{{ record.nom_de_lorganisation }}")
         .openPopup();
 
   {% endfor %}
 </script>
 {% endblock %}
+
