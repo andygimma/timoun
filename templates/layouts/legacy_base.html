@@ -106,6 +106,7 @@
   </head>
 
   <body>
+  <div id="wrapper">
     <nav class="nav" tabindex="-1" onclick="this.focus()">
       <div class="container">
           <a class="pagename current" href="/">Timoun</a>
@@ -116,7 +117,7 @@
           <a href="/search">Search</a>
           <a href="/contact">Contact IBESR</a>
           <a href="/suggest_services">Suggest Services</a>
-          <a href="/mental_illness_services">Mental Illness Services</a>
+          <a href="/mental_illness_services">Mental Health Services</a>
           <a href="/manual">Manual</a>
           {% if user_session %}
             <a href="/users/profile">Profile</a>
@@ -135,11 +136,11 @@
         {% block content %}
         {% endblock %}
         </div>
-      
+    <br/><br/><br/> <!-- pushes footer down to the bottom -->  
     <div id="footer">
         <p class="copy">&copy;2015 <a href="http://ibesr.com/" target="_blank" rel="nofollow">IBESR: Institut du Bien-Etre Social et de Recherches</a>. All Rights Reserved.</p>
         <p class="attribution">With a helping hand from <a href="http://straubcreative.nationbuilder.com" target="_BLANK" rel="nofollow">Straub Creative Company</a></p>
     </div>
-      
+  </div>  
   </body>
 </html>

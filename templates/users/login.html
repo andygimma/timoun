@@ -3,13 +3,14 @@
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_home" href="/">Home</a> / Login
+    <a id="breadcrumb_home" href="/">Home</a> / <a href="/users/login">Login</a>
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
   <h2>Login to Timoun</h2>
+  <p>Please enter your email and password below to log in. If you experience any technical issues, then please feel free to <a href="../static_pages/contact.html">contact us</a> and we will assist you shortly.</p>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -33,5 +34,5 @@
     <br>
     <input type=submit value=Submit id="submit">
   </form>
-  <a href="/users/reset_password">Forgot Password?</a>
+  <p><a href="/users/reset_password">Forgot Password?</a></p>
 {% endblock %}
