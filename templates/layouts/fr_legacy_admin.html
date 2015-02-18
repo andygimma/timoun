@@ -1,0 +1,170 @@
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+      <script>
+              document.createElement("nav"); document.createElement("button");
+      </script>
+
+      <!--[if IE 8]>
+              <style>
+                      .col { margin: 0 0.9% !important; }
+                      .nav { width: 100% !important; }
+              </style>
+      <![endif]-->
+
+      <!--[if IE 7]>
+              <style>
+                      .col { margin: 0 0.9% !important; }
+                      .nav { width: 100% !important; }
+              </style>
+      <![endif]-->
+
+      <title>min - docs</title>
+
+      <link rel="stylesheet" href="assets/css/min.css" />
+      <link rel="stylesheet" href="../assets/css/min.css" />
+      <link rel="stylesheet" href="../../assets/css/min.css" />
+      <link rel="stylesheet" href="assets/css/min-styles.css" />
+      <link rel="stylesheet" href="../assets/css/min-styles.css" />
+      <link rel="stylesheet" href="../../assets/css/min-styles.css" />
+      <link rel="stylesheet" href="../assets/genericons/genericons.css" />
+      <link rel="stylesheet" href="../../assets/genericons/genericons.css" />
+      <link rel="stylesheet" href="assets/genericons/genericons.css" />
+      
+<!-- Leaflet -->
+      <link rel="stylesheet" href="assets/css/leaflet.css" />
+        <script src="assets/js/leaflet.js"></script>
+
+      <!--[if lte IE 7]>
+                  <style>
+                      .breadcrumbs {
+                              width: 100%;
+                      }
+              </style>
+
+      <![endif]-->
+
+      <!--[if lte IE 6]>
+              <style>
+                      .col {
+                              margin: 0.5%;
+                      }
+                      .c12 {
+                              margin: 0.5%;
+                              margin-left: 0.5%;
+                              width: 97%;
+                      }
+                      .container {
+                              width: 100%;
+                      }
+                      .nav {
+                              width: 100%;
+                      }
+                      .breadcrumbs {
+                              width: 100%;
+                      }
+              </style>
+      <![endif]-->
+
+      <!--[if IE 5]>
+              <style>
+                      .container {
+                              width: 100%;
+                      }
+
+                      .btn-close {
+                              display: none;
+                      }
+
+                      body {
+                              font: 16px Arial;
+                      }
+
+                      h3 {
+                              font-size: 20px;
+                      }
+
+                      .nav {
+                              height: 50px;
+                              width: 100%;
+                      }
+              </style>
+      <![endif]-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58444100-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+
+  <body>
+      <div class="sidebar">
+        <nav class="nav admin" tabindex="-1" onclick="this.focus()">
+        <div class="container">
+          {% if user_session %}
+            <a href="/admin" class="first">Admin</a>
+          {% endif %}
+          <a href="/admin/dashboard">Tableau de bord</a><br/>
+          <a href="/admin/users">Utilisateurs</a><br/>
+          <a href="/admin/organizations">Organisations</a><br/>
+          <a href="/admin/programs">Programmes</a><br/>
+          <a href="/admin/services">Services</a><br/>
+          <a href="/admin/records">Archives</a><br/>
+          <a href="/manual">Manuel</a><br/>
+          {% if user_session %}
+            <a href="/users/profile">Profil</a>
+            <a href="/users/logout">Déconnexion</a>
+          {% else %}
+            <a href="/users/login">S'identifier</a>
+          {% endif %}
+        </div>
+        </nav> 
+      </div>
+  <div id="wrapper" class="alt">      
+    <nav class="nav" tabindex="-1" onclick="this.focus()">
+      <div class="container">
+          <a class="pagename current" href="/">Timoun</a>
+          {% if role and role == "admin" %}
+            <a href="/admin">Admin</a>
+          {% endif %}
+          <a href="/about">Sur</a>
+          <a href="/search">Recherche</a>
+          <a href="/contact">Contactez IBESR</a>
+          <a href="/suggest_services">Proposer des Services</a>
+          <a href="/mental_illness_services">Services De Santé Mentale</a>
+          <a href="/manual">Manuel</a>
+          {% if user_session %}
+            <a href="/users/profile">Profil</a>
+            <a href="/users/logout">Déconnexion</a>
+          {% else %}
+            <a href="/users/login">S'identifier</a>
+          {% endif %}
+
+      </div>
+    </nav>
+
+    {% block breadcrumbs %}
+    {% endblock %}
+
+    <div class="container">
+      {% block content %}   
+      {% endblock %}
+    </div> 
+        <br/>
+            <br/>
+                <br/>  <!-- pushes footer down to the bottom -->  
+                    <div id="footer">
+                        <p class="copy">&copy;2015 <a href="http://ibesr.com/" target="_blank" rel="nofollow">IBESR: Institut du Bien-Etre Social et de Recherches</a>. Tous Les Droits Sont Réservés</p>
+                        <p class="attribution">Avec un coup de main de <a href="http://straubcreative.nationbuilder.com" target="_BLANK" rel="nofollow">Straub Creative Company</a></p>
+                    </div>
+      </div>
+  </body>
+</html>

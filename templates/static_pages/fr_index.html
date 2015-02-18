@@ -1,0 +1,83 @@
+{% extends "legacy_base.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/fr_index.html">Accueil</a>
+      <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
+      <a href="/">English </a> / <a href="/fr_index">Français</a>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="top">
+    <h1>À Propos de ce Projet</h1>
+        <p>Le but du site est d'accroître l'accès et la coordination des programmes et des services pour les enfants vulnérables dans tous les principaux domaines de services (à savoir la santé, l'éducation et les services juridiques).</p>
+        <p>Pour accomplir site offre un répertoire en ligne de ressources et de services qui peuvent être facilement recherché, et une carte interactive en ligne de ces services.</p>
+    <p>L'objectif immédiat est de développer une carte interactive en ligne qui: se concentre sur l'identification des services; comprend tous les services identifiés et vérifiés relatifs à l'enfant de bien-être; offre un accès à toutes les parties prenantes via une plate-forme basée sur le Web; et être à la disposition du service de téléphonie Bridgade IBESR pour fournir aux opérateurs des informations de référence précise.</p>
+</div>
+
+<div class="mid">
+    <h2>Une nouvelle façon de découvrir des services aux enfants orphelins et vulnérables</h2>
+    <h3>Programmes &amp; Services Carte - Un outil utilisable gratuit qui est prêt pour vous!</h3>
+        <p>En savoir plus sur les programmes qui servent les orphelins et les enfants vulnérables à travers Haïti. Explorez l'emplacement du site, le service et l'organisation. Acquérir une meilleure perspecitve sur le pays à travers les couches de données cartographiques pertinents, tels que les niveaux de pauvreté et de malnutrition taux.</p>
+
+        <div id="map"></div>
+            <div class="map-cta">
+                <a href="/fr_search"></a><div class="btn">Recherche de services près de chez vous</div></a>
+            </div>
+</div>
+
+<div class="bottom">
+<h3>Fabriqué avec la collaboration à l'esprit.</h3>
+<!--p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p-->
+<p class="list"><span class="genericon genericon-chat"></span><strong>Identifier des partenaires potentiels et des collaborations.</strong></p>
+    <!--p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p-->
+<p class="list"><span class="genericon genericon-search"></span><strong>Identifier les lacunes et éviter les doubles emplois.</strong></p>
+    <!--p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p-->
+<p class="list"><span class="genericon genericon-cog"></span><strong>Améliorer la coordination.</strong></p>
+    <!--p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p-->
+    <p class="list"><span class="genericon genericon-checkmark"></span><strong>prendre de meilleures décisions d'améliorer les données.</strong></p>
+</div>
+
+<br/>
+
+<div class="footnote">
+<h3>Partagez votre organisation et informations de service.</h3>
+    <p><strong>Nous voulons avoir de vos nouvelles!</strong> Rejoignez notre vision afin de mieux servir les enfants en Haïti.</p>
+<div class="bottom-cta">
+    <a href="/fr_suggest_services"></a><div class="btn">Se Inscrire!</div></a>
+</div>
+</div>
+
+<!-- Scripts Go Here -->
+<script>
+  var map = L.map('map').setView([18.533, -72.333], 7);
+    map.scrollWheelZoom.disable();
+
+  // add an OpenStreetMap tile layer
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+
+
+  {% for record in records %}
+  // add a marker in the given location, attach some popup content to it and open the popup
+  try {
+ L.marker([{{ record.latitude }}, {{ record.longitude }}]).addTo(map)
+        .bindPopup("<p style='color:black'><a href='/records/{{record.nom_de_lorganisation}}'>{{ record.nom_de_lorganisation }}</a></p>")
+        .openPopup();
+  }
+  catch(err) {
+    console.log("none");
+
+  }
+
+
+  {% endfor %}
+</script>
+{% endblock %}
+
