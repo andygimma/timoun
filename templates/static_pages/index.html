@@ -51,7 +51,7 @@
 
 <!-- Scripts Go Here -->
 <script>
-  var map = L.map('map').setView([18.533, -72.333], 8);
+  var map = L.map('map').setView([18.533, -72.333], 7);
     map.scrollWheelZoom.disable();
 
   // add an OpenStreetMap tile layer
@@ -63,10 +63,16 @@
 
   {% for record in records %}
   // add a marker in the given location, attach some popup content to it and open the popup
-    console.log("record");
-    L.marker([{{ record.latitude }}, {{ record.longitude }}]).addTo(map)
-        .bindPopup("{{ record.nom_de_lorganisation }}")
+  try {
+ L.marker([{{ record.latitude }}, {{ record.longitude }}]).addTo(map)
+        .bindPopup("<p style='color:black'><a href='/records/{{record.nom_de_lorganisation}}'>{{ record.nom_de_lorganisation }}</a></p>")
         .openPopup();
+  }
+  catch(err) {
+    console.log("none");
+
+  }
+
 
   {% endfor %}
 </script>

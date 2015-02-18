@@ -2,7 +2,7 @@ import webapp2
 import jinja2
 import os
 
-from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler
+from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler, RecordHandler
 from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
@@ -58,6 +58,7 @@ app = webapp2.WSGIApplication([
     ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
     ('/admin/services/dashboard', AdminServiceDashboardHandler.AdminServiceDashboardHandler),
     ('/users/([^/]+)/edit', EditHandler.EditHandler),
+    ('/records/([^/]+)', RecordHandler.RecordHandler),
     ('/users/([^/]+)/delete', DeleteHandler.DeleteHandler),
     ('/users/login', LoginHandler.LoginHandler),
     ('/users/logout', LogoutHandler.LogoutHandler),
