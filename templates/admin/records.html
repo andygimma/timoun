@@ -11,8 +11,14 @@
 {% block content %}
   <h2>Records</h2>
   <a href="#" class="btn btn-b">See Record History</a>
+  <p>
+    {% if last_page >= 0 %}
+      <a href="/admin/records?page={{last_page}}">Last Page</a>
+    {% endif %}
+    <a href="/admin/records?page={{next_page}}">Next Page</a>
+  </p>
 
-  {% if records.count() > 0 %}
+  {% if records_length > 0 %}
     <table class="table">
       <thead>
         <tr>
@@ -31,7 +37,7 @@
   </table>
 
 
-  {% if records.count() == 0 %}
+  {% if records_length == 0 %}
     <p>No records added</p>
   {% endif %}
 {% endblock %}
