@@ -12,7 +12,7 @@ Feature: Testing the Navigation Bar
   Scenario: Ensure that each nav link works
     Given I go to "http://localhost:8080"
       When I click on "Timoun"
-      Then I should see "Future Home of Timoun"
+      Then I should see "Welcome to Timoun"
       When I click on "About"
       Then I should see "About Timoun"
       When I click on "Contact IBESR"

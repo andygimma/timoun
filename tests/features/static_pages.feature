@@ -1,7 +1,7 @@
 Feature: Ensure that all static pages work
   Scenario: Make sure the site's main page loads
     Given I go to "http://localhost:8080"
-      Then I should see "Future Home of Timoun"
+      Then I should see "Welcome to Timoun"
 
   Scenario: Ensure that a page exists at the correct link for the about page
     Given I go to "http://localhost:8080/about"

@@ -20,4 +20,4 @@ Feature: Testing the Navigation Bar
       When I click on "Dashboard"
       Then I should see "Initiated By"
       When I click on "Logout"
-      Then I should see "Future Home"
+      Then I should see "Welcome to Timoun"
