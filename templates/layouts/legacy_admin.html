@@ -38,27 +38,6 @@
       <link rel="stylesheet" href="assets/css/leaflet.css" />
         <script src="assets/js/leaflet.js"></script>
 
-
-      <style type="text/css">
-              /* Min+ plugin*/
-              message {
-                      display: block;
-                      padding: 2em;
-                      background: #def;
-                      border-left: 5px solid #44e;
-              }
-
-              .warning {
-                      border-color: #e44;
-                      background: #fdd;
-              }
-
-              .great {
-                      border-color: #2d2;
-                      background: #dfd;
-              }
-      </style>
-
       <!--[if lte IE 7]>
                   <style>
                       .breadcrumbs {
@@ -79,7 +58,7 @@
                               width: 97%;
                       }
                       .container {
-                              width: 90%;
+                              width: 100%;
                       }
                       .nav {
                               width: 100%;
@@ -127,18 +106,40 @@
   </head>
 
   <body>
+      <div class="sidebar">
+        <nav class="nav admin" tabindex="-1" onclick="this.focus()">
+        <div class="container">
+          {% if user_session %}
+            <a href="/admin" class="first">Admin</a>
+          {% endif %}
+          <a href="/admin/dashboard">Dashboard</a><br/>
+          <a href="/admin/users">Users</a><br/>
+          <a href="/admin/organizations">Organizations</a><br/>
+          <a href="/admin/programs">Programs</a><br/>
+          <a href="/admin/services">Services</a><br/>
+          <a href="/admin/records">Records</a><br/>
+          <a href="/manual">Manual</a><br/>
+          {% if user_session %}
+            <a href="/users/profile">Profile</a><br/>
+            <a href="/users/logout">Logout</a><br/>
+          {% else %}
+            <a href="/users/login">Login</a>
+          {% endif %}
+        </div>
+        </nav> 
+      </div>
+  <div id="wrapper" class="alt">      
     <nav class="nav" tabindex="-1" onclick="this.focus()">
       <div class="container">
           <a class="pagename current" href="/">Timoun</a>
-          {% if user_session %}
+          {% if role and role == "admin" %}
             <a href="/admin">Admin</a>
           {% endif %}
-          <a href="/admin/dashboard">Dashboard</a>
-          <a href="/admin/users">Users</a>
-          <a href="/admin/organizations">Organizations</a>
-          <a href="/admin/programs">Programs</a>
-          <a href="/admin/services">Services</a>
-          <a href="/admin/records">Records</a>
+          <a href="/about">About</a>
+          <a href="/search">Search</a>
+          <a href="/contact">Contact IBESR</a>
+          <a href="/suggest_services">Suggest Services</a>
+          <a href="/mental_illness_services">Mental Health Services</a>
           <a href="/manual">Manual</a>
           {% if user_session %}
             <a href="/users/profile">Profile</a>
@@ -146,6 +147,7 @@
           {% else %}
             <a href="/users/login">Login</a>
           {% endif %}
+
       </div>
     </nav>
 
@@ -153,14 +155,16 @@
     {% endblock %}
 
     <div class="container">
-      {% if message %}
-        <p>{{ message }}</p>
-      {% endif %}
-    </div>
-
-    <div class="container">
-      {% block content %}
+      {% block content %}   
       {% endblock %}
-    </div>
+    </div> 
+        <br/>
+            <br/>
+                <br/>  <!-- pushes footer down to the bottom -->  
+                    <div id="footer">
+                        <p class="copy">&copy;2015 <a href="http://ibesr.com/" target="_blank" rel="nofollow">IBESR: Institut du Bien-Etre Social et de Recherches</a>. All Rights Reserved.</p>
+                        <p class="attribution">With a helping hand from <a href="http://straubcreative.nationbuilder.com" target="_BLANK" rel="nofollow">Straub Creative Company</a></p>
+                    </div>
+      </div>
   </body>
 </html>

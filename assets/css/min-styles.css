@@ -94,3 +94,11 @@ form input {width: 250px!important;}
 /* ERROR */
 .errors {width: 50%; margin-left: 8%;}
 .errors li {list-style-type:circle; color: #7F0000;}
+
+/* ADMIN */
+.alt {float: left; width:80%; margin-left: 20%;}
+.sidebar {float: left; position: absolute; width: 20%; background: #302e2c; min-height: 100%;}
+.admin {background: #302e2c; display: block; text-align: left;}
+.admin a {color:#fff; font-size: small; clear: both; float: left; line-height: 1.3em; margin-bottom: 1em; width: 100%; text-align: left; word-break: break-all;}
+.admin a:hover {text-align: left; width: 100%;}
+.admin a.first {margin-top:30px;}
