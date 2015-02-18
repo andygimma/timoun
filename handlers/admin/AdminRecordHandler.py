@@ -34,9 +34,6 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
     else:
       records = query.fetch(100)
 
-    #raise Exception(len(records))
-    #if records.count() == 0:
-      #Record.Record(nom_de_lorganisation="First org").put()
     if not page:
       page = 0
     else:

@@ -11,7 +11,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 
 TEMPLATE = JINJA_ENVIRONMENT.get_template('base.html')
-LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('index.html')
+LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_index.html')
 
 class MainHandler(BaseHandler.BaseHandler):
   def get(self):
