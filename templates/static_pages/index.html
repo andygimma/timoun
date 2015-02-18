@@ -31,8 +31,9 @@
 
   {% for record in records %}
   // add a marker in the given location, attach some popup content to it and open the popup
+    console.log("record");
     L.marker([{{ record.latitude }}, {{ record.longitude }}]).addTo(map)
-        .bindPopup('A pretty CSS3 popup|. <br> Easily customizable.')
+        .bindPopup("{{ record.nom_de_lorganisation }}")
         .openPopup();
 
   {% endfor %}

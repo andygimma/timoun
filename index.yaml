@@ -17,16 +17,23 @@ indexes:
 
 - kind: Record
   properties:
+  - name: gps_
+  - name: latitude
+  - name: longitude
+
+- kind: Record
+  properties:
   - name: id
+  - name: nom_de_lorganisation
+
+- kind: Record
+  properties:
+  - name: latitude
+  - name: gps_
+  - name: longitude
   - name: nom_de_lorganisation
 
 - kind: User
   properties:
   - name: email_endpoint
   - name: email
-
-- kind: Record
-  properties:
-  - name: gps_
-  - name: latitude
-  - name: longitude
