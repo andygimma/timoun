@@ -4,7 +4,7 @@
 /* BASE STYLES */
 html {height: 100%;}
 body {font-family: verdana, sans-serif; width: 100%; height: 100%;}
-#wrapper {min-height: 100%; position: relative;}
+#wrapper {min-height: 100%; position: relative; margin-bottom: 0;}
 .container {margin: 0 auto;}
 
 /* NAV */
@@ -22,7 +22,8 @@ a#breadcrumb_home {margin-left: 5px;}
 .genericon {color: #258db1;}
 
 /* FOOTER */
-#footer {width: 100%; background: #efefef; height: 60px; bottom: 0; position: absolute; clear:both;}
+#footer {width: 100%; background: #efefef; height: 60px; bottom: 0; position: relative; clear:both;}
+.clearfooter {height: 60px; clear:both;}
 p.copy {padding: 0; font-size: 12px;}
 p.attribution {font-size: 10px; margin-top: -5px;}
 
