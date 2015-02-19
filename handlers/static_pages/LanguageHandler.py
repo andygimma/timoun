@@ -12,3 +12,6 @@ class LanguageHandler(BaseHandler.BaseHandler):
     if redirect == "/search":
       self.redirect("/search")
       return
+    if redirect == "/services":
+      self.redirect("/mental_illness_services")
+      return
