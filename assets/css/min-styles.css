@@ -23,8 +23,8 @@ a#breadcrumb_home {margin-left: 5px;}
 
 /* FOOTER */
 #footer {width: 100%; background: #efefef; height: 60px; bottom: 0; position: relative; clear:both;}
-.clearfooter {height: 60px; clear:both;}
-p.copy {padding: 0; font-size: 12px;}
+/*.clearfooter {height: 60px; clear:both;}*/
+p.copy {padding: 0; font-size: 12px; padding-top: 10px;}
 p.attribution {font-size: 10px; margin-top: -5px;}
 
 
