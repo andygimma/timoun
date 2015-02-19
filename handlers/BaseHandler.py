@@ -10,7 +10,7 @@ class BaseHandler(webapp2.RequestHandler):
     logging.info(USER_AGENT)
     #legacy_param = False
     self.legacy = True
-    
+
 
     # Get a session store for this request.
     self.session_store = sessions.get_store(request=self.request)

@@ -11,14 +11,31 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 
 TEMPLATE = JINJA_ENVIRONMENT.get_template('base.html')
-LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_index.html')
+LEGACY_TEMPLATE = None
 
 class MainHandler(BaseHandler.BaseHandler):
   def get(self):
+
+    language = None
+    if "language" in self.request.cookies:
+      language = self.request.cookies["language"]
+    else:
+      language = "fr"
+      self.response.set_cookie("language", "fr")
+
+    language = language.replace('"', '').replace("'", "")
+    #raise Exception(language)
+    if language == "fr":
+
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_index.html')
+    else:
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_index.html')
+
     if self.legacy:
       template = LEGACY_TEMPLATE
     else:
       template = TEMPLATE
+
     role = self.session.get('role')
     user_session = self.session.get("user")
     records = Record.Record.query(Record.Record.latitude != "empty")
