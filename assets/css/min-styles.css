@@ -22,10 +22,10 @@ a#breadcrumb_home {margin-left: 5px;}
 .genericon {color: #258db1;}
 
 /* FOOTER */
-#footer {width: 100%; background: #efefef; height: 60px; bottom: 0; position: relative; clear:both;}
+#footer {width: 100%; background: #efefef; height: 65px; bottom: 0; position: relative; clear:both;}
 /*.clearfooter {height: 60px; clear:both;}*/
-p.copy {padding: 0; font-size: 12px; padding-top: 10px;}
-p.attribution {font-size: 10px; margin-top: -5px;}
+p.copy {font-size: 12px; text-align: center; padding-top:10px;}
+p.attribution {font-size: 10px; margin-top: -10px; text-align: center;}
 
 
 /* TYPOGRAPHY */
