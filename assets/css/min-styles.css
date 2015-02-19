@@ -24,8 +24,8 @@ a#breadcrumb_home {margin-left: 5px;}
 /* FOOTER */
 #footer {width: 100%; background: #efefef; height: 65px; bottom: 0; position: relative; clear:both;}
 /*.clearfooter {height: 60px; clear:both;}*/
-p.copy {font-size: 12px; text-align: center!important; padding-top:10px;}
-p.attribution {font-size: 10px; margin-top: -10px; text-align: center!important;}
+p.copy {font-size: 12px; text-align: center!important; padding: 10px 0 0 0; margin: 10px 0 10 0;}
+p.attribution {font-size: 10px; margin: -10px 0 0 0; padding: 0; text-align: center!important;}
 
 
 /* TYPOGRAPHY */
