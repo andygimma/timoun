@@ -1,0 +1,54 @@
+{% extends "legacy_base.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_search" href="/search">Search</a>
+      <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
+      <a href="/language?language='fr'&redirect='/search'">Français</a> / <a href="/language?language='en'&redirect='/search'">English </a>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="top">
+  <h1>Results</h1>
+    <p>Below are the results of your search. If you cannot find what you are looking for then <a href="/search">try another search</a> or <a href="suggest_services.html">suggest a service</a> to be logged in our database.</p>
+</div>
+
+<div class="mid">
+    <h2>Search Results</h2>
+    
+    <div id="map half"></div>
+            <div class="map-cta">
+                <a href="/search"></a><div class="btn">Search Now</div></a>
+            </div>
+</form>
+</div>
+
+<div class="bottom">
+    
+</div>
+<!-- Scripts Go Here -->
+<script>
+  var map = L.map('map').setView([18.533, -72.333], 8);
+    map.scrollWheelZoom.disable();
+
+  // add an OpenStreetMap tile layer
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+
+
+  {% for record in records %}
+  // add a marker in the given location, attach some popup content to it and open the popup
+    console.log("record");
+    L.marker([{{ record.latitude }}, {{ record.longitude }}]).addTo(map)
+        .bindPopup("{{ record.nom_de_lorganisation }}")
+        .openPopup();
+
+  {% endfor %}
+</script>
+{% endblock %}

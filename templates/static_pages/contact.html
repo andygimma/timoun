@@ -9,5 +9,28 @@
 {% endblock %}
 
 {% block content %}
-  <h2>Contact IBESR</h2>
+<h2>Contact IBESR</h2>
+<p>If you have any questions for IBESR regarding Timoun, you may reach us by using the contact form below. Please provide you name, email address, and a detailed message for your questions or comments.</p>
+<p>We look forward to hearing from you!</p>
+<div class="contact-form contact">
+<form method="POST" action="">
+    <table>
+      <tr>
+        <td><label for="name">Name</label></td>
+        <td><input id="name" name="name" type="text" value=""></td>
+      </tr>
+      <tr>
+        <td><label for="email">Email Address</label></td>
+        <td><input id="email" name="email" type="text" value=""></td>
+      </tr>
+      <tr>
+        <td><label for="email">Message</label></td>
+          <td><textarea id="message" name="message" type="text" value=""></textarea></td>
+      </tr>        
+
+    </table>
+    <br>
+    <input type=submit value=Submit id="submit">
+  </form>
+</div>
 {% endblock %}
