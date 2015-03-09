@@ -1,0 +1,108 @@
+{% extends "fr_legacy_base.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_suggest_services" href="/fr_suggest_services">Propose des Services</a>
+      <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
+      <a href="/language?language='fr'&redirect='/suggest_services'">Français</a> / <a href="/language?language='en'&redirect='/suggest_services'">English </a>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Suggest Services for Timoun</h2>
+<h3><em>We need french translation for this page!</em></h3>
+<p>La clé du succès de ce projet est dans le partage ouvert de données . Si vous croyez Timoun manque aucune information importante concernant les services à l'enfance en Haïti , se il vous plaît laissez-nous savoir en remplissant le formulaire ci-dessous.</p>
+<p>Thank you for your contribution!</p>
+<div class="contact-form suggest">
+<form method="POST" action="">
+    <table>
+      <tr>
+        <td><label for="name">Organisation</label></td>
+        <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter organization name here"></td>
+      </tr>
+      <tr>
+        <td><label for="category">Catégorie</label></td>
+        <td>
+        <select>
+            <option value="" disabled selected>Sélectionnez la Catégorie</option>
+            <option value="">Catégorie 1</option>
+            <option value="">Catégorie 2</option>
+            <option value="">Catégorie 3</option>
+            <option value="">Catégorie 4</option>
+            <option value="">Catégorie 5</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td><label for="services">Service</label></td>
+          <td>
+          <select>
+            <option value="" disabled selected>Sélectionnez le Service</option>
+            <option value="food">Alimentaire et de nutrition</option>
+            <option value="shelter">Abris et de soins</option>
+            <option value="protection">Protection</option>
+            <option value="healthcare">Soins De Santé</option>
+            <option value="pyschosocial"> Services de soutien psychosocial</option>
+            <option value="education">Éducation formelle et informelle</option>
+            <option value="legal">Services juridiques</option>
+            <option value="other">Autres services</option>
+        </select>
+          </td>
+      </tr>        
+      <tr>
+        <td><label for="age">âge</label></td>
+          <td>
+        <select>
+            <option value="" disabled selected>Sélectionnez l'âge</option>
+            <option value="">âge 1-3</option>
+            <option value="">âge 4-10</option>
+            <option value="">âge 11-14</option>
+            <option value="">âge 15-18</option>
+        </select>
+          </td>
+      </tr>  
+      <tr>
+        <td><label for="gender">Sexe</label></td>
+          <td>
+        <select>
+            <option value="" disabled selected>Sélectionnez le Sexe</option>
+            <option value="male">Mâle</option>
+            <option value="female">Femelle</option>
+        </select>
+          </td>
+      </tr>  
+      <tr>
+        <td><label for="region">Région</label></td>
+          <td>
+        <select>
+            <option value="" disabled selected>Choisissez la Région</option>
+            <option value="">Région 1</option>
+            <option value="">Région 2</option>
+            <option value="">Région 3</option>
+            <option value="">Région 4</option>
+            <option value="">Région 5</option>
+        </select>
+          </td>
+      </tr>  
+      <tr>
+        <td><label for="day">Jour</label></td>
+          <td>
+        <form class="checkbox">
+            <input type="checkbox" name="monday" value="Monday">L
+            <input type="checkbox" name="tuesday" value="Tuesday">Ma
+            <input type="checkbox" name="wednesday" value="Wednesday">Me
+            <input type="checkbox" name="thursday" value="Thursday">J
+            <input type="checkbox" name="friday" value="Friday">V
+            <input type="checkbox" name="saturday" value="Saturday">S
+            <input type="checkbox" name="sunday" value="Sunday">D
+        </form>
+          </td>
+      </tr>  
+    </table>
+    <br/>
+    <input type=submit value=Submit id="submit">
+  </form>
+</div>
+{% endblock %}

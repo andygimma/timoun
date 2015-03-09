@@ -1,14 +1,13 @@
-{% extends "legacy_base.html" %}
+{% extends "fr_legacy_admin.html" %}
 
 {% block breadcrumbs %}
-<div class="container">
-  <div class="breadcrumbs">
+  <div class="container">
+    <div class="breadcrumbs">
     <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
       <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
       <a href="/language?language='fr'&redirect='/view_record'">Français</a> / <a href="/language?language='en'&redirect='/view_record'">English </a>
-      </div>
+    </div>
   </div>
-</div>
 {% endblock %}
 
 {% block content %}

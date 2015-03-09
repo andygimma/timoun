@@ -1,9 +1,9 @@
-{% extends "legacy_base.html" %}
+{% extends "fr_legacy_base.html" %}
 
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_contact" href="/contact">Contact</a>
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_contact" href="/fr_contact">Contact</a>
       <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
       <a href="/language?language='fr'&redirect='/contact'">Français</a> / <a href="/language?language='en'&redirect='/contact'">English </a>
       </div>
@@ -12,18 +12,19 @@
 {% endblock %}
 
 {% block content %}
-<h2>Contact IBESR</h2>
-<p>If you have any questions for IBESR regarding Timoun, you may reach us by using the contact form below. Please provide you name, email address, and a detailed message for your questions or comments.</p>
+<h2>Contactez IBESR</h2>
+<h3><em>Double check French translation here!</em></h3>
+<p>Si vous avez des questions pour IBESR concernant Timoun , vous pouvez nous joindre en utilisant le formulaire de contact ci-dessous. Se il vous plaît fournir votre nom, adresse e-mail , et un message détaillé pour vos questions ou commentaires.</p>
 <p>We look forward to hearing from you!</p>
 <div class="contact-form contact">
 <form method="POST" action="">
     <table>
       <tr>
-        <td><label for="name">Name</label></td>
+        <td><label for="name">Nom</label></td>
         <td><input id="name" name="name" type="text" value=""></td>
       </tr>
       <tr>
-        <td><label for="email">Email Address</label></td>
+        <td><label for="email">Adresse E-mail</label></td>
         <td><input id="email" name="email" type="text" value=""></td>
       </tr>
       <tr>

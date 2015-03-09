@@ -79,13 +79,13 @@ message {
 
 /* SEARCH */
 #main-search-form {width: 100%;}
-.search {min-width: 300px; display: inline; margin:0;}
-.search select {background: #fff; height: 40px; width: 150px; margin-bottom: 30px; margin-right: 30px;}
-.search option, {padding: 10px;}
+.search {min-width: 250px; display: inline; margin:0; position:relative;}
+.search select {background: #fff; height: 40px; width: 150px; margin-bottom: 30px; margin-right: 30px; position:relative; display: inline;}
+.search option, {padding: 10px; position:relative; display: inline;}
 .search, .search label {display: inline;}
-.search input#keywords {display: inline; min-width: 250px; background: #fff; margin-right: 20px;}
-.search .checkbox input {display: inline; width: 15px!important; height: 15px!important; margin-left: 10px!important; margin-right: 2px!important;}
-.search .checkbox label {display: inline; margin-right: 10px;}
+.search input#keywords {display: inline; position: relative; min-width: 250px; background: #fff; margin-right: 20px;}
+.search .checkbox input {display: inline; position: relative; width: 15px!important; height: 15px!important; margin-left: 10px!important; margin-right: 2px!important;}
+.search .checkbox label {display: inline; position: relative; margin-right: 10px;}
 
 @media (max-width: 959px) {
     .search {disply: block; clear:both;}
