@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block content %}
+  <a href="/records/{{ record.key.id() }}/edit" class="btn btn-a">Edit Record</a>
   {% if record.nom_de_lorganisation %}<h3>{{ record.nom_de_lorganisation }}</h3>{% endif %}
   {% if record.created_at %}<p>created_at: {{ record.created_at }}</p>{% endif %}
   {% if record.record_id %}<p>record_id: {{ record.record_id }}</p>{% endif %}
