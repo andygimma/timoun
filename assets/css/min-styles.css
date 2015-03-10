@@ -135,10 +135,9 @@ ul.pagination li a {color: #258db1}
 
 /* RECORDS */
 table.records {margin-bottom: 20px;}
-table.records tr:nth-child(even) {background: #FFF;}
-table.records tr:nth-child(even) a {color: #258db1;}
-table.records tr:nth-child(odd) {background: #258db1;}
-table.records tr:nth-child(even) a {color: #FFF;}
+table.records tr {background: #fff;}
+table.records a {background: #187d9f;}
+
 
 /* KEEP AT BOTTOM OF STYLESHEET */
 .leaflet-popup-content p (color: #888;}
