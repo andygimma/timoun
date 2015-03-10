@@ -133,5 +133,12 @@ ul.pagination li a {color: #258db1}
 .admin a:hover {text-align: left; width: 100%;}
 .admin a.first {margin-top:30px;}
 
+/* RECORDS */
+table.records {margin-bottom: 20px;}
+table.records tr:nth-child(even) {background: #FFF;}
+table.records tr:nth-child(even) a {color: #258db1;}
+table.records tr:nth-child(odd) {background: #258db1;}
+table.records tr:nth-child(even) a {color: #FFF;}
+
 /* KEEP AT BOTTOM OF STYLESHEET */
 .leaflet-popup-content p (color: #888;}
