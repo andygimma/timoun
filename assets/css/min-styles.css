@@ -72,6 +72,7 @@ message {
 .mid {background: #258db1; color: #fff; padding: 20px 0 30px 0;}
 .mid h2 {color: #fff;}
 .mid h2, .mid h3, .mid p, .footnote p {color:#fff;}
+.mid-divide {width: 80%; margin-left: 10%;}
 .list {margin-bottom: -10px; margin-top: 30px; text-align: center;}
 .detail {text-align: left;}
 .footnote {background: #302e2c; padding: 20px 0 30px 0;}
@@ -86,6 +87,12 @@ message {
 .search input#keywords {display: inline; position: relative; min-width: 250px; background: #fff; margin-right: 20px;}
 .search .checkbox input {display: inline; position: relative; width: 15px!important; height: 15px!important; margin-left: 10px!important; margin-right: 2px!important;}
 .search .checkbox label {display: inline; position: relative; margin-right: 10px;}
+.results-box {background:#fff; width: 80%; margin-left: 10%; border: 3px solid #302e2c; height: 400px; overflow: scroll;}
+.result {width: 80%; margin-left: 10%; padding: 10px 0 10px 0; border-bottom: 1px solid #999;}
+.result p {color:#258db1; margin:0; padding-bottom: 5px;}
+ul.pagination {list-style-type: none; padding: 0; margin: 25px 0 0 0; width: 100%;}
+ul.pagination li {display: inline; background: #fff; padding: 5px 10px 5px 10px;}
+ul.pagination li a {color: #258db1}
 
 @media (max-width: 959px) {
     .search {disply: block; clear:both;}
