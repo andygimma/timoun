@@ -13,7 +13,7 @@
   <a href="/admin/programs/new" class="btn btn-a">Add Program</a>
   <a href="/admin/programs/dashboard" class="btn btn-b">See Program Changes</a>
 
-  {% if programs.count() > 0 %}
+  {% if records_length > 0 %}
     <table class="table">
       <thead>
         <tr>
@@ -21,10 +21,10 @@
         </tr>
       </thead>
 
-    {% for program in programs %}
+    {% for record in records %}
         <tbody>
           <tr>
-            <td><a href="/programs/{{ program.key.id() }}/edit">{{ program.name }}</a></td>
+            <td><a href="/admin/records/{{ record.key.id() }}">{{ record.nom_de_lorganisation }}</a></td>
           </tr>
         </tbody>
     {% endfor %}
@@ -32,7 +32,7 @@
   </table>
 
 
-  {% if programs.count() == 0 %}
-    <p>No programs added</p>
+  {% if records_length == 0 %}
+    <p>No Programs added</p>
   {% endif %}
 {% endblock %}
