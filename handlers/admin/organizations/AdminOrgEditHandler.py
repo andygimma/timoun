@@ -38,6 +38,19 @@ class AdminOrgEditHandler(BaseHandler.BaseHandler):
       "org_key": org_key,
       "org_name": organization.name
     }
+    language = None
+    if "language" in self.request.cookies:
+      language = self.request.cookies["language"]
+    else:
+      language = "fr"
+      self.response.set_cookie("language", "fr")
+
+    language = language.replace('"', '').replace("'", "")
+    if language == "fr":
+
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_edit_organization.html')
+    else:
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('edit_organization.html')
     self.response.write(TEMPLATE.render(template_values))
 
   def post(self, org_key):
