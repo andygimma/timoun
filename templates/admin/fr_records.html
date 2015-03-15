@@ -1,0 +1,43 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Records</h2>
+  <a href="#" class="btn btn-b">Voir Changements</a>
+  <p>
+    {% if last_page >= 0 %}
+      <a href="/admin/records?page={{last_page}}">Page Suivant</a>
+    {% endif %}
+    <a href="/admin/records?page={{next_page}}">Dernière Page</a>
+  </p>
+
+  {% if records_length > 0 %}
+    <table class="table records">
+      <thead>
+        <tr>
+          <th>Nom De L'Organization</th>
+        </tr>
+      </thead>
+
+    {% for record in records %}
+        <tbody>
+          <tr>
+            <td><a href="/admin/records/{{ record.key.id() }}">{{ record.nom_de_lorganisation }}</a></td>
+          </tr>
+        </tbody>
+    {% endfor %}
+  {% endif %}
+  </table>
+
+
+  {% if records_length == 0 %}
+    <p>Aucun</p>
+  {% endif %}
+{% endblock %}

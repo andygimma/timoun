@@ -1,0 +1,34 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_admin" href="/admin">Administrateur</a> / Modifier Service
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>{{ service_name }} Profil</h2>
+  {% if form.errors %}
+    <ul class="errors">
+        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+  {% endif %}
+  <form method="POST" action="/services/{{ service_key }}/edit">
+    <table>
+      <tr>
+        <td>{{ form.name.label }}</td>
+        <td>{{ form.name()|safe }}</td>
+      </tr>
+    </table>
+    <br>
+    <input type=submit value=Submit>
+  </form>
+   <a href="/services/{{ service_key }}/delete" onclick="return confirm('Are you sure you want to delete this service?');">Delete Service</a>
+
+{% endblock %}

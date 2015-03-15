@@ -29,4 +29,18 @@ class UsersIndexHandler(BaseHandler.BaseHandler):
       "message": self.request.get("message"),
       "user_session": user_session
     }
+
+    language = None
+    if "language" in self.request.cookies:
+      language = self.request.cookies["language"]
+    else:
+      language = "fr"
+      self.response.set_cookie("language", "fr")
+
+    language = language.replace('"', '').replace("'", "")
+    if language == "fr":
+
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_users_index.html')
+    else:
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('users_index.html')
     self.response.write(LEGACY_TEMPLATE.render(template_values))

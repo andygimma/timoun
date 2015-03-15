@@ -1,0 +1,42 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Acceuille</a> / Confirmez Votre Email
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Confirmez Votre Email</h2>
+  <p>Entrez e-mail et mot de passe</p>
+
+  {% if form.errors %}
+    <ul class="errors">
+        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+  {% endif %}
+  <form method="POST" action="/admin/users/{{ email_endpoint }}">
+    <table>
+      <tr>
+        <td>{{ form.email.label }}</td>
+        <td>{{ form.email()|safe }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label }}</td>
+        <td>{{ form.password()|safe }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password_confirmation.label }}</td>
+        <td>{{ form.password_confirmation()|safe }}</td>
+      </tr>
+    </table>
+    <br>
+    <input type=submit value=Submit>
+  </form>
+{% endblock %}

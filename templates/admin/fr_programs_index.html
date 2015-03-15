@@ -1,0 +1,38 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_organizations" href="/admin/programs">Programmes</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Programmes</h2>
+  <a href="/admin/programs/new" class="btn btn-a">Ajouter Une Programme</a>
+  <a href="/admin/programs/dashboard" class="btn btn-b">Voir Changements</a>
+
+  {% if records_length > 0 %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+    {% for record in records %}
+        <tbody>
+          <tr>
+            <td><a href="/admin/records/{{ record.key.id() }}">{{ record.nom_de_lorganisation }}</a></td>
+          </tr>
+        </tbody>
+    {% endfor %}
+  {% endif %}
+  </table>
+
+
+  {% if records_length == 0 %}
+    <p>Aucun</p>
+  {% endif %}
+{% endblock %}

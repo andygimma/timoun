@@ -1,0 +1,49 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / Tableau De Bord
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Utilisateur Tableau De Bord</h2>
+
+
+  {% if audits.count() > 0 %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Initié Par</th>
+          <th>Visé Utilisateur</th>
+          <th>Habilitation De Sécurité</th>
+          <th>Ressource</th>
+          <th>Action</th>
+          <th>Temps</th>
+          <th>Plus</th>
+        </tr>
+      </thead>
+
+    {% for audit in audits %}
+
+        <tbody>
+          <tr>
+            <td>{{ audit.initiated_by }}</td>
+            <td>{{ audit.user_affected }}</td>
+            <td>{{ audit.security_clearance }}</td>
+            <td>{{ audit.model_affected }}</td>
+            <td>{{ audit.action }}</td>
+            <th>{{ audit.created_at }}</td>
+            <td><a href="/admin/users_dashboard/{{ audit.key.id() }}">View</a></td>
+          </tr>
+        </tbody>
+    {% endfor %}
+  {% endif %}
+  </table>
+
+
+  {% if audits.count() == 0 %}
+    <p>Aucun</p>
+  {% endif %}
+{% endblock %}

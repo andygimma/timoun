@@ -1,0 +1,44 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / Tableau De Bord Article
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Tableau De Bord Article</h2>
+
+    <table class="table">
+      <tr>
+        <td>Initié Par</td>
+        <td>{{ audit.initiated_by }}</td>
+      </tr>
+      <tr>
+        <td>Visé Ressources</td>
+        <td>{{ audit.user_affected }}</td>
+      </tr>
+      <tr>
+        <td>Habilitation De Sécurité</td>
+        <td>{{ audit.security_clearance }}</td>
+      </tr>
+      <tr>
+        <td>Ressource</td>
+        <td>{{ audit.model_affected }}</td>
+      </tr>
+      <tr>
+        <td>Action</td>
+        <td>{{ audit.action }}</td>
+      </tr>
+      <tr>
+        <td>Temps</td>
+        <td>{{ audit.created_at }}</td>
+      </tr>
+      <tr>
+        <td>Changements</td>
+        <td>{% for obj in json_obj %}{{ obj }}: {{ json_obj[obj] }}<br>{% endfor %}</td>
+      </tr>
+    </table>
+
+{% endblock %}

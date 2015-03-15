@@ -1,0 +1,38 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_organizations" href="/admin/organizations">Organizations</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>Organizations</h2>
+  <a href="/admin/organizations/new" class="btn btn-a">Ajouter Une Organisation</a>
+  <a href="/admin/organizations/dashboard" class="btn btn-b">Voir Changements</a>
+
+  {% if organizations.count() > 0 %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+    {% for organization in organizations %}
+        <tbody>
+          <tr>
+            <td><a href="/organizations/{{ organization.key.id() }}/edit">{{ organization.name }}</a></td>
+          </tr>
+        </tbody>
+    {% endfor %}
+  {% endif %}
+  </table>
+
+
+  {% if organizations.count() == 0 %}
+    <p>Aucun</p>
+  {% endif %}
+{% endblock %}

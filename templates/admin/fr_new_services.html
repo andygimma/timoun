@@ -1,0 +1,32 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_new_user" href="/admin/services/new">Nouvelle Service</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h2>New Service</h2>
+  {% if form.errors %}
+    <ul class="errors">
+        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+  {% endif %}
+  <form method="POST" action="/admin/services/new">
+    <table>
+      <tr>
+        <td>{{ form.name.label }}</td>
+        <td>{{ form.name()|safe }}</td>
+      </tr>
+    </table>
+    <br>
+    <input type=submit value=Submit>
+  </form>
+{% endblock %}
