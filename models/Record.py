@@ -141,6 +141,9 @@ class Record(ndb.Model):
 def save():
   pass
 
+def update():
+  pass
+
 class RecordForm(Form):
   si_autre_precisez_ = StringField('Si Autre Precisez', [validators.Length(min=1, max=100)])
   soins_de_sant_communautaires_informels = StringField('Soins De Sand Sommunautaires Informels', [validators.Length(min=1, max=100)])

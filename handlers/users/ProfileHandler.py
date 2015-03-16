@@ -3,6 +3,7 @@ import jinja2
 import webapp2
 from handlers import BaseHandler
 from models import User
+from google.appengine.ext import ndb
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -22,15 +23,20 @@ class ProfileHandler(BaseHandler.BaseHandler):
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 
-    form = User.UserProfileForm()
     role = self.session.get('role')
     users = User.User.query(User.User.email == user_session)
     user = None
     for user in users:
       user = user
-    form.name.data = user.name
-    form.organization.data = user.organization
-    form.phone.data = user.phone
+    user_dict = user.to_dict()
+    form = User.UserProfileForm()
+
+    for obj in user_dict:
+      try:
+        form[obj].data = user_dict[obj]
+      except:
+        pass
+
     template_values = {
       "role": self.session.get("role"),
       "user_session": user_session,

@@ -3,7 +3,7 @@ import jinja2
 import os
 
 from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler, RecordHandler, LanguageHandler
-from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler
+from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewRecordHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
 from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler, AdminOrgDashboardHandler
@@ -58,6 +58,7 @@ app = webapp2.WSGIApplication([
     ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
     ('/admin/services/dashboard', AdminServiceDashboardHandler.AdminServiceDashboardHandler),
     ('/users/([^/]+)/edit', EditHandler.EditHandler),
+    ('/records/new', NewRecordHandler.NewRecordHandler),
     ('/records/([^/]+)', RecordHandler.RecordHandler),
     ('/users/([^/]+)/delete', DeleteHandler.DeleteHandler),
     ('/users/login', LoginHandler.LoginHandler),
@@ -67,6 +68,7 @@ app = webapp2.WSGIApplication([
     ('/users/set_password/([^/]+)', SetPasswordHandler.SetPasswordHandler),
     ('/language', LanguageHandler.LanguageHandler),
     ('/records/([^/]+)/edit', EditRecordHandler.EditRecordHandler),
+
 
 
     #('/api/users/login', ApiLoginHandler.ApiLoginHandler),

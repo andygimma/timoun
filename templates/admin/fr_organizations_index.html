@@ -10,10 +10,10 @@
 
 {% block content %}
   <h2>Organizations</h2>
-  <a href="/admin/organizations/new" class="btn btn-a">Ajouter Une Organisation</a>
+  <a href="/records/new" class="btn btn-a">Ajouter Une Organisation</a>
   <a href="/admin/organizations/dashboard" class="btn btn-b">Voir Changements</a>
 
-  {% if organizations.count() > 0 %}
+  {% if records_length > 0 %}
     <table class="table">
       <thead>
         <tr>
@@ -21,10 +21,10 @@
         </tr>
       </thead>
 
-    {% for organization in organizations %}
+    {% for record in records %}
         <tbody>
           <tr>
-            <td><a href="/organizations/{{ organization.key.id() }}/edit">{{ organization.name }}</a></td>
+            <td><a href="/admin/records/{{ record.key.id() }}">{{ record.nom_de_lorganisation }}</a></td>
           </tr>
         </tbody>
     {% endfor %}
@@ -32,7 +32,7 @@
   </table>
 
 
-  {% if organizations.count() == 0 %}
+  {% if records_length == 0 %}
     <p>Aucun</p>
   {% endif %}
 {% endblock %}

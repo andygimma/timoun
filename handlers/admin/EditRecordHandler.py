@@ -24,6 +24,13 @@ class EditRecordHandler(BaseHandler.BaseHandler):
       self.response.write(TEMPLATE.render({"form": form, "message": "Unable to find Record. Please contact administrator."}))
 
     form = Record.RecordForm()
+    record_dict = record.to_dict()
+    for obj in record_dict:
+      try:
+        form[obj].data = record_dict[obj]
+      except:
+        pass
+
     template_values = {
       "message": self.request.get("message"),
       "user_session": user_session,
@@ -45,3 +52,21 @@ class EditRecordHandler(BaseHandler.BaseHandler):
     else:
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('edit_record.html')
     self.response.write(LEGACY_TEMPLATE.render(template_values))
+
+  def post(self, record_id):
+    role = self.session.get('role')
+    user_session = self.session.get("user")
+
+    if role != "admin":
+      self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
+      return
+
+    record = Record.Record.get_by_id(int(record_id))
+    if not program:
+      self.response.write(TEMPLATE.render({"form": form, "message": "Unable to find program. Please contact administrator."}))
+
+    form = Record.RecordForm(self.request.POST)
+    if form.validate():
+      Record.update(self, TEMPLATE, form, program.name, program_key)
+    else:
+      self.response.write(TEMPLATE.render({"form": form}))
