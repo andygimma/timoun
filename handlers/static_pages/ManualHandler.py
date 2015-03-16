@@ -17,6 +17,12 @@ class ManualHandler(BaseHandler.BaseHandler):
   def get(self):
     if not self.legacy:
       self.redirect("/#/manual")
+    role = self.session.get('role')
+    user_session = self.session.get("user")
+
+    if role != "admin":
+      self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
+      return
 
     user_session = self.session.get('user')
     role = self.session.get('role')
