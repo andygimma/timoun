@@ -62,11 +62,11 @@ class EditRecordHandler(BaseHandler.BaseHandler):
       return
 
     record = Record.Record.get_by_id(int(record_id))
-    if not program:
-      self.response.write(TEMPLATE.render({"form": form, "message": "Unable to find program. Please contact administrator."}))
+    if not record:
+      self.response.write(LEGACY_TEMPLATE.render({"form": form, "message": "Unable to find program. Please contact administrator."}))
 
     form = Record.RecordForm(self.request.POST)
     if form.validate():
-      Record.update(self, TEMPLATE, form, program.name, program_key)
+      Record.update(self, LEGACY_TEMPLATE, form, record_id)
     else:
-      self.response.write(TEMPLATE.render({"form": form}))
+      self.response.write(LEGACY_TEMPLATE.render({"form": form}))
