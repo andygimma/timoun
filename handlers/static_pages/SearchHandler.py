@@ -19,9 +19,9 @@ class SearchHandler(BaseHandler.BaseHandler):
       page = 0
     if gender:
       if gender == "male":
-        qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'oui' LIMIT 50 OFFSET {0}".format(str(page * 50)))
+        qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'oui' LIMIT 50")
       if gender == "female":
-        qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'non' LIMIT 50 OFFSET {0}".format(str(page * 50)))
+        qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'non' LIMIT 50")
 
       if gender == "none" or gender == None:
         qry = ndb.gql("SELECT * FROM Record'")
