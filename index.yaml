@@ -17,6 +17,11 @@ indexes:
 
 - kind: Record
   properties:
+  - name: estce_que_votre_organisation_offre_des_services_en_sant_men
+  - name: estce_que_votre_organisation_offre_des_services_en_sant_men
+
+- kind: Record
+  properties:
   - name: gps_
   - name: latitude
   - name: longitude

@@ -1,7 +1,7 @@
 import webapp2
 import jinja2
 import os
-
+from models import Commune
 from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler, RecordHandler, LanguageHandler
 from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewRecordHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
@@ -9,6 +9,7 @@ from handlers.api.users import ApiLoginHandler
 from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler, AdminOrgDashboardHandler
 from handlers.admin.programs import AdminProgramIndexHandler, AdminProgramNewHandler, AdminProgramEditHandler, AdminProgramDeleteHandler, AdminProgramDashboardHandler
 from handlers.admin.services import AdminServiceIndexHandler, AdminServiceNewHandler, AdminServiceEditHandler, AdminServiceDeleteHandler, AdminServiceDashboardHandler
+from handlers.schema_updates import UpdateHandler
 
 config = {}
 config['webapp2_extras.sessions'] = {
@@ -68,7 +69,7 @@ app = webapp2.WSGIApplication([
     ('/users/set_password/([^/]+)', SetPasswordHandler.SetPasswordHandler),
     ('/language', LanguageHandler.LanguageHandler),
     ('/records/([^/]+)/edit', EditRecordHandler.EditRecordHandler),
-
+    ('/update_handler', UpdateHandler.UpdateHandler),
 
 
     #('/api/users/login', ApiLoginHandler.ApiLoginHandler),
