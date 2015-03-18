@@ -18,24 +18,127 @@
 </div>
 
 <div class="mid">
-    <h2>Rechercher et filtrer par:</h2>
+    <h2>Recherche et filtrer par:</h2>
+    <!-- 1st Row Starts -->
+<form action="/search" method="post" id="main-search-form">
+            <!--input type="submit" value="Submit"-->
+<!-- containing form for search -->
+    <div id="search-container" align="center">
     <div class="search" align="center">
-        <select>
-            <option value="food">Alimentaire et de nutrition</option>
+            <label>Mots-clés</label>
+            <input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here...">
+
+    </div>
+    <!--div class="search" align="center">
+        <label>Category</label>
+        <select name="category" id="category">
+            <option value="0" selected>Select Category</option>
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+            <option value="4">Category 4</option>
+            <option value="5">Category 5</option>
+            <option value="none">N/A</option>
+        </select>
+    </div-->
+    <div class="search" align="center">
+        <label>Service</label>
+        <select name="service">
+            <option value="" selected>Sélectionnez le service</option>
+            <option value="all">Tous</option>
+            <option value="food">Soutien alimentaire et nutritionnel</option>
             <option value="shelter">Abris et de soins</option>
             <option value="protection">Protection</option>
             <option value="healthcare">Soins De Santé</option>
-            <option value="pyschosocial"> Services de soutien psychosocial</option>
+            <option value="pyschosocial">Services de soutien psychosocial</option>
             <option value="education">Éducation formelle et informelle</option>
             <option value="legal">Services juridiques</option>
-            <option value="other">Autres services</option>
+            <option value="other">Autres ervices</option>
         </select>
     </div>
+    </div> <!-- //.search-container -->
+    <!-- // 1st Row  -->
+
+    <!-- 2nd Row Starts -->
+    <div id="search-container" align="center">
+    <div class="search" align="center">
+        <label>Age</label>
+        <select name="age">
+            <option value="" selected>Sélectionnez Age</option>
+            <option value="">Ans 1-3</option>
+            <option value="">Ans 4-10</option>
+            <option value="">Ans 11-14</option>
+            <option value="">Ans 15-18</option>
+            <option value="none">P/A</option>
+        </select>
+    </div>
+    <div class="search" align="center">
+        <label>Homme Recherche</label>
+        <select name="gender">
+            <option value="" selected>Sélectionner une option</option>
+            <option value="male">Oui</option>
+            <option value="female">Ne Pas</option>
+            <option value="none">P/A</option>
+        </select>
+    </div>
+    <div class="search" align="center">
+        <label>Commune</label>
+        <select name="region">
+            <option value="" selected>Choisir une Commune</option>
+            <option value="">Commune 1</option>
+            <option value="">Commune 2</option>
+            <option value="">Commune 3</option>
+            <option value="">Commune 4</option>
+            <option value="">Commune 5</option>
+            <option value="none">P/A</option>
+        </select>
+    </div>
+    </div><!-- //.search-container -->
+    <!-- // 2nd Row  -->
+
+    <!-- 3rd Row Starts Here -->
+    <div class="search-container" align="center">
+    <div class="search" align="center">
+            <label>Jour</label>
+            <input type="checkbox" name="monday" value="Monday">L
+            <input type="checkbox" name="tuesday" value="Tuesday">Ma
+            <input type="checkbox" name="wednesday" value="Wednesday">Me
+            <input type="checkbox" name="thursday" value="Thursday">J
+            <input type="checkbox" name="friday" value="Friday">V
+            <input type="checkbox" name="saturday" value="Saturday" >S
+            <input type="checkbox" name="sunday" value="Tuesday">D
+    </div>
+    </div>
+    <!-- // 3rd Row -->
+
     <div id="map"></div>
             <div class="map-cta">
-                <a href="/search"></a><div class="btn">Rechercher maintenant</div></a>
+                <input type="submit" class="btn" value="Recherche">
             </div>
-</div>
+
+</form>
+<br/>
+<div id="results-container"> <!-- use JS to hide / show this container since it holds results -->
+<hr class="mid-divide"/>
+<h2>Résultats de la recherche</h2>
+<p>Voici les résultats de votre recherche . Cliquant sur une entrée mettra l'accent sur l'emplacement d'une organisation sur la carte ci-dessus. Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau, et cliquez sur le bouton de recherche.</p>
+<div class="results-box">
+  {% for record in records %}
+    <div class="result">
+        <p>Nom de l'organisation: {{ record.nom_de_lorganisation }}</p>
+        <p>Adresse: {{ record.adresse }}</p>
+        <p>Numéro de téléphone: {{ record.telephone }}</p>
+        <p>Services:</p>
+    </div>
+  {% endfor %}
+</div><!-- //.results-box -->
+    <ul class="pagination" align="center">
+        <li><a href="">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+    </ul>
+</div><!-- //#results-container -->
+</div> <!-- //.mid -->
 
 <div class="bottom">
     <h3>Recherche Catégories et définitions</h3>
