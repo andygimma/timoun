@@ -13,6 +13,34 @@ LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
 
 class SearchHandler(BaseHandler.BaseHandler):
   def get(self):
+    gender = self.request.get("gender")
+    page = self.request.get("page")
+    if page == None:
+      page = 0
+    if gender:
+      if gender == "male":
+        qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'oui' LIMIT 50 OFFSET {0}".format(str(page * 50)))
+      if gender == "female":
+        qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'non' LIMIT 50 OFFSET {0}".format(str(page * 50)))
+
+      if gender == "none" or gender == None:
+        qry = ndb.gql("SELECT * FROM Record'")
+
+      records = qry.fetch(50)
+      #raise Exception(len(entities))
+      role = self.session.get('role')
+      user_session = self.session.get("user")
+      template_values = {
+        "role": self.session.get("role"),
+        "user_session": user_session,
+        "message": self.request.get("message"),
+        "records": records,
+        "gender": gender
+      }
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
+      self.response.write(LEGACY_TEMPLATE.render(template_values))
+      return
+
     language = None
     if "language" in self.request.cookies:
       language = self.request.cookies["language"]

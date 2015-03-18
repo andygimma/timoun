@@ -20,7 +20,7 @@
 <div class="mid">
     <h2>Search and filter by:</h2>
     <!-- 1st Row Starts -->
-<form action="/search" method="post" id="main-search-form">
+<form action="/search" method="get" id="main-search-form">
             <!--input type="submit" value="Submit"-->
 <!-- containing form for search -->
     <div id="search-container" align="center">
@@ -133,9 +133,8 @@
   {% endfor %}
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
-        <li><a href="">1</a></li>
-        <li><a href="">2</a></li>
-        <li><a href="">3</a></li>
+        <li><a href="">Last Page</a></li>
+        <li><a href="">Next Page</a></li>
     </ul>
 </div><!-- //#results-container -->
 </div> <!-- //.mid -->
@@ -168,7 +167,7 @@
 </div>
 <!-- Scripts Go Here -->
 <script>
-  var map = L.map('map').setView([18.533, -72.333], 8);
+  var map = L.map('map').setView([18.533, -72.333], 7);
     map.scrollWheelZoom.disable();
 
   // add an OpenStreetMap tile layer
