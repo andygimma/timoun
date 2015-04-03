@@ -21,10 +21,10 @@ a#breadcrumb_home {margin-left: 5px;}
 }
 /* BRANDING */
 .genericon {color: #ca192e;}
-#banner img {width: 100%; height: auto;}
+#banner img {display: none;}
 
 /* FOOTER */
-#footer {width: 100%; background: #187d9f; height: 65px; bottom: 0; position: relative; clear:both;}
+#footer {width: 100%; background: #187d9f; height: 65px; bottom: 0; position: relative; clear:both; margin-top: 10px;}
 .clearfooter {height: 10px;}
 #footer img {margin-top: 10px; margin-bottom: -5px; padding-top: 5px;}
 p.copy {font-size: 12px; text-align: center!important; padding: 15px 0 0 0; margin: 10px 0 10 0; color: #fff;}
