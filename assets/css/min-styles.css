@@ -6,34 +6,41 @@ html {height: 100%;}
 body {font-family: verdana, sans-serif; width: 100%; height: 100%;}
 #wrapper {min-height: 100%; position: relative; margin-bottom: -20px;}
 .container {margin: 0 auto;}
+hr {width: 80%; margin-top: 0; margin-bottom: 30px; border: 1px solid #888;}
 
 /* NAV */
 .nav, .nav .current, .nav a:hover {background: #187d9f; color:#fff; text-align: center;}
 .nav a {color: #e2eff8;}
 .nav {height: 30px; width: 100%;}
 .nav .container {margin: 0 20px;}
-.breadcrumbs {background: #e6e6e6; text-align: center; width: 100%; padding-right: 0; padding-left: 0;}
+.breadcrumbs {background: #f2c12e; text-align: center; width: 100%; padding-right: 0; padding-left: 0;}
 .breadcrumbs a {color: #187d9f;}
 a#breadcrumb_home {margin-left: 5px;}
 @media (max-width: 500px) {
 .nav div:before {background: #187d9f;}
 }
 /* BRANDING */
-.genericon {color: #258db1;}
+.genericon {color: #ca192e;}
+#banner img {display: none;}
 
 /* FOOTER */
-#footer {width: 100%; background: #efefef; height: 65px; bottom: 0; position: relative; clear:both;}
+#footer {width: 100%; background: #187d9f; height: 65px; bottom: 0; position: relative; clear:both; margin-top: 10px;}
 .clearfooter {height: 10px;}
-p.copy {font-size: 12px; text-align: center!important; padding: 10px 0 0 0; margin: 10px 0 10 0;}
-p.attribution {font-size: 10px; margin: -10px 0 0 0; padding: 0; text-align: center!important;}
+#footer img {margin-top: 10px; margin-bottom: -5px; padding-top: 5px;}
+p.copy {font-size: 12px; text-align: center!important; padding: 15px 0 0 0; margin: 10px 0 10 0; color: #fff;}
+p.attribution {font-size: 10px; margin: -10px 0 0 0; padding: 0; text-align: center!important; color: #eee;}
+p.copy a, p.attribution a {color: #302e2c; font-weight: bold; font-size: small; line-height: 1.5em;}
+p.copy a:hover, p.attribution a:hover {color: #f2c12e;}
+@media (max-width: 699px) {
+    #footer {height:100px;}
+}
 
 
 /* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6, p {width: 80%; margin-left: 10%;}
-h1 {color: #187d9f; font-size: 2.5em; text-align: center;}
-h2 {color: #258db1; text-align: center;}
-h3 {color: #339ec3; text-align: center;}
-p {color: #525252;}
+h1 {color: #ca192e; font-size: 2.5em; text-align: center; padding-top: .75em;}
+h2, h3 {color: #ca192e; text-align: center;}
+p {color: #302e2c;}
 
 /* LINKS */
 a:link {text-decoration: none;}
@@ -48,6 +55,7 @@ a:link {text-decoration: none;}
 .mid .btn:hover {background: #888;}
 .bottom-cta .btn {background: #187d9f;}
 .bottom-cta .btn:hover {background: #339ec3;}
+.bottom h3 {padding-top: 20px;}
 
 /* MIN+ PLUGIN */
 message {
@@ -68,10 +76,12 @@ message {
 }
 
 /* BLOCK STYLINGS */
-.top {padding: 0 0 20px 0;}
-.mid {background: #258db1; color: #fff; padding: 20px 0 30px 0;}
-.mid h2 {color: #fff;}
-.mid h2, .mid h3, .mid p, .footnote p {color:#fff;}
+.top {padding: 0 0 20px 0; margin-top: -27px;}
+.mid {background: #295fa6; color: #fff; padding: 20px 0 30px 0;}
+.bottom {margin-top: -19px;}
+.mid h2, .footnote h3 {color: #f2c12e;}
+.mid h3 {color: #fff;}
+.footnote p, .mid p {color: #eee;}
 .mid-divide {width: 80%; margin-left: 10%;}
 .list {margin-bottom: -10px; margin-top: 30px; text-align: center;}
 .detail {text-align: left;}

@@ -9,7 +9,9 @@
 {% endblock %}
 
 {% block content %}
-  <h2>Login</h2>
+<div class="top">
+  <h1>Login</h1>
+<hr/>
   <p>Please enter your email and password below to log in. If you experience any technical issues, then please feel free to <a href="../static_pages/contact.html">contact us</a> and we will assist you shortly.</p>
   {% if form.errors %}
     <ul class="errors">
@@ -35,4 +37,5 @@
     <input type=submit value=Submit id="submit">
   </form>
   <p><a href="/users/reset_password">Forgot Password?</a></p>
+</div>
 {% endblock %}
