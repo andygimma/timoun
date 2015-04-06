@@ -19,9 +19,19 @@ a#breadcrumb_home {margin-left: 5px;}
 @media (max-width: 500px) {
 .nav div:before {background: #187d9f;}
 }
+
 /* BRANDING */
 .genericon {color: #ca192e;}
 #banner img {display: none;}
+.logo img {float: left; margin-left: 100px; margin-top: -5px;}
+p.home {width: 65%; margin-left:25%;}
+.icon-box {width:25%; float: left;}
+.icon-box p {text-align:center;}
+.icon-row {clear:both; min-height:175px; width:100%;}
+@media (max-width:768px) {
+    .icon-box {width: 100%; clear:both;}
+    .icon-row {min-height: 275px;}
+}
 
 /* FOOTER */
 #footer {width: 100%; background: #187d9f; height: 65px; bottom: 0; position: relative; clear:both; margin-top: 10px;}
@@ -55,7 +65,7 @@ a:link {text-decoration: none;}
 .mid .btn:hover {background: #888;}
 .bottom-cta .btn {background: #187d9f;}
 .bottom-cta .btn:hover {background: #339ec3;}
-.bottom h3 {padding-top: 20px;}
+.bottom h3 {padding-top: 40px;}
 
 /* MIN+ PLUGIN */
 message {
