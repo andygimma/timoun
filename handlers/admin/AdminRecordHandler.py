@@ -4,6 +4,8 @@ import webapp2
 from handlers import BaseHandler
 from google.appengine.ext import db
 from models import Record
+import MySQLdb
+_INSTANCE_NAME = 'timoun-production:surveydata'
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -38,6 +40,25 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
       page = 0
     else:
       page = int(page)
+
+    if (os.getenv('SERVER_SOFTWARE') and
+      os.getenv('SERVER_SOFTWARE').startswith('Google App Engine/')):
+      db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db='survery_data', user='root', passwd="11oinn")
+    else:
+      db = MySQLdb.connect(host='127.0.0.1', port=3306, db='timoun_april', user='root', passwd="11oinn")
+        # Alternatively, connect to a Google Cloud SQL instance using:
+        # db = MySQLdb.connect(host='ip-address-of-google-cloud-sql-instance', port=3306, user='root', charset='utf 8')
+
+
+    cursor = db.cursor()
+    cursor.execute('SELECT 1_nom FROM organization LIMIT 100')
+
+    ## Create a list of guestbook entries to render with the HTML.
+    records = [];
+    for row in cursor.fetchall():
+      records.append(row)
+
+    #raise Exception(len(guestlist))
     next_page = page + 1
     last_page = page - 1
     template_values = {
