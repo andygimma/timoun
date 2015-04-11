@@ -30,9 +30,24 @@ class LoginHandler(BaseHandler.BaseHandler):
     }
 
     users = User.User.query(User.User.email == "admin@example.com")
+    language = None
+    if "language" in self.request.cookies:
+      language = self.request.cookies["language"]
+    else:
+      language = "fr"
+      self.response.set_cookie("language", "fr")
+
+    language = language.replace('"', '').replace("'", "")
+    if language == "fr":
+
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_login.html')
+    else:
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('login.html')
+    self.response.write(TEMPLATE.render(template_values))
     if users.count() == 0:
       user = User.User(name = "admin", email = "admin@example.com", organization = "org", phone = "phone", role = "admin", password_digest = User.hash_password("secret"), email_authorized = True)
       user.put()
+
     self.response.write(TEMPLATE.render(template_values))
 
   def post(self):

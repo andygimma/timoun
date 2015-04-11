@@ -1,4 +1,7 @@
 {% extends "fr_legacy_base.html" %}
+{% block title %}
+<title>Accueille : Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
 
 {% block breadcrumbs %}
 <div class="container">
@@ -28,10 +31,11 @@
     <h3>Programmes &amp; Services Carte - Un outil utilisable gratuit qui est prêt pour vous!</h3>
         <p>En savoir plus sur les programmes qui servent les orphelins et les enfants vulnérables à travers Haïti. Explorez l'emplacement du site, le service et l'organisation. Acquérir une meilleure perspecitve sur le pays à travers les couches de données cartographiques pertinents, tels que les niveaux de pauvreté et de malnutrition taux.</p>
 
+        <div class="map-cta">
+          <a href="/fr_search"><div class="btn">Recherche de services près de chez vous</div></a>
+        </div>
         <div id="map"></div>
-            <div class="map-cta">
-                <a href="/fr_search"></a><div class="btn">Recherche de services près de chez vous</div></a>
-            </div>
+            
 </div>
 
 <div class="bottom">
@@ -53,7 +57,7 @@
 <h3>Partagez votre organisation et informations de service.</h3>
     <p><strong>Nous voulons avoir de vos nouvelles!</strong> Rejoignez notre vision afin de mieux servir les enfants en Haïti.</p>
 <div class="bottom-cta">
-    <a href="/fr_suggest_services"></a><div class="btn">Se Inscrire!</div></a>
+    <a href="/fr_suggest_services"></a><div class="btn">Suggest Services</div></a>
 </div>
 </div>
 

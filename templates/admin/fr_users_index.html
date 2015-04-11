@@ -1,9 +1,16 @@
 {% extends "legacy_admin.html" %}
 
+{% block title %}
+<title>Utilisateurs: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
     <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_users" href="/admin/users">Utilisateurs</a>
+    <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
+      <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
+    </div>
   </div>
 </div>
 {% endblock %}
@@ -12,6 +19,8 @@
   <h2>Users</h2>
   <a href="/admin/users/new" class="btn btn-a">Ajouter Une Utilisateur</a>
   <a href="/admin/users/dashboard" class="btn btn-b">Voir Changements</a>
+  <a href="/admin/export/users" class="btn btn-b">Download CSV</a>
+
 
   {% if users.count() > 0 %}
     <table class="table">
@@ -30,7 +39,7 @@
 
         <tbody>
           <tr>
-            <td><a href="/users/{{ user.key.id() }}/edit">{{ user.email }}</a></td>
+            <td><a href="/users/{{ user.key.id() }}/edit"><i class="ico">✎</i> {{ user.email }}</a></td>
             <td>{{ user.name }}</td>
             <td>{{ user.organization }}</td>
             <td>{{ user.phone }}</td>

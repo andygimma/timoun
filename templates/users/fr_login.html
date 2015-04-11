@@ -1,19 +1,27 @@
 {% extends "legacy_base.html" %}
 
+{% block title %}
+<title>Login: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
+
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_home" href="/">Home</a> / Reset Password
+    <a id="breadcrumb_home" href="/">Home</a> / <a href="/users/login">Login</a>
     <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
+  </div>
 </div>
 {% endblock %}
 
 {% block content %}
-  <h2>Reset Password</h2>
-  <p>Please enter your email below. You will receive and email that will explain how to reset your password.</p>
-
+<h1>Need French Translation</h1>
+<div class="top">
+  <h1>Login</h1>
+<hr/>
+  <p>Please enter your email and password below to log in. If you experience any technical issues, then please feel free to <a href="/contact">contact us</a> and we will assist you shortly.</p>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -23,18 +31,20 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/users/reset_password">
+  <form method="POST" action="/users/login" class="login">
     <table>
       <tr>
         <td>{{ form.email.label }}</td>
         <td>{{ form.email()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.email_confirmation.label }}</td>
-        <td>{{ form.email_confirmation()|safe }}</td>
+        <td>{{ form.password.label }}</td>
+        <td>{{ form.password()|safe }}</td>
       </tr>
     </table>
     <br>
     <input type=submit value=Submit id="submit">
   </form>
+  <p><a href="/users/reset_password">Forgot Password?</a></p>
+</div>
 {% endblock %}

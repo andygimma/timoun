@@ -8,7 +8,7 @@ from google.appengine.api import mail
 import Audit
 import json
 
-ROLES = ["admin", "organization","field manager", "visitor"]
+ROLES = ["admin", "staff","public"]
 class User(ndb.Model):
   """Models an User."""
   name = ndb.StringProperty(required=True)
@@ -22,6 +22,33 @@ class User(ndb.Model):
   email_authorized = ndb.BooleanProperty(default=False, required=True)
   created_at = ndb.DateTimeProperty(auto_now_add=True, required=True)
   modified_at = ndb.DateTimeProperty(auto_now_add=True, required=True)
+
+
+  CSV_FIELDS = [
+        'name',
+        'email',
+        'organization',
+        'phone',
+        'email',
+        'role',
+        'email_authorized',
+        'created_at'
+  ]
+  
+  def ToCsvLine(self):
+    """Returns the site as a list of string values, one per field in
+    CSV_FIELDS."""
+    csv_row = []
+    for field in self.CSV_FIELDS:
+      value = getattr(self, field)
+      if value is None:
+        csv_row.append('')
+      else:
+        try:
+          csv_row.append(unicode(value).encode("utf-8"))
+        except:
+          logging.critical("Failed to parse: " + value + " " + str(self.key().id()))
+    return csv_row
 
 
 
