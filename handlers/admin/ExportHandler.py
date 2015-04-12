@@ -25,6 +25,17 @@ USER_DASHBOARD_CSV_FIELDS =[
       'created_at'
 ]
 
+USER_DASHBOARD_CSV_HEADER =[
+      'action',
+      'initiated_by',
+      'changes',
+      'model_affected',
+      'security_clearance',
+      'user_affected',
+      'created_at'
+]
+
+
 def ToCsvLine(model, fields):
   """Returns the site as a list of string values, one per field in
   CSV_FIELDS."""
@@ -50,7 +61,7 @@ class ExportHandler(BaseHandler.BaseHandler):
 
       writer = csv.writer(self.response.out)
 
-      writer.writerow(USER_DASHBOARD_CSV_FIELDS)
+      writer.writerow(USER_DASHBOARD_CSV_HEADER)
       audits = Audit.Audit.query(Audit.Audit.model_affected == "User").order(Audit.Audit.created_at)
 
       for audit in audits:
