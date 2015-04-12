@@ -1,4 +1,7 @@
 {% extends "legacy_base.html" %}
+{% block title %}
+<title>Welcome: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
 
 {% block breadcrumbs %}
 <div class="container">
@@ -21,17 +24,18 @@
         <p class="home">The purpose of the website is to increase access to and coordination of programming and services for vulnerable children across all main service areas (i.e. health, education and legal services).</p>
         <p class="home">To accomplish our goal, this website provides an online directory of resources and services that can be easily searched with the use of an interactive online map of these services.</p>
     <p class="home">The immediate objective is to develop an online interactive map that: focuses on the identification of the services; includes all services identified and verified concerning the welfare of children; provides access to all stakeholders via a platform based on the Web; be available to the Bridgade IBESR phone service to provide operators with information specific reference.</p>
+       <div class="map-cta">
+            <a href="/search"><div class="btn">Search For Services Near You</div></a>
+        </div>
 </div>
 
 <div class="mid">
     <h2>A New Way to Discover Services for Orphaned and Vulnerable Children</h2>
     <h3>Programs &amp; Services Map - A free, usable tool that's ready for you!</h3>
         <p>Learn more about the programs that serve orphans and vulnerable children throughout Haiti. Explore the site location, service, and organization. Gain a better perspective on country through relevant map data layers, such as levels of poverty and malnutrition rates.</p>
-
+     
         <div id="map"></div>
-            <div class="map-cta">
-                <a href="/search"></a><div class="btn">Search For Services Near You</div></a>
-            </div>
+            
 </div>
 
 <div class="bottom">
@@ -53,7 +57,7 @@
 <h3>Share your organization and service information.</h3>
     <p><strong>We want to hear from you!</strong> Join our vision to better serve children in Haiti.</p>
 <div class="bottom-cta">
-    <a href="/suggest_services"></a><div class="btn">Join Now!</div></a>
+    <a href="/suggest_services"><div class="btn">Proposer des Services</div></a>
 </div>
 </div>
 

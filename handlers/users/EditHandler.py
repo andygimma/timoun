@@ -27,10 +27,13 @@ class EditHandler(BaseHandler.BaseHandler):
     if not user:
       self.response.write(TEMPLATE.render({"form": form, "message": "Unable to confirm user. Please contact administrator."}))
 
-    form = User.UserProfileForm()
+    form = User.UserForm()
     form.name.data = user.name
     form.organization.data = user.organization
     form.phone.data = user.phone
+    form.email.data = user.email
+    form.role.data = user.role
+
 
     template_values = {
       "role": self.session.get("role"),
@@ -38,8 +41,21 @@ class EditHandler(BaseHandler.BaseHandler):
       "message": self.request.get("message"),
       "form": form,
       "user_key": user_key,
-      "user_email": user.email
+      "user_email": user.email,
     }
+    language = None
+    if "language" in self.request.cookies:
+      language = self.request.cookies["language"]
+    else:
+      language = "fr"
+      self.response.set_cookie("language", "fr")
+
+    language = language.replace('"', '').replace("'", "")
+    if language == "fr":
+
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_edit_user.html')
+    else:
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('edit_user.html')
     self.response.write(TEMPLATE.render(template_values))
 
   def post(self, user_key):
@@ -54,8 +70,9 @@ class EditHandler(BaseHandler.BaseHandler):
     if not user:
       self.response.write(TEMPLATE.render({"form": form, "message": "Unable to confirm user. Please contact administrator."}))
 
-    form = User.UserProfileForm(self.request.POST)
+    form = User.UserForm(self.request.POST)
     if form.validate():
       User.update(self, TEMPLATE, form, user.email, user_key)
+      self.redirect("/admin/users")
     else:
       self.response.write(TEMPLATE.render({"form": form}))

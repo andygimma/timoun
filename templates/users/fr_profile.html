@@ -1,9 +1,14 @@
-{% extends "legacy_admin.html" %}
+{% extends "legacy_base.html" %}
+
+{% block title %}
+<title>Profile: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
 
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_admin" href="/admin">Administrateur</a> / Modifier Service
+    <a id="breadcrumb_home" href="/">Home</a> / Profile
     <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
@@ -12,7 +17,8 @@
 {% endblock %}
 
 {% block content %}
-  <h2>{{ service_name }} Profil</h2>
+  <h1>Need French Translation</h1>
+  <h2>{{ user_session }} Profile</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -22,16 +28,27 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/services/{{ service_key }}/edit">
+  <form method="POST" action="/users/profile" class="contact-form">
     <table>
       <tr>
         <td>{{ form.name.label }}</td>
         <td>{{ form.name()|safe }}</td>
       </tr>
+      <tr>
+        <td>{{ form.organization.label }}</td>
+        <td>{{ form.organization()|safe }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.phone.label }}</td>
+        <td>{{ form.phone()|safe }}</td>
+      </tr>
+      <tr>
+        <td>Role</td>
+        <td>{{ role }}</td>
+      </tr>
+
     </table>
     <br>
-    <input type=submit value=Submit>
+    <input type="submit" value="Submit" id="submit">
   </form>
-   <a href="/services/{{ service_key }}/delete" onclick="return confirm('Are you sure you want to delete this service?');">Delete Service</a>
-
 {% endblock %}

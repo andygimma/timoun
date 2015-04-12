@@ -41,8 +41,23 @@ class ProfileHandler(BaseHandler.BaseHandler):
       "role": self.session.get("role"),
       "user_session": user_session,
       "message": self.request.get("message"),
-      "form": form
+      "form": form,
+      "role": user.role
     }
+    language = None
+    if "language" in self.request.cookies:
+      language = self.request.cookies["language"]
+    else:
+      language = "fr"
+      self.response.set_cookie("language", "fr")
+
+    language = language.replace('"', '').replace("'", "")
+    if language == "fr":
+
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_profile.html')
+    else:
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('profile.html')
+    self.response.write(TEMPLATE.render(template_values))
     self.response.write(TEMPLATE.render(template_values))
 
   def post(self):

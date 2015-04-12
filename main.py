@@ -3,7 +3,7 @@ import jinja2
 import os
 from models import Commune
 from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler, RecordHandler, LanguageHandler
-from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewRecordHandler
+from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewRecordHandler, ExportHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
 from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler, AdminOrgDashboardHandler
@@ -72,6 +72,8 @@ app = webapp2.WSGIApplication([
     ('/language', LanguageHandler.LanguageHandler),
     ('/records/([^/]+)/edit', EditRecordHandler.EditRecordHandler),
     ('/update_handler', UpdateHandler.UpdateHandler),
+    ('/admin/export/([^/]+)', ExportHandler.ExportHandler),
+
 
 
     #('/api/users/login', ApiLoginHandler.ApiLoginHandler),

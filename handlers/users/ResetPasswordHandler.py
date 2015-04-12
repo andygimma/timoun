@@ -26,6 +26,19 @@ class ResetPasswordHandler(BaseHandler.BaseHandler):
       "message": self.request.get("message"),
       "form": User.UserResetPasswordForm()
     }
+    language = None
+    if "language" in self.request.cookies:
+      language = self.request.cookies["language"]
+    else:
+      language = "fr"
+      self.response.set_cookie("language", "fr")
+
+    language = language.replace('"', '').replace("'", "")
+    if language == "fr":
+
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_reset_password.html')
+    else:
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('reset_password.html')
     self.response.write(TEMPLATE.render(template_values))
 
   def post(self):

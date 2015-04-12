@@ -1,9 +1,17 @@
 {% extends "legacy_base.html" %}
 
+{% block title %}
+<title>Login: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
+
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
     <a id="breadcrumb_home" href="/">Home</a> / <a href="/users/login">Login</a>
+    <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
+      <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
+    </div>
   </div>
 </div>
 {% endblock %}
@@ -12,7 +20,7 @@
 <div class="top">
   <h1>Login</h1>
 <hr/>
-  <p>Please enter your email and password below to log in. If you experience any technical issues, then please feel free to <a href="../static_pages/contact.html">contact us</a> and we will assist you shortly.</p>
+  <p>Please enter your email and password below to log in. If you experience any technical issues, then please feel free to <a href="/contact">contact us</a> and we will assist you shortly.</p>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}

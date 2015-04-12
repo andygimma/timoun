@@ -1,9 +1,13 @@
 {% extends "legacy_admin.html" %}
 
+{% block title %}
+<title>Profile: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_home" href="/">Home</a> / Confirm Email
+    <a id="breadcrumb_admin" href="/admin">Admin</a> / Edit User
     <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
@@ -12,9 +16,9 @@
 {% endblock %}
 
 {% block content %}
-  <h2>Email Confirmation</h2>
-  <p>Please enter your email below. Then set your password.</p>
+  <h1>Need French Translation</h1>
 
+  <h2>{{ user_email }} Profile</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -24,22 +28,32 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/admin/users/{{ email_endpoint }}">
+  <form method="POST" action="/users/{{ user_key }}/edit">
     <table>
       <tr>
         <td>{{ form.email.label }}</td>
         <td>{{ form.email()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.password.label }}</td>
-        <td>{{ form.password()|safe }}</td>
+        <td>{{ form.name.label }}</td>
+        <td>{{ form.name()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.password_confirmation.label }}</td>
-        <td>{{ form.password_confirmation()|safe }}</td>
+        <td>{{ form.organization.label }}</td>
+        <td>{{ form.organization()|safe }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.phone.label }}</td>
+        <td>{{ form.phone()|safe }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.role.label }}</td>
+        <td>{{ form.role()|safe }}</td>
       </tr>
     </table>
     <br>
     <input type=submit value=Submit>
   </form>
+   <a id="delete-user" href="/users/{{ user_key }}/delete" onclick="return confirm('Are you sure you want to delete this user?');">Delete User</a>
+
 {% endblock %}

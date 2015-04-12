@@ -27,6 +27,19 @@ class SetPasswordHandler(BaseHandler.BaseHandler):
       "form": User.UserConfirmationForm(),
       "email_endpoint": email_endpoint
     }
+    language = None
+    if "language" in self.request.cookies:
+      language = self.request.cookies["language"]
+    else:
+      language = "fr"
+      self.response.set_cookie("language", "fr")
+
+    language = language.replace('"', '').replace("'", "")
+    if language == "fr":
+
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_set_password.html')
+    else:
+      TEMPLATE = JINJA_ENVIRONMENT.get_template('set_password.html')
     self.response.write(TEMPLATE.render(template_values))
 
   def post(self, email_endpoint):
