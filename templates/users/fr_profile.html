@@ -1,14 +1,14 @@
 {% extends "legacy_base.html" %}
 
 {% block title %}
-<title>Profile: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+<title>Profil: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
 {% endblock %}
 
 
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_home" href="/">Home</a> / Profile
+    <a id="breadcrumb_home" href="/">Home</a> / Profil
     <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
@@ -18,7 +18,7 @@
 
 {% block content %}
   <h1>Need French Translation</h1>
-  <h2>{{ user_session }} Profile</h2>
+  <h2>{{ user_session }} Profil</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}

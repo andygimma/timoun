@@ -1,7 +1,7 @@
 {% extends "legacy_admin.html" %}
 
 {% block title %}
-<title>Profile: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+<title>Modifier l'utilisateur: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -18,7 +18,7 @@
 {% block content %}
   <h1>Need French Translation</h1>
 
-  <h2>{{ user_email }} Profile</h2>
+  <h2>{{ user_email }} Profil</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
