@@ -82,6 +82,7 @@ def update(self, TEMPLATE, form, user_session, user_key=None):
     user.name = form.name.data
     user.organization = form.organization.data
     user.phone = form.phone.data
+    user.role = form.role.data
     if user.put():
       user_dict = {
         "name": user.name,
@@ -89,7 +90,7 @@ def update(self, TEMPLATE, form, user_session, user_key=None):
         "phone": user.phone,
       }
       user_json = json.dumps(user_dict)
-      user_audit = Audit.save(initiated_by = self.session.get("user"), user_affected = user.email, security_clearance = "admin", json_data = user_json, model= "User", action = "Update User")
+      user_audit = Audit.save(initiated_by = self.session.get("user"), user_affected = user.email, security_clearance = user.role, json_data = user_json, model= "User", action = "Update User")
       profile_update_email(user.email)
 
       if user_key:

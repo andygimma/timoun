@@ -70,8 +70,9 @@ class EditHandler(BaseHandler.BaseHandler):
     if not user:
       self.response.write(TEMPLATE.render({"form": form, "message": "Unable to confirm user. Please contact administrator."}))
 
-    form = User.UserProfileForm(self.request.POST)
+    form = User.UserForm(self.request.POST)
     if form.validate():
       User.update(self, TEMPLATE, form, user.email, user_key)
+      self.redirect("/admin/users")
     else:
       self.response.write(TEMPLATE.render({"form": form}))

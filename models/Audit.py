@@ -1,7 +1,7 @@
 from google.appengine.ext import ndb
 
 
-CLEARANCE_OPTIONS = ["admin", "organization", "field manager", "visitor"]
+CLEARANCE_OPTIONS = ["admin", "staff", "public"]
 ACTIONS = ["Create User", "Update User", "User Confirmation", "User Set Password", "Delete User", "Create Organization", "Edit Organization", "Delete Organization", "Create Program", "Edit Program", "Delete Program", "Create Service", "Edit Service", "Delete Service"]
 MODELS = ["User", "Organization", "Program", "Service"]
 
