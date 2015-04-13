@@ -33,31 +33,24 @@
         <td>
         <select>
             <option value="" disabled selected>Sélectionnez la Catégorie</option>
-            <option value="">Catégorie 1</option>
-            <option value="">Catégorie 2</option>
-            <option value="">Catégorie 3</option>
-            <option value="">Catégorie 4</option>
-            <option value="">Catégorie 5</option>
+            <option value="nutrition">Nutrition</option>
+            <option value="home_based_care">Soins à domicile</option>
+            <option value="shelter">Abri</option>
+            <option value="child_protection">Protection de l'enfant</option>
+            <option value="pyschosocial">Soutien psychosocial</option>
+            <option value="health">Santé</option>
+            <option value="education">Education</option>
+            <option value="mental_health_services">Services Sante Mentales</option>
         </select></td>
       </tr>
-      <tr>
-        <td><label for="services">Service</label></td>
+     <tr>
+        <td><label for="service">Service</label></td>
           <td>
-          <select>
-            <option value="" disabled selected>Sélectionnez le Service</option>
-            <option value="food">Alimentaire et de nutrition</option>
-            <option value="shelter">Abris et de soins</option>
-            <option value="protection">Protection</option>
-            <option value="healthcare">Soins De Santé</option>
-            <option value="pyschosocial"> Services de soutien psychosocial</option>
-            <option value="education">Éducation formelle et informelle</option>
-            <option value="legal">Services juridiques</option>
-            <option value="other">Autres services</option>
-        </select>
+            <input type="text" name="service" value="" id="service" placeholder="Service ici">
           </td>
       </tr>
       <tr>
-        <td><label for="age">Start Age</label></td>
+        <td><label for="age">Tranche d'âge</label></td>
           <td>
         <select>
             <option value="None" disabled selected>Select Age</option>
@@ -81,11 +74,6 @@
             <option value="17">17</option>
             <option value="18">18</option>
         </select>
-          </td>
-      </tr>
-      <tr>
-        <td><label for="age">End Age</label></td>
-          <td>
         <select>
             <option value="None" disabled selected>Select Age</option>
             <option value="0">0</option>
