@@ -164,8 +164,19 @@
       </div>
       <div class="clearfooter"></div>
             <div id="footer" align="center">
+                <ul>
+                 {% if role and role == "admin" %}
+                 <li><a href="/admin">Admin</a></li>
+                 {% endif %}
+                 {% if user_session %}
+                <li><a href="/users/profile">Profile</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+                    {% else %}
+                    <li><a href="/users/login">Login</a></li>
+                    {% endif %}
+                </ul>
+                <p class="copy" style="padding:0;">Supported by   <a href="http://www.crs.org/"><img src="../../assets/img/catholic-relief-services-logo-white-100.png" width="60" height="" /></a></p>
                 <p class="copy">&copy;2015 <a href="http://ibesr.com/" target="_blank" rel="nofollow">IBESR: Institut du Bien-Etre Social et de Recherches</a>. All Rights Reserved.</p>
-                <p class="attribution">Empowered by <a href="http://visionlink.org/" target="_BLANK" rel="nofollow">VisionLink</a> | With a helping hand from  <a href="http://straubcreative.nationbuilder.com" target="_BLANK" rel="nofollow">Straub Creative Company</a></p>
             </div>
   </body>
 </html>

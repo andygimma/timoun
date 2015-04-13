@@ -8,30 +8,6 @@
               document.createElement("nav"); document.createElement("button");
       </script>
 
-      <!--[if IE 8]>
-              <style>
-                      .col { margin: 0 0.9% !important; }
-                      .nav { width: 100% !important; }
-                        #wrapper {height:100%;}
-                      .logo, .logo img {display:none!important;}
-                      p.home {width: 80%!important}
-                      .icon-box {width:100%;}
-                      .icon-box p {text-align:left;}
-              </style>
-      <![endif]-->
-
-      <!--[if IE 7]>
-              <style>
-                      .col { margin: 0 0.9% !important; }
-                      .nav { width: 100% !important; }
-                        #wrapper {height:100%;}
-                      .logo, .logo img {display:none!important;}
-                      p.home {width: 80%!important}
-                      .icon-box {width:100%;}
-                      .icon-box p {text-align:left;}
-              </style>
-      <![endif]-->
-
       {% block title %}
       {% endblock %}
 
@@ -46,14 +22,45 @@
       <link rel="stylesheet" href="../../assets/genericons/genericons.css" />
       <link rel="stylesheet" href="assets/genericons/genericons.css" />
       <script src="assets/js/leaflet.js"></script>
+      <link rel="stylesheet" href="assets/css/responsive-nav.css">
+      <link rel="stylesheet" href="../assets/css/responsive-nav.css">
+      <link rel="stylesheet" href="../../assets/css/responsive-nav.css">
+      <script src="assets/js/responsive-nav.js"></script>
+      <script src="../assets/js/responsive-nav.js"></script>
+      <script src="../../assets/js/responsive-nav.js"></script>
+      <script src="assets/js/leaflet.js"></script>
 
+       <!--[if IE 8]>
+      <script src="respond.js"></script>
+              <style>
+                      .col { margin: 0 0.9% !important; }
+                      #wrapper {height:100%;}
+                      .logo, .logo img {display:none!important;}
+                      p.home {width: 80%!important}
+                      .icon-box {width:100%;}
+                      .icon-box p {text-align:left;}
+              </style>
+      <![endif]-->
+
+      <!--[if IE 7]>
+      <script src="respond.js"></script> 
+              <style>
+                      .col { margin: 0 0.9% !important; }
+                      #wrapper {height:100%;}
+                      .logo, .logo img {display:none!important;}
+                      p.home {width: 80%!important}
+                      .icon-box {width:100%;}
+                      .icon-box p {text-align:left;}
+              </style>
+      <![endif]-->
 
       <!--[if lte IE 7]>
+      <script src="respond.js"></script>
                   <style>
                       .breadcrumbs {
                               width: 100%;
                       }
-                        #wrapper {height:100%;}
+                      #wrapper {height:100%;}
                       .logo, .logo img {display:none!important;}
                       p.home {width: 80%!important}
                       .icon-box {width:100%;}
@@ -63,6 +70,7 @@
       <![endif]-->
 
       <!--[if lte IE 6]>
+      <script src="respond.js"></script>
               <style>
                       .col {
                               margin: 0.5%;
@@ -75,13 +83,10 @@
                       .container {
                               width: 100%;
                       }
-                      .nav {
-                              width: 100%;
-                      }
                       .breadcrumbs {
                               width: 100%;
                       }
-                        #wrapper {height:100%;}
+                    #wrapper {height:100%;}
                       .logo, .logo img {display:none!important;}
                       p.home {width: 80%!important}
                       .icon-box {width:100%;}
@@ -90,6 +95,7 @@
       <![endif]-->
 
       <!--[if IE 5]>
+      <script src="respond.js"></script>
               <style>
                       .container {
                               width: 100%;
@@ -106,16 +112,12 @@
                       h3 {
                               font-size: 20px;
                       }
-
-                      .nav {
-                              height: 50px;
-                              width: 100%;
-                      }
-                        #wrapper {height:100%;}
+                      #wrapper {height:100%;}
                       .logo, .logo img {display:none!important;}
                       p.home {width: 80%!important}
                       .icon-box {width:100%;}
                       .icon-box p {text-align:left;}
+
               </style>
       <![endif]-->
     <script>
@@ -133,26 +135,27 @@
 
   <body>
   <div id="wrapper">
-    <nav class="nav" tabindex="-1" onclick="this.focus()">
-      <div class="container">
-          <a class="pagename current" href="/">Acceuille</a>
-          {% if role and role == "admin" %}
-            <a href="/admin">Admin</a>
-          {% endif %}
-          <a href="/about">Sur</a>
-          <a href="/search">Recherche</a>
-          <a href="/contact">Contactez IBESR</a>
-          <a href="/suggest_services">Proposer des Services</a>
-          <a href="/mental_illness_services">Services De Santé Mentale</a>
-          {% if user_session %}
-            <a href="/users/profile">Profil</a>
-            <a href="/users/logout">Déconnexion</a>
-          {% else %}
-            <a href="/users/login">S'identifier</a>
-          {% endif %}
+      <div id="header" class="french_header">
+    <div class="logo" align="center">
+    <a href="/"><img src="../../assets/img/IBESR-LOGO.png" width="150" height="150" alt="" /></a>
+    </div>
+    <div class="brandname">
+    <h2>Institut du Bien-Etre Social et de Recherches</h2>
+    </div>
+    <h3>Services de cartographie pour les enfants et les familles vulnérables en Haïti</h3>
+    </div>
+      <div id="nav">
+      <ul>
+        <li><a href="/">Acceuil</a></li>
+        <li><a href="/search">Recherche Services</a></li>
+        <li><a href="http://ibesr.com">Visitez IBESR</a></li>
+          <li><a href="/suggest_services">Ajouter votre institution</a></li>
+        <li><a href="/contact">Contactez Nous</a></li>
+        <li><a href="/about">Sur</a></li>
+      </ul>
+    </div>
 
-      </div>
-    </nav>
+      <button id="nav-toggle">Menu</button>
 
     {% block breadcrumbs %}
     {% endblock %}
@@ -164,8 +167,24 @@
       </div>
       <div class="clearfooter"></div>
             <div id="footer" align="center">
+                <ul>
+                 {% if role and role == "admin" %}
+                 <li><a href="/admin">Admin</a></li>
+                 {% endif %}
+                 {% if user_session %}
+                <li><a href="/users/profile">Profil</a></li>
+                <li><a href="/users/logout">Se Déconnecter</a></li>
+                    {% else %}
+                    <li><a href="/users/login">S'identifier</a></li>
+                    {% endif %}
+                </ul>
+                <p class="copy" style="padding:0;">Supporté par  <a href="http://www.crs.org/"><img src="../../assets/img/catholic-relief-services-logo-white-100.png" width="60" height="" /></a></p>
                 <p class="copy">&copy;2015 <a href="http://ibesr.com/" target="_blank" rel="nofollow">IBESR: Institut du Bien-Etre Social et de Recherches</a>. Tous Les Droits Sont Réservés.</p>
-                <p class="attribution">Porté par <a href="http://visionlink.org/" target="_BLANK" rel="nofollow">VisionLink</a> | Avec un coup de main de  <a href="http://straubcreative.nationbuilder.com" target="_BLANK" rel="nofollow">Straub Creative Company</a></p>
             </div>
+    <script>
+      var navigation = responsiveNav("#nav", {
+        customToggle: "#nav-toggle"
+      });
+    </script>
   </body>
 </html>

@@ -8,30 +8,6 @@
               document.createElement("nav"); document.createElement("button");
       </script>
 
-      <!--[if IE 8]>
-              <style>
-                      .col { margin: 0 0.9% !important; }
-                      .nav { width: 100% !important; }
-                        #wrapper {height:100%;}
-                      .logo, .logo img {display:none!important;}
-                      p.home {width: 80%!important}
-                      .icon-box {width:100%;}
-                      .icon-box p {text-align:left;}
-              </style>
-      <![endif]-->
-
-      <!--[if IE 7]>
-              <style>
-                      .col { margin: 0 0.9% !important; }
-                      .nav { width: 100% !important; }
-                        #wrapper {height:100%;}
-                      .logo, .logo img {display:none!important;}
-                      p.home {width: 80%!important}
-                      .icon-box {width:100%;}
-                      .icon-box p {text-align:left;}
-              </style>
-      <![endif]-->
-
       {% block title %}
       {% endblock %}
 
@@ -46,14 +22,45 @@
       <link rel="stylesheet" href="../../assets/genericons/genericons.css" />
       <link rel="stylesheet" href="assets/genericons/genericons.css" />
       <script src="assets/js/leaflet.js"></script>
+      <link rel="stylesheet" href="assets/css/responsive-nav.css">
+      <link rel="stylesheet" href="../assets/css/responsive-nav.css">
+      <link rel="stylesheet" href="../../assets/css/responsive-nav.css">
+      <script src="assets/js/responsive-nav.js"></script>
+      <script src="../assets/js/responsive-nav.js"></script>
+      <script src="../../assets/js/responsive-nav.js"></script>
+      <script src="assets/js/leaflet.js"></script>
 
+      <!--[if IE 8]>
+      <script src="respond.js"></script>
+              <style>
+                      .col { margin: 0 0.9% !important; }
+                      #wrapper {height:100%;}
+                      .logo, .logo img {display:none!important;}
+                      p.home {width: 80%!important}
+                      .icon-box {width:100%;}
+                      .icon-box p {text-align:left;}
+              </style>
+      <![endif]-->
+
+      <!--[if IE 7]>
+      <script src="respond.js"></script> 
+              <style>
+                      .col { margin: 0 0.9% !important; }
+                      #wrapper {height:100%;}
+                      .logo, .logo img {display:none!important;}
+                      p.home {width: 80%!important}
+                      .icon-box {width:100%;}
+                      .icon-box p {text-align:left;}
+              </style>
+      <![endif]-->
 
       <!--[if lte IE 7]>
+      <script src="respond.js"></script>
                   <style>
                       .breadcrumbs {
                               width: 100%;
                       }
-                    #wrapper {height:100%;}
+                      #wrapper {height:100%;}
                       .logo, .logo img {display:none!important;}
                       p.home {width: 80%!important}
                       .icon-box {width:100%;}
@@ -63,6 +70,7 @@
       <![endif]-->
 
       <!--[if lte IE 6]>
+      <script src="respond.js"></script>
               <style>
                       .col {
                               margin: 0.5%;
@@ -73,9 +81,6 @@
                               width: 97%;
                       }
                       .container {
-                              width: 100%;
-                      }
-                      .nav {
                               width: 100%;
                       }
                       .breadcrumbs {
@@ -90,6 +95,7 @@
       <![endif]-->
 
       <!--[if IE 5]>
+      <script src="respond.js"></script>
               <style>
                       .container {
                               width: 100%;
@@ -106,12 +112,7 @@
                       h3 {
                               font-size: 20px;
                       }
-
-                      .nav {
-                              height: 50px;
-                              width: 100%;
-                      }
-                            #wrapper{ eight:100%;}
+                      #wrapper {height:100%;}
                       .logo, .logo img {display:none!important;}
                       p.home {width: 80%!important}
                       .icon-box {width:100%;}
@@ -134,25 +135,27 @@
 
   <body>
   <div id="wrapper">
-    <nav class="nav" tabindex="-1" onclick="this.focus()">
-      <div class="container">
-          <a class="pagename current" href="/">Welcome</a>
-          {% if role and role == "admin" %}
-            <a href="/admin">Admin</a>
-          {% endif %}
-          <a href="/about">About</a>
-          <a href="/search">Search</a>
-          <a href="/contact">Contact IBESR</a>
-          <a href="/suggest_services">Suggest Services</a>
-          <a href="/mental_illness_services">Mental Health Services</a>
-          {% if user_session %}
-            <a href="/users/profile">Profile</a>
-            <a href="/users/logout">Logout</a>
-          {% else %}
-            <a href="/users/login">Login</a>
-          {% endif %}
-      </div>
-    </nav>
+      <div id="header">
+    <div class="logo" align="center">
+    <a href="/"><img src="../../assets/img/IBESR-LOGO.png" width="150" height="150" alt="" /></a>
+    </div>
+    <div class="brandname">
+    <h2>Institute of Social Welfare and Research</h2>
+    </div>
+    <h3>Mapping services available for vulnerable children and families in Haiti</h3>
+    </div>
+      <div id="nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/search">Find Services</a></li>
+        <li><a href="http://ibesr.com">Visit IBESR</a></li>
+        <li><a href="/suggest_services">Add Services</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+
+      <button id="nav-toggle">Menu</button>
 
     {% block breadcrumbs %}
     {% endblock %}
@@ -164,8 +167,24 @@
       </div>
       <div class="clearfooter"></div>
             <div id="footer" align="center">
+                <ul>
+                 {% if role and role == "admin" %}
+                 <li><a href="/admin">Admin</a></li>
+                 {% endif %}
+                 {% if user_session %}
+                <li><a href="/users/profile">Profile</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+                    {% else %}
+                    <li><a href="/users/login">Login</a></li>
+                    {% endif %}
+                </ul>
+                <p class="copy" style="padding:0;">Supported by   <a href="http://www.crs.org/"><img src="../../assets/img/catholic-relief-services-logo-white-100.png" width="60" height="" /></a></p>
                 <p class="copy">&copy;2015 <a href="http://ibesr.com/" target="_blank" rel="nofollow">IBESR: Institut du Bien-Etre Social et de Recherches</a>. All Rights Reserved.</p>
-                <p class="attribution">Empowered by <a href="http://visionlink.org/" target="_BLANK" rel="nofollow">VisionLink</a> | With a helping hand from  <a href="http://straubcreative.nationbuilder.com" target="_BLANK" rel="nofollow">Straub Creative Company</a></p>
             </div>
+    <script>
+      var navigation = responsiveNav("#nav", {
+        customToggle: "#nav-toggle"
+      });
+    </script>
   </body>
 </html>
