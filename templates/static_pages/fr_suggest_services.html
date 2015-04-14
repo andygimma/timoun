@@ -22,16 +22,16 @@
 <p>La clé du succès de ce projet est dans le partage ouvert de données . Si vous croyez manque aucune information importante concernant les services à l'enfance en Haïti , se il vous plaît laissez-nous savoir en remplissant le formulaire ci-dessous.</p>
 <p>Thank you for your contribution!</p>
 <div class="contact-form suggest">
-<form method="POST" action="">
+<form method="POST" action="/suggest_services">
     <table>
       <tr>
         <td><label for="name">Organisation</label></td>
-        <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter organization name here"></td>
+        <td><input type="text" name="organization" value="" id="organization" placeholder="enter organization name here"></td>
       </tr>
       <tr>
         <td><label for="category">Catégorie</label></td>
         <td>
-        <select>
+        <select name="category">
             <option value="" selected>Sélectionnez la Catégorie</option>
             <option value="nutrition">Nutrition</option>
             <option value="home_based_care">Soins à domicile</option>
@@ -52,7 +52,7 @@
       <tr>
         <td><label for="age">Tranche d'âge</label></td>
           <td>
-        <select style="width:114px">
+        <select name="age" style="width:114px">
             <option value="None" selected>Select Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -75,7 +75,7 @@
             <option value="18">18</option>
         </select>
         &
-        <select style="width:114px">
+        <select name="age_end" style="width:114px">
             <option value="None" selected>Select Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -102,7 +102,7 @@
       <tr>
         <td><label for="gender">Sexe</label></td>
           <td>
-        <select>
+        <select name="gender">
             <option value="" selected>Sélectionnez le Sexe</option>
             <option value="girls">Filles</option>
             <option value="boys">Garçons</option>
@@ -113,7 +113,7 @@
       <tr>
         <td><label for="department">Departement</label></td>
           <td>
-        <select>
+        <select name="department">
             <option value="" selected>Choisissez la Departement</option>
             <option value="Artibonite">Artibonite</option>
             <option value="Centre">Centre</option>
@@ -133,7 +133,7 @@
           Adresse ou coordonnées
         </td>
         <td>
-          <textarea name="comments" cols=40 rows=6></textarea>
+          <textarea name="address" cols=40 rows=6></textarea>
         </td>
       </tr>
       <tr>
@@ -147,7 +147,6 @@
       <tr>
         <td><label for="day">Jour</label></td>
           <td>
-        <form class="checkbox">
             <input type="checkbox" name="monday" value="Monday">L
             <input type="checkbox" name="tuesday" value="Tuesday">Ma
             <input type="checkbox" name="wednesday" value="Wednesday">Me
@@ -155,12 +154,11 @@
             <input type="checkbox" name="friday" value="Friday">V
             <input type="checkbox" name="saturday" value="Saturday">S
             <input type="checkbox" name="sunday" value="Sunday">D
-        </form>
           </td>
       </tr>
     </table>
     <br/>
-    <input type=submit value=Submit id="submit">
+    <input type=submit value="Soumettre" id="submit">
   </form>
 </div>
 </div>

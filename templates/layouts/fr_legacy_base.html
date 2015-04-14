@@ -158,6 +158,9 @@
     {% endblock %}
 
         <div class="container">
+        {% if message %}
+          <p class="alert_message">{{ message }}</p>
+        {% endif %}
         {% block content %}
         {% endblock %}
         </div>
