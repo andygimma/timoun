@@ -4,7 +4,7 @@
 <div class="container">
   <div class="breadcrumbs">
     <a id="breadcrumb_home" href="/fr_index">Home</a> / <a id="breadcrumb_search" href="/fr_search">Recherche</a>
-      <div id="language" style="text-align: right; margin-top: -20px; margin-right: 20px;">
+      <div id="language" style="text-align: right;  float:right; margin-right: 20px;">
         <a href="/language?language='fr'&redirect='/search'">Français</a> / <a href="/language?language='en'&redirect='/search'">English </a>
       </div>
   </div>
@@ -117,12 +117,11 @@
 </div>
 
 <div class="mid">
-<div id="results-container"> <!-- use JS to hide / show this container since it holds results -->
+<div id="results-container"> 
 <h2>Résultats de la recherche</h2>
-    <p>Les résultats de votre recherche apparaîtront sur la carte et les résultats ci-dessous. En cliquant sur une entrée se concentrera sur le site d'une organisation sur la carte ci-dessus. Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau , et cliquez sur le bouton Rechercher.
+    <p>Les résultats de la recherche apparaîtront sur ​​la carte et les résultats ci-dessous . En cliquant sur une entrée , il se concentrera sur le site d'une organisation sur la carte.
 </p>
-<div id="map"></div>
-    <br/>
+<div id="map" class="search-map"></div>
 <div class="results-box">
   {% for record in records %}
     <div class="result">
@@ -137,6 +136,7 @@
         <li><a href="">Dernière Page</a></li>
         <li><a href="">Page Suivante</a></li>
     </ul>
+    <p class="search-again">Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau , et cliquez sur le bouton Rechercher.</p>
 </div><!-- //#results-container -->
 </div> <!-- //.mid -->
 

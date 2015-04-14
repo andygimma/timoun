@@ -9,9 +9,9 @@ body {font-family: verdana, sans-serif; width: 100%; height: 100%;}
 hr {width: 80%; margin-top: 0; margin-bottom: 30px; border: 1px solid #888;}
 
 /* BREADCRUMBS */
-.breadcrumbs {background: #eeeeee; text-align: center; width: 100%; padding-right: 0; padding-left: 0; clear:both;}
+.breadcrumbs {background: #eeeeee; text-align: left; width: 100%; padding-right: 0; padding-left: 0; clear:both;}
 .breadcrumbs a {color: #187d9f;}
-a#breadcrumb_home {margin-left: 5px;}
+a#breadcrumb_home {margin-left: 20px;}
 @media (max-width: 500px) {
 .nav div:before {background: #187d9f;}
 }
@@ -57,8 +57,8 @@ a#breadcrumb_home {margin-left: 5px;}
 }
 
 /* FOOTER */
-#footer {width: 100%; background: #1f538c; height: 125px; bottom: 0; position: relative; clear:both; margin-top: 10px;}
-.clearfooter {height: 10px;}
+#footer {width: 100%; background: #1f538c; height: 125px; bottom: 0; position: relative; clear:both;}
+.clearfooter {height: 125px;}
 p.copy {font-size: 14px; text-align: center!important; padding: 0 0 0 0; margin: 0 0 10px 0; color: #fff;}
 p.copy a {color: #f36813; font-weight: bold; font-size: 14px; line-height: 1.5em;}
 p.copy a:hover {color: #e89b55;}
@@ -116,7 +116,7 @@ message {
 .list {margin-bottom: -10px; margin-top: 30px; text-align: center; font-size: large; color:#333;}
 .detail {text-align: left;}
 
-.footnote {width: 100%; height:50px;}
+.footnote {width: 100%; height:50px; margin-bottom: -125px;}
 #french_footnote {height: 70px;}
 .footnote .french {height: 70px!important;}
 .footnote_left {width: 70%; float: left;}
@@ -137,10 +137,10 @@ message {
     .footnote {height: 100px;}
 }
 @media (max-width: 662px) {
-    #french_footnote {height: 125px}
+    #french_footnote {height: 125px;}
 }
 @media (max-width:475px) {
-    .footnote {height: 175px;}
+    .footnote {height: 175px; margin-top: 20px;}
     #french_footnote {height: 185px}
     .footnote_left {width: 100%; clear:both;}
     .footnote p, .footnote h3 {text-align: center;}
@@ -155,14 +155,22 @@ message {
 .search option, {padding: 10px; position:relative; display: inline;}
 .search, .search label {display: inline;}
 .search input#keywords {display: inline; position: relative; min-width: 250px; background: #fff; margin-right: 20px;}
-.search .checkbox input {display: inline; position: relative; width: 15px!important; height: 15px!important; margin-left: 10px!important; margin-right: 2px!important;}
-.search .checkbox label {display: inline; position: relative; margin-right: 10px;}
-.results-box {background:#fff; width: 80%; margin-left: 10%; border: 3px solid #302e2c; height: 400px; overflow: scroll;}
+
+/* Search Map & Results Box */
+
+.search-map {width: 40%!important; float: left!important; height: 400px!important; margin: 0; padding: 0;}
+.results-box {background:#fff; width: 39%; margin-top: -3px; margin-left: 1%; padding: 0; border: 3px solid #302e2c; height: 400px; overflow: scroll; float: left;}
 .result {width: 80%; margin-left: 10%; padding: 10px 0 10px 0; border-bottom: 1px solid #999;}
 .result p {color:#258db1; margin:0; padding-bottom: 5px;}
-ul.pagination {list-style-type: none; padding: 0; margin: 25px 0 0 0; width: 100%;}
+ul.pagination {float: left;list-style-type: none; padding: 0; margin: 25px 0 25px 0; width: 100%;}
 ul.pagination li {display: inline; background: #f9c700; padding: 5px 10px 5px 10px;}
 ul.pagination li a {color: #333;}
+.search-again {text-align: center;}
+
+@media (max-width: 767px) {
+    .search-map {width: 80%!important; margin-left: 10%; clear:both;}
+    .results-box {width: 80%; margin-top: 20px; margin-left: 10%;}
+}
 
 @media (max-width: 959px) {
     .search {disply: block; clear:both;}
@@ -196,19 +204,22 @@ ul.pagination li a {color: #333;}
 .errors li {list-style-type:circle; color: #7F0000;}
 
 /* ADMIN */
-.alt {float: left; width:80%; margin-left: 20%;}
+/*.alt {float: left; width:80%; margin-left: 20%;}
 .sidebar {float: left; position: absolute; width: 20%; background: #302e2c; min-height: 100%;}
 .admin {background: #302e2c; display: block; text-align: left;}
 .admin a {color:#fff; font-size: small; clear: both; float: left; line-height: 1.3em; margin-bottom: 0; width: 100%; text-align: left; word-break: break-all; padding: 10px;}
 .admin a:hover {text-align: left; width: 100%;}
 .admin a.first {margin-top:30px;}
+*/
 
 /* RECORDS */
+/*
 table.records {margin-bottom: 20px;}
 table.records tr:nth-child(even) {background: #fff!important;}
 table.records tr:nth-child(odd) {background: #187d9f!important;}
 table.records tr:nth-child(even) a {color: #187d9f!important;}
 table.records tr:nth-child(odd) a {color:#fff;!important}
+*/
 
 /* KEEP AT BOTTOM OF STYLESHEET */
 .leaflet-popup-content p (color: #888;}
