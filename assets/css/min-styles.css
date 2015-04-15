@@ -109,9 +109,9 @@ message {
 .top {padding: 0 0 20px 0; margin-top: -27px;}
 .mid {background: #1c6cb4; color: #fff; padding: 20px 0 30px 0;}
 .bottom {margin-top: -19px;}
-.mid h2 {color: #f9c700;}
+.mid h2 {color: #f9c700; margin-left: 0!important;}
 .mid h3 {color: #fff;}
-.mid p {color: #eee;}
+.mid p {color: #eee; margin-left: 0!important;}
 .mid-divide {width: 80%; margin-left: 10%;}
 .list {margin-bottom: -10px; margin-top: 30px; text-align: center; font-size: large; color:#333;}
 .detail {text-align: left;}
@@ -163,9 +163,9 @@ message {
 .result {width: 80%; margin-left: 10%; padding: 10px 0 10px 0; border-bottom: 1px solid #999;}
 .result p {color:#258db1; margin:0; padding-bottom: 5px;}
 ul.pagination {float: left;list-style-type: none; padding: 0; margin: 25px 0 25px 0; width: 100%;}
-ul.pagination li {float: left; display: inline; background: #f9c700; padding: 5px 10px 5px 10px;}
+ul.pagination li {display: inline; background: #f9c700; padding: 5px 10px 5px 10px;}
 ul.pagination li a {color: #333;}
-.search-again {text-align: center;}
+.search-again {text-align: center; clear:both;}
 
 @media (max-width: 767px) {
     .search-map {width: 80%!important; margin-left: 10%; clear:both;}
