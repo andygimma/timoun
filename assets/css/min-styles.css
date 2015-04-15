@@ -163,7 +163,7 @@ message {
 .result {width: 80%; margin-left: 10%; padding: 10px 0 10px 0; border-bottom: 1px solid #999;}
 .result p {color:#258db1; margin:0; padding-bottom: 5px;}
 ul.pagination {float: left;list-style-type: none; padding: 0; margin: 25px 0 25px 0; width: 100%;}
-ul.pagination li {display: inline; background: #f9c700; padding: 5px 10px 5px 10px;}
+ul.pagination li {float: left; display: inline; background: #f9c700; padding: 5px 10px 5px 10px;}
 ul.pagination li a {color: #333;}
 .search-again {text-align: center;}
 
