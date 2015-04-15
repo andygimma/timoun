@@ -109,12 +109,14 @@ message {
 .top {padding: 0 0 20px 0; margin-top: -27px;}
 .mid {background: #1c6cb4; color: #fff; padding: 20px 0 30px 0;}
 .bottom {margin-top: -19px;}
-.mid h2 {color: #f9c700; margin-left: 0!important;}
+.mid h2 {color: #f9c700; margin-left: 10%; width 80%;}
 .mid h3 {color: #fff;}
-.mid p {color: #eee; margin-left: 0!important;}
+.mid p {color: #eee; margin-left: 10%; width: 80%;}
 .mid-divide {width: 80%; margin-left: 10%;}
 .list {margin-bottom: -10px; margin-top: 30px; text-align: center; font-size: large; color:#333;}
 .detail {text-align: left;}
+#search-mid h2 {color: #f9c700; margin-left: 0!important;}
+#search-mid p {color: #eee; margin-left: 0!important;}
 
 .footnote {width: 100%; height:50px; margin-bottom: -125px;}
 #french_footnote {height: 70px;}
