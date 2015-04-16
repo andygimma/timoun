@@ -43,7 +43,6 @@ class LoginHandler(BaseHandler.BaseHandler):
       TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_login.html')
     else:
       TEMPLATE = JINJA_ENVIRONMENT.get_template('login.html')
-    self.response.write(TEMPLATE.render(template_values))
     if users.count() == 0:
       user = User.User(name = "admin", email = "admin@example.com", organization = "org", phone = "phone", role = "admin", password_digest = User.hash_password("secret"), email_authorized = True)
       user.put()
