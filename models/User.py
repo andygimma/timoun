@@ -8,6 +8,8 @@ from google.appengine.api import mail
 import Audit
 import json
 
+ORIGIN_EMAIL = "andy.n.gimma@gmail.com"
+
 ROLES = ["admin", "staff","public"]
 class User(ndb.Model):
   """Models an User."""
@@ -145,7 +147,7 @@ def hash_password(password):
   return hashlib.sha224(password).hexdigest()
 
 def profile_update_email(user_email):
-  message = mail.EmailMessage(sender="Timoun Support <andy.n.gimma@gmail.com>",
+  message = mail.EmailMessage(sender=ORIGIN_EMAIL,
                             subject="Your account has been updated")
 
   message.to = "<%s>" % user_email
@@ -160,7 +162,7 @@ def profile_update_email(user_email):
   message.send()
 
 def confirmation_email(user_email, email_endpoint, user_name):
-  message = mail.EmailMessage(sender="Timoun Support <andy.n.gimma@gmail.com>",
+  message = mail.EmailMessage(sender=ORIGIN_EMAIL,
                             subject="Your account requires confirmation")
 
   message.to = "<%s>" % user_email
@@ -191,7 +193,7 @@ def send_reset_password_email(self, form, TEMPLATE):
     user.email_sent_at = datetime.datetime.now()
     user.put()
 
-    message = mail.EmailMessage(sender="Timoun Support <andy.n.gimma@gmail.com>",
+    message = mail.EmailMessage(sender=ORIGIN_EMAIL,
                               subject="Your account requires confirmation")
 
     message.to = "<%s>" % form.email.data

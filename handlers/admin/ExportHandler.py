@@ -35,6 +35,26 @@ USER_DASHBOARD_CSV_HEADER =[
       'created_at'
 ]
 
+DASHBOARD_CSV_HEADER = [
+      'action',
+      'initiated_by',
+      'changes',
+      'model_affected',
+      'security_clearance',
+      'user_affected',
+      'created_at'
+]
+
+DASHBOARD_CSV_FIELDS = [
+      'action',
+      'initiated_by',
+      'json_data',
+      'model_affected',
+      'security_clearance',
+      'user_affected',
+      'created_at'
+]
+
 
 def ToCsvLine(model, fields):
   """Returns the site as a list of string values, one per field in
@@ -78,3 +98,14 @@ class ExportHandler(BaseHandler.BaseHandler):
 
       for user in users:
           writer.writerow(ToCsvLine(user, USER_CSV_FIELDS))
+
+    if export_type == "dashboard":
+      self.response.headers['Content-Disposition'] = \
+          'attachment; filename="timoun_users.csv"'
+      writer = csv.writer(self.response.out)
+
+      writer.writerow(DASHBOARD_CSV_HEADER)
+      audits = Audit.Audit.query().order(Audit.Audit.created_at)
+      for audit in audits:
+          writer.writerow(ToCsvLine(audit, DASHBOARD_CSV_FIELDS))
+

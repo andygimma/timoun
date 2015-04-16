@@ -22,45 +22,38 @@
 <p>La clé du succès de ce projet est dans le partage ouvert de données . Si vous croyez manque aucune information importante concernant les services à l'enfance en Haïti , se il vous plaît laissez-nous savoir en remplissant le formulaire ci-dessous.</p>
 <p>Thank you for your contribution!</p>
 <div class="contact-form suggest">
-<form method="POST" action="">
+<form method="POST" action="/suggest_services">
     <table>
       <tr>
         <td><label for="name">Organisation</label></td>
-        <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter organization name here"></td>
+        <td><input type="text" name="organization" value="" id="organization" placeholder="enter organization name here"></td>
       </tr>
       <tr>
         <td><label for="category">Catégorie</label></td>
         <td>
-        <select>
-            <option value="" disabled selected>Sélectionnez la Catégorie</option>
-            <option value="">Catégorie 1</option>
-            <option value="">Catégorie 2</option>
-            <option value="">Catégorie 3</option>
-            <option value="">Catégorie 4</option>
-            <option value="">Catégorie 5</option>
+        <select name="category">
+            <option value="" selected>Sélectionnez la Catégorie</option>
+            <option value="nutrition">Nutrition</option>
+            <option value="home_based_care">Soins à domicile</option>
+            <option value="shelter">Abri</option>
+            <option value="child_protection">Protection de l'enfant</option>
+            <option value="pyschosocial">Soutien psychosocial</option>
+            <option value="health">Santé</option>
+            <option value="education">Education</option>
+            <option value="mental_health_services">Services Sante Mentales</option>
         </select></td>
       </tr>
-      <tr>
-        <td><label for="services">Service</label></td>
+     <tr>
+        <td><label for="service">Service</label></td>
           <td>
-          <select>
-            <option value="" disabled selected>Sélectionnez le Service</option>
-            <option value="food">Alimentaire et de nutrition</option>
-            <option value="shelter">Abris et de soins</option>
-            <option value="protection">Protection</option>
-            <option value="healthcare">Soins De Santé</option>
-            <option value="pyschosocial"> Services de soutien psychosocial</option>
-            <option value="education">Éducation formelle et informelle</option>
-            <option value="legal">Services juridiques</option>
-            <option value="other">Autres services</option>
-        </select>
+            <input type="text" name="service" value="" id="service" placeholder="Service ici">
           </td>
       </tr>
       <tr>
-        <td><label for="age">Start Age</label></td>
+        <td><label for="age">Tranche d'âge</label></td>
           <td>
-        <select>
-            <option value="None" disabled selected>Select Age</option>
+        <select name="age" style="width:114px">
+            <option value="None" selected>Select Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -81,13 +74,9 @@
             <option value="17">17</option>
             <option value="18">18</option>
         </select>
-          </td>
-      </tr>
-      <tr>
-        <td><label for="age">End Age</label></td>
-          <td>
-        <select>
-            <option value="None" disabled selected>Select Age</option>
+        &
+        <select name="age_end" style="width:114px">
+            <option value="None" selected>Select Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -113,8 +102,8 @@
       <tr>
         <td><label for="gender">Sexe</label></td>
           <td>
-        <select>
-            <option value="" disabled selected>Sélectionnez le Sexe</option>
+        <select name="gender">
+            <option value="" selected>Sélectionnez le Sexe</option>
             <option value="girls">Filles</option>
             <option value="boys">Garçons</option>
             <option value="boys">Filles et Garçons</option>
@@ -124,15 +113,28 @@
       <tr>
         <td><label for="department">Departement</label></td>
           <td>
-        <select>
-            <option value="" disabled selected>Choisissez la Région</option>
-            <option value="">Région 1</option>
-            <option value="">Région 2</option>
-            <option value="">Région 3</option>
-            <option value="">Région 4</option>
-            <option value="">Région 5</option>
+        <select name="department">
+            <option value="" selected>Choisissez la Departement</option>
+            <option value="Artibonite">Artibonite</option>
+            <option value="Centre">Centre</option>
+            <option value="Grand Anse">Grand Anse</option>
+            <option value="Nippes">Nippes</option>
+            <option value="Nord">Nord</option>
+            <option value="Nord-Est">Nord-Est</option>
+            <option value="Nord-Ouest">Nord-Ouest</option>
+            <option value="Ouest">Ouest</option>
+            <option value="Sud">Sud</option>
+            <option value="Sud-Est">Sud-Est</option>
         </select>
           </td>
+      </tr>
+      <tr>
+        <td>
+          Adresse ou coordonnées
+        </td>
+        <td>
+          <textarea name="address" cols=40 rows=6></textarea>
+        </td>
       </tr>
       <tr>
         <td>
@@ -143,9 +145,21 @@
         </td>
       </tr>
       <tr>
+
+        <td><label for="day">Jour</label></td>
+          <td>
+            <input type="checkbox" name="monday" value="Monday">L
+            <input type="checkbox" name="tuesday" value="Tuesday">Ma
+            <input type="checkbox" name="wednesday" value="Wednesday">Me
+            <input type="checkbox" name="thursday" value="Thursday">J
+            <input type="checkbox" name="friday" value="Friday">V
+            <input type="checkbox" name="saturday" value="Saturday">S
+            <input type="checkbox" name="sunday" value="Sunday">D
+          </td>
+      </tr>
     </table>
     <br/>
-    <input type=submit value=Submit id="submit">
+    <input type=submit value="Soumettre" id="submit">
   </form>
 </div>
 </div>

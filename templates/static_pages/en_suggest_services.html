@@ -20,26 +20,25 @@
 <p>The key success of this project is in the open sharing of data. If you believe we are missing any important information regarding children's services in Haiti, please let us know by completing the form below.</p>
 <p>Thank you for your contribution!</p>
 <div class="contact-form suggest">
-<form method="POST" action="">
+<form method="POST" action="/suggest_services">
     <table>
       <tr>
         <td><label for="name">Organization</label></td>
-        <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter organization name here"></td>
+        <td><input type="text" name="organization" value="" id="organization" placeholder="enter organization name here"></td>
       </tr>
       <tr>
         <td><label for="category">Category</label></td>
         <td>
-        <select>
-            <option value="" disabled selected>Select Category</option>
-            <option value="" disabled selected>Select Service</option>
-            <option value="food">Food and Nutrition Support</option>
-            <option value="shelter">Shelter and Care</option>
-            <option value="protection">Protection</option>
-            <option value="healthcare">Healthcare</option>
-            <option value="pyschosocial">Psychosocial Support Services</option>
-            <option value="education">Formal and Informal Education</option>
-            <option value="legal">Legal Services</option>
-            <option value="other">Other Services</option>
+        <select name="category">
+            <option value="" selected>Select Category</option>
+            <option value="nutrition">Nutrition</option>
+            <option value="home_based_care">Home-Based Care</option>
+            <option value="shelter">Shelter</option>
+            <option value="child_protection">Child Protection</option>
+            <option value="pyschosocial">Psychosocial Support</option>
+            <option value="health">Health</option>
+            <option value="education">Education</option>
+            <option value="mental_health_services">Mental Health Services</option>
         </select></td>
       </tr>
       <tr>
@@ -49,10 +48,10 @@
           </td>
       </tr>
       <tr>
-        <td><label for="age">Start Age</label></td>
+        <td><label for="age">Age Range</label></td>
           <td>
-        <select>
-            <option value="None" disabled selected>Select Age</option>
+        <select name="age" style="width:114px;">
+            <option value="None" selected>Select Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -73,13 +72,9 @@
             <option value="17">17</option>
             <option value="18">18</option>
         </select>
-          </td>
-      </tr>
-      <tr>
-        <td><label for="age">End Age</label></td>
-          <td>
-        <select>
-            <option value="None" disabled selected>Select Age</option>
+        &
+        <select name="end_age" style="width:114;">
+            <option value="None" selected>Select Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -105,8 +100,8 @@
       <tr>
         <td><label for="gender">Gender</label></td>
           <td>
-        <select>
-            <option value="" disabled selected>Select Gender</option>
+        <select name="gender">
+            <option value="" selected>Select Gender</option>
             <option value="female">Girls</option>
             <option value="male">Boys</option>
             <option value="male">Girls and Boys</option>
@@ -114,17 +109,30 @@
           </td>
       </tr>
       <tr>
-        <td><label for="region">Region</label></td>
+        <td><label for="region">Department</label></td>
           <td>
-        <select>
-            <option value="" disabled selected>Select Department</option>
-            <option value="">Region 1</option>
-            <option value="">Region 2</option>
-            <option value="">Region 3</option>
-            <option value="">Region 4</option>
-            <option value="">Region 5</option>
+        <select name="department">
+            <option value="" selected>Select Department</option>
+            <option value="Artibonite">Artibonite</option>
+            <option value="Centre">Centre</option>
+            <option value="Grand Anse">Grand Anse</option>
+            <option value="Nippes">Nippes</option>
+            <option value="Nord">Nord</option>
+            <option value="Nord-Est">Nord-Est</option>
+            <option value="Nord-Ouest">Nord-Ouest</option>
+            <option value="Ouest">Ouest</option>
+            <option value="Sud">Sud</option>
+            <option value="Sud-Est">Sud-Est</option>
         </select>
           </td>
+      </tr>
+      <tr>
+        <td>
+          Address or Contact
+        </td>
+        <td>
+          <textarea name="address" cols=40 rows=6></textarea>
+        </td>
       </tr>
       <tr>
         <td>
@@ -133,6 +141,19 @@
         <td>
           <textarea name="details" cols=40 rows=6></textarea>
         </td>
+      </tr>
+
+      <tr>
+        <td><label for="day">Day</label></td>
+          <td>
+            <input type="checkbox" name="monday" value="Monday">M
+            <input type="checkbox" name="tuesday" value="Tuesday">T
+            <input type="checkbox" name="wednesday" value="Wednesday">W
+            <input type="checkbox" name="thursday" value="Thursday">R
+            <input type="checkbox" name="friday" value="Friday">F
+            <input type="checkbox" name="saturday" value="Saturday">Sa
+            <input type="checkbox" name="sunday" value="Sunday">Su
+          </td>
       </tr>
     </table>
     <br/>
