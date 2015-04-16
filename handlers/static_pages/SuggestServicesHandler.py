@@ -59,9 +59,10 @@ class SuggestServicesHandler(BaseHandler.BaseHandler):
     }
 
     confirmation_email(data)
+    self.redirect("/?message='Email sent. Thank you!'")
 
 def confirmation_email(data):
-  user_email = "andy.n.gimma@gmail.com"
+  user_email = "titus@visionlink.org"
   message = mail.EmailMessage(sender="IBESR <andy.n.gimma@gmail.com>",
                             subject="Suggest Services Email Sent")
 
