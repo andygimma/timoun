@@ -8,22 +8,6 @@
               document.createElement("nav"); document.createElement("button");
       </script>
 
-      <!--[if IE 8]>
-              <style>
-                      .col { margin: 0 0.9% !important; }
-                      .nav { width: 100% !important; }
-                        #wrapper {height:100%;}
-              </style>
-      <![endif]-->
-
-      <!--[if IE 7]>
-              <style>
-                      .col { margin: 0 0.9% !important; }
-                      .nav { width: 100% !important; }
-                        #wrapper {height:100%;}
-              </style>
-      <![endif]-->
-
       {% block title %}
       {% endblock %}
       <link rel="stylesheet" href="assets/css/min.css" />
@@ -35,10 +19,26 @@
       <link rel="stylesheet" href="../assets/genericons/genericons.css" />
       <link rel="stylesheet" href="../../assets/genericons/genericons.css" />
       <link rel="stylesheet" href="assets/genericons/genericons.css" />
+      <link rel="stylesheet" href="assets/css/admin-sidebar.css">
+      <link rel="stylesheet" href="../assets/css/admin-sidebar.css">
+      <link rel="stylesheet" href="../../assets/css/admin-sidebar.css">
+      <script src="assets/js/responsive-nav.js"></script>
+      <script src="../assets/js/responsive-nav.js"></script>
+      <script src="../../assets/js/responsive-nav.js"></script>
+      
+      <!--[if IE 8]>
+              <style>
+                      .col { margin: 0 0.9% !important; }
+                        #wrapper {height:100%;}
+              </style>
+      <![endif]-->
 
-<!-- Leaflet -->
-      <link rel="stylesheet" href="assets/css/leaflet.css" />
-        <script src="assets/js/leaflet.js"></script>
+      <!--[if IE 7]>
+              <style>
+                      .col { margin: 0 0.9% !important; }
+                        #wrapper {height:100%;}
+              </style>
+      <![endif]-->
 
       <!--[if lte IE 7]>
                   <style>
@@ -61,9 +61,6 @@
                               width: 97%;
                       }
                       .container {
-                              width: 100%;
-                      }
-                      .nav {
                               width: 100%;
                       }
                       .breadcrumbs {
@@ -90,11 +87,6 @@
                       h3 {
                               font-size: 20px;
                       }
-
-                      .nav {
-                              height: 50px;
-                              width: 100%;
-                      }
                         #wrapper {height:100%;}
               </style>
       <![endif]-->
@@ -111,47 +103,44 @@
   </head>
 
   <body>
-      <div class="sidebar">
-        <nav class="nav admin" tabindex="-1" onclick="this.focus()">
-        <div class="container">
+<div id="wrapper">      
+<div role="navigation" id="foo" class="nav-collapse">
+      <ul>
           {% if user_session %}
-            <a href="/admin" class="first">Admin</a>
+          <li class="active"><a href="/admin" class="first">Admin</a></li>
           {% endif %}
-          <a href="/admin/dashboard">Tableau de bord</a><br/>
-          <a href="/admin/users">Utilisateurs</a><br/>
-          <a href="/admin/records">Archives</a><br/>
-          <a href="/manual">Manuel</a><br/>
-          {% if user_session %}
-            <a href="/users/profile">Profil</a>
-            <a href="/users/logout">Déconnexion</a>
-          {% else %}
-            <a href="/users/login">S'identifier</a>
-          {% endif %}
-        </div>
-        </nav>
-      </div>
-  <div id="wrapper" class="alt">
-    <nav class="nav" tabindex="-1" onclick="this.focus()">
-      <div class="container">
-          <a class="pagename current" href="/">Acceuille</a>
-          {% if role and role == "admin" %}
-            <a href="/admin">Admin</a>
-          {% endif %}
-          <a href="/about">Sur</a>
-          <a href="/search">Recherche</a>
-          <a href="/contact">Contactez IBESR</a>
-          <a href="/suggest_services">Proposer des Services</a>
-          <a href="/mental_illness_services">Services De Santé Mentale</a>
-          <a href="/manual">Manuel</a>
-          {% if user_session %}
-            <a href="/users/profile">Profil</a>
-            <a href="/users/logout">Déconnexion</a>
-          {% else %}
-            <a href="/users/login">S'identifier</a>
-          {% endif %}
-
-      </div>
-    </nav>
+          <li><a href="/admin/dashboard">Tableau de bord</a></li>
+          <li><a href="/admin/users">Utilisateurs</a></li>
+          <li><a href="/admin/records">Records</a></li>
+          <li><a href="/manual">Manuel</a></li>
+      </ul>
+     <br/><hr/>
+    <ul>
+        <li><a href="/">Acceuil</a></li>
+        <li><a href="/search">Recherche Services</a></li>
+        <li><a href="http://ibesr.com">Visitez IBESR</a></li>
+          <li><a href="/suggest_services">Ajouter votre institution</a></li>
+        <li><a href="/contact">Contactez Nous</a></li>
+        <li><a href="/about">Sur</a></li>
+    </ul>
+    <br/><hr/>
+                <ul>
+                 {% if user_session %}
+                <li><a href="/users/profile">Profil</a></li>
+                <li><a href="/users/logout">Déconnexion</a></li>
+                    {% else %}
+                    <li><a href="/users/login">S'identifier</a></li>
+                    {% endif %}
+                </ul>
+    <br/><hr/>
+    <ul>
+        <li><a href="http://www.crs.org/" target="_blank" rel="nofolow">Supporté par   <img src="../../assets/img/catholic-relief-services-logo-white-100.png" width="60" height="" /></a></li>
+        <li><a href="http://ibesr.com/" target="_blank" rel="nofollow">&copy;IBESR: Institut du Bien-Etre Social et de Recherches</a>. Tous Les Droits Sont Réservés.</a></li>
+    </ul>
+    </div>
+    
+    <div role="main" class="main">
+      <a href="#nav" class="nav-toggle">Menu</a>
 
     {% block breadcrumbs %}
     {% endblock %}
@@ -159,12 +148,13 @@
     <div class="container">
       {% block content %}
       {% endblock %}
-    </div>
-      </div>
-      <div class="clearfooter"></div>
-            <div id="footer" align="center">
-                <p class="copy">&copy;2015 <a href="http://ibesr.com/" target="_blank" rel="nofollow">IBESR: Institut du Bien-Etre Social et de Recherches</a>. Tous Les Droits Sont Réservés.</p>
-                <p class="attribution">Porté par <a href="http://visionlink.org/" target="_BLANK" rel="nofollow">VisionLink</a> | Avec un coup de main de  <a href="http://straubcreative.nationbuilder.com" target="_BLANK" rel="nofollow">Straub Creative Company</a></p>
-            </div>
+    </div> <!-- //.container -->    
+    </div> <!-- //.main -->
+</div> <!-- //#wrapper -->
+
+    <script>
+      var navigation = responsiveNav("foo", {customToggle: ".nav-toggle"});
+    </script>
+
   </body>
 </html>
