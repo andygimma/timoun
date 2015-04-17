@@ -101,7 +101,7 @@
             <option value="" selected>Select Option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Boys</option>
             <option {% if gender == "female" %} selected {% endif %}  value="female">Girls</option>
-            <option value="none">Boys &amp; Girls</option>
+            <option value="either">Boys &amp; Girls</option>
             <option value="none">N/A</option>
         </select>
     </div>
@@ -123,10 +123,10 @@
 <div class="results-box">
   {% for record in records %}
     <div class="result">
-        <p>Organization Name: {{ record.nom_de_lorganisation }}</p>
-        <p>Address: {{ record.adresse }}</p>
-        <p>Phone Number: {{ record.telephone }}</p>
-        <p>Services:</p>
+        <p style="color:black;">Organization Name: {{ record[3] }}</p>
+        <p style="color:black;">Address: {{ record.adresse }}</p>
+        <p style="color:black;">Phone Number: {{ record.telephone }}</p>
+        <p style="color:black;">Services:</p>
     </div>
   {% endfor %}
 </div>    
@@ -189,12 +189,12 @@ $( "form" ).on( "submit", function( event ) {
   {% for record in records %}
   // add a marker in the given location, attach some popup content to it and open the popup
   try {
- L.marker([{{ record.latitude }}, {{ record.longitude }}]).addTo(map)
-        .bindPopup("<p style='color:black'><a href='/records/{{record.nom_de_lorganisation}}'>{{ record.nom_de_lorganisation }}</a></p>")
+ L.marker([{{ record[7]}}, {{ record[8] }}]).addTo(map)
+        .bindPopup("<p style='color:black'><a href='/records/{{record[3]}}'>{{ record[3] }}</a></p>")
         .openPopup();
   }
   catch(err) {
-    console.log("none");
+    console.log("{{record[7]}}");
 
   }
   {% endfor %}

@@ -51,3 +51,16 @@ def query_builder(table, attribute, select_statement, distinct_boolean, _as, _fr
     # 	age_end_query = "service.ang = {0}".format(age_end)
     # if gender in genders:
     # 	genders_query = "service.gender = {0}".format(gender)
+
+def search_page():
+  sql_statement = """
+        SELECT `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_nom`, `org_email`, `org_phone`, `program_id`, `latitude`, `longitude`, `age_2`+`age_3`+`age_4`+`age_5`+`age_6`+`age_7`+`age_8`+`age_9`+`age_10`+`age_11`+`age_12`+`age_13`+`age_14`+`age_15`+`age_16`+`age_17` AS `age_matches`
+        FROM `service`
+        WHERE `program_id` = {0}
+        AND `name_french` = '{1}'
+        AND `age_2`+`age_3`+`age_4`+`age_5`+`age_6`+`age_7`+`age_8`+`age_9`+`age_10`+`age_11`+`age_12`+`age_13`+`age_14`+`age_15`+`age_16`+`age_17`>0 
+        AND {3}
+        AND `commune` = '{4}'
+        AND `departement` = '{4}'
+        ;
+  """.encode("utf-8")

@@ -20,34 +20,66 @@ class SearchHandler(BaseHandler.BaseHandler):
     age_start = self.request.get("age_start")
     age_end = self.request.get("age_end")
     gender = self.request.get("gender")
+
     if False: #search(self):
       pass
     else: 
       page = self.request.get("page")
       if page == None:
         page = 0
-      if gender:
-        if gender == "male":
-          qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'oui' LIMIT 50")
-        if gender == "female":
-          qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'non' LIMIT 50")
+      # if gender:
+      #   if gender == "male":
+      #     qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'oui' LIMIT 50")
+      #   if gender == "female":
+      #     qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'non' LIMIT 50")
 
-        if gender == "none" or gender == None:
-          qry = ndb.gql("SELECT * FROM Record")
+      #   if gender == "none" or gender == None:
+      #     qry = ndb.gql("SELECT * FROM Record")
 
-        records = qry.fetch(50)
-        role = self.session.get('role')
-        user_session = self.session.get("user")
-        template_values = {
-          "role": self.session.get("role"),
-          "user_session": user_session,
-          "message": self.request.get("message"),
-          "records": records,
-          "gender": gender
-        }
-        LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
-        self.response.write(LEGACY_TEMPLATE.render(template_values))
-        return
+      #   records = qry.fetch(50)
+      #   role = self.session.get('role')
+      #   user_session = self.session.get("user")
+      #   template_values = {
+      #     "role": self.session.get("role"),
+      #     "user_session": user_session,
+      #     "message": self.request.get("message"),
+      #     "records": records,
+      #     "gender": gender
+      #   }
+      #   LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
+      #   self.response.write(LEGACY_TEMPLATE.render(template_values))
+      #   return
+      sql_statement = """SELECT `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_nom`, `org_email`, `org_phone`, `program_id`, `latitude`, `longitude`, COUNT(DISTINCT(`name_french`)) AS `service_count`
+        FROM `service`
+        GROUP BY `org_id`
+        LIMIT 25
+        """
+
+      if gender and gender == "male":
+        sql_statement = """SELECT `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_nom`, `org_email`, `org_phone`, `program_id`, `latitude`, `longitude`, COUNT(DISTINCT(`name_french`)) AS `service_count`
+        FROM `service`
+        WHERE `garcons` = 1
+        GROUP BY `org_id`
+        LIMIT 25
+        """
+     
+      if gender and gender == "female":
+        sql_statement = """SELECT `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_nom`, `org_email`, `org_phone`, `program_id`, `latitude`, `longitude`, COUNT(DISTINCT(`name_french`)) AS `service_count`
+        FROM `service`
+        WHERE `filles` = 1
+        GROUP BY `org_id`
+        LIMIT 25
+        """
+
+      if gender and gender == "either":
+        sql_statement = """SELECT `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_nom`, `org_email`, `org_phone`, `program_id`, `latitude`, `longitude`, COUNT(DISTINCT(`name_french`)) AS `service_count`
+        FROM `service`
+        WHERE (`garcons` = 1 OR `filles`=1)
+        GROUP BY `org_id`
+        LIMIT 25
+        """        
+      records = QueryHandler.execute_query(sql_statement)
+      # raise Exception(records[3])
 
       language = None
       if "language" in self.request.cookies:
@@ -71,7 +103,8 @@ class SearchHandler(BaseHandler.BaseHandler):
         "role": self.session.get("role"),
         "user_session": user_session,
         "message": self.request.get("message"),
-        "services_select": QueryHandler.get_services_select()
+        "services_select": QueryHandler.get_services_select(),
+        "records": records
       }
       self.response.write(LEGACY_TEMPLATE.render(template_values))
 
