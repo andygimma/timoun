@@ -30,40 +30,40 @@
         <select name="service">
             <option value="" selected>Select Service</option>
             <optgroup label="Program 1">
-                <option value="">Service 1</option>
-                <option value="">Service 2</option>
-                <option value="">Service 3</option>
+                <option value="0">Service 1</option>
+                <option value="1">Service 2</option>
+                <option value="2">Service 3</option>
             </optgroup>
             <optgroup label="Program 2">
-                <option value="">Service 1</option>
-                <option value="">Service 2</option>
-                <option value="">Service 3</option>
+                <option value="3">Service 1</option>
+                <option value="4">Service 2</option>
+                <option value="5">Service 3</option>
             </optgroup>
             <optgroup label="Program 3">
-                <option value="">Service 1</option>
-                <option value="">Service 2</option>
-                <option value="">Service 3</option>
+                <option value="6">Service 1</option>
+                <option value="7">Service 2</option>
+                <option value="8">Service 3</option>
             </optgroup>
         </select>
     </div>
     <div class="search" align="center">
         <label>Department</label>
-        <select name="region">
+        <select name="department">
             <option value="" selected>Select Department</option>
             <optgroup label="Department 1">
-                <option value="">Commune 1</option>
-                <option value="">Commune 2</option>
-                <option value="">Commune 3</option>
+                <option value="0">Commune 1</option>
+                <option value="1">Commune 2</option>
+                <option value="2">Commune 3</option>
             </optgroup>
             <optgroup label="Department 2">
-                <option value="">Commune 1</option>
-                <option value="">Commune 2</option>
-                <option value="">Commune 3</option>
+                <option value="3">Commune 1</option>
+                <option value="4">Commune 2</option>
+                <option value="5">Commune 3</option>
             </optgroup>
             <optgroup label="Department 3">
-            <option value="">Commune 1</option>
-            <option value="">Commune 2</option>
-            <option value="">Commune 3</option>
+            <option value="6">Commune 1</option>
+            <option value="7">Commune 2</option>
+            <option value="8">Commune 3</option>
             </optgroup>
             <option value="none">N/A</option>
         </select>
@@ -75,23 +75,23 @@
     <div id="search-container" align="center">
     <div class="search" align="center">
         <label>Age Min:</label>
-        <select name="age">
-            <option value="" selected>Select Range</option>
-            <option value="">Age 0-3</option>
-            <option value="">Age 4-10</option>
-            <option value="">Age 11-14</option>
-            <option value="">Age 15-18</option>
+        <select name="age_start">
+            <option value="0" selected>Select Range</option>
+            <option value="1">Age 0-3</option>
+            <option value="2">Age 4-10</option>
+            <option value="3">Age 11-14</option>
+            <option value="4">Age 15-18</option>
             <option value="none">N/A</option>
         </select>
         </div>
     <div class="search" align="center">
         <label>Age Max:</label>
-        <select name="age">
-            <option value="" selected>Select Range</option>
-            <option value="">Age 0-3</option>
-            <option value="">Age 4-10</option>
-            <option value="">Age 11-14</option>
-            <option value="">Age 15-18</option>
+        <select name="age_end">
+            <option value="0" selected>Select Range</option>
+            <option value="1">Age 0-3</option>
+            <option value="2">Age 4-10</option>
+            <option value="3">Age 11-14</option>
+            <option value="4">Age 15-18</option>
             <option value="none">N/A</option>
         </select>
     </div>
@@ -166,6 +166,15 @@
     <p>If other key services are found during mapping activities or via another vulnerable children actor, they will be included.</p>
 </div>
 <!-- Scripts Go Here -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+$( "form" ).on( "submit", function( event ) {
+  event.preventDefault();
+  var queryString = $( this ).serialize();
+  console.log(queryString);
+  window.location = "/search?" + queryString;
+});
+</script>
 <script>
   var map = L.map('map').setView([18.533, -72.333], 7);
     map.scrollWheelZoom.disable();

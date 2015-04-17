@@ -4,6 +4,7 @@ import webapp2
 from handlers import BaseHandler
 from google.appengine.ext import db
 from models import Record
+from helpers import QueryHandler
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -25,7 +26,8 @@ class AdminViewRecordHandler(BaseHandler.BaseHandler):
     if not self.legacy:
       self.redirect("/#/admin")
 
-    record = Record.Record.get_by_id(int(record_id))
+
+    record = QueryHandler.get_organization_by_id(record_id)
 
     template_values = {
       "message": self.request.get("message"),

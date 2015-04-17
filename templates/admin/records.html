@@ -34,7 +34,7 @@
     {% for record in records %}
         <tbody>
           <tr>
-            <td><a href="/admin/records/"><i class="ico">✎</i>  {{ record }}</a></td>
+            <td><a href="/admin/records/{{ record[1] }}"><i class="ico">✎</i>  {{ record }}</a></td>
           </tr>
         </tbody>
     {% endfor %}

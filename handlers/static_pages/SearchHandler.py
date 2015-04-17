@@ -3,6 +3,7 @@ import os
 import jinja2
 import webapp2
 from handlers import BaseHandler
+from helpers import QueryHandler
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -13,58 +14,66 @@ LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
 
 class SearchHandler(BaseHandler.BaseHandler):
   def get(self):
+    keywords = self.request.get("keywords")
+    service = self.request.get("service")
+    department = self.request.get("department")
+    age_start = self.request.get("age_start")
+    age_end = self.request.get("age_end")
     gender = self.request.get("gender")
-    page = self.request.get("page")
-    if page == None:
-      page = 0
-    if gender:
-      if gender == "male":
-        qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'oui' LIMIT 50")
-      if gender == "female":
-        qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'non' LIMIT 50")
+    if False: #search(self):
+      pass
+    else: 
+      page = self.request.get("page")
+      if page == None:
+        page = 0
+      if gender:
+        if gender == "male":
+          qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'oui' LIMIT 50")
+        if gender == "female":
+          qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'non' LIMIT 50")
 
-      if gender == "none" or gender == None:
-        qry = ndb.gql("SELECT * FROM Record'")
+        if gender == "none" or gender == None:
+          qry = ndb.gql("SELECT * FROM Record")
 
-      records = qry.fetch(50)
-      #raise Exception(len(entities))
+        records = qry.fetch(50)
+        role = self.session.get('role')
+        user_session = self.session.get("user")
+        template_values = {
+          "role": self.session.get("role"),
+          "user_session": user_session,
+          "message": self.request.get("message"),
+          "records": records,
+          "gender": gender
+        }
+        LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
+        self.response.write(LEGACY_TEMPLATE.render(template_values))
+        return
+
+      language = None
+      if "language" in self.request.cookies:
+        language = self.request.cookies["language"]
+      else:
+        language = "fr"
+        self.response.set_cookie("language", "fr")
+
+      language = language.replace('"', '').replace("'", "")
+      if language == "fr":
+        LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_search.html')
+      else:
+        LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
+
+      if not self.legacy:
+        self.redirect("/#/search")
+
       role = self.session.get('role')
       user_session = self.session.get("user")
       template_values = {
         "role": self.session.get("role"),
         "user_session": user_session,
         "message": self.request.get("message"),
-        "records": records,
-        "gender": gender
+        "services_select": QueryHandler.get_services_select()
       }
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
       self.response.write(LEGACY_TEMPLATE.render(template_values))
-      return
-
-    language = None
-    if "language" in self.request.cookies:
-      language = self.request.cookies["language"]
-    else:
-      language = "fr"
-      self.response.set_cookie("language", "fr")
-
-    language = language.replace('"', '').replace("'", "")
-    if language == "fr":
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_search.html')
-    else:
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
-
-    if not self.legacy:
-      self.redirect("/#/search")
-
-    role = self.session.get('role')
-    user_session = self.session.get("user")
-    template_values = {
-      "role": self.session.get("role"),
-      "user_session": user_session,
-      "message": self.request.get("message")
-    }
-    self.response.write(LEGACY_TEMPLATE.render(template_values))
 
   def post(self):
     gql_string = None
@@ -80,7 +89,7 @@ class SearchHandler(BaseHandler.BaseHandler):
       qry = ndb.gql("SELECT * FROM Record WHERE estce_que_votre_organisation_offre_des_services_en_sant_men = 'non' LIMIT 50 OFFSET {0}".format(str(page * 50)))
 
     if gender == "none" or gender == None:
-      qry = ndb.gql("SELECT * FROM Record'")
+      qry = ndb.gql("SELECT * FROM Record")
 
     records = qry.fetch(50)
     #raise Exception(len(entities))
@@ -91,7 +100,7 @@ class SearchHandler(BaseHandler.BaseHandler):
       "user_session": user_session,
       "message": self.request.get("message"),
       "records": records,
-      "gender": gender
+      "gender": gender,
     }
     LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('en_search.html')
     self.response.write(LEGACY_TEMPLATE.render(template_values))
@@ -100,3 +109,16 @@ def query_builder(query_string, new_string):
   if not query_string:
     query_string = "SELECT * FROM Record WHERE "
   return query_string + new_string
+
+def search(self):
+  keywords = self.request.get("keywords")
+  service = self.request.get("service")
+  department = self.request.get("department")
+  age_start = self.request.get("age_start")
+  age_end = self.request.get("age_end")
+  gender = self.request.get("gender")
+
+  if keywords or service or department or age_start or age_end or gender:
+    return True
+  else:
+    return False
