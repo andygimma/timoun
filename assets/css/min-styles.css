@@ -193,7 +193,7 @@ ul.pagination li a {color: #333;}
 /* MANUAL */
 .main h2, .main h3 {text-align: left;}
 .main ul {margin:0; padding: 0; width: 100%;}
-.main ul li {display: block; margin-left: 12%; margin-bottom: 10px; color: #525252}
+.main ul li {display: block; margin-left: 12%; margin-bottom: 10px; color: #525252;}
 
 /* LOGIN PAGES */
 .login, .contact-form {margin-left: 10%;}
@@ -205,23 +205,6 @@ ul.pagination li a {color: #333;}
 .errors {width: 50%; margin-left: 8%;}
 .errors li {list-style-type:circle; color: #7F0000;}
 
-/* ADMIN */
-/*.alt {float: left; width:80%; margin-left: 20%;}
-.sidebar {float: left; position: absolute; width: 20%; background: #302e2c; min-height: 100%;}
-.admin {background: #302e2c; display: block; text-align: left;}
-.admin a {color:#fff; font-size: small; clear: both; float: left; line-height: 1.3em; margin-bottom: 0; width: 100%; text-align: left; word-break: break-all; padding: 10px;}
-.admin a:hover {text-align: left; width: 100%;}
-.admin a.first {margin-top:30px;}
-*/
-
-/* RECORDS */
-/*
-table.records {margin-bottom: 20px;}
-table.records tr:nth-child(even) {background: #fff!important;}
-table.records tr:nth-child(odd) {background: #187d9f!important;}
-table.records tr:nth-child(even) a {color: #187d9f!important;}
-table.records tr:nth-child(odd) a {color:#fff;!important}
-*/
 
 /* KEEP AT BOTTOM OF STYLESHEET */
 .leaflet-popup-content p (color: #888;}
