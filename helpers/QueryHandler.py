@@ -1,10 +1,12 @@
 import os
 import MySQLdb
 
+_INSTANCE_NAME = 'timoun-production:surveydata'
+
 def execute_query(query_string):
     if (os.getenv('SERVER_SOFTWARE') and
       os.getenv('SERVER_SOFTWARE').startswith('Google App Engine/')):
-      db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db='survey_data_4_15', user='andy', passwd="11oinn")
+      db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db='survey_data_4_15', user='andy2', passwd="11oinn")
     else:
       db = MySQLdb.connect(host='127.0.0.1', port=3306, db='timoun_4_15', user='root', passwd="11oinn")
 
