@@ -162,8 +162,8 @@ message {
 
 .search-map {width: 40%!important; float: left!important; height: 400px!important; margin: 0; padding: 0;}
 .results-box {background:#fff; width: 39%; margin-top: -3px; margin-left: 1%; padding: 0; border: 3px solid #302e2c; height: 400px; overflow: scroll; float: left;}
-.result {width: 80%; margin-left: 10%; padding: 10px 0 10px 0; border-bottom: 1px solid #999;}
-.result p {color:#258db1; margin:0; padding-bottom: 5px;}
+.result {width: 90%; padding: 10px 0 10px 0; border-bottom: 1px solid #999;}
+.result p {color:#258db1!important; text-align: left; width: 100%!important; margin:0; padding-bottom: 5px;}
 ul.pagination {float: left;list-style-type: none; padding: 0; margin: 25px 0 25px 0; width: 100%;}
 ul.pagination li {display: inline; background: #f9c700; padding: 5px 10px 5px 10px;}
 ul.pagination li a {color: #333;}
