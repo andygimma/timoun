@@ -1,8 +1,19 @@
 import os
 import webapp2
 from handlers import BaseHandler
-from models import User, Audit
+from models import User, Audit, SearchRecord
 import csv
+
+SEARCHES_CSV_FIELDS = [
+      'ip_address',
+      'created_at',
+      'keywords',
+      'service',
+      'department',
+      'age_start',
+      'age_end',
+      'gender'
+]
 
 USER_CSV_FIELDS = [
       'name',
@@ -74,6 +85,18 @@ def ToCsvLine(model, fields):
 class ExportHandler(BaseHandler.BaseHandler):
   def get(self, export_type):
     self.response.headers['Content-Type'] = 'text/csv'
+
+    if export_type == "searches":
+      self.response.headers['Content-Disposition'] = \
+        'attachment; filename="timoun_search_records.csv"'
+
+      writer = csv.writer(self.response.out)
+
+      writer.writerow(SEARCHES_CSV_FIELDS)
+      searches = SearchRecord.SearchRecord.query()
+      for search in searches:
+          writer.writerow(ToCsvLine(search, SEARCHES_CSV_FIELDS))
+
 
     if export_type == "user_dashboard":
       self.response.headers['Content-Disposition'] = \

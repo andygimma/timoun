@@ -1,0 +1,49 @@
+{% extends "legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_admin" href="/admin">Admin</a> / <a id="breadcrumb_admin_organizations" href="/admin/searches">Searches</a>
+    <div id="language" style="text-align: right; float:right; margin-right: 20px;">
+      <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <a href="/admin/export/searches" class="btn btn-b">CSV</a>
+  <h2>Searches</h2>
+  <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>IP Address</th>
+          <th>Keywords</th>
+          <th>Service</th>
+          <th>Department</th>
+          <th>Age Start</th>
+          <th>Age End</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+
+    {% for search in searches %}
+        <tbody>
+          <tr>
+            <td>{{ search.created_at }}</td>
+            <td>{{ search.ip_address }}</td>
+            <td>{{ search.keywords }}</td>
+            <td>{{ search.service }}</td>
+            <td>{{ search.department }}</td>
+            <td>{{ search.age_start }}</td>
+            <td>{{ search.age_end }}</td>
+            <td>{{ search.gender }}</td>
+          </tr>
+        </tbody>
+    {% endfor %}
+  
+  </table>
+
+{% endblock %}
