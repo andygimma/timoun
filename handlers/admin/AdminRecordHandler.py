@@ -8,7 +8,6 @@ import MySQLdb
 from helpers import QueryHandler
 
 _INSTANCE_NAME = 'timoun-production:surveydata'
-
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
         [os.path.join(os.path.dirname(__file__),"../../templates/admin"),
@@ -18,28 +17,14 @@ LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('records.html')
 
 class AdminRecordHandler(BaseHandler.BaseHandler):
   def get(self):
-    sql_statement = """
-    SELECT `t0`.`id` AS `lev0_id`, `t0`.`name_french` AS `lev0_name_fr`, `t0`.`name_english` AS `lev0_name_en`, `t1`.`id` AS `lev1_id`, `t1`.`name_french` AS `lev1_name_fr`, `t1`.`name_english` AS `lev1_name_en`, `t1`.`name_safe_short` AS `lev1_name_short`, `t1`.`access` AS `lev1_access`, `t2`.`id` AS `lev2_id`, `t2`.`name_french` AS `lev2_name_fr`, `t2`.`name_english` AS `lev2_name_en`, `t2`.`name_safe_short` AS `lev2_name_short`, `t2`.`access` AS `lev2_access`, `t3`.`id` AS `lev3_id`, `t3`.`name_french` AS `lev3_name_fr`, `t3`.`name_english` AS `lev3_name_en`, `t3`.`name_safe_short` AS `lev3_name_short`, `t3`.`access` AS `lev3_access`
-    FROM `section` AS `t0`
-    LEFT JOIN `attribute` AS `t1` ON `t1`.`section_id` = `t0`.`id`
-    LEFT JOIN `attribute` AS `t2` ON `t2`.`parent_id` = `t1`.`id`
-    LEFT JOIN `attribute` AS `t3` ON `t3`.`parent_id` = `t2`.`id`
-    WHERE `t1`.`parent_id` = 0;
-    """
-
-    records = QueryHandler.execute_query(sql_statement)
-    missed = []
-    html_string = ""
-    html_string += format_html(records)
-
-    # raise Exception(missed)
-    # raise Exception(records[140])
-    self.response.headers['Content-Type'] = 'text/html'
-    self.response.write(html_string)
-    return
+    
     role = self.session.get('role')
     user_session = self.session.get("user")
     page = self.request.get("page")
+    offset_string = ""
+    if page:
+      offset = int(page) * 100
+      offset_string = "OFFSET {0}".format(offset)
 
     if role != "admin":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
@@ -49,6 +34,8 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
       self.redirect("/#/admin")
 
     query = Record.Record.query()
+    if not page:
+      page = 0
     records = None
     if page:
       offset = int(page) * 100
@@ -60,8 +47,11 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
       page = 0
     else:
       page = int(page)
-
-    records = QueryHandler.execute_query('SELECT 1_nom, id FROM organization LIMIT 100')
+    records = None
+    if search(self):
+      records = QueryHandler.form_query_builder(self, page, 100)
+    else:
+      records = QueryHandler.execute_query("SELECT 1_nom, id FROM organization LIMIT 100 {0}".format(offset_string))
 
     #raise Exception(len(guestlist))
     next_page = page + 1
@@ -206,3 +196,16 @@ def get_level_id(record, index):
     return record[8]
   if index == 1:
     return record[3]
+
+def search(self):
+  keywords = self.request.get("keywords")
+  service = self.request.get("service")
+  department = self.request.get("department")
+  age_start = self.request.get("age_start")
+  age_end = self.request.get("age_end")
+  gender = self.request.get("gender")
+
+  if keywords or service or department or age_start or age_end or gender:
+    return True
+  else:
+    return False

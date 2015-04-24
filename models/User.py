@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*- 
+
 from google.appengine.ext import ndb
 from wtforms import Form, BooleanField, StringField, SelectField, PasswordField, validators
 from wtforms.ext.appengine.db import model_form
@@ -148,13 +150,15 @@ def hash_password(password):
 
 def profile_update_email(user_email):
   message = mail.EmailMessage(sender=ORIGIN_EMAIL,
-                            subject="Your account has been updated")
+                            subject="Actualisation de votre profil / Your account has been updated")
 
   message.to = "<%s>" % user_email
   message.body = """
 
+  Votre compte Timoun a été mis à jour par quelqu'un connecté à votre compte.
   Your Timoun account has been updated by someone logged into your account.
 
+  Si vous pensez que quelqu'un d'autre utilise votre compte, veuillez contacter directement Timoun.
   If you think someone else updated your account, please contact Timoun directly.
 
   """
@@ -163,14 +167,16 @@ def profile_update_email(user_email):
 
 def confirmation_email(user_email, email_endpoint, user_name):
   message = mail.EmailMessage(sender=ORIGIN_EMAIL,
-                            subject="Your account requires confirmation")
+                            subject="Confirmation de votre courrier / Your account requires confirmation")
 
   message.to = "<%s>" % user_email
   message.body = """
   {0}
 
+  Vous etes invité à utiliser ce site
   You have been invited to use Timoun.
 
+  Veuillez suivre le lien pour créer votre mot de passe et confirmer votre compte.
   Please follow the email below to set your password and confirm your account.
 
   http://timoun-production.appspot.com/admin/users/{1}
@@ -194,15 +200,18 @@ def send_reset_password_email(self, form, TEMPLATE):
     user.put()
 
     message = mail.EmailMessage(sender=ORIGIN_EMAIL,
-                              subject="Your account requires confirmation")
+                              subject="Changez votre code secret / Your account requires confirmation")
 
     message.to = "<%s>" % form.email.data
     message.body = """
+    Objet: votre compte nécessite une confirmation
     Someone is trying to reset your password.
 
+    Veuillez le signaler, si ce n’est pas vous
     If that wasn't you, please contact Timoun.
 
-    Otherwise, Please follow the email below to reset your password
+    Veuillez suivre le lien ci-dessous pour créer un autre mot de passe secret.
+    Otherwise, Please follow the link below to reset your password
 
     http://timoun-production.appspot.com/users/set_password/{1}
 

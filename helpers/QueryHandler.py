@@ -1,5 +1,7 @@
 import os
+import json
 import MySQLdb
+from models import SearchRecord
 
 _INSTANCE_NAME = 'timoun-production:surveydata'
 
@@ -37,21 +39,26 @@ def get_organization_by_id(organization_id):
 	org_sql = "SELECT * FROM organization WHERE id = {0}".format(organization_id)
 	return execute_query(org_sql)
 
-def form_query_builder(self):
+def form_query_builder(self, page=None, limit=25):
   keywords = self.request.get("keywords")
   service = self.request.get("service")
   department = self.request.get("department")
   age_start = self.request.get("age_start")
   age_end = self.request.get("age_end")
   gender = self.request.get("gender")
-  
+  record_search(keywords, service, department, age_start, age_end, gender)
 
-  
+
 
   service_query = ""
   department_query = ""
   gender_query = ""
   age_query = ""
+  page_query = ""
+  if page:
+    page_int = int(page)
+    offset = page_int * 100
+    page_query = "OFFSET {0}".format(offset)
   if age_start and age_end:
     age_start, age_end = order_age(age_start, age_end)
     age_query = sql_age_string(age_start, age_end)
@@ -70,7 +77,7 @@ def form_query_builder(self):
     if gender_query == "either":
       gender_query = "AND (`garcons` = 1 OR `filles`=1)"
 
-  sql_statement = """SELECT `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_nom`, `org_email`, `org_phone`, `program_id`, `latitude`, `longitude`, COUNT(DISTINCT(`name_french`)) AS `service_count`
+  sql_statement = """SELECT  `org_nom`, `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_email`, `org_phone`, `program_id`, `latitude`, `longitude`, COUNT(DISTINCT(`name_french`)) AS `service_count`
                       FROM `service`
                       WHERE 1 = 1
                       {0}
@@ -78,8 +85,9 @@ def form_query_builder(self):
                       {2}
                       {3}
                       GROUP BY `org_id`
-                      LIMIT 25
-  """.format(gender_query, service_query, department_query, age_query).decode("utf-8")
+                      LIMIT {4}
+                      {5}
+  """.format(gender_query, service_query, department_query, age_query, limit, page_query).decode("utf-8")
   # raise Exception(sql_statement)
   # raise Exception(len(execute_query(sql_statement)))
 
@@ -105,3 +113,9 @@ def form_builder(sql_statement):
 
 def encoded_records(records):
   return [[word.decode("latin-1") if isinstance(word, str) or isinstance(word, unicode) else word for word in sets] for sets in records]
+
+def record_search(keywords, service, department, age_start, age_end, gender):
+  ip = os.environ["REMOTE_ADDR"]
+  s = SearchRecord.SearchRecord(ip_address = ip, keywords = keywords, service = service, department = department, age_start = age_start, age_end = age_end, gender = gender)
+  s.put()
+

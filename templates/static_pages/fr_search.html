@@ -265,17 +265,17 @@
 <div class="results-box">
   {% for record in records %}
     <div class="result">
-        <p>Nom de l'organisation: {{ record.nom_de_lorganisation }}</p>
-        <p>Adresse: {{ record.adresse }}</p>
-        <p>Numéro de téléphone: {{ record.telephone }}</p>
-        <p>Services:</p>
+        <p style="color: black;">Nom de l'organisation: <a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[0] }}</a></p>
+        <p style="color: black;">Adresse: </p>
+        <p style="color: black;">Numéro de téléphone: {{ record[5] }}</p>
+        <p style="color: black;">Services: {{ record[1] }}</p>
     </div>
   {% endfor %}
 </div>    
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
-        <li><a href="">Dernière Page</a></li>
-        <li><a href="">Page Suivante</a></li>
+        <li><a id="last_page_link" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Dernière Page</a></li>
+        <li><a id="next_page_link" href="/search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Page Suivante</a></li>
     </ul>
     <p class="search-again">Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau , et cliquez sur le bouton Rechercher.</p>
 </div><!-- //#results-container -->
@@ -318,6 +318,19 @@ $( "form" ).on( "submit", function( event ) {
 });
 </script>
 <script>
+    function getURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+    }
+
+    var pageParam = getURLParameter("page");
+
+    if (pageParam == "0" || pageParam == null) {
+        console.log("12")
+        $("#last_page_link").hide();
+    } else {
+        console.log("!")
+    }
+
   var map = L.map('map').setView([18.533, -72.333], 7);
     map.scrollWheelZoom.disable();
 
@@ -332,7 +345,7 @@ $( "form" ).on( "submit", function( event ) {
   // add a marker in the given location, attach some popup content to it and open the popup
   try {
  L.marker([{{ record[7]}}, {{ record[8] }}]).addTo(map)
-        .bindPopup("<p style='color:black'><a href='/admin/records/{{record[2]}}'>{{ record[3] }}</a></p>")
+        .bindPopup("<p style='color:black'><a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[0] }}</a></p>")
         .openPopup();
   }
   catch(err) {
@@ -341,4 +354,5 @@ $( "form" ).on( "submit", function( event ) {
   }
   {% endfor %}
 </script>
+
 {% endblock %}

@@ -3,7 +3,7 @@ import jinja2
 import os
 from models import Commune
 from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler, RecordHandler, LanguageHandler
-from handlers.admin import IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewRecordHandler, ExportHandler
+from handlers.admin import SearchRecordHandler, IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewRecordHandler, ExportHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
 from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler, AdminOrgDashboardHandler
@@ -36,6 +36,7 @@ app = webapp2.WSGIApplication([
     ('/manual', ManualHandler.ManualHandler),
     ('/admin', IndexHandler.IndexHandler),
     #('/admin/iformbuilder_task', AdminIFormBuilderHandler.AdminIFormBuilderHandler),
+    ('/admin/searches', SearchRecordHandler.SearchRecordHandler),
     ('/admin/users', UsersIndexHandler.UsersIndexHandler),
     ('/admin/users/new', NewUserHandler.NewUserHandler),
     ('/admin/users/dashboard', UserDashboardHandler.UserDashboardHandler),

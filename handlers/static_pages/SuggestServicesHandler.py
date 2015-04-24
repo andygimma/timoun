@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*- 
 import os
 import jinja2
 import webapp2
@@ -69,21 +70,30 @@ def confirmation_email(data):
 
   message.to = "<%s>" % user_email
   message.body = """
-
+  Votre demande d’ajouter un service a été autorisée. Voici les informations suivantes.
   A service suggestion has been sent. Here is the information.
 
-  Organisation / Organization: {0}
-  Categorie / Category: {1}
+  Organisation / Organisation: {0}
+
+  Category / Catégorie: {1}
+
   Service / Service: {2}
+
   Tranche d'age / Start Age: {3}
-  A d'age / End Age: {4}
+
+  Age max / End Age: {4}
+
   Sexe / Gender: {5}
-  Departement / Department: {6}
-  Adresse ou coordonnees / Address: {7}
-  Details / Details: {8}
-  Jour / Day: {9}, {10}, {11}, {12}, {13}, {14}, {15}
+
+  Département / Department: {6}
+
+  Adresse ou coordonnées / Address: {7}
+
+  Details / Détails: {8}
+
+  Jour de fontionnement / Day: {9}, {10}, {11}, {12}, {13}, {14}, {15}
 
 
-  """.format(data["organization"], data["category"], data["service"], data["age"], data["age_end"], data["gender"], data["department"], data["address"], data["details"], data["monday"], data["tuesday"], data["wednesday"], data["thursday"], data["friday"], data["saturday"], data["sunday"])
+  """.encode("utf-8").format(data["organization"], data["category"], data["service"], data["age"], data["age_end"], data["gender"], data["department"], data["address"], data["details"], data["monday"], data["tuesday"], data["wednesday"], data["thursday"], data["friday"], data["saturday"], data["sunday"])
 
   message.send()
