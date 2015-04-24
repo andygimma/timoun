@@ -19,29 +19,117 @@
 
 {% block content %}
 <div class="top">
-    <h1>About This Project</h1>
-    <hr/>
-        <p>The purpose of the website is to increase access to and coordination of programming and services for vulnerable children across all main service areas (i.e. health, education and legal services).</p>
-        <p>To accomplish our goal, this website provides an online directory of resources and services that can be easily searched with the use of an interactive online map of these services.</p>
-    <p>The immediate objective is to develop an online interactive map that: focuses on the identification of the services; includes all services identified and verified concerning the welfare of children; provides access to all stakeholders via a platform based on the Web; be available to the Bridgade IBESR phone service to provide operators with information specific reference.</p>
-       <div class="map-cta">
-            <a href="/search"><div class="btn">Search For Services Near You</div></a>
+    <h1>A free, usable tool that's ready for you!</h1>
+    <!--hr/ -->
+        <div id="map" class="search-map"></div>
+    <form action="/search" method="get" id="main-search-form" class="home-search-form">
+    <div id="search-container" align="left">
+    <div class="home-search" align="left">
+            <label>Keywords</label>
+            <input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here...">
+
+    </div>
+    <div class="home-search" align="left">
+        <label>Service</label>
+        <select name="service">
+            <option value="" selected>Select Service</option>
+            <optgroup label="Program 1">
+                <option value="">Service 1</option>
+                <option value="">Service 2</option>
+                <option value="">Service 3</option>
+            </optgroup>
+            <optgroup label="Program 2">
+                <option value="">Service 1</option>
+                <option value="">Service 2</option>
+                <option value="">Service 3</option>
+            </optgroup>
+            <optgroup label="Program 3">
+                <option value="">Service 1</option>
+                <option value="">Service 2</option>
+                <option value="">Service 3</option>
+            </optgroup>
+        </select>
+    </div>
+    <div class="home-search" align="left">
+        <label>Department</label>
+        <select name="region">
+            <option value="" selected>Select Department</option>
+            <optgroup label="Department 1">
+                <option value="">Commune 1</option>
+                <option value="">Commune 2</option>
+                <option value="">Commune 3</option>
+            </optgroup>
+            <optgroup label="Department 2">
+                <option value="">Commune 1</option>
+                <option value="">Commune 2</option>
+                <option value="">Commune 3</option>
+            </optgroup>
+            <optgroup label="Department 3">
+            <option value="">Commune 1</option>
+            <option value="">Commune 2</option>
+            <option value="">Commune 3</option>
+            </optgroup>
+            <option value="none">N/A</option>
+        </select>
+    </div>
+    </div> <!-- //.search-container -->
+    <!-- // 1st Row  -->
+
+    <!-- 2nd Row Starts -->
+    <div id="search-container" align="left">
+    <div class="home-search" align="left">
+        <label>Age Min:</label>
+        <select name="age">
+            <option value="" selected>Select Range</option>
+            <option value="">Age 0-3</option>
+            <option value="">Age 4-10</option>
+            <option value="">Age 11-14</option>
+            <option value="">Age 15-18</option>
+            <option value="none">N/A</option>
+        </select>
         </div>
+    <div class="home-search" align="left">
+        <label>Age Max:</label>
+        <select name="age">
+            <option value="" selected>Select Range</option>
+            <option value="">Age 0-3</option>
+            <option value="">Age 4-10</option>
+            <option value="">Age 11-14</option>
+            <option value="">Age 15-18</option>
+            <option value="none">N/A</option>
+        </select>
+    </div>
+    <div class="home-search" align="left">
+        <label>Gender</label>
+        <select name="gender">
+            <option value="" selected>Select Option</option>
+            <option {% if gender == "male" %} selected {% endif %} value="male">Boys</option>
+            <option {% if gender == "female" %} selected {% endif %}  value="female">Girls</option>
+            <option value="none">Boys &amp; Girls</option>
+            <option value="none">N/A</option>
+        </select>
+    </div>
+    </div><!-- //.search-container -->
+    <!-- // 2nd Row  -->
+            <div class="map-cta">
+                <input type="submit" class="btn" value="Search Now">
+            </div>
+
+</form>
+</div>
+<h3>Programs &amp; Services Map - A New Way to Discover Services for Orphaned and Vulnerable Children</h3>    
+<p>Learn more about the programs that serve orphans and vulnerable children throughout Haiti. Explore the site location, service, and organization. Gain a better perspective on country through relevant map data layers, such as levels of poverty and malnutrition rates.</p>
 </div>
 
 <div class="mid">
-    <h2>A New Way to Discover Services for Orphaned and Vulnerable Children</h2>
-    <h3>Programs &amp; Services Map - A free, usable tool that's ready for you!</h3>
-        <p>Learn more about the programs that serve orphans and vulnerable children throughout Haiti. Explore the site location, service, and organization. Gain a better perspective on country through relevant map data layers, such as levels of poverty and malnutrition rates.</p>
-     
-        <div class="static-map" align="center">
-            <img src="../../assets/img/haiti-map.png" width="" height="" alt="map of haiti" />
-        </div>
+    <h2>Made With Collaboration In Mind</h2>
+        <p>The purpose of the website is to increase access to and coordination of programming and services for vulnerable children across all main service areas (i.e. health, education and legal services).</p>
+        <p>To accomplish our goal, this website provides an online directory of resources and services that can be easily searched with the use of an interactive online map of these services.</p>
+    <p>The immediate objective is to develop an online interactive map that: focuses on the identification of the services; includes all services identified and verified concerning the welfare of children; provides access to all stakeholders via a platform based on the Web; be available to the Bridgade IBESR phone service to provide operators with information specific reference.</p>
             
 </div>
 
 <div class="bottom">
-<h3>Made With Collaboration In Mind</h3>
 <div class="icon-row">
 <div class="icon-box"><p class="list"><span class="genericon genericon-chat"></span><strong>Identify potential partners and collaborations.</strong></p></div>
 
