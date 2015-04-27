@@ -18,30 +18,120 @@
 {% endblock %}
 
 {% block content %}
-<div class="top">
-    <h1>À Propos de ce Projet</h1>
-<hr/>
-        <p>Le but du site est d'accroître l'accès et la coordination des programmes et des services pour les enfants vulnérables dans tous les principaux domaines de services (à savoir la santé, l'éducation et les services juridiques).</p>
-        <pPour accomplir site offre un répertoire en ligne de ressources et de services qui peuvent être facilement recherché, et une carte interactive en ligne de ces services.</p>
-    <p>L'objectif immédiat est de développer une carte interactive en ligne qui: se concentre sur l'identification des services; comprend tous les services identifiés et vérifiés relatifs à l'enfant de bien-être; offre un accès à toutes les parties prenantes via une plate-forme basée sur le Web; et être à la disposition du service de téléphonie Bridgade IBESR pour fournir aux opérateurs des informations de référence précise.</p>
-    <div class="map-cta">
-      <a href="/search"><div class="btn">Recherche de services près de chez vous</div></a>
+<div class="top">    
+    <h1>Un outil utilisable gratuit qui est prêt pour vous!</h1>
+        <div class="haiti-map">
+            <img src="../../assets/img/haiti-map-satellite-2.jpg" width="" height="" alt="map of haiti" />
+        </div>
+    <form action="/search" method="get" id="main-search-form" class="home-search-form">
+    <div id="search-container" align="left">
+    <div class="home-search" align="left">
+            <label>Mots-clés</label>
+            <input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here...">
+
     </div>
+    <div class="home-search" align="left">
+        <label>Service</label>
+        <select name="service">
+            <option value="" selected>Sélectionnez Service</option>
+            <optgroup label="Program 1">
+                <option value="">Service 1</option>
+                <option value="">Service 2</option>
+                <option value="">Service 3</option>
+            </optgroup>
+            <optgroup label="Program 2">
+                <option value="">Service 1</option>
+                <option value="">Service 2</option>
+                <option value="">Service 3</option>
+            </optgroup>
+            <optgroup label="Program 3">
+                <option value="">Service 1</option>
+                <option value="">Service 2</option>
+                <option value="">Service 3</option>
+            </optgroup>
+        </select>
+    </div>
+    <div class="home-search" align="left">
+        <label>Department</label>
+        <select name="region">
+            <option value="" selected>Sélectionnez Department</option>
+            <optgroup label="Department 1">
+                <option value="">Commune 1</option>
+                <option value="">Commune 2</option>
+                <option value="">Commune 3</option>
+            </optgroup>
+            <optgroup label="Department 2">
+                <option value="">Commune 1</option>
+                <option value="">Commune 2</option>
+                <option value="">Commune 3</option>
+            </optgroup>
+            <optgroup label="Department 3">
+            <option value="">Commune 1</option>
+            <option value="">Commune 2</option>
+            <option value="">Commune 3</option>
+            </optgroup>
+            <option value="none">N/A</option>
+        </select>
+    </div>
+    </div> <!-- //.search-container -->
+    <!-- // 1st Row  -->
+
+    <!-- 2nd Row Starts -->
+    <div id="search-container" align="left">
+    <div class="home-search" align="left">
+        <label>Age Min:</label>
+        <select name="age">
+            <option value="" selected>Sélectionnez Gamme</option>
+            <option value="">Ans 0-3</option>
+            <option value="">Ans 4-10</option>
+            <option value="">Ans 11-14</option>
+            <option value="">Ans 15-18</option>
+            <option value="none">P/A</option>
+        </select>
+        </div>
+    <div class="home-search" align="left">
+        <label>Age Max:</label>
+        <select name="age">
+            <option value="" selected>Select Gamme</option>
+            <option value="">Age 0-3</option>
+            <option value="">Age 4-10</option>
+            <option value="">Age 11-14</option>
+            <option value="">Age 15-18</option>
+            <option value="none">N/A</option>
+        </select>
+    </div>
+    <div class="home-search" align="left">
+        <label>Gender Recherche</label>
+        <select name="gender">
+            <option value="" selected>Sélectionner une option</option>
+            <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
+            <option {% if gender == "female" %} selected {% endif %}  value="female">Filles</option>
+            <option value="none">Les garçons et les filles</option>
+            <option value="none">P/A</option>
+        </select>
+    </div>
+    </div><!-- //.search-container -->
+    <!-- // 2nd Row  -->
+            <div class="map-cta">
+                <input type="submit" class="btn" value="Search Now">
+            </div>
+
+</form>
+</div>
+<div style="clear:both;">
+    <h3>Programmes &amp; Services Carte - Une nouvelle façon de découvrir des services aux enfants orphelins et vulnérables.</h3>
+        <p>En savoir plus sur les programmes qui servent les orphelins et les enfants vulnérables à travers Haïti. Explorez l'emplacement du site, le service et l'organisation. Acquérir une meilleure perspecitve sur le pays à travers les couches de données cartographiques pertinents, tels que les niveaux de pauvreté et de malnutrition taux.</p>
+</div>
 </div>
 
 <div class="mid">
-    <h2>Une nouvelle façon de découvrir des services aux enfants orphelins et vulnérables</h2>
-    <h3>Programmes &amp; Services Carte - Un outil utilisable gratuit qui est prêt pour vous!</h3>
-        <p>En savoir plus sur les programmes qui servent les orphelins et les enfants vulnérables à travers Haïti. Explorez l'emplacement du site, le service et l'organisation. Acquérir une meilleure perspecitve sur le pays à travers les couches de données cartographiques pertinents, tels que les niveaux de pauvreté et de malnutrition taux.</p>
-
-        <div class="static-map" align="center">
-            <img src="../../assets/img/haiti-map.png" width="" height="" alt="map of haiti" />
-        </div>
-            
+    <h2>Fabriqué avec la collaboration à l'esprit.</h2>    
+        <p>Le but du site est d'accroître l'accès et la coordination des programmes et des services pour les enfants vulnérables dans tous les principaux domaines de services (à savoir la santé, l'éducation et les services juridiques).</p>
+        <p>Pour accomplir site offre un répertoire en ligne de ressources et de services qui peuvent être facilement recherché, et une carte interactive en ligne de ces services.</p>
+    <p>L'objectif immédiat est de développer une carte interactive en ligne qui: se concentre sur l'identification des services; comprend tous les services identifiés et vérifiés relatifs à l'enfant de bien-être; offre un accès à toutes les parties prenantes via une plate-forme basée sur le Web; et être à la disposition du service de téléphonie Bridgade IBESR pour fournir aux opérateurs des informations de référence précise.</p>            
 </div>
 
 <div class="bottom">
-<h3>Fabriqué avec la collaboration à l'esprit.</h3>
     <div class="icon-row" id="french_icon-row">
         <div class="icon-box"><p class="list"><span class="genericon genericon-chat"></span><strong>Identifier des partenaires potentiels et des collaborations.</strong></p></div>
 

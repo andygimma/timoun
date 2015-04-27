@@ -17,9 +17,9 @@
 
 {% block content %}
   <h2>Users</h2>
-  <a href="/admin/users/new" class="btn btn-a">Add User</a>
-  <a href="/admin/users/dashboard" class="btn btn-b">See User Changes</a>
-  <a href="/admin/export/users" class="btn btn-b">Download CSV</a>
+  <a href="/admin/users/new" class="btn btn-a user">Add User</a>
+  <a href="/admin/users/dashboard" class="btn btn-b user">See User Changes</a>
+  <a href="/admin/export/users" class="btn btn-b user">Download CSV</a>
 
   {% if users.count() > 0 %}
     <table class="table">
@@ -38,7 +38,7 @@
 
         <tbody>
           <tr>
-            <td><a href="/users/{{ user.key.id() }}/edit"><i class="ico">✎</i> {{ user.email }}</a></td>
+            <td class="table-email"><a href="/users/{{ user.key.id() }}/edit"><i class="ico">✎</i> {{ user.email }}</a></td>
             <td>{{ user.name }}</td>
             <td>{{ user.organization }}</td>
             <td>{{ user.phone }}</td>

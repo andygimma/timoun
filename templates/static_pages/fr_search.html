@@ -15,6 +15,7 @@
 <div class="top">
   <h1 id="search-header">Recherche</h1>
 <hr/>
+  <h1>Recherche</h1>
     <p>Rechercher par l'un des sept services fournis, nom de l'organisation, l'emplacement, la population cible ou à l'aide de mots-clés. Le résultat sera résumée, cartographié et disponible pour imprimer ou par courriel.</p>
     <!-- 1st Row Starts -->
 <form action="/search" method="post" id="main-search-form">
@@ -236,7 +237,7 @@
         </select>
     </div>
     <div class="search" align="center">
-        <label>Homme Recherche</label>
+        <label>Gender Recherche</label>
         <select name="gender">
             <option value="" selected>Sélectionner une option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
@@ -254,7 +255,7 @@
 
 </form>
 </div>
-
+<hr/>
 <div class="mid" id="search-mid">
 <div id="results-container" align="center"> 
 <h2>Résultats de la recherche</h2>
@@ -277,35 +278,12 @@
         <li><a id="last_page_link" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Dernière Page</a></li>
         <li><a id="next_page_link" href="/search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Page Suivante</a></li>
     </ul>
+
     <p class="search-again">Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau , et cliquez sur le bouton Rechercher.</p>
+    <p class="search-again">Pour plus d'informations concernant les définitions des services, <a href="#">s'il vous plaît cliquez ici.</a></p>    
 </div><!-- //#results-container -->
 </div> <!-- //.mid -->
-
 <div class="bottom">
-    <h3>Recherche Catégories et définitions</h3>
-    <p class="list detail"><span class="genericon genericon-cart"></span><strong>Alimentaire et de nutrition</strong></p>
-    <p>Ces services ont le résultat souhaité d'améliorer l'état nutritionnel et la prévention des décès dus à la malnutrition chez les enfants vulnérables.</p>
-    <p>Ce site comprend des organisations qui fournissent de la nourriture et / ou un soutien nutritionnel aux enfants vulnérables. Les services de nutrition varient selon que l'enfant est un enfant, l'allaitement, l'alimentation complémentaire ou recevoir plus de 2 ans. Tant le type d'aliment et la tranche d'âge que l'aide se concentrera au seront documentées dans ce document.</p>
-    <p class="list detail"><span class="genericon genericon-home"></span><strong>Abris et de soins</strong></p>
-    <p>Ces services ont le résultat souhaité d'assurer qu'aucun enfant ne va sans abri, vêtements, accès à l'eau potable ou l'hygiène personnelle de base, et que les enfants ont au moins un adulte qui leur donne l'amour et de soutien.</p>
-    <p>Ce site comprend des organisations qui aident les familles avec des enfants vulnérables en fournissant des abris temporaires, réhabilitation des abris actuels, ou des couvertures et d'autres articles de toilette essentiels.</p>
-    <p class="list detail"><span class="genericon genericon-lock"></span><strong>Protection</strong></p>
-    <p>Ces services prévenir ou répondre à l'enfant violence sexuelle et physique. Les services de protection pour les enfants vulnérables peuvent également examiner les services qui prennent en charge un meilleur placement des enfants dans les orphelinats, la réunification des enfants dans les orphelinats de retour avec leurs familles et la réunification de la fratrie.</p>
-    <p>Ce site comprend des organisations avec des interventions telles que faciliter l'enregistrement des naissances et l'identification de base nécessaires à l'accès à long terme à l'éducation, les soins de santé et des services sociaux; retirer les enfants de situations de violence dans la sécurité des placements, temporaires ou permanentes.</p>
-    <p class="list detail"><span class="genericon genericon-summary"></span><strong>Soins De Santé</strong></p>
-    <p>Ces services ont le résultat souhaité de répondre aux besoins de santé des enfants vulnérables en fonction de leur âge.</p>
-    <p>Ce site comprend des organisations qui offrent aux enfants vulnérables gratuitement ou à un coût réduit. Les services de santé peuvent inclure les vaccinations, suivi de la croissance ou de soins preneur de l'éducation sur des sujets comme l'allaitement et gratuit pour les enfants de moins de cinq ans. Autres services qui peuvent exister sont les services de santé des enfants malades ou traitement pédiatrique et de soins du VIH.</p>
-    <p class="list detail"><span class="genericon genericon-heart"></span><strong>Services de soutien psychosocial (PSS)</strong></p>
-    <p>Ces services ont le résultat souhaité de se assurer que les enfants ont les attachements humains nécessaires pour le développement normal et que les enfants peuvent participer en collaboration à des activités telles que l'école, les loisirs et travailler avec d'autres enfants et les adultes. PSS cherche également à soutenir les enfants au-delà du processus de développement normal. PSS soutient les enfants et les gardiens qui ont eu souches sur leur vie vulnérables. Des exemples de souches pourraient inclure vivant avec le VIH, un membre de la famille avec une maladie chronique, une expérience traumatisante ou d'abandon.</p>
-    <p>Ce site sera éventuellement inclure des organisations qui aident à la saisine des conseils lorsqu'ils sont disponibles et approprié d'inclure des activités spécifiques pour les jeunes séropositifs; et la réhabilitation / réinsertion pour les enfants qui sont en dehors des soins de la famille, des groupes de soutien pour les gardiens vivent comme des groupes de mères nourrissant ou un groupe d'adolescents vulnérables se réunissent pour discuter de questions et se amuser ensemble. Les organismes qui offrent de la formation et du soutien aux travailleurs de première ligne qui sont les "gardiens" - les personnes les plus susceptibles d'entrer en contact avec des enfants très vulnérables, y compris le personnel local des ONG sur le terrain, les volontaires locaux, travailleurs sociaux, brigade de police, les conseillers scolaires et les infirmières, et le personnel des enfants résidentielle établissements de soins; aider la police dans la façon de traiter de manière constructive et appropriée avec les enfants très vulnérables qui sont en violation de la loi.</p>
-    <p class="list detail"><span class="genericon genericon-book"></span><strong>Éducation formelle et informelle</strong></p>
-    <p>Ces services ont le résultat souhaité de se assurer que les enfants vulnérables reçoivent des possibilités d'éducation et de formation professionnelle en accord avec les normes communautaires et les possibilités d'emploi axées sur le marché.</p>
-    <p>Ce site comprend qui encouragent l'accès à tout système d'éducation formelle pour les enfants les plus vulnérables; et de fournir à court terme, une aide directe pour subventionner les coûts liés à l'école (par exemple, les frais, livres, uniformes), qui ont un programme d'alimentation scolaire.</p>
-    <p class="list detail"><span class="genericon genericon-category"></span><strong>Services juridiques</strong></p>
-    <p>Protection, juridiques et autres, représente le mur de sécurité nécessaire par les adolescents pour leur permettre l'accès à des dispositions qui garantissent les libertés et droits fondamentaux.</p>
-    <p>Ce site comprend des organisations qui fournissent des services juridiques et parajuridiques pour les enfants et les gardiens vulnérables. Cela carte assistance juridique ou de soutien pour accéder à une assistance juridique aux enfants vulnérables et leurs soignants. Les exemples incluent pour ceux en conflit avec la loi, pour les cas d'abus sexuels ou physiques, l'obtention de l'enregistrement des naissances et le certificat ou déclaration d'un sinistre juridique au sujet de l'enlèvement d'enfants ou le trafic. </p>
-    <p class="list detail"><span class="genericon genericon-info"></span><strong>Autres services</strong></p>
-    <p>Si d'autres services clés sont trouvés pendant les activités de cartographie ou par un autre acteur enfants vulnérables, ils seront inclus.</p>
 </div>
 <!-- Scripts Go Here -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

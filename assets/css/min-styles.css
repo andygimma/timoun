@@ -5,8 +5,8 @@
 html {height: 100%;}
 body {font-family: verdana, sans-serif; width: 100%; height: 100%;}
 #wrapper {min-height: 100%; position: relative; margin-bottom: -20px;}
-.container {margin: 0 auto;}
-hr {width: 80%; margin-top: 0; margin-bottom: 30px; border: 1px solid #888;}
+.container {margin: 0 auto; padding-bottom: 20px;}
+hr {width: 50%; margin: 0 0 0 25%; border: 1px solid #eee;}
 
 /* BREADCRUMBS */
 .breadcrumbs {background: #eeeeee; text-align: left; width: 100%; padding-right: 0; padding-left: 0; clear:both;}
@@ -44,10 +44,10 @@ a#breadcrumb_home {margin-left: 20px;}
     #header h2 {font-size: 1.2em;}
 }
 
-.genericon {color: #f36813; background: }
+.genericon {color: #f36813; background:}
 .icon-box {width:25%; float: left;}
 .icon-box p {text-align:center;}
-.icon-row {clear:both; min-height:175px; width:100%;}
+.icon-row {clear:both; min-height:175px; width:90%; margin-left: 5%; margin-top:40px;}
 @media (max-width:768px) {
     .icon-box {width: 100%; clear:both;}
     .icon-row {min-height: 275px;}
@@ -68,12 +68,15 @@ p.copy a:hover {color: #e89b55;}
 #footer ul {list-style-type: none; margin: 0; padding: 10px 0 0 0;}
 #footer ul li {display:inline; margin-right: 20px; font-size: large;}
 #footer ul li a {color: #f9c700;}
+#footer .social {display: inline;}
 
 
 /* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6, p {width: 80%; margin-left: 10%;}
-h1 {color: #333; font-size: 2.5em; text-align: center; padding-top: .75em;}
-h2, h3 {color: #333; text-align: center;}
+.top h1 {border-left: 5px solid #f36813; color: #1c6cb4; font-size: 1.8em; padding-left: 10px;}
+.top h1 span {display: inline-block;}
+.mid h2 {border-left: 5px solid #f36813; color:#1c6cb4; padding-left: 10px;}
+h3 {color: #333;}
 p {color: #302e2c;}
 
 /* LINKS */
@@ -85,7 +88,7 @@ a:link {text-decoration: none;}
 /* CALL TO ACTION & BUTTONS */
 .btn {margin-right: 10%; margin-left: 10%; font-size: large;}
 .map-cta {width: 100%; margin: 20px 0 0 0; text-align: center;}
-.bottom h3 {font-size: 1.5em; padding-top: 40px;}
+.bottom h3 {font-size: 1.2em; padding-top: 40px;}
 
 /* MIN+ PLUGIN */
 message {
@@ -106,17 +109,15 @@ message {
 }
 
 /* BLOCK STYLINGS */
-.top {padding: 0 0 20px 0; margin-top: -27px;}
-.mid {background: #1c6cb4; color: #fff; padding: 20px 0 30px 0;}
+.top {padding: 0 0 20px 0; margin-top: 20px;}
+.mid {margin: -20px 0 0 0; padding: 0;}
 .bottom {margin-top: -19px;}
-.mid h2 {color: #f9c700; margin-left: 10%; width 80%;}
-.mid h3 {color: #fff;}
-.mid p {color: #eee; margin-left: 10%; width: 80%;}
 .mid-divide {width: 80%; margin-left: 10%;}
 .list {margin-bottom: -10px; margin-top: 30px; text-align: center; font-size: large; color:#333;}
 .detail {text-align: left;}
-#search-mid h2 {color: #f9c700; margin-left: 0!important;}
-#search-mid p {color: #eee; margin-left: 0!important;}
+#search-mid {margin-top: 40px;}
+#search-mid h2 {margin-left: 0!important; text-align: left;}
+#search-mid p {margin-left: 0!important;}
 
 .footnote {width: 100%; height:50px; margin-bottom: -125px;}
 #french_footnote {height: 70px;}
@@ -124,9 +125,9 @@ message {
 .footnote_left {width: 70%; float: left;}
 .bottom-cta {width: 30%; float: left;}
 .footnote {background: #eee; padding: 20px 0 30px 0;}
-.footnote h3 {float: left; text-align: left; margin-top: 0;}
-.footnote p {float:left; text-align: left; color: #333; margin-top: 0;}
-.footnote .btn {margin-top: 5px; text-align: center;}
+.footnote h3 {float: left; text-align: left; margin-top: 0; margin-left: 13%;}
+.footnote p {float:left; text-align: left; color: #333; margin-top: 0; margin-left: 13%;}
+.footnote .btn {margin-top: 5px; text-align: center; margin-left: 14%}
 @media (max-width:992px) {
     .footnote {height: 75px;}
     .footnote .btn {margin-top: 20px;}
@@ -142,7 +143,7 @@ message {
     #french_footnote {height: 125px;}
 }
 @media (max-width:475px) {
-    .footnote {height: 175px; margin-top: 20px;}
+    .footnote {height: 175px; margin-top: 40px;}
     #french_footnote {height: 185px}
     .footnote_left {width: 100%; clear:both;}
     .footnote p, .footnote h3 {text-align: center;}
@@ -150,16 +151,30 @@ message {
     .footnote .btn {margin-left: auto; margin-right: auto; margin-top: 0;}
 }
 
+/* HOME */
+.home-search-form {width: 40%!important; float: left!important; margin: 0 0 20px 0; padding: 0;}
+.home-search label {float: left; margin-left: 40px; width: 100px;}
+.home-search input#keywords {width:50%; margin-bottom: 10px; margin-left: 20px;}
+.home-search select {background: #fff; height: 40px; width: 50%; margin-bottom: 10px; margin-left: 20px;}
+.home-search option {padding: 10px;}
+.map-spacing {height: 40px; clear: both;}
+
+.haiti-map {width: 80%; margin: 0 0 0 10%; padding: 0;}
+.haiti-map img {width: 50%; float: left; height: auto; margin: 0 0 40px 0; padding: 0;}
+@media (max-width: 874px) {
+    .haiti-map img {clear: both; width: 90%!important; margin-left: 5%;}
+    .home-search-form {width: 80%!important; margin-left: 10%; clear:both;}
+}
+
 /* SEARCH */
 #main-search-form {width: 100%;}
 .search {min-width: 250px; display: inline; margin:0; position:relative;}
 .search select {background: #fff; height: 40px; width: 150px; margin-bottom: 30px; margin-right: 30px; position:relative; display: inline;}
-.search option, {padding: 10px; position:relative; display: inline;}
+.search option {padding: 10px; position:relative; display: inline;}
 .search, .search label {display: inline;}
 .search input#keywords {display: inline; position: relative; min-width: 250px; background: #fff; margin-right: 20px;}
 
 /* Search Map & Results Box */
-
 .search-map {width: 40%!important; float: left!important; height: 400px!important; margin: 0; padding: 0;}
 .results-box {background:#fff; width: 39%; margin-top: -3px; margin-left: 1%; padding: 0; border: 3px solid #302e2c; height: 400px; overflow: scroll; float: left;}
 .result {width: 90%; padding: 10px 0 10px 0; border-bottom: 1px solid #999;}
@@ -167,6 +182,8 @@ message {
 ul.pagination {float: left;list-style-type: none; padding: 0; margin: 25px 0 25px 0; width: 100%;}
 ul.pagination li {display: inline; background: #f9c700; padding: 5px 10px 5px 10px;}
 ul.pagination li a {color: #333;}
+.icon {background: #fff!important;}
+.icon img {margin: 0 0 -8px 0;}
 .search-again {text-align: center; clear:both;}
 
 @media (max-width: 767px) {
@@ -175,8 +192,9 @@ ul.pagination li a {color: #333;}
 }
 
 @media (max-width: 959px) {
-    .search {disply: block; clear:both;}
-    .search input, .search select, .search input#keywords {display:block; margin-bottom: 20px; margin-top: 8px; width: 60%!important; margin-left:30px;}
+    .search, .home-search {disply: block; clear:both;}
+    .search input, .search select, .search input#keywords,
+    .home-search input, .home-search select, .home-search input#keywords {display:block; margin-bottom: 20px; margin-top: 8px; width: 60%!important; margin-left:30px;}
     .search, .search label, .search input#keywords {display: block; clear:both;}
 }
 
@@ -189,17 +207,29 @@ ul.pagination li a {color: #333;}
 .contact-form textarea {width: 250px; height: 200px;}
 .contact-form #submit, .suggest #submit {margin-left:120px;}
 
+/* ADMIN BASE */
+.options {width: 100%; height: 27px;}
+.options ul {margin:0; padding: 0;}
+.options ul li {list-style-type: none; display: inline; margin: 0 5px 0 0;}
 
 /* MANUAL */
 .main h2, .main h3 {text-align: left;}
-.main ul {margin:0; padding: 0; width: 100%;}
-.main ul li {display: block; margin-left: 12%; margin-bottom: 10px; color: #525252;}
+.manual-nav {margin:0; padding: 0; width: 100%;}
+.manual-nav li {display: block; margin-left: 12%; margin-bottom: 10px; color: #525252;}
 
 /* LOGIN PAGES */
 .login, .contact-form {margin-left: 10%;}
 .login input {width: 250px!important;}
 #submit {width: 150px!important; background: #302e2c; font-size: 1em; border-radius: 6px; border: 0; color: #fff; cursor: pointer; display: inline-block; margin: 2px 0; padding: 12px 30px 14px;}
 #submit:hover {background: #888;}
+
+/* USERS */
+.user {margin: 0 10px 20px 0;}
+.table {width: 100%;}
+.table tr {width: 100%;}
+.table th {text-align: left; word-break: keep-all;}
+.table td {width: auto;}
+.table-email {word-break: break-all;}
 
 /* ERROR */
 .errors {width: 50%; margin-left: 8%;}
