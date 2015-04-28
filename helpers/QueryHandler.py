@@ -3,14 +3,14 @@ import json
 import MySQLdb
 from models import SearchRecord
 
-_INSTANCE_NAME = 'timoun-production:surveydata'
+_INSTANCE_NAME = 'timoun-production:timoun427'
 
 def execute_query(query_string):
     if (os.getenv('SERVER_SOFTWARE') and
       os.getenv('SERVER_SOFTWARE').startswith('Google App Engine/')):
-      db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db='survey_data_4_15', user='andy2', passwd="11oinn")
+      db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db='timoun_4_27', user='root', passwd="11oinn")
     else:
-      db = MySQLdb.connect(host='127.0.0.1', port=3306, db='timoun_4_15', user='root', passwd="11oinn")
+      db = MySQLdb.connect(host='127.0.0.1', port=3306, db='timoun_4_27', user='root', passwd="11oinn")
 
     cursor = db.cursor()
     cursor.execute(query_string)
@@ -46,6 +46,7 @@ def form_query_builder(self, page=None, limit=25):
   age_start = self.request.get("age_start")
   age_end = self.request.get("age_end")
   gender = self.request.get("gender")
+  keywords = self.request.get("keywords")
   record_search(keywords, service, department, age_start, age_end, gender)
 
 
@@ -55,6 +56,7 @@ def form_query_builder(self, page=None, limit=25):
   gender_query = ""
   age_query = ""
   page_query = ""
+  full_text_query = ""
   if page:
     page_int = int(page)
     offset = page_int * 100
@@ -77,20 +79,23 @@ def form_query_builder(self, page=None, limit=25):
     if gender_query == "either":
       gender_query = "AND (`garcons` = 1 OR `filles`=1)"
 
-  sql_statement = """SELECT  `org_nom`, `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_email`, `org_phone`, `program_id`, `latitude`, `longitude`, COUNT(DISTINCT(`name_french`)) AS `service_count`
-                      FROM `service`
-                      WHERE 1 = 1
-                      {0}
-                      {1}
-                      {2}
-                      {3}
-                      GROUP BY `org_id`
-                      LIMIT {4}
-                      {5}
-  """.format(gender_query, service_query, department_query, age_query, limit, page_query).decode("utf-8")
-  # raise Exception(sql_statement)
-  # raise Exception(len(execute_query(sql_statement)))
+  if keywords:
+    parsed_text = "+" + keywords.replace(" ", " +")
+    full_text_query = "AND MATCH(service_details) AGAINST('{0}' IN BOOLEAN MODE)".format(parsed_text)
 
+  sql_statement = """SELECT `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_nom`, `org_email`, `org_phone`, `org_adresse`, `org_section_communale` `program_id`, `latitude`, `longitude`
+      FROM `service`
+      WHERE 1=1
+      {0}
+      {1}
+      {2}
+      {3}
+      {4}
+      GROUP BY `org_id`
+      LIMIT {5}
+      {6}
+  """.format(gender_query, service_query, department_query, age_query, full_text_query, limit, page_query).decode("utf-8")
+  # raise Exception(sql_statement)
   return execute_query(sql_statement)
 
 def order_age(age_start, age_end):

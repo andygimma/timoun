@@ -19,9 +19,9 @@ class AdminViewRecordHandler(BaseHandler.BaseHandler):
     role = self.session.get('role')
     user_session = self.session.get("user")
 
-    #if role != "admin":
-      #self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
-      #return
+    if role != "admin":
+      self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
+      return
 
     if not self.legacy:
       self.redirect("/#/admin")
