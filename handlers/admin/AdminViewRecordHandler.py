@@ -76,10 +76,17 @@ def format_html(records, record_id):
   errors_count = 0
 
   for record in records:
+
     lev_0 = record[2]
     lev_1 = record[5]
     lev_2 = record[10]
     lev_3 = record[15]
+    # raise Exception(record[0])
+      # raise Exception(show_highest_lev_id(record))
+    highest_lev_id = show_highest_lev_id(record)
+    # raise Exception(record)
+    # raise Exception(lev_id)
+
     if lev_0 != last_header:
       html_string += "<h3>{0}</h3>".format(lev_0)
       last_header = lev_0
@@ -92,7 +99,7 @@ def format_html(records, record_id):
         if get_level_id(record, all_layers_array.index(layer)) in form_dict:
           level_ids.append(get_level_id(record, all_layers_array.index(layer)))
           try:
-            html_string += ": <u><strong>{0}</u></strong></p>".format(form_dict[get_level_id(record, all_layers_array.index(layer))])
+            html_string +=": <u><strong>{0}</u></strong></p>".format(form_dict[get_level_id(record, all_layers_array.index(layer))])
           except:
             info = form_dict[get_level_id(record, all_layers_array.index(layer))]
             html_string += ":{0}</p>".format(info.encode("latin-1"))
@@ -149,4 +156,13 @@ def get_level_id(record, index):
   if index == 2:
     return record[8]
   if index == 1:
+    return record[3]
+
+
+def show_highest_lev_id(record):
+  if record[13]:
+    return record[13]
+  if record[8]:
+    return record[8]
+  if record[3]:
     return record[3]
