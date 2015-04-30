@@ -1,5 +1,9 @@
 {% extends "legacy_admin.html" %}
 
+{% block title %}
+<title>Organization Records: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
@@ -17,6 +21,12 @@
 
   <a href="#" class="btn btn-b user">See Record History</a>
 
+
+  <a href="#" class="btn btn-b">See Record History</a>
+
+  <a href="/admin/export/records" class="btn btn-b">Download CSV</a>
+
+  <p>
     {% if last_page >= 0 %}
     <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Last Page</a>
     {% endif %}
@@ -222,6 +232,8 @@
                 <input type="submit" class="btn" value="Search Now">
             </div>
 </form>
+  {% if records_length > 0 %}
+
     <table class="table records">
       <thead>
         <tr>

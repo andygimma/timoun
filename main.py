@@ -10,6 +10,7 @@ from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandle
 from handlers.admin.programs import AdminProgramIndexHandler, AdminProgramNewHandler, AdminProgramEditHandler, AdminProgramDeleteHandler, AdminProgramDashboardHandler
 from handlers.admin.services import AdminServiceIndexHandler, AdminServiceNewHandler, AdminServiceEditHandler, AdminServiceDeleteHandler, AdminServiceDashboardHandler
 from handlers.schema_updates import UpdateHandler
+from handlers.site_test import SiteTest
 
 config = {}
 config['webapp2_extras.sessions'] = {
@@ -74,6 +75,7 @@ app = webapp2.WSGIApplication([
     ('/records/([^/]+)/edit', EditRecordHandler.EditRecordHandler),
     ('/update_handler', UpdateHandler.UpdateHandler),
     ('/admin/export/([^/]+)', ExportHandler.ExportHandler),
+    ('/isitlive', SiteTest.SiteTest)
 
 
 

@@ -1,5 +1,9 @@
 {% extends "legacy_admin.html" %}
 
+{% block title %}
+<title>Organization Records: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
@@ -15,6 +19,10 @@
   <h2>Records</h2>
   <a href="/records/new" class="btn btn-a">Add Record</a>
   <a href="#" class="btn btn-b">Voir Changements</a>
+
+  <a href="/admin/export/records" class="btn btn-b">Download CSV</a>
+
+  <p>
     {% if last_page >= 0 %}
     <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
     {% endif %}
@@ -177,6 +185,7 @@
             <option value="none">N/A</option>
         </select>
     </div>
+
     </div> <!-- //.search-container -->
     <!-- // 1st Row  -->
 
@@ -216,10 +225,13 @@
     </div>
     </div><!-- //.search-container -->
     <!-- // 2nd Row  -->
-            <div class="map-cta" id="records-cta">
-                <input type="submit" class="btn" value="Search Now">
-            </div>
-</form>
+
+    <div class="map-cta">
+        <input type="submit" class="btn" value="Recherche">
+    </div>
+    </form>
+    
+
     <table class="table records">
       <thead>
         <tr>
@@ -256,4 +268,6 @@
     window.location = "/admin/records?" + queryString + "#search-mid";
   });
 </script>
+
+>>>>>>> form freeze
 {% endblock %}
