@@ -10,7 +10,7 @@ from google.appengine.api import mail
 import Audit
 import json
 
-ORIGIN_EMAIL = "ibesr@bscht.com"
+ORIGIN_EMAIL = "ibesr@bscht.org"
 
 ROLES = ["admin", "staff","public"]
 class User(ndb.Model):
