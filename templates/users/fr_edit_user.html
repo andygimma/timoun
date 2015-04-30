@@ -51,9 +51,9 @@
         <td>{{ form.role()|safe }}</td>
       </tr>
     </table>
-    <br>
-    <a href="/admin/users">Annuler</a>
-    <input type=submit value="Soumettre">
+    <input type=submit id="submit" value="Soumettre">
   </form>
-  <a id="delete-user" href="/users/{{ user_key }}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?');">Supprimer User</a>
+<br/>
+  <a href="/admin/users" class="btn btn-d user">Annuler</a>
+  <a id="delete-user" class="btn btn-c user" href="/users/{{ user_key }}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?');">Supprimer User</a>
 {% endblock %}

@@ -14,8 +14,6 @@
 {% block content %}
 <div class="top">
   <h1 id="search-header">Recherche</h1>
-<hr/>
-  <h1>Recherche</h1>
     <p>Rechercher par l'un des sept services fournis, nom de l'organisation, l'emplacement, la population cible ou à l'aide de mots-clés. Le résultat sera résumée, cartographié et disponible pour imprimer ou par courriel.</p>
     <!-- 1st Row Starts -->
 <form action="/search" method="post" id="main-search-form">
@@ -131,18 +129,12 @@
                 <option value="Dame-marie">Dame-marie</option>
                 <option value="Jeremie">Jeremie</option>
             </optgroup>
-            <optgroup label="Nippes">
-            </optgroup>
+            <option value="Nippes">Nippes</option>
             <optgroup label="Nord">
                 <option value="Pignon">Pignon</option>
             </optgroup>
-            <optgroup label="Nord">
-                <option value="Pignon">Pignon</option>
-            </optgroup>
-            <optgroup label="Nord-Est">
-            </optgroup>
-            <optgroup label="Nord-Ouest">
-            </optgroup>
+            <option value="Nord-Est">Nord-Est</option>
+            <option value="Nord-Ouest">Nord-Ouest</option>
             <optgroup label="Ouest">
                 <option value="Delmas">Delmas</option>
                 <option value="Leogane">Leogane</option>
@@ -280,7 +272,7 @@
     </ul>
 
     <p class="search-again">Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau , et cliquez sur le bouton Rechercher.</p>
-    <p class="search-again">Pour plus d'informations concernant les définitions des services, <a href="#">s'il vous plaît cliquez ici.</a></p>    
+    <p class="search-again">Pour plus d'informations concernant les définitions des services, <a href='/about#definitions'>s'il vous plaît cliquez ici.</a></p>    
 </div><!-- //#results-container -->
 </div> <!-- //.mid -->
 <div class="bottom">

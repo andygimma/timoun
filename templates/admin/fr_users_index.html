@@ -17,9 +17,9 @@
 
 {% block content %}
   <h2>Users</h2>
-  <a href="/admin/users/new" class="btn btn-a">Ajouter Une Utilisateur</a>
-  <a href="/admin/users/dashboard" class="btn btn-b">Voir Changements</a>
-  <a href="/admin/export/users" class="btn btn-b">Download CSV</a>
+  <a href="/admin/users/new" class="btn btn-a user">Ajouter Une Utilisateur</a>
+  <a href="/admin/users/dashboard" class="btn btn-b user">Voir Changements</a>
+  <a href="/admin/export/users" class="btn btn-b user">CSV</a>
 
 
   {% if users.count() > 0 %}

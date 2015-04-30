@@ -7,6 +7,7 @@ body {font-family: verdana, sans-serif; width: 100%; height: 100%;}
 #wrapper {min-height: 100%; position: relative; margin-bottom: -20px;}
 .container {margin: 0 auto; padding-bottom: 20px;}
 hr {width: 50%; margin: 0 0 0 25%; border: 1px solid #eee;}
+#foo hr {width: 100%; margin: -10px 0 5px 0;}
 
 /* BREADCRUMBS */
 .breadcrumbs {background: #eeeeee; text-align: left; width: 100%; padding-right: 0; padding-left: 0; clear:both;}
@@ -166,13 +167,15 @@ message {
     .home-search-form {width: 80%!important; margin-left: 10%; clear:both;}
 }
 
-/* SEARCH */
-#main-search-form {width: 100%;}
+/* SEARCH FORMS */
+#main-search-form, .records-form {width: 100%;}
 .search {min-width: 250px; display: inline; margin:0; position:relative;}
-.search select {background: #fff; height: 40px; width: 150px; margin-bottom: 30px; margin-right: 30px; position:relative; display: inline;}
-.search option {padding: 10px; position:relative; display: inline;}
-.search, .search label {display: inline;}
-.search input#keywords {display: inline; position: relative; min-width: 250px; background: #fff; margin-right: 20px;}
+.records-search {min-width:200px; display: inline; margin:0; position:relative;}
+.search select, .records-search select {background: #fff; height: 40px; width: 150px; margin-bottom: 30px; margin-right: 30px; position:relative; display: inline;}
+.search option, .records-search option {padding: 10px; position:relative; display: inline;}
+.search label, .records-search label {display: inline;}
+.search input#keywords, {display: inline; position: relative; min-width: 250px; background: #fff; margin-right: 20px;}
+.records-search input#keywords {display: inline; position: relative; min-width: 200px; background: #fff; margin-right: 20px;}
 
 /* Search Map & Results Box */
 .search-map {width: 40%!important; float: left!important; height: 400px!important; margin: 0; padding: 0;}
@@ -186,6 +189,10 @@ ul.pagination li a {color: #333;}
 .icon img {margin: 0 0 -8px 0;}
 .search-again {text-align: center; clear:both;}
 
+@media (max-width:1253px) {
+    .records-search {disply: block; clear:both;}
+    .records-search input, .records-search select, .records-search input#keywords { display:block; margin-bottom: 20px; margin-top: 8px; width: 60%!important;}
+}
 @media (max-width: 767px) {
     .search-map {width: 80%!important; margin-left: 10%; clear:both;}
     .results-box {width: 80%; margin-top: 20px; margin-left: 10%;}
@@ -205,7 +212,7 @@ ul.pagination li a {color: #333;}
 .contact-form .checkbox input {border:1px solid red;}
 .contact-form table tr, .suggest table tr {margin-bottom: 20px;}
 .contact-form textarea {width: 250px; height: 200px;}
-.contact-form #submit, .suggest #submit {margin-left:120px;}
+/*.contact-form #submit, .suggest #submit {margin-left:120px;}*/
 
 /* ADMIN BASE */
 .options {width: 100%; height: 27px;}
@@ -230,6 +237,14 @@ ul.pagination li a {color: #333;}
 .table th {text-align: left; word-break: keep-all;}
 .table td {width: auto;}
 .table-email {word-break: break-all;}
+#admin-form {margin-left: 0!important;}
+#admin-form select {width: 13em!important;}
+#admin-form table {float:left; clear:both; width: 100%; margin-bottom: 20px;}
+
+/* RECORDS */
+.yellow {background: #f9c700!important; color:#333; margin-top:20px;}
+.no-margin {margin-left: 0!important;}
+#records-cta, #records-cta .btn {margin: 0 10px 20px 0!important; text-align:left!important;}
 
 /* ERROR */
 .errors {width: 50%; margin-left: 8%;}
