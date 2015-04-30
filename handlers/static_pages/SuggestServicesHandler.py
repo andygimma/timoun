@@ -64,7 +64,7 @@ class SuggestServicesHandler(BaseHandler.BaseHandler):
 
 def confirmation_email(data):
   # this will be changed
-  user_email = "titus@visionlink.org"
+  user_email = "andy.n.gimma@gmail.com"
   message = mail.EmailMessage(sender="IBESR <ibesr@bscht.org>",
                             subject="Suggest Services Email Sent")
 
@@ -94,6 +94,6 @@ def confirmation_email(data):
   Jour de fontionnement / Day: {9}, {10}, {11}, {12}, {13}, {14}, {15}
 
 
-  """.decode("latin-1").format(data["organization"], data["category"], data["service"], data["age"], data["age_end"], data["gender"], data["department"], data["address"], data["details"], data["monday"], data["tuesday"], data["wednesday"], data["thursday"], data["friday"], data["saturday"], data["sunday"])
-  raise Exception(message.body)
+  """.decode("utf-8").format(data["organization"], data["category"], data["service"], data["age"], data["age_end"], data["gender"], data["department"], data["address"], data["details"], data["monday"], data["tuesday"], data["wednesday"], data["thursday"], data["friday"], data["saturday"], data["sunday"])
+  # raise Exception(message.body)
   message.send()

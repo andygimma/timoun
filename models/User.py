@@ -161,7 +161,7 @@ def profile_update_email(user_email):
   Si vous pensez que quelqu'un d'autre utilise votre compte, veuillez contacter directement Timoun.
   If you think someone else updated your account, please contact Timoun directly.
 
-  """
+  """.decode("utf-8")
 
   message.send()
 
@@ -181,7 +181,7 @@ def confirmation_email(user_email, email_endpoint, user_name):
 
   http://timoun-production.appspot.com/admin/users/{1}
 
-  """.format(user_name, email_endpoint)
+  """.decode("utf-8").format(user_name, email_endpoint)
 
   message.send()
 
@@ -215,7 +215,7 @@ def send_reset_password_email(self, form, TEMPLATE):
 
     http://timoun-production.appspot.com/users/set_password/{1}
 
-    """.format(form.email.data, email_endpoint)
+    """.decode("utf-8").format(form.email.data, email_endpoint)
 
     message.send()
     self.redirect("/?message={0}".format("Password reset email sent"))
