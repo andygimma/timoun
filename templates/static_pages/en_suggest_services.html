@@ -23,14 +23,44 @@
 <form method="POST" action="/suggest_services">
     <table>
       <tr>
-        <td><label for="name">Organization</label></td>
-        <td><input type="text" name="organization" value="" id="organization" placeholder="enter organization name here"></td>
+        <td><label for="name">Name*</label></td>
+        <td><input type="text" name="name" value="" id="name" placeholder="Enter full name here" required></td>
       </tr>
       <tr>
-        <td><label for="category">Category</label></td>
+        <td><label for="email">Email*</label></td>
+        <td><input type="text" name="email" value="" id="email" placeholder="Enter email here" required></td>
+      </tr>           
+      <tr>
+        <td><label for="organization">Organization</label></td>
+        <td><input type="text" name="organization" value="" id="organization" placeholder="Enter organization name here"></td>
+      </tr>
+      <tr>
+        <td><label for="address">Address</label></td>
+        <td><input type="text" name="address" value="" id="address" placeholder="Enter full address here" required></td>
+      </tr>       
+      <tr>
+        <td><label for="region">Department</label></td>
+          <td>
+        <select name="department">
+            <option value="" selected>Select Department</option>
+            <option value="Artibonite">Artibonite</option>
+            <option value="Centre">Centre</option>
+            <option value="Grand Anse">Grand Anse</option>
+            <option value="Nippes">Nippes</option>
+            <option value="Nord">Nord</option>
+            <option value="Nord-Est">Nord-Est</option>
+            <option value="Nord-Ouest">Nord-Ouest</option>
+            <option value="Ouest">Ouest</option>
+            <option value="Sud">Sud</option>
+            <option value="Sud-Est">Sud-Est</option>
+        </select>
+          </td>
+      </tr>        
+      <tr>
+        <td><label for="category">Program</label></td>
         <td>
         <select name="category">
-            <option value="" selected>Select Category</option>
+            <option value="" selected>Select Program</option>
             <option value="nutrition">Nutrition</option>
             <option value="home_based_care">Home-Based Care</option>
             <option value="shelter">Shelter</option>
@@ -107,32 +137,6 @@
             <option value="male">Girls and Boys</option>
         </select>
           </td>
-      </tr>
-      <tr>
-        <td><label for="region">Department</label></td>
-          <td>
-        <select name="department">
-            <option value="" selected>Select Department</option>
-            <option value="Artibonite">Artibonite</option>
-            <option value="Centre">Centre</option>
-            <option value="Grand Anse">Grand Anse</option>
-            <option value="Nippes">Nippes</option>
-            <option value="Nord">Nord</option>
-            <option value="Nord-Est">Nord-Est</option>
-            <option value="Nord-Ouest">Nord-Ouest</option>
-            <option value="Ouest">Ouest</option>
-            <option value="Sud">Sud</option>
-            <option value="Sud-Est">Sud-Est</option>
-        </select>
-          </td>
-      </tr>
-      <tr>
-        <td>
-          Address or Contact
-        </td>
-        <td>
-          <textarea name="address" cols=40 rows=6></textarea>
-        </td>
       </tr>
       <tr>
         <td>

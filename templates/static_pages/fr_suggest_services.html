@@ -25,14 +25,44 @@
 <form method="POST" action="/suggest_services">
     <table>
       <tr>
+        <td><label for="name">Nom*</label></td>
+        <td><input type="text" name="name" value="" id="name" placeholder="Entrez le nom complet ici" required></td>
+      </tr>
+      <tr>
+        <td><label for="email">Email*</label></td>
+        <td><input type="text" name="email" value="" id="email" placeholder="Entrez e-mail ici" required></td>
+      </tr>          
+      <tr>
         <td><label for="name">Organisation</label></td>
         <td><input type="text" name="organization" value="" id="organization" placeholder="enter organization name here"></td>
       </tr>
+     <tr>
+        <td><label for="name">Addresse</label></td>
+        <td><input type="text" name="address" value="" id="address" placeholder="entrez l'adresse ici"></td>
+      </tr>  
       <tr>
-        <td><label for="category">Catégorie</label></td>
+        <td><label for="department">Departement</label></td>
+          <td>
+        <select name="department">
+            <option value="" selected>Choisissez la Departement</option>
+            <option value="Artibonite">Artibonite</option>
+            <option value="Centre">Centre</option>
+            <option value="Grand Anse">Grand Anse</option>
+            <option value="Nippes">Nippes</option>
+            <option value="Nord">Nord</option>
+            <option value="Nord-Est">Nord-Est</option>
+            <option value="Nord-Ouest">Nord-Ouest</option>
+            <option value="Ouest">Ouest</option>
+            <option value="Sud">Sud</option>
+            <option value="Sud-Est">Sud-Est</option>
+        </select>
+          </td>
+      </tr>        
+      <tr>
+        <td><label for="category">Programme</label></td>
         <td>
         <select name="category">
-            <option value="" selected>Sélectionnez la Catégorie</option>
+            <option value="" selected>Sélectionnez la Programme</option>
             <option value="nutrition">Nutrition</option>
             <option value="home_based_care">Soins à domicile</option>
             <option value="shelter">Abri</option>
@@ -109,32 +139,6 @@
             <option value="boys">Filles et Garçons</option>
         </select>
           </td>
-      </tr>
-      <tr>
-        <td><label for="department">Departement</label></td>
-          <td>
-        <select name="department">
-            <option value="" selected>Choisissez la Departement</option>
-            <option value="Artibonite">Artibonite</option>
-            <option value="Centre">Centre</option>
-            <option value="Grand Anse">Grand Anse</option>
-            <option value="Nippes">Nippes</option>
-            <option value="Nord">Nord</option>
-            <option value="Nord-Est">Nord-Est</option>
-            <option value="Nord-Ouest">Nord-Ouest</option>
-            <option value="Ouest">Ouest</option>
-            <option value="Sud">Sud</option>
-            <option value="Sud-Est">Sud-Est</option>
-        </select>
-          </td>
-      </tr>
-      <tr>
-        <td>
-          Adresse ou coordonnées
-        </td>
-        <td>
-          <textarea name="address" cols=40 rows=6></textarea>
-        </td>
       </tr>
       <tr>
         <td>
