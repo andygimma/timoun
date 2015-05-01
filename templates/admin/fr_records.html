@@ -13,8 +13,8 @@
 
 {% block content %}
   <h2>Records</h2>
-  <a href="/records/new" class="btn btn-a">Add Record</a>
-  <a href="#" class="btn btn-b">Voir Changements</a>
+  <a href="/records/new" class="btn btn-a user">Add Record</a>
+  <a href="#" class="btn btn-b user">Voir Changements</a>
     {% if last_page >= 0 %}
     <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
     {% endif %}

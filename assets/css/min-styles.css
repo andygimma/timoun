@@ -169,12 +169,11 @@ message {
 
 /* SEARCH FORMS */
 #main-search-form, .records-form {width: 100%;}
-.search {min-width: 250px; display: inline; margin:0; position:relative;}
+.main-search {min-width: 250px; display: inline; margin:0; position:relative;}
 .records-search {min-width:200px; display: inline; margin:0; position:relative;}
-.search select, .records-search select {background: #fff; height: 40px; width: 150px; margin-bottom: 30px; margin-right: 30px; position:relative; display: inline;}
-/*.search option, .records-search option {padding: 10px; position:relative; display: inline;}*/
-.search label, .records-search label {display: inline;}
-.search input#keywords, {display: inline; position: relative; min-width: 250px; background: #fff; margin-right: 20px;}
+.main-search select, .records-search select {background: #fff; height: 40px; width: 150px; margin-bottom: 30px; margin-right: 30px; position:relative; display: inline;}
+.main-search label, .records-search label {display: inline;}
+.main-search input#keywords, {display: inline; position: relative; min-width: 250px; background: #fff; margin-right: 20px;}
 .records-search input#keywords {display: inline; position: relative; min-width: 200px; background: #fff; margin-right: 20px;}
 
 /* Search Map & Results Box */
@@ -199,10 +198,10 @@ ul.pagination li a {color: #333;}
 }
 
 @media (max-width: 959px) {
-    .search, .home-search {disply: block; clear:both;}
-    .search input, .search select, .search input#keywords,
+    .main-search, .home-search {disply: block; clear:both;}
+    .main-search input, .main-search select, .main-search input#keywords,
     .home-search input, .home-search select, .home-search input#keywords {display:block; margin-bottom: 20px; margin-top: 8px; width: 60%!important; margin-left:30px;}
-    .search, .search label, .search input#keywords {display: block; clear:both;}
+    .main-search, .main-search label, .main-search input#keywords {display: block; clear:both;}
 }
 
 /* CONTACT & SUGGEST SERVICES*/
