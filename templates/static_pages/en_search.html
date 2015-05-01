@@ -180,26 +180,54 @@
 
     <!-- 2nd Row Starts -->
     <div id="search-container" align="center">
-    <div class="main-search" align="center">
-        <label>Age Min:</label>
-        <select name="age_start">
-            <option value="0" selected>Select Range</option>
-            <option value="1">Age 0-3</option>
-            <option value="2">Age 4-10</option>
-            <option value="3">Age 11-14</option>
-            <option value="4">Age 15-18</option>
-            <option value="none">N/A</option>
+    <div class="search" align="center">
+        <label>Age Min</label>
+        <select name="age_start" id="age_start">
+            <option value="" selected>Sélectionnez Gamme</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
         </select>
         </div>
     <div class="main-search" align="center">
         <label>Age Max:</label>
-        <select name="age_end">
-            <option value="0" selected>Select Range</option>
-            <option value="1">Age 0-3</option>
-            <option value="2">Age 4-10</option>
-            <option value="3">Age 11-14</option>
-            <option value="4">Age 15-18</option>
-            <option value="none">N/A</option>
+        <select name="age_end" id="age_end">
+            <option value="" selected>Sélectionnez Gamme</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
         </select>
     </div>
     <div class="main-search" align="center">
@@ -258,42 +286,42 @@ $( "form" ).on( "submit", function( event ) {
   window.location = "/search?" + queryString;
 });
 </script>
-// <script>
-//     function getURLParameter(name) {
-//       return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
-//     }
+ <script>
+    function getURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+    }
 
-//     var pageParam = getURLParameter("page");
+    var pageParam = getURLParameter("page");
 
-//     if (pageParam == "0" || pageParam == null) {
-//         console.log("12")
-//         $("#last_page_link").hide();
-//     } else {
-//         console.log("!")
-//     }
-//   var map = L.map('map').setView([18.533, -72.333], 7);
-//     map.scrollWheelZoom.disable();
+    if (pageParam == "0" || pageParam == null) {
+        console.log("12")
+        $("#last_page_link").hide();
+    } else {
+        console.log("!")
+    }
+  var map = L.map('map').setView([18.533, -72.333], 7);
+    map.scrollWheelZoom.disable();
 
-//   // add an OpenStreetMap tile layer
-//   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-//       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-//   }).addTo(map);
+  // add an OpenStreetMap tile layer
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
 
 
 
-//   {% for record in records %}
-//   // add a marker in the given location, attach some popup content to it and open the popup
-//   try {
-//  L.marker([{{ record[7]}}, {{ record[8] }}]).addTo(map)
-//         .bindPopup("<p style='color:black'><a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[0] }}</a></p>")
-//         .openPopup();
-//   }
-//   catch(err) {
-//     console.log("{{record[7]}}");
+  {% for record in records %}
+  // add a marker in the given location, attach some popup content to it and open the popup
+  try {
+ L.marker([{{ record[7]}}, {{ record[8] }}]).addTo(map)
+        .bindPopup("<p style='color:black'><a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[0] }}</a></p>")
+        .openPopup();
+  }
+  catch(err) {
+    console.log("{{record[7]}}");
 
-//   }
-//   {% endfor %}
-// </script>
+  }
+  {% endfor %}
+</script>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 {% endblock %}

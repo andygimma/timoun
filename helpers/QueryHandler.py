@@ -40,13 +40,13 @@ def get_organization_by_id(organization_id):
 	return execute_query(org_sql)
 
 def form_query_builder(self, page=None, limit=25):
-  keywords = self.request.get("keywords")
-  service = self.request.get("service")
-  department = self.request.get("department")
-  age_start = self.request.get("age_start")
-  age_end = self.request.get("age_end")
-  gender = self.request.get("gender")
-  keywords = self.request.get("keywords")
+  keywords = self.request.get("keywords").encode("utf-8")
+  service = self.request.get("service").encode("utf-8")
+  department = self.request.get("department").encode("utf-8")
+  age_start = self.request.get("age_start").encode("utf-8")
+  age_end = self.request.get("age_end").encode("utf-8")
+  gender = self.request.get("gender").encode("utf-8")
+  keywords = self.request.get("keywords").encode("utf-8")
   record_search(keywords, service, department, age_start, age_end, gender)
 
 
@@ -66,7 +66,7 @@ def form_query_builder(self, page=None, limit=25):
     age_query = sql_age_string(age_start, age_end)
   # raise Exception(age_query)
   if service:
-    service_query = "AND `name_french` = '{0}'".format(service.encode("utf-8"))
+    service_query = "AND `name_french` = '{0}'".format(service)
 
   if department:
     department_query = "AND `commune` = '{0}'".format(department.encode("utf-8"))
@@ -94,7 +94,7 @@ def form_query_builder(self, page=None, limit=25):
       GROUP BY `org_id`
       LIMIT {5}
       {6}
-  """.format(gender_query, service_query, department_query, age_query, full_text_query, limit, page_query).decode("utf-8")
+  """.format(gender_query, service_query, department_query, age_query, full_text_query, limit, page_query)
   # raise Exception(sql_statement)
   return execute_query(sql_statement)
 
