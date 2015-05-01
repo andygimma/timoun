@@ -2,7 +2,7 @@ import webapp2
 import jinja2
 import os
 from models import Commune
-from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler, RecordHandler, LanguageHandler
+from handlers.static_pages import AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler, RecordHandler, LanguageHandler, PublicRecordHandler
 from handlers.admin import SearchRecordHandler, IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewRecordHandler, ExportHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
@@ -45,26 +45,26 @@ app = webapp2.WSGIApplication([
     ('/admin/users/([^/]+)', EmailEndpointHandler.EmailEndpointHandler),
     ('/admin/dashboard', DashboardHandler.DashboardHandler),
     ('/admin/dashboard/([^/]+)', DashboardItemHandler.DashboardItemHandler),
-    ('/admin/organizations', AdminOrgIndexHandler.AdminOrgIndexHandler),
+    # ('/admin/organizations', AdminOrgIndexHandler.AdminOrgIndexHandler),
     ('/admin/records', AdminRecordHandler.AdminRecordHandler),
     ('/admin/records/([^/]+)', AdminViewRecordHandler.AdminViewRecordHandler),
-    ('/admin/organizations/new', AdminOrgNewHandler.AdminOrgNewHandler),
-    ('/organizations/([^/]+)/edit', AdminOrgEditHandler.AdminOrgEditHandler),
-    ('/organizations/([^/]+)/delete', AdminOrgDeleteHandler.AdminOrgDeleteHandler),
-    ('/admin/organizations/dashboard', AdminOrgDashboardHandler.AdminOrgDashboardHandler),
+    # ('/admin/organizations/new', AdminOrgNewHandler.AdminOrgNewHandler),
+    # ('/organizations/([^/]+)/edit', AdminOrgEditHandler.AdminOrgEditHandler),
+    # ('/organizations/([^/]+)/delete', AdminOrgDeleteHandler.AdminOrgDeleteHandler),
+    # ('/admin/organizations/dashboard', AdminOrgDashboardHandler.AdminOrgDashboardHandler),
     ('/admin/programs', AdminProgramIndexHandler.AdminProgramIndexHandler),
     ('/admin/programs/new', AdminProgramNewHandler.AdminProgramNewHandler),
     ('/programs/([^/]+)/edit', AdminProgramEditHandler.AdminProgramEditHandler),
     ('/programs/([^/]+)/delete', AdminProgramDeleteHandler.AdminProgramDeleteHandler),
     ('/admin/programs/dashboard', AdminProgramDashboardHandler.AdminProgramDashboardHandler),
-    ('/admin/services', AdminServiceIndexHandler.AdminServiceIndexHandler),
-    ('/admin/services/new', AdminServiceNewHandler.AdminServiceNewHandler),
-    ('/services/([^/]+)/edit', AdminServiceEditHandler.AdminServiceEditHandler),
-    ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
-    ('/admin/services/dashboard', AdminServiceDashboardHandler.AdminServiceDashboardHandler),
+    # ('/admin/services', AdminServiceIndexHandler.AdminServiceIndexHandler),
+    # ('/admin/services/new', AdminServiceNewHandler.AdminServiceNewHandler),
+    # ('/services/([^/]+)/edit', AdminServiceEditHandler.AdminServiceEditHandler),
+    # ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
+    # ('/admin/services/dashboard', AdminServiceDashboardHandler.AdminServiceDashboardHandler),
     ('/users/([^/]+)/edit', EditHandler.EditHandler),
     ('/records/new', NewRecordHandler.NewRecordHandler),
-    ('/records/([^/]+)', RecordHandler.RecordHandler),
+    # ('/records/([^/]+)', RecordHandler.RecordHandler),
     ('/users/([^/]+)/delete', DeleteHandler.DeleteHandler),
     ('/users/login', LoginHandler.LoginHandler),
     ('/users/logout', LogoutHandler.LogoutHandler),
@@ -75,7 +75,8 @@ app = webapp2.WSGIApplication([
     ('/records/([^/]+)/edit', EditRecordHandler.EditRecordHandler),
     ('/update_handler', UpdateHandler.UpdateHandler),
     ('/admin/export/([^/]+)', ExportHandler.ExportHandler),
-    ('/isitlive', SiteTest.SiteTest)
+    ('/isitlive', SiteTest.SiteTest),
+    ("/records/([^/]+)", PublicRecordHandler.PublicRecordHandler)
 
 
 

@@ -2,6 +2,7 @@ import os
 import jinja2
 import webapp2
 from handlers import BaseHandler
+from helpers import QueryHandler
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -21,7 +22,6 @@ class IndexHandler(BaseHandler.BaseHandler):
 
     if not self.legacy:
       self.redirect("/#/admin")
-
 
     template_values = {
       "message": self.request.get("message"),

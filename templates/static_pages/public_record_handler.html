@@ -1,9 +1,9 @@
-{% extends "legacy_admin.html" %}
+{% extends "legacy_base.html" %}
 
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_admin" href="/admin">Admin</a> / New Record
+    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_admin" href="/admin">Admin</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
     <div id="language" style="text-align: right; float:right; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
@@ -12,8 +12,5 @@
 {% endblock %}
 
 {% block content %}
-  <h2>New Record</h2>
-  <form method="POST" action="/records/new">
-    {{ html_string }}
-  </form>
+  {{ html_string }}
 {% endblock %}

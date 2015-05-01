@@ -1,4 +1,4 @@
-{% extends "legacy_admin.html" %}
+{% extends "fr_legacy_admin.html" %}
 
 {% block breadcrumbs %}
 <div class="container">
@@ -13,7 +13,7 @@
 
 {% block content %}
   <h2>Records</h2>
-  <a href="/records/new" class="btn btn-a user">Add Record</a>
+  <a href="/records/new" class="btn btn-a user">Ajouter une Record</a>
   <a href="#" class="btn btn-b user">Voir Changements</a>
     {% if last_page >= 0 %}
     <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
@@ -27,7 +27,7 @@
     <div id="search-container" align="left">
     <div class="records-search" align="left">
             <label>Mots-clés</label>
-            <input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here...">
+            <input type="text" name="keywords" value="" id="keywords" placeholder="mots-clés ou l'nom d'organisation">
 
     </div>
     <div class="records-search" align="left">
