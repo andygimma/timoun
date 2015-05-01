@@ -21,6 +21,9 @@ class SearchHandler(BaseHandler.BaseHandler):
     age_end = self.request.get("age_end")
     gender = self.request.get("gender")
     page = self.request.get("page")
+    results = self.request.get("results")
+    if not results:
+      results = 25
     records = []
     page_offset = 0
 
@@ -28,16 +31,9 @@ class SearchHandler(BaseHandler.BaseHandler):
     page = self.request.get("page")
     if page:
       page_int = int(page)
-  
 
-    sql_statement = """SELECT `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_nom`, `org_email`, `org_phone`, `program_id`, `latitude`, `longitude`, COUNT(DISTINCT(`name_french`)) AS `service_count`
-      FROM `service`
-      GROUP BY `org_id`
-      LIMIT 25
-      {0}
-      """.format(page_offset)
     if search(self):
-      records = QueryHandler.form_query_builder(self, page)
+      records = QueryHandler.form_query_builder(self, page, results)
     
     language = None
     if "language" in self.request.cookies:

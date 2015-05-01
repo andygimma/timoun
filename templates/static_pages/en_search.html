@@ -242,9 +242,17 @@
     </div>
     </div><!-- //.search-container -->
     <!-- // 2nd Row  -->
-            <div class="map-cta">
-                <input type="submit" class="btn" value="Search Now">
-            </div>
+    <div class="" align="center">
+        <label>Results</label>
+        <select name="results">
+            <option value="10">10</option>
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+        </select>
+    </div>
+    <div class="map-cta">
+        <input type="submit" class="btn" value="Search Now">
+    </div>
 
 </form>
 </div>
@@ -299,6 +307,7 @@ $( "form" ).on( "submit", function( event ) {
     } else {
         console.log("!")
     }
+
   var map = L.map('map').setView([18.533, -72.333], 7);
     map.scrollWheelZoom.disable();
 
@@ -312,16 +321,16 @@ $( "form" ).on( "submit", function( event ) {
   {% for record in records %}
   // add a marker in the given location, attach some popup content to it and open the popup
   try {
- L.marker([{{ record[7]}}, {{ record[8] }}]).addTo(map)
+ L.marker([{{ record[8]}}, {{ record[9] }}]).addTo(map)
         .bindPopup("<p style='color:black'><a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[0] }}</a></p>")
         .openPopup();
   }
   catch(err) {
-    console.log("{{record[7]}}");
+    console.log("{{record[3]}}");
 
   }
   {% endfor %}
-</script>
+ </script>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 {% endblock %}

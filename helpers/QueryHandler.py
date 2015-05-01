@@ -40,6 +40,8 @@ def get_organization_by_id(organization_id):
 	return execute_query(org_sql)
 
 def form_query_builder(self, page=None, limit=25):
+  if limit > 50:
+    limit = 50
   keywords = self.request.get("keywords").encode("utf-8")
   service = self.request.get("service").encode("utf-8")
   department = self.request.get("department").encode("utf-8")
