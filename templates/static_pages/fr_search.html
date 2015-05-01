@@ -326,7 +326,7 @@ $( "form" ).on( "submit", function( event ) {
   // add a marker in the given location, attach some popup content to it and open the popup
   try {
  L.marker([{{ record[8]}}, {{ record[9] }}]).addTo(map)
-        .bindPopup("<p style='color:black'><a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[0] }}</a></p>")
+        .bindPopup("<p style='color:black'><a href='/admin/records/{{record[2]}}' target='_blank'>{{ record[0] }}</a></p>")
         .openPopup();
   }
   catch(err) {

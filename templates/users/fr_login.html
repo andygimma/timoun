@@ -17,11 +17,10 @@
 {% endblock %}
 
 {% block content %}
-<h1>Need French Translation</h1>
 <div class="top">
   <h1>Login</h1>
 <hr/>
-  <p>Please enter your email and password below to log in. If you experience any technical issues, then please feel free to <a href="/contact">contact us</a> and we will assist you shortly.</p>
+  <p>S'il vous plaît entrer votre e-mail et mot de passe ci-dessous pour vous connecter. Si vous rencontrez des problèmes techniques, alors s'il vous plaît sentir libre à <a href="/contact">nous contacter</a> et nous vous aiderons prochainement.<p>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -34,11 +33,11 @@
   <form method="POST" action="/users/login" class="login">
     <table>
       <tr>
-        <td>{{ form.email.label }}</td>
+        <td>Email</td>
         <td>{{ form.email()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.password.label }}</td>
+        <td>Mot De Passe</td>
         <td>{{ form.password()|safe }}</td>
       </tr>
     </table>

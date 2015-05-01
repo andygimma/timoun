@@ -8,9 +8,9 @@ _INSTANCE_NAME = 'timoun-production:timoun427'
 def execute_query(query_string):
     if (os.getenv('SERVER_SOFTWARE') and
       os.getenv('SERVER_SOFTWARE').startswith('Google App Engine/')):
-      db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db='timoun_4_27', user='root', passwd="11oinn")
+      db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db='timoun_4_30', user='root', passwd="11oinn")
     else:
-      db = MySQLdb.connect(host='127.0.0.1', port=3306, db='timoun_4_27', user='root', passwd="11oinn")
+      db = MySQLdb.connect(host='127.0.0.1', port=3306, db='timoun_4_30', user='root', passwd="11oinn")
 
     cursor = db.cursor()
     cursor.execute(query_string)
@@ -40,8 +40,6 @@ def get_organization_by_id(organization_id):
 	return execute_query(org_sql)
 
 def form_query_builder(self, page=None, limit=25):
-  if limit > 50:
-    limit = 50
   keywords = self.request.get("keywords").encode("utf-8")
   service = self.request.get("service").encode("utf-8")
   department = self.request.get("department").encode("utf-8")
