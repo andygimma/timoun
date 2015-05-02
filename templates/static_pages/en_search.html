@@ -266,9 +266,9 @@
 <div class="results-box">
   {% for record in records %}
     <div class="result">
-        <p style="color:black;">Organization Name: <a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[0] }}</a></p>
-        <p style="color:black;">Address: </p>
-        <p style="color:black;">Phone Number: {{ record[5] }}</p>
+        <p style="color:black;">Organization Name: <a href='/records/{{record[3]}}' target='_blank'>{{ record[5] }}</a></p>
+        <p style="color:black;">Address: {{ record[9] }}</p>
+        <p style="color:black;">Phone Number: {{ record[13] }}</p>
         <p style="color:black;">Services: {{ record[1] }}</p>
     </div>
   {% endfor %}
@@ -321,8 +321,8 @@ $( "form" ).on( "submit", function( event ) {
   {% for record in records %}
   // add a marker in the given location, attach some popup content to it and open the popup
   try {
- L.marker([{{ record[8]}}, {{ record[9] }}]).addTo(map)
-        .bindPopup("<p style='color:black'><a href='/records/{{record[2]}}' target='_blank'>{{ record[0] }}</a></p>")
+ L.marker([{{ record[10]}}, {{ record[11] }}]).addTo(map)
+        .bindPopup("<p style='color:black'><a href='/records/{{record[0]}}' target='_blank'>{{ record[5] }}</a></p>")
         .openPopup();
   }
   catch(err) {

@@ -14,6 +14,433 @@
 {% block content %}
   <h2>New Record</h2>
   <form method="POST" action="/records/new">
-    {{ html_string }}
+  <br>ID_1: <input name='id_1' type='text' />
+
+General information on the organization: <input name='informations_generales' type='text' />
+
+Organization Name: <input name='1_nom' type='text' />
+
+Department: <input name='departement' type='text' />
+
+Commune: <input name='commune' type='text' />
+
+Section communale: <input name='section_communale' type='text' />
+
+Address: <input name='adresse' type='text' />
+
+GPS Location: <input name='gps_location' type='text' />
+
+Latitude: <input name='latitude' type='text' />
+
+Longitude: <input name='longitude' type='text' />
+
+Postbox: <input name='boite_postale' type='text' />
+
+Phone Number: <input name='telephone' type='text' />
+
+Contact: <input name='personne_contact' type='text' />
+
+Email: <input name='email' type='text' />
+
+Website: <input name='site_web' type='text' />
+
+  1. Does your organization offer pathological type of mental health services?: <input name='1_estce_que_votre' type='text' />
+
+  3. Do you know a center offering mental health services in the region? (private, public, NGOs, etc.): <input name='3_connaissezvous' type='text' />
+
+  3.a.: <input name='3a' type='text' />
+
+  3.b.: <input name='3b' type='text' />
+
+  3.c.: <input name='3c' type='text' />
+
+  3.d.: <input name='3d' type='text' />
+
+  4. Does your organization provide psychosocial services?: <input name='4estce_que_votre' type='text' />
+
+  4.a. How do you publicize your services (multiple answers possible): <select name='4a_comment_publicisezvous'>
+    <option value="">Select one</option>
+    <option value='Autres'>Autres</option>
+    <option value='AffichesAffiches'>Affiches</option>
+    <option value='Réunions communautaires'>Réunions communautaires</option>
+    <option value='Dépliants'>Dépliants</option>
+    <option value='Radio'>Radio</option>
+    <option value='Télévision'>Télévision</option>
+  </select>
+
+  4.b. Are your services free?: <input name='4b_estce_que_vos' type='text' />
+
+  5. Are these services are available to vulnerable children or their parents / guardians? Multiple answers possible: <select name='5_ces_services'>
+    <option value="">Select one</option>
+    <option value='Enfants vulnérables et parents/tuteurs'>Enfants vulnérables et parents/tuteurs</option>
+    <option value='Enfants Vulnérables seulement'>Enfants Vulnérables seulement</option>
+    <option value='Parents/tuteurs seulement'>Parents/tuteurs seulement</option>
+  </select>
+
+  6. Do you get vulnerable children or their parents / guardians to these service? How often?: <input name='6_recevezvous_des' type='text' />
+       
+    6. Type: <select name='6_type_plusieurs'>
+      <option value="">Select one</option>
+      <option value='Organisation non gouvernementale internationale'>Organisation non gouvernementale internationale</option>
+      <option value='Autres à spécifier'>Autres à spécifier</option>
+      <option value='Organisation non gouvernementale nationale'>Organisation non gouvernementale nationale</option>
+      <option value='Association locale'>Association locale</option>
+      <option value='Entreprise privée'>Entreprise privée</option>
+      <option value='précisez___________________'>précisez</option>
+      <option value='Structure religieuse'>Structure religieuse</option>
+      <option value='Organisation communautaire de base'>Organisation communautaire de base</option>
+      <option value='Organisme gouvernemental'>Organisme gouvernemental</option>
+      <option value='Coopérative'>Coopérative</option>
+      <option value='Autres'>Autres</option>
+      <option value='Organisation des Nations Unies'>Organisation des Nations Unies</option>
+      <option value='Mutuelles'>Mutuelles</option>
+    </select>
+
+  6.a. Please give details: <input name='6a_precisez_autre' type='text' />
+
+  6.b. Other organization: <input name='6b_autre_organisation' type='text' />
+
+
+  6.c. Institution statement: <select name='6c_statut'>
+    <option value="">Select one</option>
+    <option value='Permis de fonctionnement'>Permis de fonctionnement</option>
+    <option value='Autorisation de fonctionnement'>Autorisation de fonctionnement</option>
+    <option value='Démarche en cours'>Démarche en cours</option>
+    <option value='Refus de repondre'>Refus de repondre</option>
+    <option value='Autres'>Autres</option>
+  </select>
+
+  6.d. Other status: <input name='6d_autre_status' type='text' />
+
+  
+  7. Days of operation: <select name='7_jour'>
+    <option value="">Select one</option>
+    <option value='Mardi'>Mardi</option>
+    <option value='Mercredi'>Mercredi</option>
+    <option value='Vendre'>Vendre</option>
+    <option value='Jeudi'>Jeudi</option>
+    <option value='Lundi'>Lundi</option>
+    <option value='Vendredi'>Vendredi</option>
+    <option value='Dimanche'>Dimanche</option>
+    <option value='Samedi'>Samedi</option>
+  </select>
+  
+
+
+
+  7. Specify the category(ies) of vulnerable children that you receive. (multiple answers possible): <select name='7_preciser_lales'>
+    <option value="">Select one</option>
+    <option value='enfants affectés par le VIH'>enfants affectés par le VIH</option>
+    <option value='Enfants infectés'>Enfants infectés</option>
+    <option value='Enfants handicapés'>Enfants handicapés</option>
+    <option value='Enfants orphelin'>Enfants orphelin</option>
+    <option value='Enfants chef de ménage'>Enfants chef de ménage</option>
+    <option value='Enfants en situation d'urgence'>Enfants en situation d'urgence</option>
+    <option value='Enfants exploités sexuellement'>Enfants exploités sexuellement</option>
+    <option value='Filles mères'>Filles mères</option>
+    <option value='Enfants abandonnés'>Enfants abandonnés</option>
+    <option value='non accompagnés'>non accompagnés</option>
+    <option value='Enfants en domesticité'>Enfants en domesticité</option>
+    <option value='Enfants en situation de mendicité'>Enfants en situation de mendicité</option>
+    <option value='Enfants en situation de Rue'>Enfants en situation de Rue</option>
+    <option value='Autres'>Autres</option>
+    <option value='Enfants victimes de la traite et du trafic'>Enfants victimes de la traite et du trafic</option>
+    <option value='Enfants en conflit avec la loi'>Enfants en conflit avec la loi</option>
+    <option value='Enfants marchands / vendeurs'>Enfants marchands / vendeurs</option>
+    <option value='Enfants affectés par la violence armée'>Enfants affectés par la violence armée</option>
+  </select>
+
+  7.a. Hours of operation: <select name='7a_heure'>
+    <option value="">Select one</option>
+    <option value='Temps partiel'>Temps partiel</option>
+    <option value='Temps Plein'>Temps Plein</option>
+    <option value='24/24'>24/24</option>
+  </select>
+  
+
+  8. Fundamental objectives of your organization: <textarea name='8_objectifs_fondamentaux' cols=40 rows=6></textarea>
+
+  8. Can you describe the stakeholder categories (multiple answers possible): <select name='8_pouvezvous_decrire'>
+    <option value="">Select one</option>
+    <option value='Autres'>Autres</option>
+    <option value='Infirmiers/infirmières spécialisé (e)s'>Infirmiers/infirmières spécialisé (e)s</option>
+    <option value='Psychiatres'>Psychiatres</option>
+    <option value='Travailleurs sociaux'>Travailleurs sociaux</option>
+    <option value='Bénévoles'>Bénévoles</option>
+    <option value='Travailleurs communautaires'>Travailleurs communautaires</option>
+    <option value='Aidants naturels'>Aidants naturels</option>
+    <option value='Pairs aidants'>Pairs aidants</option>
+    <option value='Médecins généralistes'>Médecins généralistes</option>
+  </select>
+  
+  8.a. What is the level of training of stakeholders? (Multiple answers possible): <select name='8a_quel_est_le'>
+    <option value="">Select one</option>
+    <option value='Formation spécialisées en santé mentale'>Formation spécialisées en santé mentale</option>
+    <option value='Universitaire licencié'>Universitaire licencié</option>
+    <option value='Mémorand'>Mémorand</option>
+    <option value='Formation sur le tas'>Formation sur le tas</option>
+    <option value='Universitaire en cours de formation'>Universitaire en cours de formation</option>
+    <option value='Autres'>Autres</option>
+    <option value='Formation de base en santé mentale'>Formation de base en santé mentale</option>
+  </select>
+
+  8.b.1. Please give details: <input name='8b1_precisez_' type='text' />
+
+  8.c. Do you offer training to improve participants' skills: <input name='8c_offrezvous_des' type='text' />
+
+  8.c.1. Medication: <input name='8c1_medication' type='text' />
+
+  8.c.2. Psychosocial activities: <input name='8c2_activites_psychosociales' type='text' />
+
+  8.c.3. Psychosocial support: <input name='8c3_accompagnement' type='text' />
+
+  8.c.4. Psychoanalysis: <input name='8c4_psychanalyse' type='text' />
+
+  8.c.5. Music Therapy: <input name='8c5_musicotherapie' type='text' />
+
+  8.c.6. Children's club: <input name='8c6_club_denfants' type='text' />
+
+  8.c.7. Socio-cultural activities: <input name='8c7_activites_socioculturelles' type='text' />
+
+  8.c.8. Self-help group: <input name='8c8_groupe_dentraide' type='text' />
+
+  8.c.9. Psychoeducation: <input name='8c9_psychoeducation' type='text' />
+
+  8.c.10. Physical Therapy: <input name='8c10_therapie_corporelle' type='text' />
+
+  8.c.11. Cognitive behavioral therapy: <input name='8c11_therapie_cognitive' type='text' />
+
+  8.c.12. Drama Therapy: <input name='8c12_therapie_par' type='text' />
+
+  8.c.13. Other: <input name='8c13_autres' type='text' />
+
+
+  9. Funding Source: <select name='9_source_de_financement'>
+    <option value="">Select one</option>
+    <option value='Bailleur international'>Bailleur international</option>
+    <option value='laquelle ? ____________________'>laquelle</option>
+    <option value='lequel ?______________________'>lequel</option>
+    <option value='Structure religieuse'>Structure religieuse</option>
+    <option value='Privée'>Privée</option>
+    <option value='Autres'>Autres</option>
+    <option value='Levée de fonds auprès de _____ préciser___________'>Levée de fonds auprès de _____ préciser___________</option>
+    <option value='Levée de fonds'>Levée de fonds</option>
+    <option value='Cotisations de membres'>Cotisations de membres</option>
+    <option value='Bailleur privé (veuillez ne pas citer de nom)'>Bailleur privé (veuillez ne pas citer de nom)</option>
+    <option value='Combien ?_______________'>Combien ?_______________</option>
+    <option value='Services payants'>Services payants</option>
+    <option value='Gouvernement'>Gouvernement</option>
+    <option value='ministère'>ministère</option>
+  </select>
+
+  9.a. Which one?: <input name='9a_lequel_t' type='text' />
+
+  9.b. Other Source: <input name='9b_autre_source' type='text' />10. How does your organization define: vulnerable children?: <textarea name='10_comment_votre' cols=40 rows=6></textarea>
+
+  9.c. How many: <input name='9a_combien' type='text' />
+
+  9.d. Please give details: <input name='9c_precisez' type='text' />
+
+  10. What do you do with requests for which you do not have a specialty?: <select name='10_que_faitesvous'>
+    <option value="">Select one</option>
+    <option value='Vous référez'>Vous référez</option>
+    <option value='Rien'>Rien</option>
+    <option value='Il n'y a aucune possibilité dans la région'>Il n'y a aucune possibilité dans la région</option>
+    <option value='nous ne sommes pas en contact avec d'autres centres'>nous ne sommes pas en contact avec d'autres centres</option>
+  </select>
+
+  10.a. If you provide referrals, please give details:: <input name='10a_si_vous_referez' type='text' />
+
+  11. Which category of vulnerable children is supported by the program?: <select name='11_quelle_categorie'>
+    <option value="">Select one</option>
+    <option value='Enfant parents'>Enfant parents</option>
+    <option value='Enfants abandonnés'>Enfants abandonnés</option>
+    <option value='Enfants chef de ménage'>Enfants chef de ménage</option>
+    <option value='Enfants en domesticité'>Enfants en domesticité</option>
+    <option value='Enfants en situation d'urgence.'>Enfants en situation d'urgence.</option>
+    <option value='Enfants en situation de rue'>Enfants en situation de rue</option>
+    <option value='Enfants handicapés'>Enfants handicapés</option>
+    <option value='Enfants orphelins'>Enfants orphelins</option>
+    <option value='Enfants pratiquant la mendicité'>Enfants pratiquant la mendicité</option>
+    <option value='Enfants sans documentation'>Enfants sans documentation</option>
+    <option value='Enfants séparés'>Enfants séparés</option>
+    <option value='Enfants travailleurs / marchands / vendeurs'>Enfants travailleurs / marchands / vendeurs</option>
+    <option value='marchands'>marchands</option>
+    <option value='Enfants victimes d'exploitation sexuelle'>Enfants victimes d'exploitation sexuelle</option>
+    <option value='Enfants non accompagnés'>Enfants non accompagnés</option>
+    <option value='Enfants victimes de la traite'>Enfants victimes de la traite</option>
+    <option value='Enfants vivant en institution Médicalisée'>Enfants vivant en institution Médicalisée</option>
+    <option value='enfants affectés par le VIH'>enfants affectés par le VIH</option>
+    <option value='Autres'>Autres</option>
+    <option value='Enfants en contact avec la loi'>Enfants en contact avec la loi</option>
+    <option value='Enfants vivant en institution Maison d'enfants généraliste'>Enfants vivant en institution Maison d'enfants généraliste</option>
+    <option value='Enfants vivant en institution Centre de détention'>Enfants vivant en institution Centre de détention</option>
+    <option value='nfants en conflit avec la loi'>nfants en conflit avec la loi</option>
+    <option value='Enfants affectés par la violence armée'>Enfants affectés par la violence armée</option>
+  </select>
+
+  11. Can you tell which organizations refer requests that you can not answer?: <input name='11_pouvezvous_dire' type='text' />
+
+  11.a. TRANSLATION AMBIGUOUS: <input name='11a_dechanges_de' type='text' />
+
+  11.b. TRANSLATION AMBIGUOUS: <input name='11b_de_referencement' type='text' />
+
+  11.c. TRANSLATION AMBIGUOUS: <input name='11c_de_formation' type='text' />
+
+  11.d. Other: <input name='11d_autres' type='text' />
+
+  13. To what other agencies do you make referrals?: <input name='13_quels_sont_les' type='text' />
+
+  How : <input name='combien_13' type='text' />
+
+  Other assistance: <input name='autre_assistance13' type='text' />
+
+  14. What obstacles do you face in the delivery of services?: <select name='14_quels_obstacles'>
+    <option value="">Select one</option>
+    <option value='Autres'>Autres</option>
+    <option value='Perception de la maladie mentale dans le milieu'>Perception de la maladie mentale dans le milieu</option>
+    <option value='Absence de matériels'>Absence de matériels</option>
+    <option value='Absence de professionnels'>Absence de professionnels</option>
+    <option value='Problèmes logistiques'>Problèmes logistiques</option>
+    <option value='Non observance des thérapies'>Non observance des thérapies</option>
+  </select>
+
+  14.a. If Other, please explain: <input name='14a_si_autres_' type='text' />
+
+  15. What barriers do patients face to access mental health services?: <textarea name='15_quels_obstacles' cols=40 rows=6></textarea>
+
+  16. Do you know people in the community who have an academic background in mental health elsewhere?: <input name='16_connaissezvous' type='text' />
+
+    17 dge portion of the boys children benefits programm: <input name='_17_tranche_dge' type='text' />
+
+  18 dge slice of girls benefits year 20 programs: <input name='_18_tranche_dge' type='text' />
+
+  19. What is the estimated monthly budget for these programs?: <input name='19_quel_est_le' type='text' />
+
+  20. Are you able to fill all costs allocated for the program(s)?: <input name='20_etesvous_en' type='text' />
+
+  21. How did or does the organization evaluate activities or programs? Cite and show supporting documents.: <textarea name='21_comment_lorganisation' cols=40 rows=6></textarea>
+
+  21.a. List 5 challenges in working with the most vulnerable children. (separate with commas): <textarea name='21a_citez_5_defis' cols=40 rows=6></textarea>
+
+  21.b. List 5 lessons learned in working with the most vulnerable children. (separate with commas): <textarea name='21b_citez_5_lecons' cols=40 rows=6></textarea>
+
+  23. Do you know of other organizations in the region offering services for vulnerable children: <input name='23_connaissezvous' type='text' />
+
+  23.a. Oganization names and addresses (separate list by comma): <textarea name='23a_noms_des_oganisation' cols=40 rows=6></textarea>
+
+  23.b. List the services you believe these organizations offer: <textarea name='23b_citez_les_services' cols=40 rows=6></textarea>
+
+  23.c. If so, which (name and address):: <input name='23c_si_oui_lesquels' type='text' />
+
+
+  What are the organizations to whom you refer requests: <input name='quels_sont_les' type='text' />
+
+  Question a: <input name='question_a' type='text' />
+
+  Question b: <input name='question_b' type='text' />
+
+  Question c: <input name='question_c' type='text' />
+
+  Question d: <input name='question_d' type='text' />
+
+
+
+  Created Date: <input name='created_date' type='text' />
+
+  Created By: <input name='created_by' type='text' />
+
+  Created Location: <input name='created_location' type='text' />
+
+  Created Device Id: <input name='created_device_id' type='text' />
+
+  Modified Date: <input name='modified_date' type='text' />
+
+  Modified By: <input name='modified_by' type='text' />
+
+  Modified Location: <input name='modified_location' type='text' />
+
+  Modified Device Id: <input name='modified_device_id' type='text' />
+
+  Server Modified Date: <input name='server_modified' type='text' />
+
+  When your service started: <input name='quand_votre_service' type='text' />
+
+  When it estce or services atil cess dexister: <input name='quand_estce_que' type='text' />
+
+  Your organization support girls and boys: <input name='votre_organisation' type='text' />
+
+  If so please give several possible answers: <select name='si_oui_prciser'>
+    <option value="">Select one</option>
+    <option value='counseling'>counseling</option>
+    <option value='soins de sant communautaires informels'>soins de sant communautaires informels</option>
+    <option value='soins de sant primaire'>soins de sant primaire</option>
+    <option value='soins psychologiques'>soins psychologiques</option>
+    <option value='relation daide'>relation daide</option>
+    <option value='soins psychiatriques'>soins psychiatriques</option>
+    <option value='autres'>autres</option>
+  </select>
+  
+  Categories of vulnerable children you receive: <select name='catgories_denfants'>
+    <option value="">Select one</option>
+    <option value='enfants affects par le vih'>enfants affects par le vih</option>
+    <option value='enfants infects'>enfants infects</option>
+    <option value='enfants en institution'>enfants en institution</option>
+    <option value='enfants handicaps'>enfants handicaps</option>
+    <option value='enfants orphelin'>enfants orphelin</option>
+    <option value='enfants abandonns non accompagns'>enfants abandonns non accompagns</option>
+    <option value='enfants chef de mnage'>enfants chef de mnage</option>
+    <option value='enfants en domesticit'>enfants en domesticit</option>
+    <option value='enfants en situation de mendicit'>enfants en situation de mendicit</option>
+    <option value='enfants en situation de rue'>enfants en situation de rue</option>
+    <option value='filles mres'>filles mres</option>
+    <option value='enfants en situation durgence.'>enfants en situation durgence.</option>
+    <option value='enfants exploits sexuellement'>enfants exploits sexuellement</option>
+    <option value='enfants marchands vendeurs'>enfants marchands vendeurs</option>
+    <option value='enfants en conflit avec la loi'>enfants en conflit avec la loi</option>
+    <option value='autres'>autres</option>
+    <option value='enfants victimes de la traite et du trafic'>enfants victimes de la traite et du trafic</option>
+    <option value='enfants affects par la violence arme'>enfants affects par la violence arme</option>
+  </select>
+  
+  My element14: <select name='my_element14'>
+    <option value="">Select one</option>
+    <option value='autres'>autres</option>
+    <option value='bailleur international'>bailleur international</option>
+    <option value='leve de fonds'>leve de fonds</option>
+    <option value='bailleur priv veuillez ne pas citer de nom'>bailleur priv veuillez ne pas citer de nom</option>
+    <option value='prive'>prive</option>
+    <option value='cotisations de membres'>cotisations de membres</option>
+    <option value='gouvernement ministre'>gouvernement ministre</option>
+    <option value='services payants'>services payants</option>
+    <option value='structure religieuse'>structure religieuse</option>
+  </select>
+  
+  What place: <select name='quel_endroit'>
+    <option value="">Select one</option>
+    <option value='autres'>autres</option>
+    <option value='universit dtat dhati ueh'>universit dtat dhati ueh</option>
+    <option value='universit prive'>universit prive</option>
+    <option value='formation non formelle'>formation non formelle</option>
+  </select>
+  
+  The main reason for consultation: <select name='les_principaux'>
+    <option value="">Select one</option>
+    <option value='dpression'>dpression</option>
+    <option value='troubles des apprentissages'>troubles des apprentissages</option>
+    <option value='retard de dveloppement psychomoteur'>retard de dveloppement psychomoteur</option>
+    <option value='troubles de comportements'>troubles de comportements</option>
+    <option value='troubles de personnalittroubles de personnalit'>troubles de personnalit</option>
+    <option value='dficience mentale'>dficience mentale</option>
+    <option value='folie'>folie</option>
+    <option value='maltraitance'>maltraitance</option>
+    <option value='agression sexuelle'>agression sexuelle</option>
+    <option value='counseling larv'>counseling larv</option>
+    <option value='counseling prposttest vih'>counseling prposttest vih</option>
+    <option value='autres'>autres</option>
+  </select>
+  
+  When do your services end: <input name='services_fin' type='text' />
+
   </form>
 {% endblock %}

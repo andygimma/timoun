@@ -41,7 +41,7 @@ def get_organization_by_id(organization_id):
 
 def form_query_builder(self, page=None, limit=25):
   keywords = self.request.get("keywords").encode("utf-8")
-  service = self.request.get("service").encode("utf-8")
+  service = self.request.get("service").encode("latin-1")
   department = self.request.get("department").encode("utf-8")
   age_start = self.request.get("age_start").encode("utf-8")
   age_end = self.request.get("age_end").encode("utf-8")
@@ -66,7 +66,7 @@ def form_query_builder(self, page=None, limit=25):
     age_query = sql_age_string(age_start, age_end)
   # raise Exception(age_query)
   if service:
-    service_query = "AND `name_french` = '{0}'".format(service)
+    service_query = "AND `service`.`name_french` = '{0}'".format(service)
 
   if department:
     department_query = "AND `commune` = '{0}'".format(department.encode("utf-8"))
@@ -83,8 +83,26 @@ def form_query_builder(self, page=None, limit=25):
     parsed_text = "+" + keywords.replace(" ", " +")
     full_text_query = "AND MATCH(service_details) AGAINST('{0}' IN BOOLEAN MODE)".format(parsed_text)
 
-  sql_statement = """SELECT `name_french` AS `service_name_fr`, `name_english`  AS `service_name_en`, `org_id`, `org_nom`, `org_email`, `org_phone`, `org_adresse`, `org_section_communale` `program_id`, `latitude`, `longitude`
-      FROM `service`
+  sql_statement = """SELECT `service`.`id`, 
+        `service`.`name_french`, 
+        `service`.`org_id`, 
+        `service`.`program_id`, 
+        `service`.`notes`, 
+        `organization`.`1_nom` AS `org_nom`, 
+        `organization`.`departement`, 
+        `organization`.`commune`, 
+        `organization`.`section_communale`,
+        `organization`.`adresse`, 
+        `organization`.`latitude`, 
+        `organization`.`longitude`, 
+        `organization`.`boite_postale`, 
+        `organization`.`telephone`, 
+        `organization`.`personne_contact`, 
+        `organization`.`email`, 
+        `organization`.`site_web`
+        FROM `service`
+        LEFT JOIN `organization`
+        ON `service`.`org_id` = `organization`.`id`
       WHERE 1=1
       {0}
       {1}
@@ -95,6 +113,7 @@ def form_query_builder(self, page=None, limit=25):
       LIMIT {5}
       {6}
   """.format(gender_query, service_query, department_query, age_query, full_text_query, limit, page_query)
+  # raise Exception(sql_statement)
   # raise Exception(sql_statement)
   return execute_query(sql_statement)
 
@@ -121,6 +140,6 @@ def encoded_records(records):
 
 def record_search(keywords, service, department, age_start, age_end, gender):
   ip = os.environ["REMOTE_ADDR"]
-  s = SearchRecord.SearchRecord(ip_address = ip, keywords = keywords, service = service, department = department, age_start = age_start, age_end = age_end, gender = gender)
+  s = SearchRecord.SearchRecord(ip_address = ip, keywords = keywords, service = service.decode("latin-1"), department = department, age_start = age_start, age_end = age_end, gender = gender)
   s.put()
 

@@ -34,7 +34,7 @@ class SearchHandler(BaseHandler.BaseHandler):
 
     if search(self):
       records = QueryHandler.form_query_builder(self, page, results)
-    
+    # raise Exception(len(records))
     language = None
     if "language" in self.request.cookies:
       language = self.request.cookies["language"]
