@@ -41,7 +41,7 @@
                 <option value="Distribution ration sèche">Distribution ration sèche</option>
                 <option value="Education nutritionnelle">Education nutritionnelle</option>
                 <option value="Jardins potagers">Jardins potagers</option>
-                <option value="Sécurité alimentaire">Sécurité alimentaire</option>              
+                <option value="Sécurité alimentaire">Sécurité alimentaire</option>
             </optgroup>
             <optgroup label="Soins à domicile">
                 <option value="Autres à spécifier">Autres à spécifier</option>
@@ -111,6 +111,7 @@
         <label>Departement</label>
         <select name="department">
             <option value="" selected>Sélectionnez Deparment</option>
+
             <optgroup label="Artibonite">
                 <option value="Anse rouge">Anse rouge</option>
                 <option value="Ennery">Ennery</option>
@@ -138,7 +139,7 @@
                 <option value="Pignon">Pignon</option>
             </optgroup>
             <option value="Nord-Est">Nord-Est</option>
-            <option value="Nord-Ouest">Nord-Quest</option>            
+            <option value="Nord-Ouest">Nord-Ouest</option>
             <optgroup label="Ouest">
                 <option value="Delmas">Delmas</option>
                 <option value="Leogane">Leogane</option>
@@ -235,19 +236,20 @@
     <div class="records-search" align="left">
         <label>Gender Recherche</label>
         <select name="gender">
+
             <option value="" selected>Sélectionner une option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
             <option {% if gender == "female" %} selected {% endif %}  value="female">Filles</option>
             <option value="none">Les garçons et les filles</option>
             <option value="none">P/A</option>
-        </select>
-    </div>
-    </div><!-- //.search-container -->
-    <!-- // 2nd Row  -->
-            <div class="map-cta" id="records-cta">
-                <input type="submit" class="btn" value="Search Now">
-            </div>
-</form>
+            </select></td>
+        </tr>    
+</table>
+<div align="center">
+<input type="submit" class="btn btn-d user" align="center" value="Rechercher">    
+</div>    
+</form> 
+
     <table class="table records">
       <thead>
         <tr>

@@ -23,17 +23,17 @@
 {% if records_length > 0 %}
 
   <h3 class="no-margin">Filter</h3>    
-   <form action="" id="records-form" class="search-form">
-    <div id="search-container" align="left">
-    <div class="records-search" align="left">
-            <label>Mots-clés</label>
-            <input type="text" name="keywords" value="" id="keywords" placeholder="keywords or organization name">
-
-    </div>
-    <div class="records-search" align="left">
-        <label>Service</label>
-        <select name="service">
-            <option value="" selected>Sélectionnez Service</option>
+<form action="" method="post">
+<table class="inline-table">
+        <tr>
+            <th><label for="keywords">Keywords</label></th>
+            <th><label for="service">Service</label></th>
+            <th><label for="department">Department</label></th>
+        </tr>
+        <tr>
+            <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here..."></td>
+            <td><select name="service">
+            <option value="" selected>Select Service</option>
             <optgroup label="Nutrition (Prog 1)">
                 <option value="Cantine scolaire">Cantine scolaire</option>
                 <option value="Distribution de lait pour bébé">Distribution de lait pour bébé</option>
@@ -41,15 +41,15 @@
                 <option value="Distribution ration sèche">Distribution ration sèche</option>
                 <option value="Education nutritionnelle">Education nutritionnelle</option>
                 <option value="Jardins potagers">Jardins potagers</option>
-                <option value="Sécurité alimentaire">Sécurité alimentaire</option>              
+                <option value="Sécurité alimentaire">Sécurité alimentaire</option>
             </optgroup>
-            <optgroup label="Soins à domicile (Prog 2)">
+            <optgroup label="Soins2 à domicile (Prog 2)">
                 <option value="Autres à spécifier">Autres à spécifier</option>
                 <option value="Distribution de kits d’hygiène">Distribution de kits d’hygiène</option>
                 <option value="Distribution de produit pour le traitement de l’eau">Distribution de produit pour le traitement de l’eau</option>
                 <option value="Vêtements">Vêtements</option>
             </optgroup>
-            <optgroup label="Abri (Prog 3)">
+            <optgroup label="Abri">
                 <option value="Abri permanent">Abri permanent</option>
                 <option value="Abri provisoire">Abri provisoire</option>
                 <option value="Autres à spécifier">Autres à spécifier</option>
@@ -75,7 +75,7 @@
                 <option value="support aux enfants en domesticité">support aux enfants en domesticité</option>
                 <option value="support aux enfants handicapés">support aux enfants handicapés</option>
                 <option value="support aux enfants victimes de traite">support aux enfants victimes de traite</option>
-            </optgroup> 
+            </optgroup>
             <optgroup label="Santé (Prog 5)">
                 <option value="Autres">Autres</option>
                 <option value="Consultation pour enfants">Consultation pour enfants</option>
@@ -104,12 +104,9 @@
             </optgroup>
             <optgroup label="Services Sante Mentales (Prog 8)">
                 <option value="Services Sante Mentales">Services Sante Mentales</option>
-            </optgroup>            
-        </select>
-    </div>
-    <div class="records-search" align="left">
-        <label>Department</label>
-        <select name="department">
+            </optgroup>
+        </select></td>
+            <td><select name="department">
             <option value="" selected>Select Department</option>
             <optgroup label="Artibonite">
                 <option value="Anse rouge">Anse rouge</option>
@@ -138,7 +135,7 @@
                 <option value="Pignon">Pignon</option>
             </optgroup>
             <option value="Nord-Est">Nord-Est</option>
-            <option value="Nord-Ouest">Nord-Quest</option>            
+            <option value="Nord-Ouest">Nord-Ouest</option>
             <optgroup label="Ouest">
                 <option value="Delmas">Delmas</option>
                 <option value="Leogane">Leogane</option>
@@ -248,6 +245,7 @@
                 <input type="submit" class="btn" value="Search Now">
             </div>
 </form>
+
     <table class="table records">
       <thead>
         <tr>

@@ -19,9 +19,8 @@
   <h1>Suggest Services</h1>
 <p>The key success of this project is in the open sharing of data. If you believe we are missing any important information regarding children's services in Haiti, please let us know by completing the form below.</p>
 <p>Thank you for your contribution!</p>
-<div class="contact-form suggest">
 <form method="POST" action="/suggest_services">
-    <table>
+    <table class="block-table contact">
       <tr>
         <td><label for="name">Name*</label></td>
         <td><input type="text" name="name" value="" id="name" placeholder="Enter full name here" required></td>
@@ -143,13 +142,11 @@
           <label for="details">Details</label>
         </td>
         <td>
-          <textarea name="details" cols=40 rows=6></textarea>
+          <textarea name="details"></textarea>
         </td>
       </tr>
     </table>
-    <br/>
     <input type=submit value=Submit id="submit">
   </form>
-</div>
 </div>
 {% endblock %}

@@ -18,20 +18,17 @@
 {% block content %}
 <div class="top">
   <h1 id="search-header">Recherche</h1>
-    <p>Rechercher par l'un des sept services fournis, nom de l'organisation, l'emplacement, la population cible ou à l'aide de mots-clés. Le résultat sera résumée, cartographié et disponible pour imprimer ou par courriel.</p>
-    <!-- 1st Row Starts -->
-<form action="/search" method="post" id="main-search-form">
-            <!--input type="submit" value="Soumettre"-->
-<!-- containing form for search -->
-    <div id="search-container" align="center">
-    <div class="main-search" align="center">
-            <label>Mots-clés</label>
-            <input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here...">
-
-    </div>
-    <div class="main-search" align="center">
-        <label>Service</label>
-        <select name="service">
+    <p>Rechercher par l'un des sept services fournis, nom de l'organisation, l'emplacement, la population cible ou à l'aide de mots-clés. Le résultat sera résumée, cartographié et disponible pour imprimer ou par courriel.</p>    
+<form action="/search">
+<table class="inline-table">
+        <tr>
+            <th><label for="keywords">Mots-clés</label></th>
+            <th><label for="service">Service</label></th>
+            <th><label for="department">Department</label></th>
+        </tr>
+        <tr>
+            <td><input type="text" name="keywords" value="" id="keywords" placeholder="entrez les termes de recherche ici..."></td>
+            <td><select name="service">
             <option value="" selected>Sélectionnez Service</option>
             <optgroup label="Nutrition (Prog 1)">
                 <option value="Cantine scolaire">Cantine scolaire</option>
@@ -42,7 +39,7 @@
                 <option value="Jardins potagers">Jardins potagers</option>
                 <option value="Sécurité alimentaire">Sécurité alimentaire</option>
             </optgroup>
-            <optgroup label="Soins à domicile (Prog 2)">
+            <optgroup label="Soins2 à domicile (Prog 2)">
                 <option value="Autres à spécifier">Autres à spécifier</option>
                 <option value="Distribution de kits d’hygiène">Distribution de kits d’hygiène</option>
                 <option value="Distribution de produit pour le traitement de l’eau">Distribution de produit pour le traitement de l’eau</option>
@@ -104,13 +101,9 @@
             <optgroup label="Services Sante Mentales (Prog 8)">
                 <option value="Services Sante Mentales">Services Sante Mentales</option>
             </optgroup>
-        </select>
-    </div>
-    <div class="main-search" align="center">
-            <div class="main-search" align="center">
-        <label>Department</label>
-        <select name="department">
-            <option value="" selected>Select Department</option>
+        </select></td>
+            <td><select name="department">
+            <option value="" selected>Sélectionnez Department</option>
             <optgroup label="Artibonite">
                 <option value="Anse rouge">Anse rouge</option>
                 <option value="Ennery">Ennery</option>
@@ -175,66 +168,31 @@
                 <option value="Thiotte">Thiotte</option>
             </optgroup>
             <option value="none">N/A</option>
-        </select>
-    </div>
-    </div> <!-- //.search-container -->
-    <!-- // 1st Row  -->
-
-    <!-- 2nd Row Starts -->
-    <div id="search-container" align="center">
-    <div class="main-search" align="center">
-        <label>Age Min</label>
-        <select name="age_start" id="age_start">
-            <option value="" selected>Sélectionnez Gamme</option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-        </select>
-    </div>
-    <div class="main-search" align="center">
-        <label>Age Max:</label>
-        <select name="age_end" id="age_end">
-            <option value="" selected>Sélectionnez Gamme</option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-        </select>
-    </div>
-    <div class="main-search" align="center">
-        <label>Gender Recherche</label>
-        <select name="gender">
+            </select></td>
+        </tr>
+        <tr>
+            <th><label for="age_start">Age Min:</label></th>
+            <th><label for="age_end">Age Max:</label></th>
+            <th><label for="gender">Gender Recherche</label></th>
+        </tr>
+        <tr>
+            <td><select name="age_start">
+            <option value="0" selected>Sélectionnez Gamme</option>
+            <option value="1">Age 0-3</option>
+            <option value="2">Age 4-10</option>
+            <option value="3">Age 11-14</option>
+            <option value="4">Age 15-18</option>
+            <option value="none">N/A</option>
+            </select></td>
+            <td><select name="age_end">
+            <option value="0" selected>Sélectionnez Gamme</option>
+            <option value="1">Age 0-3</option>
+            <option value="2">Age 4-10</option>
+            <option value="3">Age 11-14</option>
+            <option value="4">Age 15-18</option>
+            <option value="none">N/A</option>
+            </select></td>
+            <td><select name="gender">
             <option value="" selected>Sélectionner une option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
             <option {% if gender == "female" %} selected {% endif %}  value="female">Filles</option>
@@ -256,9 +214,9 @@
         <input type="submit" class="btn" value="Recherche">
     </div>
 
-</form>
-</div>
+
 <hr/>
+
 <div class="mid" id="search-mid">
 <div id="results-container" align="center"> 
 <h2>Résultats de la recherche</h2>
@@ -278,8 +236,8 @@
 </div>    
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
-        <li><a id="last_page_link" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Dernière Page</a></li>
-        <li><a id="next_page_link" href="/search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Page Suivante</a></li>
+        <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Dernière Page</a></li>
+        <li><a id="next_page_link" class="btn btn-d user yellow" href="/search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Page Suivante</a></li>
     </ul>
 
     <p class="search-again">Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau , et cliquez sur le bouton Rechercher.</p>

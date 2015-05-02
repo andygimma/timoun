@@ -19,20 +19,19 @@
 <div class="top">
   <h1>Search</h1>
     <p>Search by any of seven services provided, organization name, location, target population or using keywords. The result will be summarized, mapped and available to print or email.</p>
-<form action="/search" method="get" id="main-search-form">
-            <!--input type="submit" value="Submit"-->
-<!-- containing form for search -->
-    <div id="search-container" align="center">
-    <div class="main-search" align="center">
-            <label>Keywords</label>
-            <input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here...">
+<form action="/search" method="get">
+<table class="inline-table">
+        <tr>
+            <th><label for="keywords">Keywords</label></th>
+            <th><label for="service">Service</label></th>
+            <th><label for="department">Department</label></th>
+        </tr>
+        <tr>
+            <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here..."></td>
+            <td><select name="service">
+            <option value="" selected>Select Service</option>
+            <optgroup label="Nutrition (Prog 1)">
 
-    </div>
-<div class="main-search" align="center">
-        <label>Service</label>
-        <select name="service">
-            <option value="" selected>Sélectionnez Service</option>
-            <optgroup label="Nutrition">
                 <option value="Cantine scolaire">Cantine scolaire</option>
                 <option value="Distribution de lait pour bébé">Distribution de lait pour bébé</option>
                 <option value="Distribution de nourriture pour l’enfant adapté à son âge">Distribution de nourriture pour l’enfant adapté à son âge</option>
@@ -103,11 +102,8 @@
             <optgroup label="Services Sante Mentales (Prog 8)">
                 <option value="Services Sante Mentales">Services Sante Mentales</option>
             </optgroup>
-        </select>
-    </div>
-    <div class="main-search" align="center">
-        <label>Department</label>
-        <select name="department">
+        </select></td>
+            <td><select name="department">
             <option value="" selected>Select Department</option>
             <optgroup label="Artibonite">
                 <option value="Anse rouge">Anse rouge</option>
@@ -173,6 +169,7 @@
                 <option value="Thiotte">Thiotte</option>
             </optgroup>
             <option value="none">N/A</option>
+<<<<<<< HEAD
         </select>
     </div>
     </div> <!-- //.search-container -->
@@ -233,11 +230,39 @@
     <div class="main-search" align="center">
         <label>Gender</label>
         <select name="gender">
+=======
+            </select></td>
+        </tr>
+        <tr>
+            <th><label for="age_start">Age Min:</label></th>
+            <th><label for="age_end">Age Max:</label></th>
+            <th><label for="gender">Gender</label></th>
+        </tr>
+        <tr>
+            <td><select name="age_start">
+            <option value="0" selected>Select Range</option>
+            <option value="1">Age 0-3</option>
+            <option value="2">Age 4-10</option>
+            <option value="3">Age 11-14</option>
+            <option value="4">Age 15-18</option>
+            <option value="none">N/A</option>
+            </select></td>
+            <td><select name="age_end">
+            <option value="0" selected>Select Range</option>
+            <option value="1">Age 0-3</option>
+            <option value="2">Age 4-10</option>
+            <option value="3">Age 11-14</option>
+            <option value="4">Age 15-18</option>
+            <option value="none">N/A</option>
+            </select></td>
+            <td><select name="gender">
+>>>>>>> 19f302b3db03fe06c3069b21b36e899cb9a1eadd
             <option value="" selected>Select Option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Boys</option>
             <option {% if gender == "female" %} selected {% endif %}  value="female">Girls</option>
             <option value="either">Boys &amp; Girls</option>
             <option value="none">N/A</option>
+<<<<<<< HEAD
         </select>
     </div>
     </div><!-- //.search-container -->
@@ -255,8 +280,19 @@
     </div>
 
 </form>
+=======
+            </select></td>
+        </tr>    
+</table>
+<div align="center">
+<input type="submit" class="btn btn-d user" align="left" value="Search Now">    
+>>>>>>> 19f302b3db03fe06c3069b21b36e899cb9a1eadd
 </div>
+</form>
+</div> <!-- //.top -->
+
 <hr/>
+
 <div class="mid" id="search-mid">
 <div id="results-container" align="center">
 <h2>Search Results</h2>
@@ -275,8 +311,8 @@
 </div>    
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
-        <li><a a id="last_page_link" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
-        <li><a a id="last_page_link" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
+        <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
+        <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
     </ul>
     <p class="search-again">If you would like to perform a new search, simply fill out the fields above again, and click the search button.</p>
 <p class="search-again">For information regarding the definitions of services, please <a href='/about#definitions'>go here.</a></p>    
