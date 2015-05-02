@@ -24,18 +24,17 @@
         <div class="haiti-map">
             <img src="../../assets/img/IBERS_Map5_kraked.jpg" width="" height="" alt="map of haiti" />
         </div>
-    <form action="/search" method="get" class="home-search-form">
-    <div id="search-container" align="left">
-    <div class="home-search" align="left">
-            <label>Keywords</label>
-            <input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here...">
-
-    </div>
-    <div class="home-search" align="left">
-        <label>Service</label>
-        <select name="service">
-            <option value="" selected>Select Service</option>
-            <optgroup label="Nutrition">
+<form action="/search" method="get">
+<table class="block-table">
+    <tr>
+        <th><label for="keywords">Keywords</label></th>
+            <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here..."></td>
+    </tr>
+    <tr>
+        <th><label for="service">Service</label></th>
+            <td><select name="service">
+            <option value="" selected>Sélectionnez Service</option>
+            <optgroup label="Nutrition (Prog 1)">
                 <option value="Cantine scolaire">Cantine scolaire</option>
                 <option value="Distribution de lait pour bébé">Distribution de lait pour bébé</option>
                 <option value="Distribution de nourriture pour l’enfant adapté à son âge">Distribution de nourriture pour l’enfant adapté à son âge</option>
@@ -44,7 +43,7 @@
                 <option value="Jardins potagers">Jardins potagers</option>
                 <option value="Sécurité alimentaire">Sécurité alimentaire</option>
             </optgroup>
-            <optgroup label="Soins à domicile">
+            <optgroup label="Soins2 à domicile (Prog 2)">
                 <option value="Autres à spécifier">Autres à spécifier</option>
                 <option value="Distribution de kits d’hygiène">Distribution de kits d’hygiène</option>
                 <option value="Distribution de produit pour le traitement de l’eau">Distribution de produit pour le traitement de l’eau</option>
@@ -57,7 +56,7 @@
                 <option value="Réparation de maison">Réparation de maison</option>
                 <option value="spécifier quel type_____________">spécifier quel type_____________</option>
             </optgroup>
-            <optgroup label="Protection de l’enfant"
+            <optgroup label="Protection de l’enfant (Prog 4)">
                 <option value="abus émotionnel">abus émotionnel</option>
                 <option value="Abus physique">Abus physique</option>
                 <option value="abus sexuel">abus sexuel</option>
@@ -280,14 +279,4 @@
 
   {% endfor %}
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script>
-$( "form" ).on( "submit", function( event ) {
-  event.preventDefault();
-  var queryString = $( this ).serialize();
-  console.log(queryString);
-  window.location = "/search?" + queryString;
-});
-</script>
 {% endblock %}
-
