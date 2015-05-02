@@ -199,6 +199,16 @@ ul.pagination li {display: inline;}
 .no-margin {margin-left: 0!important;}
 
 
+/* USERS */
+.user {margin: 0 10px 20px 0;}
+.table {width: 100%;}
+.table tr {width: 100%;}
+.table th {text-align: left; word-break: keep-all;}
+.table td {width: auto;}
+.table-email {word-break: break-all;}
+.user {margin: 0 10px 20px 0;}
+
+
 /* MANUAL */
 .main h2, .main h3 {text-align: left;}
 .manual-nav {margin:0; padding: 0; width: 100%;}
