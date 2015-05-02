@@ -176,7 +176,38 @@
             <th><label for="gender">Gender Recherche</label></th>
         </tr>
         <tr>
-            <td><select name="age_start">
+            
+            <td>
+            <span id="age-start">
+            <select name="age_start">
+            <option class="" value="0" selected>Sélectionnez Gamme</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            </select>
+            </span>
+            </td>
+            
+            
+            <td>
+            <span id="age-end">
+            <select name="age_end">
             <option value="0" selected>Sélectionnez Gamme</option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -197,29 +228,10 @@
             <option value="16">16</option>
             <option value="17">17</option>
             <option value="18">18</option>
-            </select></td>
-            <td><select name="age_end">
-            <option value="0" selected>Sélectionnez Gamme</option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            </select></td>
+            </select>
+            </span>
+            </td>
+            
             <td><select name="gender">
             <option value="" selected>Sélectionner une option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
@@ -283,6 +295,8 @@ $( "form" ).on( "submit", function( event ) {
 
     var pageParam = getURLParameter("page");
 
+
+
     if (pageParam == "0" || pageParam == null) {
         console.log("12")
         $("#last_page_link").hide();
@@ -311,6 +325,39 @@ $( "form" ).on( "submit", function( event ) {
     console.log("{{record[3]}}");
   }
   {% endfor %}
+
+
+    var keywordsParam = getURLParameter("keywords");
+    var serviceParam = getURLParameter("service");
+    var departmentParam = getURLParameter("department");
+    var ageStartParam = getURLParameter("age_start");
+    var ageEndParam = getURLParameter("age_end");
+    var genderParam = getURLParameter("gender");
+
+    if (keywordsParam != null) {
+        $("#keywords").val(keywordsParam);
+    }
+
+    if (serviceParam != null) {
+        $('select option[value="' + serviceParam + '"]').prop('selected',true);
+    }
+
+    if (departmentParam != null) {
+        $('select option[value="' + departmentParam + '"]').prop('selected',true);
+    }
+
+    if (ageStartParam != null) {
+        $('#age-start select option[value="' + ageStartParam + '"]').prop('selected',true);
+    }
+
+    if (ageEndParam != null) {
+        $('#age-end select option[value="' + ageEndParam + '"]').prop('selected',true);
+    }
+
+    if (genderParam != null) {
+        $('select option[value="' + genderParam + '"]').prop('selected',true);
+    }
+    
 </script>
 
 {% endblock %}

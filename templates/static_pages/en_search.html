@@ -309,6 +309,38 @@ $( "form" ).on( "submit", function( event ) {
     console.log("{{record[3]}}");
   }
   {% endfor %}
+
+      var keywordsParam = getURLParameter("keywords");
+    var serviceParam = getURLParameter("service");
+    var departmentParam = getURLParameter("department");
+    var ageStartParam = getURLParameter("age_start");
+    var ageEndParam = getURLParameter("age_end");
+    var genderParam = getURLParameter("gender");
+
+    if (keywordsParam != null) {
+        $("#keywords").val(keywordsParam);
+    }
+
+    if (serviceParam != null) {
+        $('select option[value="' + serviceParam + '"]').prop('selected',true);
+    }
+
+    if (departmentParam != null) {
+        $('select option[value="' + departmentParam + '"]').prop('selected',true);
+    }
+
+    if (ageStartParam != null) {
+        $('#age-start select option[value="' + ageStartParam + '"]').prop('selected',true);
+    }
+
+    if (ageEndParam != null) {
+        $('#age-end select option[value="' + ageEndParam + '"]').prop('selected',true);
+    }
+
+    if (genderParam != null) {
+        $('select option[value="' + genderParam + '"]').prop('selected',true);
+    }
+    
 </script>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
