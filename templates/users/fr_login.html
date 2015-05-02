@@ -31,8 +31,8 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/users/login" class="login">
-    <table>
+  <form method="POST" action="/users/login">
+    <table class="block-table contact">
       <tr>
         <td>{{ form.email.label }}</td>
         <td>{{ form.email()|safe }}</td>
@@ -42,7 +42,6 @@
         <td>{{ form.password()|safe }}</td>
       </tr>
     </table>
-    <br>
     <input type=submit value="Soumettre" id="submit">
   </form>
   <p><a href="/users/reset_password">Forgot Password?</a></p>

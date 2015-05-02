@@ -27,8 +27,8 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/users/profile" class="contact-form">
-    <table>
+  <form method="POST" action="/users/profile">
+    <table class="block-table contact">
       <tr>
         <td>{{ form.name.label }}</td>
         <td>{{ form.name()|safe }}</td>

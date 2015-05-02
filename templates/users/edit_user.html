@@ -26,8 +26,8 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/users/{{ user_key }}/edit" class="contact-form" id="admin-form">
-    <table>
+  <form method="POST" action="/users/{{ user_key }}/edit">
+    <table class="block-table admin">
       <tr>
         <td>{{ form.email.label }}</td>
         <td>{{ form.email()|safe }}</td>
@@ -49,7 +49,7 @@
         <td>{{ form.role()|safe }}</td>
       </tr>
     </table>
-    <input type=submit id="submit" value=Submit>
+    <input type=submit id="submit" class="admin-btn" value=Submit>
   </form>
 <br/>
    <a href="/admin/users" class="btn btn-d user">Cancel</a>
