@@ -21,9 +21,8 @@
 <h3><em>We need french translation for this page.</em></h3>
 <p>La clé du succès de ce projet est dans le partage ouvert de données . Si vous croyez manque aucune information importante concernant les services à l'enfance en Haïti , se il vous plaît laissez-nous savoir en remplissant le formulaire ci-dessous.</p>
 <p>Thank you for your contribution!</p>
-<div class="contact-form suggest">
 <form method="POST" action="/suggest_services">
-    <table>
+    <table class="block-table contact">
       <tr>
         <td><label for="name">Nom*</label></td>
         <td><input type="text" name="name" value="" id="name" placeholder="Entrez le nom complet ici" required></td>
@@ -104,7 +103,7 @@
             <option value="17">17</option>
             <option value="18">18</option>
         </select>
-        &
+        &amp;
         <select name="age_end" style="width:114px">
             <option value="None" selected>Select Age</option>
             <option value="0">0</option>
@@ -153,5 +152,5 @@
     <input type=submit value="Soumettre" id="submit">
   </form>
 </div>
-</div>
+
 {% endblock %}
