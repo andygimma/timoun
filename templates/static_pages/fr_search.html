@@ -1,36 +1,33 @@
 {% extends "fr_legacy_base.html" %}
+
 {% block title %}
-<title>Accueille : Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
-<style>
-.static-map img {width: 80%;}
-</style>
+<title>Recherche: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
 {% endblock %}
 
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_home" href="/fr_index.html">Accueil</a>
+    <a id="breadcrumb_home" href="/fr_index">Home</a> / <a id="breadcrumb_search" href="/fr_search">Recherche</a>
       <div id="language" style="text-align: right;  float:right; margin-right: 20px;">
-      <a href="/language?language='fr'&redirect='/'">Français</a> / <a href="/language?language='en'&redirect='/'">English </a>
+        <a href="/language?language='fr'&redirect='/search'">Français</a> / <a href="/language?language='en'&redirect='/search'">English </a>
       </div>
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class="top">    
-    <h1>Un outil utilisable gratuit qui est prêt pour vous!</h1>
-        <div class="haiti-map">
-            <img src="../../assets/img/IBERS_Map5_kraked.jpg" width="" height="" alt="map of haiti" />
-        </div>
-    <form action="/search" method="get">
-<table class="block-table">
-    <tr>
-        <th><label for="keywords">Mots-clés</label></th>
+<div class="top">
+  <h1 id="search-header">Recherche</h1>
+    <p>Rechercher par l'un des sept services fournis, nom de l'organisation, l'emplacement, la population cible ou à l'aide de mots-clés. Le résultat sera résumée, cartographié et disponible pour imprimer ou par courriel.</p>    
+<form action="/search">
+<table class="inline-table">
+        <tr>
+            <th><label for="keywords">Mots-clés</label></th>
+            <th><label for="service">Service</label></th>
+            <th><label for="department">Department</label></th>
+        </tr>
+        <tr>
             <td><input type="text" name="keywords" value="" id="keywords" placeholder="entrez les termes de recherche ici..."></td>
-    </tr>
-    <tr>
-        <th><label for="service">Service</label></th>
             <td><select name="service">
             <option value="" selected>Sélectionnez Service</option>
             <optgroup label="Nutrition (Prog 1)">
@@ -105,9 +102,6 @@
                 <option value="Services Sante Mentales">Services Sante Mentales</option>
             </optgroup>
         </select></td>
-        </tr>
-        <tr>
-            <th><label for="department">Department</label></th>            
             <td><select name="department">
             <option value="" selected>Sélectionnez Department</option>
             <optgroup label="Artibonite">
@@ -175,31 +169,57 @@
             </optgroup>
             <option value="none">N/A</option>
             </select></td>
-        </tr>                        
+        </tr>
         <tr>
             <th><label for="age_start">Age Min:</label></th>
+            <th><label for="age_end">Age Max:</label></th>
+            <th><label for="gender">Gender Recherche</label></th>
+        </tr>
+        <tr>
             <td><select name="age_start">
             <option value="0" selected>Sélectionnez Gamme</option>
-            <option value="1">Age 0-3</option>
-            <option value="2">Age 4-10</option>
-            <option value="3">Age 11-14</option>
-            <option value="4">Age 15-18</option>
-            <option value="none">N/A</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
             </select></td>
-        </tr>
-        <tr>
-            <th><label for="age_end">Age Max:</label></th>
             <td><select name="age_end">
             <option value="0" selected>Sélectionnez Gamme</option>
-            <option value="1">Age 0-3</option>
-            <option value="2">Age 4-10</option>
-            <option value="3">Age 11-14</option>
-            <option value="4">Age 15-18</option>
-            <option value="none">N/A</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
             </select></td>
-        </tr>
-        <tr>
-            <th><label for="gender">Gender Recherche</label></th>
             <td><select name="gender">
             <option value="" selected>Sélectionner une option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
@@ -209,72 +229,89 @@
             </select></td>
         </tr>    
 </table>
-        <div align="right">
-            <input type="submit" class="btn btn-d" align="center" value="Rechercher "> 
-        </div>        
-</form>
-</div> <!-- //.top -->
+<div align="center">
+<input type="submit" class="btn btn-d user" align="left" value="Rechercher">    
+</div>    
+</form> 
+</div> <!-- // .top -->
 
-<div style="clear:both;">
-    <h3>Programmes &amp; Services Carte - Une nouvelle façon de découvrir des services aux enfants orphelins et vulnérables.</h3>
-        <p>En savoir plus sur les programmes qui servent les orphelins et les enfants vulnérables à travers Haïti. Explorez l'emplacement du site, le service et l'organisation. Acquérir une meilleure perspecitve sur le pays à travers les couches de données cartographiques pertinents, tels que les niveaux de pauvreté et de malnutrition taux.</p>
-</div>
-</div>
+<hr/>
 
-<div class="mid">
-    <h2>Fabriqué avec la collaboration à l'esprit.</h2>    
-        <p>Le but du site est d'accroître l'accès et la coordination des programmes et des services pour les enfants vulnérables dans tous les principaux domaines de services (à savoir la santé, l'éducation et les services juridiques).</p>
-        <p>Pour accomplir site offre un répertoire en ligne de ressources et de services qui peuvent être facilement recherché, et une carte interactive en ligne de ces services.</p>
-    <p>L'objectif immédiat est de développer une carte interactive en ligne qui: se concentre sur l'identification des services; comprend tous les services identifiés et vérifiés relatifs à l'enfant de bien-être; offre un accès à toutes les parties prenantes via une plate-forme basée sur le Web; et être à la disposition du service de téléphonie Bridgade IBESR pour fournir aux opérateurs des informations de référence précise.</p>            
-</div>
-
-<div class="bottom">
-    <div class="icon-row" id="french_icon-row">
-        <div class="icon-box"><p class="list"><span class="genericon genericon-chat"></span><strong>Identifier des partenaires potentiels et des collaborations.</strong></p></div>
-
-        <div class="icon-box"><p class="list"><span class="genericon genericon-search"></span><strong>Identifier les lacunes et éviter les doubles emplois.</strong></p></div>
-
-        <div class="icon-box"><p class="list"><span class="genericon genericon-cog"></span><strong>Améliorer la coordination.</strong></p></div>
-
-        <div class="icon-box"><p class="list"><span class="genericon genericon-checkmark"></span><strong>prendre de meilleures décisions d'améliorer les données.</strong></p></div>
-    </div>
-</div>
-
-<div id="french_footnote" class="footnote">
-<div class="footnote_left">
-<h3>Partagez votre organisation et informations de service.</h3>
-    <p style="margin-top:-5px;"><strong>Nous voulons avoir de vos nouvelles!</strong> Rejoignez notre vision afin de mieux servir les enfants en Haïti.</p>
-    </div>
-<div class="bottom-cta" id="french_bottom-cta">
-    <a href="/suggest_services"><div class="btn">Proposer des Services</div></a>
-</div>
-</div>
-
-<!-- Scripts Go Here -->
-<script>
-  var map = L.map('map').setView([18.533, -72.333], 7);
-    map.scrollWheelZoom.disable();
-
-  // add an OpenStreetMap tile layer
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-
-
+<div class="mid" id="search-mid">
+<div id="results-container" align="center"> 
+<h2>Résultats de la recherche</h2>
+    <p>Les résultats de la recherche apparaîtront sur la carte et les résultats ci-dessous . En cliquant sur une entrée , il se concentrera sur le site d'une organisation sur la carte.
+</p>
+<div align="center">
+<div id="map" class="search-map"></div>
+<div class="results-box">
   {% for record in records %}
-  // add a marker in the given location, attach some popup content to it and open the popup
-  try {
- L.marker([{{ record.latitude }}, {{ record.longitude }}]).addTo(map)
-        .bindPopup("<p style='color:black'><a href='/records/{{record.nom_de_lorganisation}}'>{{ record.nom_de_lorganisation }}</a></p>")
-        .openPopup();
-  }
-  catch(err) {
-    console.log("none");
-
-  }
-
-
+    <div class="result">
+        <p style="color: black;">Nom de l'organisation: <a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[4] }}</a></p>
+        <p style="color: black;">Adresse: {{ record[6] }}</p>
+        <p style="color: black;">Numéro de téléphone: {{ record[5] }}</p>
+        <p style="color: black;">Services: {{ record[1] }}</p>
+    </div>
   {% endfor %}
+</div>    
+</div><!-- //.results-box -->
+    <ul class="pagination" align="center">
+        <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Dernière Page</a></li>
+        <li><a id="next_page_link" class="btn btn-d user yellow" href="/search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Page Suivante</a></li>
+    </ul>
+
+    <p class="search-again">Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau , et cliquez sur le bouton Rechercher.</p>
+    <p class="search-again">Pour plus d'informations concernant les définitions des services, <a href='/about#definitions'>s'il vous plaît cliquez ici.</a></p>    
+</div><!-- //#results-container -->
+</div> <!-- //.mid -->
+<div class="bottom">
+</div>
+<!-- Scripts Go Here -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+$( "form" ).on( "submit", function( event ) {
+  event.preventDefault();
+  var queryString = $( this ).serialize();
+  console.log(queryString);
+  window.location = "/search?" + queryString + "#search-mid";
+});
 </script>
+// <script>
+//     function getURLParameter(name) {
+//       return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+//     }
+
+//     var pageParam = getURLParameter("page");
+
+//     if (pageParam == "0" || pageParam == null) {
+//         console.log("12")
+//         $("#last_page_link").hide();
+//     } else {
+//         console.log("!")
+//     }
+
+//   var map = L.map('map').setView([18.533, -72.333], 7);
+//     map.scrollWheelZoom.disable();
+
+//   // add an OpenStreetMap tile layer
+//   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+//       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+//   }).addTo(map);
+
+
+
+//   {% for record in records %}
+//   // add a marker in the given location, attach some popup content to it and open the popup
+//   try {
+//  L.marker([{{ record[8]}}, {{ record[9] }}]).addTo(map)
+//         .bindPopup("<p style='color:black'><a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[0] }}</a></p>")
+//         .openPopup();
+//   }
+//   catch(err) {
+//     console.log("{{record[3]}}");
+
+//   }
+//   {% endfor %}
+// </script>
+
 {% endblock %}
