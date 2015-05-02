@@ -127,7 +127,7 @@ message {
     }
 
 .index {float: left;}
-
+.records {margin-left: 0!important;}
 
 /* HOME */
 .haiti-map {width: 80%; margin: 0 0 0 10%; padding: 0;}
@@ -185,25 +185,18 @@ ul.pagination li {display: inline;}
 
 .search-again {text-align: center; clear:both;}
 
-@media (max-width:1253px) {
-    .records-search {disply: block; clear:both;}
-    .records-search input, .records-search select, .records-search input#keywords { display:block; margin-bottom: 20px; margin-top: 8px; width: 60%!important;}
-}
 @media (max-width: 767px) {
     .search-map {width: 80%!important; margin-left: 10%; clear:both;}
     .results-box {width: 80%; margin-top: 20px; margin-left: 10%;}
 }
 
-@media (max-width: 959px) {
-    .home-search {disply: block; clear:both;}
-    .home-search input, .home-search select, .home-search input#keywords {display:block; margin-bottom: 20px; margin-top: 8px; width: 60%!important; margin-left:30px;}
-}
 
 
 /* ADMIN BASE */
 .options {width: 100%; height: 27px;}
 .options ul {margin:0; padding: 0;}
 .options ul li {list-style-type: none; display: inline; margin: 0 5px 0 0;}
+.no-margin {margin-left: 0!important;}
 
 
 /* MANUAL */
@@ -212,22 +205,8 @@ ul.pagination li {display: inline;}
 .manual-nav li {display: block; margin-left: 12%; margin-bottom: 10px; color: #525252;}
 
 
-/* USERS */
-.user {margin: 0 10px 20px 0;}
-.table {width: 100%;}
-.table tr {width: 100%;}
-.table th {text-align: left; word-break: keep-all;}
-.table td {width: auto;}
-.table-email {word-break: break-all;}
-#admin-form {margin-left: 0!important;}
-#admin-form select {width: 13em!important;}
-#admin-form table {float:left; clear:both; width: 100%; margin-bottom: 20px;}
-
-
 /* RECORDS */
 .yellow {background: #f9c700!important; color:#333; margin-top:20px;}
-.no-margin {margin-left: 0!important;}
-#records-cta, #records-cta .btn {margin: 0 10px 20px 0!important; text-align:left!important;}
 
 
 /* ERROR */
