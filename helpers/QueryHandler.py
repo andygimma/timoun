@@ -143,3 +143,17 @@ def record_search(keywords, service, department, age_start, age_end, gender):
   s = SearchRecord.SearchRecord(ip_address = ip, keywords = keywords, service = service.decode("latin-1"), department = department, age_start = age_start, age_end = age_end, gender = gender)
   s.put()
 
+def add_services(records):
+  for record in records:
+    sql_statement = """SELECT GROUP_CONCAT(`service`.`name_french`) AS `all_services_fr`, 
+      GROUP_CONCAT(`service`.`name_english`) AS `all_services_en`
+      FROM `service`
+      WHERE `service`.`org_id` = {0};
+    """.format(record[0])
+
+    services = execute_query(sql_statement)
+    record.append(services)
+  return records
+
+
+    
