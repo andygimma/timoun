@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_home" href="/">Home</a> / <a id="breadcrumb_admin" href="/admin">Admin</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
+    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
     <div id="language" style="text-align: right; float:right; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
@@ -14,26 +14,26 @@
 {% block content %}
   <h2>Records</h2>
   <a href="/records/new" class="btn btn-a user">Add Record</a>
-  <a href="#" class="btn btn-b user">See Record History</a>
+  <a href="#" class="btn btn-b user">Voir Changements</a>
     {% if last_page >= 0 %}
-    <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Last Page</a>
+    <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
     {% endif %}
-    <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Next Page</a>
+    <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Dernière Page</a>
 
 {% if records_length > 0 %}
 
-  <h3 class="no-margin">Filter</h3>    
-<form action="" method="post">
-<table class="inline-table">
+  <h3 class="no-margin">Filter</h3>
+    <form action="">
+        <table class="inline-table records">
         <tr>
-            <th><label for="keywords">Keywords</label></th>
+            <th><label for="keywords">Mots-clés</label></th>
             <th><label for="service">Service</label></th>
             <th><label for="department">Department</label></th>
         </tr>
         <tr>
-            <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here..."></td>
+            <td><input type="text" name="keywords" value="" id="keywords" placeholder="entrez les termes de recherche ici..."></td>
             <td><select name="service">
-            <option value="" selected>Select Service</option>
+            <option value="" selected>Sélectionnez Service</option>
             <optgroup label="Nutrition (Prog 1)">
                 <option value="Cantine scolaire">Cantine scolaire</option>
                 <option value="Distribution de lait pour bébé">Distribution de lait pour bébé</option>
@@ -107,7 +107,7 @@
             </optgroup>
         </select></td>
             <td><select name="department">
-            <option value="" selected>Select Department</option>
+            <option value="" selected>Sélectionnez Department</option>
             <optgroup label="Artibonite">
                 <option value="Anse rouge">Anse rouge</option>
                 <option value="Ennery">Ennery</option>
@@ -172,17 +172,16 @@
                 <option value="Thiotte">Thiotte</option>
             </optgroup>
             <option value="none">N/A</option>
-        </select>
-    </div>
-    </div> <!-- //.search-container -->
-    <!-- // 1st Row  -->
-
-    <!-- 2nd Row Starts -->
-    <div id="search-container" align="left">
-    <div class="records-search" align="left">
-        <label>Age Min:</label>
-        <select name="age_start">
-            <option value="" selected>Sélectionnez Gamme</option>
+            </select></td>
+        </tr>
+        <tr>
+            <th><label for="age_start">Age Min:</label></th>
+            <th><label for="age_end">Age Max:</label></th>
+            <th><label for="gender">Gender Recherche</label></th>
+        </tr>
+        <tr>
+            <td><select name="age_start">
+            <option value="0" selected>Sélectionnez Gamme</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -202,12 +201,9 @@
             <option value="16">16</option>
             <option value="17">17</option>
             <option value="18">18</option>
-        </select>
-        </div>
-    <div class="records-search" align="left">
-        <label>Age Max:</label>
-        <select name="age_end">
-            <option value="" selected>Sélectionnez Gamme</option>
+            </select></td>
+            <td><select name="age_end">
+            <option value="0" selected>Sélectionnez Gamme</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -227,49 +223,45 @@
             <option value="16">16</option>
             <option value="17">17</option>
             <option value="18">18</option>
-        </select>
-    </div>
-    <div class="records-search" align="left">
-        <label>Gender Recherche</label>
-        <select name="gender">
+            </select></td>
+            <td><select name="gender">
             <option value="" selected>Sélectionner une option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
             <option {% if gender == "female" %} selected {% endif %}  value="female">Filles</option>
             <option value="none">Les garçons et les filles</option>
             <option value="none">P/A</option>
-        </select>
-    </div>
-    </div><!-- //.search-container -->
-    <!-- // 2nd Row  -->
-            <div class="map-cta" id="records-cta">
-                <input type="submit" class="btn" value="Search Now">
-            </div>
-</form>
+            </select></td>
+        </tr>    
+</table>
+<div align="left">
+<input type="submit" class="btn btn-d user" align="left" value="Rechercher">    
+</div>    
+</form> 
 
     <table class="table records">
       <thead>
         <tr>
-          <th>Name of Organization</th>
+          <th>Nom De L'Organization</th>
         </tr>
       </thead>
-
 
     {% for record in records %}
         <tbody>
           <tr>
-            <td><a href="/admin/records/{{ record[1] }}"><i class="ico">✎</i>  {{ record[0] }}</a></td>
+            <td><a href="/admin/records/{{ record[1] }}"><i class="ico">✎</i> {{ record[0] }}</a></td>
           </tr>
         </tbody>
     {% endfor %}
   {% endif %}
   </table>
- {% if last_page >= 0 %}
-    <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Last Page</a>
+       
+    {% if last_page >= 0 %}
+    <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
     {% endif %}
-    <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Next Page</a>
+    <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Dernière Page</a>
 
   {% if records_length == 0 %}
-    <p>No records added</p>
+    <p>Aucun</p>
   {% endif %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
@@ -281,5 +273,5 @@
     console.log(queryString);
     window.location = "/admin/records?" + queryString + "#search-mid";
   });
-</script>       
+</script>
 {% endblock %}
