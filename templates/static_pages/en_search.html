@@ -249,7 +249,7 @@
         <p style="color:black;">Organization Name: <a href='/records/{{record[3]}}' target='_blank'>{{ record[5] }}</a></p>
         <p style="color:black;">Address: {{ record[9] }}</p>
         <p style="color:black;">Phone Number: {{ record[13] }}</p>
-        <p style="color:black;">Services: {{ record[1] }}</p>
+        <p style="color:black;">Services: {{ record[17][0][0] }}</p>
     </div>
   {% endfor %}
 </div>    
@@ -257,7 +257,10 @@
     <ul class="pagination" align="center">
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
+        <li><a id="csv_link" href="/admin/export/dashboard" class="btn btn-b user">CSV</a></li>
     </ul>
+    <br>
+
     <p class="search-again">If you would like to perform a new search, simply fill out the fields above again, and click the search button.</p>
 <p class="search-again">For information regarding the definitions of services, please <a href='/about#definitions'>go here.</a></p>    
 </div><!-- //#results-container -->
@@ -271,7 +274,7 @@ $( "form" ).on( "submit", function( event ) {
   event.preventDefault();
   var queryString = $( this ).serialize();
   console.log(queryString);
-  window.location = "/search?" + queryString;
+  window.location = "/search?" + queryString + "#search-mid";
 });
 </script>
 <script>
@@ -309,7 +312,38 @@ $( "form" ).on( "submit", function( event ) {
     console.log("{{record[3]}}");
   }
   {% endfor %}
+
+    var keywordsParam = getURLParameter("keywords");
+    var serviceParam = getURLParameter("service");
+    var departmentParam = getURLParameter("department");
+    var ageStartParam = getURLParameter("age_start");
+    var ageEndParam = getURLParameter("age_end");
+    var genderParam = getURLParameter("gender");
+
+    if (keywordsParam != null) {
+        $("#keywords").val(keywordsParam);
+    }
+
+    if (serviceParam != null) {
+        $('select option[value="' + serviceParam + '"]').prop('selected',true);
+    }
+
+    if (departmentParam != null) {
+        $('select option[value="' + departmentParam + '"]').prop('selected',true);
+    }
+
+    if (ageStartParam != null) {
+        $('#age-start select option[value="' + ageStartParam + '"]').prop('selected',true);
+    }
+
+    if (ageEndParam != null) {
+        $('#age-end select option[value="' + ageEndParam + '"]').prop('selected',true);
+    }
+
+    if (genderParam != null) {
+        $('select option[value="' + genderParam + '"]').prop('selected',true);
+    }
+    
+    
 </script>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 {% endblock %}

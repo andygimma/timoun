@@ -77,6 +77,10 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('new_record.html')
 
 class NewRecordHandler(BaseHandler.BaseHandler):
+  def post(self):
+    # mark 
+    raise Exception(self)
+
   def get(self):
 
     sql_statement= """
@@ -129,13 +133,6 @@ class NewRecordHandler(BaseHandler.BaseHandler):
     else:
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('new_record.html')
     self.response.write(LEGACY_TEMPLATE.render(template_values))
-
-  def post(self):
-    form = Record.RecordForm(self.request.POST)
-    if form.validate():
-      user = Record.save(self, form, LEGACY_TEMPLATE)
-    else:
-      self.response.write(LEGACY_TEMPLATE.render({"form": form}))
 
 def form_builder(records):
   html_string = ""
@@ -550,3 +547,6 @@ def better_form(records):
         html_string += "{0}: <input name='{1}' type='text' />".format(record[2], record[0])
   html_string += "When do your services end: <input name='services_fin' type='text' />"
   return html_string
+
+
+  

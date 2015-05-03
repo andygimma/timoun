@@ -18,8 +18,9 @@
     {% if last_page >= 0 %}
     <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
     {% endif %}
-    <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Dernière Page</a>
-
+    <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Next Page</a>
+  <a href="/admin/export/records" class="btn btn-a user">CSV</a>
+]
 {% if records_length > 0 %}
 
   <h3 class="no-margin">Filter</h3>

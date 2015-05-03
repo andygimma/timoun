@@ -51,7 +51,7 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
     if search(self):
       records = QueryHandler.form_query_builder(self, page, 100)
     else:
-      records = QueryHandler.execute_query("SELECT 1_nom, id FROM organization LIMIT 100 {0}".format(offset_string))
+      records = QueryHandler.execute_query("SELECT 1_nom, id, departement FROM organization ORDER BY 1_nom LIMIT 100 {0}".format(offset_string))
 
     #raise Exception(len(guestlist))
     next_page = page + 1

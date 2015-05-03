@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*- 
 from google.appengine.ext import ndb
 import os
 import jinja2
@@ -22,6 +23,7 @@ class SearchHandler(BaseHandler.BaseHandler):
     gender = self.request.get("gender")
     page = self.request.get("page")
     results = self.request.get("results")
+    count = 0
     if not results:
       results = 25
     records = []
@@ -33,7 +35,13 @@ class SearchHandler(BaseHandler.BaseHandler):
       page_int = int(page)
 
     if search(self):
+      # try: 
+      count = QueryHandler.form_query_total(self)
       records = QueryHandler.form_query_builder(self, page, results)
+      records = QueryHandler.add_services(records)
+      # except:
+      #   self.redirect("/search?message=Invalid search parameters#'")
+      #   return
     # raise Exception(len(records))
     language = None
     if "language" in self.request.cookies:
@@ -64,7 +72,9 @@ class SearchHandler(BaseHandler.BaseHandler):
       "department": department,
       "age_start": age_start,
       "age_end": age_end,
-      "gender": gender
+      "gender": gender,
+      "records_count": len(records),
+      "total_count": count
     }
 
     self.response.write(LEGACY_TEMPLATE.render(template_values))
