@@ -19,7 +19,7 @@
     <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
     {% endif %}
     <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Dernière Page</a>
-
+  <a href="/admin/export/records" class="btn btn-a user">CSV</a>
 {% if records_length > 0 %}
 
   <h3 class="no-margin">Filter</h3>
@@ -254,6 +254,7 @@
       <thead>
         <tr>
           <th>Nom De L'Organization</th>
+          <th>Departement</th>
         </tr>
       </thead>
 
@@ -261,7 +262,9 @@
         <tbody>
           <tr>
             <td><a href="/admin/records/{{ record[1] }}"><i class="ico">✎</i> {{ record[0] }}</a></td>
+            <td>{{ record[2] }}</td>
           </tr>
+
         </tbody>
     {% endfor %}
   {% endif %}

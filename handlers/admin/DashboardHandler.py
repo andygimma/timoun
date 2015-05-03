@@ -26,7 +26,6 @@ class DashboardHandler(BaseHandler.BaseHandler):
 
     audits = Audit.Audit.query().order(Audit.Audit.created_at)
 
-
     template_values = {
       "message": self.request.get("message"),
       "user_session": user_session,

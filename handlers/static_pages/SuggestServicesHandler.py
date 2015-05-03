@@ -4,6 +4,8 @@ import jinja2
 import webapp2
 from handlers import BaseHandler
 from google.appengine.api import mail
+from models import User
+import logging
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -41,6 +43,7 @@ class SuggestServicesHandler(BaseHandler.BaseHandler):
 
   def post(self):
     data = { 
+      "name": self.request.get("name"),
       "organization": self.request.get("organization"),
       "category": self.request.get("category"),
       "service": self.request.get("service"),
@@ -63,37 +66,44 @@ class SuggestServicesHandler(BaseHandler.BaseHandler):
     self.redirect("/?message='Email sent. Thank you!'")
 
 def confirmation_email(data):
-  # this will be changed
-  user_email = "andy.n.gimma@gmail.com"
-  message = mail.EmailMessage(sender="IBESR <ibesr@bscht.org>",
-                            subject="Suggest Services Email Sent")
+  user_email = ""
+  users = User.User.query(User.User.role == "admin")
+  users = users.fetch(1000)
+  for user in users:
+    user_email = user.email
+    message = mail.EmailMessage(sender="IBESR <ibesr@bscht.org>",
+                              subject="Suggest Services Email Sent")
 
-  message.to = "<%s>" % user_email
-  message.body = """
-  Votre demande d’ajouter un service a été autorisée. Voici les informations suivantes.
-  A service suggestion has been sent. Here is the information.
+    message.to = "<%s>" % user_email
+    message.body = """
+    Votre demande d’ajouter un service a été autorisée. Voici les informations suivantes.
+    A service suggestion has been sent. Here is the information.
 
-  Organisation / Organisation: {0}
+    Nom / Name: {16}
 
-  Category / Catégorie: {1}
+    Organisation / Organisation: {0}
 
-  Service / Service: {2}
+    Category / Catégorie: {1}
 
-  Tranche d'age / Start Age: {3}
+    Service / Service: {2}
 
-  Age max / End Age: {4}
+    Tranche d'age / Start Age: {3}
 
-  Sexe / Gender: {5}
+    Age max / End Age: {4}
 
-  Département / Department: {6}
+    Sexe / Gender: {5}
 
-  Adresse ou coordonnées / Address: {7}
+    Département / Department: {6}
 
-  Details / Détails: {8}
+    Adresse ou coordonnées / Address: {7}
 
-  Jour de fontionnement / Day: {9}, {10}, {11}, {12}, {13}, {14}, {15}
+    Details / Détails: {8}
+
+    Jour de fontionnement / Day: {9}, {10}, {11}, {12}, {13}, {14}, {15}
 
 
-  """.decode("utf-8").format(data["organization"], data["category"], data["service"], data["age"], data["age_end"], data["gender"], data["department"], data["address"], data["details"], data["monday"], data["tuesday"], data["wednesday"], data["thursday"], data["friday"], data["saturday"], data["sunday"])
-  # raise Exception(message.body)
-  message.send()
+    """.decode("utf-8").format(data["organization"], data["category"], data["service"], data["age"], data["age_end"], data["gender"], data["department"], data["address"], data["details"], data["monday"], data["tuesday"], data["wednesday"], data["thursday"], data["friday"], data["saturday"], data["sunday"], data["name"])
+    # raise Exception(message.body)
+    message.send()
+
+    logging.info("suggest services email sent to " + user.email)

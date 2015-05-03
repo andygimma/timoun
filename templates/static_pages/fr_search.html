@@ -24,7 +24,7 @@
         <tr>
             <th><label for="keywords">Mots-clés</label></th>
             <th><label for="service">Service</label></th>
-            <th><label for="department">Department</label></th>
+            <th><label for="department">Departement</label></th>
         </tr>
         <tr>
             <td><input type="text" name="keywords" value="" id="keywords" placeholder="entrez les termes de recherche ici..."></td>
@@ -33,7 +33,7 @@
             <optgroup label="Nutrition (Prog 1)">
                 <option value="Cantine scolaire">Cantine scolaire</option>
                 <option value="Distribution de lait pour bébé">Distribution de lait pour bébé</option>
-                <option value="Distribution de nourriture pour l’enfant adapté à son âge">Distribution de nourriture pour l’enfant adapté à son âge</option>
+                <!-- <option value="Distribution de nourriture pour l’enfant adapté à son âge">Distribution de nourriture pour l’enfant adapté à son âge</option> -->
                 <option value="Distribution ration sèche">Distribution ration sèche</option>
                 <option value="Education nutritionnelle">Education nutritionnelle</option>
                 <option value="Jardins potagers">Jardins potagers</option>
@@ -180,7 +180,7 @@
             <td>
             <span id="age-start">
             <select name="age_start">
-            <option class="" value="0" selected>Sélectionnez Gamme</option>
+            <option class=""  value="" selected>Sélectionnez Gamme</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -208,7 +208,7 @@
             <td>
             <span id="age-end">
             <select name="age_end">
-            <option value="0" selected>Sélectionnez Gamme</option>
+            <option selected value="">Sélectionnez Gamme</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -237,7 +237,7 @@
             <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
             <option {% if gender == "female" %} selected {% endif %}  value="female">Filles</option>
             <option value="none">Les garçons et les filles</option>
-            <option value="none">P/A</option>
+            <option value="pa">P/A</option>
             </select></td>
         </tr>    
 </table>
@@ -255,11 +255,11 @@
     <p>Les résultats de la recherche apparaîtront sur la carte et les résultats ci-dessous . En cliquant sur une entrée , il se concentrera sur le site d'une organisation sur la carte.
 </p>
 <div align="center">
-<div id="map" class="search-map"></div>
+<div id="map" class="search-map" ></div>
 <div class="results-box">
   {% for record in records %}
     <div class="result">
-        <p style="color: black;">Nom de l'organisation: <a href='/admin/records/{{record[3]}}' target='_blank'>{{ record[5] }}</a></p>
+        <p style="color: black;">Nom de l'organisation: <a href='/records/{{record[3]}}' target='_blank'>{{ record[5] }}</a></p>
         <p style="color: black;">Adresse: {{ record[9] }}</p>
         <p style="color: black;">Numéro de téléphone: {{ record[13] }}</p>
         <p style="color: black;">Services: {{ record[17][0][0] }}</p>
@@ -268,8 +268,11 @@
 </div>    
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
+        <li><a id="total" class="btn btn-a user">Records Returned: {{ total_count }}</a></li>
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Dernière Page</a></li>
         <li><a id="next_page_link" class="btn btn-d user yellow" href="/search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Page Suivante</a></li>
+        <li><a id="csv_link" class="btn btn-b user">CSV</a></li>
+
     </ul>
 
     <p class="search-again">Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau , et cliquez sur le bouton Rechercher.</p>
@@ -295,14 +298,30 @@ $( "form" ).on( "submit", function( event ) {
 
     var pageParam = getURLParameter("page");
 
+    $( "#csv_link" ).click(function() {
+      var queryString = $( "form" ).serialize();
+      window.location = "/export/map_search?" + queryString + "#search-mid";
 
+    });
 
     if (pageParam == "0" || pageParam == null) {
         console.log("12")
         $("#last_page_link").hide();
+
     } else {
         console.log("!")
     }
+
+    
+    {% if records_count < 25 %}
+
+      $("#next_page_link").hide();
+      
+    {% endif %}
+
+    {% if records_count == 0 %}
+      $("#csv_link").hide();
+    {% endif %}
 
   var map = L.map('map').setView([18.533, -72.333], 7);
     map.scrollWheelZoom.disable();
@@ -318,7 +337,7 @@ $( "form" ).on( "submit", function( event ) {
   // add a marker in the given location, attach some popup content to it and open the popup
   try {
  L.marker([{{ record[10]}}, {{ record[11] }}]).addTo(map)
-        .bindPopup("<p style='color:black'><a href='/records/{{record[0]}}' target='_blank'>{{ record[5] }}</a></p>")
+        .bindPopup("<p style='color:black'><a href='/records/{{record[0]}}' target='_blank'>Name: {{ record[5] }} Address: {{ record[9] }} Phone: {{ record[13] }}</a></p>")
         .openPopup();
   }
   catch(err) {
@@ -333,6 +352,10 @@ $( "form" ).on( "submit", function( event ) {
     var ageStartParam = getURLParameter("age_start");
     var ageEndParam = getURLParameter("age_end");
     var genderParam = getURLParameter("gender");
+
+    // if (keywordsParam == null && serviceParam == null && departmentParam == null && ageStartParam == null && ageEndParam == null && genderParam == null) {
+    //     alert("Please enter at least one search term.");
+    // }
 
     if (keywordsParam != null) {
         $("#keywords").val(keywordsParam);

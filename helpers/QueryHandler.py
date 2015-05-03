@@ -1,9 +1,119 @@
+# -*- coding: utf-8 -*- 
 import os
 import json
 import MySQLdb
 from models import SearchRecord
+import unicodedata
 
 _INSTANCE_NAME = 'timoun-production:timoun427'
+words = {
+"Š": "S",
+"š": "s",
+"Ð": "Dj",
+"Ž": "Z",
+"ž": "z",
+"À": "A",
+"Á": "A",
+"Â": "A",
+"Ã": "A",
+"Ä": "A",
+"Å": "A",
+"Æ": "A",
+"Ç": "C",
+"È": "E",
+"É": "E",
+"Ê": "E",
+"Ë": "E",
+"Ì": "I",
+"Í": "I",
+"Î": "I",
+"Ï": "I",
+"Ñ": "N",
+"Ò": "O",
+"Ó": "O",
+"Ô": "O",
+"Õ": "O",
+"Ö": "O",
+"Ø": "O",
+"Ù": "U",
+"Ú": "U",
+"Û": "U",
+"Ü": "U",
+"Ý": "Y",
+"Þ": "B",
+"ß": "Ss",
+"à": "a",
+"á": "a",
+"â": "a",
+"ã": "a",
+"ä": "a",
+"å": "a",
+"æ": "a",
+"ç": "c",
+"è": "e",
+"é": "e",
+"ê": "e",
+"ë": "e",
+"ì": "i",
+"í": "i",
+"î": "i",
+"ï": "i",
+"ð": "o",
+"ñ": "n",
+"ò": "o",
+"ó": "o",
+"ô": "o",
+"õ": "o",
+"ö": "o",
+"ø": "o",
+"ù": "u",
+"ú": "u",
+"û": "u",
+"ý": "y",
+"ý": "y",
+"þ": "b",
+"ÿ": "y",
+"ƒ": "f",
+"a": "a",
+"î": "i",
+"â": "a",
+"A": "A",
+"Î": "I",
+"Â": "A",
+"?": "",
+"\'": "",
+"\"": "",
+"(": "",
+")": "",
+"`": "",
+"~": "",
+"!": "",
+"@": "",
+"#": "",
+"$": "",
+"%": "",
+"^": "",
+"&": "",
+"*": "",
+"(": "",
+")": "",
+"+": "",
+"=": "",
+"{": "",
+"[": "",
+"}": "",
+"]": "",
+"|": "",
+"\\": "",
+"/": "",
+";": "",
+":": "",
+"<": "",
+">": "",
+".": "",
+",": "_"
+}
+
 
 def execute_query(query_string):
     if (os.getenv('SERVER_SOFTWARE') and
@@ -38,8 +148,7 @@ def get_all_organizations():
 def get_organization_by_id(organization_id):
 	org_sql = "SELECT * FROM organization WHERE id = {0}".format(organization_id)
 	return execute_query(org_sql)
-
-def form_query_builder(self, page=None, limit=25):
+def form_query_total(self, page=None):
   keywords = self.request.get("keywords").encode("utf-8")
   service = self.request.get("service").encode("latin-1")
   department = self.request.get("department").encode("utf-8")
@@ -48,8 +157,7 @@ def form_query_builder(self, page=None, limit=25):
   gender = self.request.get("gender").encode("utf-8")
   keywords = self.request.get("keywords").encode("utf-8")
   record_search(keywords, service, department, age_start, age_end, gender)
-
-
+  # raise Exception(keywords)
 
   service_query = ""
   department_query = ""
@@ -64,12 +172,12 @@ def form_query_builder(self, page=None, limit=25):
   if age_start and age_end:
     age_start, age_end = order_age(age_start, age_end)
     age_query = sql_age_string(age_start, age_end)
-  # raise Exception(age_query)
+
   if service:
     service_query = "AND `service`.`name_french` = '{0}'".format(service)
 
   if department:
-    department_query = "AND `commune` = '{0}'".format(department.encode("utf-8"))
+    department_query = "AND `commune` = \"{0}\"".format(department.encode("utf-8"))
 
   if gender:
     if gender == "male":
@@ -80,8 +188,72 @@ def form_query_builder(self, page=None, limit=25):
       gender_query = "AND (`garcons` = 1 OR `filles`=1)"
 
   if keywords:
-    parsed_text = "+" + keywords.replace(" ", " +")
-    full_text_query = "AND MATCH(service_details) AGAINST('{0}' IN BOOLEAN MODE)".format(parsed_text)
+    for word in words:
+      keywords = keywords.replace(word, words[word])
+      raise Exception(keywords)
+    full_text_query = "AND MATCH(service_details) AGAINST(\"{0}\")".format(parsed_text)
+
+  sql_statement = """SELECT org_id
+        FROM `service`
+        LEFT JOIN `organization`
+        ON `service`.`org_id` = `organization`.`id`
+      WHERE 1=1
+      {0}
+      {1}
+      {2}
+      {3}
+      {4}
+      GROUP BY `org_id`
+  """.format(gender_query, service_query, department_query, age_query, full_text_query)
+  total =  execute_query(sql_statement)
+  return len(total)
+
+
+def form_query_builder(self, page=None, limit=25):
+  keywords = self.request.get("keywords").encode("utf-8")
+  service = self.request.get("service").encode("latin-1")
+  department = self.request.get("department").encode("utf-8")
+  age_start = self.request.get("age_start").encode("utf-8")
+  age_end = self.request.get("age_end").encode("utf-8")
+  gender = self.request.get("gender").encode("utf-8")
+  keywords = self.request.get("keywords").encode("utf-8")
+  record_search(keywords, service, department, age_start, age_end, gender)
+
+  service_query = ""
+  department_query = ""
+  gender_query = ""
+  age_query = ""
+  page_query = ""
+  full_text_query = ""
+  if page:
+    page_int = int(page)
+    offset = page_int * 100
+    page_query = "OFFSET {0}".format(offset)
+  if age_start and age_end:
+    age_start, age_end = order_age(age_start, age_end)
+    age_query = sql_age_string(age_start, age_end)
+
+  if service:
+    service_query = "AND `service`.`name_french` = '{0}'".format(service)
+
+  if department:
+    department_query = "AND `commune` = \"{0}\"".format(department.encode("utf-8"))
+
+  if gender:
+    if gender == "male":
+      gender_query = "AND `filles` = 1"
+    if gender == "female":
+      gender_query = "AND `garcons` = 1"
+    if gender_query == "either":
+      gender_query = "AND (`garcons` = 1 OR `filles`=1)"
+
+  if keywords:
+    # keywords = keywords.decode("latin-1")
+    for word in words:
+      keywords = keywords.replace(word, words[word])
+
+    full_text_query = "AND MATCH(service_details) AGAINST(\"{0}\")".format(keywords)
+
 
   sql_statement = """SELECT `service`.`id`, 
         `service`.`name_french`, 
@@ -113,12 +285,12 @@ def form_query_builder(self, page=None, limit=25):
       LIMIT {5}
       {6}
   """.format(gender_query, service_query, department_query, age_query, full_text_query, limit, page_query)
-  # raise Exception(sql_statement)
+  # raise Exception(department_query)
   # raise Exception(sql_statement)
   return execute_query(sql_statement)
 
 def order_age(age_start, age_end):
-  if age_start > age_end:
+  if int(age_start) > int(age_end):
     temp = age_start
     age_start = age_end
     age_end = temp
@@ -155,5 +327,10 @@ def add_services(records):
     record.append(services)
   return records
 
+  # raise Exception(department_query)
+  # raise Exception(sql_statement)
+  return execute_query(sql_statement)
 
-    
+def strip_accents(s):
+   return ''.join(c for c in unicodedata.normalize('NFD', s)
+                  if unicodedata.category(c) != 'Mn')

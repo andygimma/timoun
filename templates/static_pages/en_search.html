@@ -257,7 +257,10 @@
     <ul class="pagination" align="center">
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
+        <li><a id="csv_link" href="/admin/export/dashboard" class="btn btn-b user">CSV</a></li>
     </ul>
+    <br>
+
     <p class="search-again">If you would like to perform a new search, simply fill out the fields above again, and click the search button.</p>
 <p class="search-again">For information regarding the definitions of services, please <a href='/about#definitions'>go here.</a></p>    
 </div><!-- //#results-container -->
@@ -271,7 +274,7 @@ $( "form" ).on( "submit", function( event ) {
   event.preventDefault();
   var queryString = $( this ).serialize();
   console.log(queryString);
-  window.location = "/search?" + queryString;
+  window.location = "/search?" + queryString + "#search-mid";
 });
 </script>
 <script>
