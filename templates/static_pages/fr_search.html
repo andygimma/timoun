@@ -18,7 +18,7 @@
 {% block content %}
 <div class="top">
   <h1 id="search-header">Recherche</h1>
-    <p>Rechercher par l'un des sept services fournis, nom de l'organisation, l'emplacement, la population cible ou à l'aide de mots-clés. Le résultat sera résumée, cartographié et disponible pour imprimer ou par courriel.</p>    
+    <p>Recherche par toute combinaison de cinq filtres avec des listes déroulantes et une fonctionnalité de mot-clé qui recherche une large gamme de mots trouvés dans les archives de l'organisation. La recherche par mot clé est la meilleure façon d'effectuer une recherche par nom de l'organisation, de la rue ou des services ne figurent pas dans le menu déroulant des filtres. Les résultats de la recherche seront cartographiés et résumés avec des liens vers la fiche complète fournie. Résultats de la recherche peuvent également être exportés dans un fichier CSV ou par courriel.</p>    
 <form action="/search">
 <table class="inline-table">
         <tr>
@@ -252,7 +252,7 @@
 <div class="mid" id="search-mid">
 <div id="results-container" align="center"> 
 <h2>Résultats de la recherche</h2>
-    <p>Les résultats de la recherche apparaîtront sur la carte et les résultats ci-dessous . En cliquant sur une entrée , il se concentrera sur le site d'une organisation sur la carte.
+    <p class="left">Les résultats de la recherche apparaîtront sur la carte et les résultats ci-dessous.
 </p>
 <div align="center">
 <div id="map" class="search-map" ></div>
@@ -269,14 +269,14 @@
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
         <li><a id="total" class="btn btn-a user">Records Returned: {{ total_count }}</a></li>
-        <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Dernière Page</a></li>
-        <li><a id="next_page_link" class="btn btn-d user yellow" href="/search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Page Suivante</a></li>
-        <li><a id="csv_link" class="btn btn-b user">CSV</a></li>
-
+        <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
+        <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
+        <li><a id="csv_link" href="/admin/export/dashboard" class="btn btn-b user">CSV</a></li>
+        <li><a id="" href="" class="btn btn-c user">Effacer Recherche</a></li>
     </ul>
 
-    <p class="search-again">Si vous souhaitez effectuer une nouvelle recherche , il suffit de remplir les champs ci-dessus à nouveau , et cliquez sur le bouton Rechercher.</p>
-    <p class="search-again">Pour plus d'informations concernant les définitions des services, <a href='/about#definitions'>s'il vous plaît cliquez ici.</a></p>    
+    <p class="search-again">Pour effectuer une nouvelle recherche, il suffit de remplir les champs ci-dessus à nouveau, et cliquez sur le bouton de recherche.</p>
+    <p class="search-again"><a href='/about#definitions'>Cliquez ici</a> pour des définitions de service et pour en savoir plus.</p>
 </div><!-- //#results-container -->
 </div> <!-- //.mid -->
 <div class="bottom">

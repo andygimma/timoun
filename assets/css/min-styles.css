@@ -126,6 +126,7 @@ message {
 .admin input, .admin select {width: 250px;}
     @media (max-width: 768px) {
         .block-table {width: 80%; margin-left: 10%;}
+        .records {width: 100%!important;}
         .admin {margin-left: 0;}
     }
 
@@ -174,6 +175,7 @@ message {
 }
 
 /* SEARCH */
+.left {text-align: left;}
 .search-map {width: 40%!important; float: left!important; height: 400px!important; margin: 0; padding: 0;}
 .results-box {background:#fff; width: 39%; margin-top: -3px; margin-left: 1%; padding: 0; border: 3px solid #302e2c; height: 400px; overflow: scroll; float: left;}
 .result {width: 90%; padding: 10px 0 10px 0; border-bottom: 1px solid #999;}
@@ -220,7 +222,11 @@ ul.pagination li {display: inline;}
 
 /* RECORDS */
 .yellow {background: #f9c700!important; color:#333; margin-top:20px;}
-
+.records checkbox {width: 50px;}
+.records tr {width: 100%;}
+.records td {width: 50%;}
+.records input, .records select, .records textarea {width: 100%!important;}
+.records textarea {height:200px;}
 
 /* ERROR */
 .errors {width: 50%; margin-left: 8%;}

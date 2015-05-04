@@ -22,8 +22,52 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/admin/programs/new">
-    
-    <input type=submit value=Submit>
+  <form method="POST" action="/programs/new">
+    <table class="block-table admin">
+        <tr>
+            <td><label for="org_id">Organisation</label></td>
+            <td><select name='org_id'>
+                <option value="">Sélectionnez un</option>
+                <option value="120">AFIAVIH</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="program_id">Programme</label></td> 
+            <td><select name='program_id'>
+                <option value="">Sélectionnez un</option>
+                <option value="1">Nutrition</option>
+                <option value="2">Soins ? domicile</option>
+                <option value="3">Abri</option>
+                <option value="4">Protection de l?enfant</option>
+                <option value="5">Sant?</option>
+                <option value="6">Soutien psychosocial</option>
+                <option value="7">Education</option>
+                <option value="8">Services Sante Mentales</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="date">Date</label></td>
+            <td><input name="date" type="text" /></td>
+        </tr>
+        <tr>
+            <td><label for="budget">Budget</label></td> 
+            <td><input name="budget" type="text" /></td>
+        </tr>
+        <tr>
+            <td><label for="other">Autre</label></td>  
+            <td><input name="other" type="text" /></td>
+        </tr>
+        <tr>
+            <td><label for="types">Types</label></td> 
+            <td><input name="types" type="text" /></td>
+        </tr>
+        <tr><td><label for="assistance">Assistance</label></td> 
+            <td><input name="assistance" type="text" /></td>
+        </tr>
+      </table>
+      <br/>
+    <input type=submit id="submit" class="admin-btn" value=Submit>        
   </form>
 {% endblock %}
