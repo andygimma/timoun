@@ -5,7 +5,7 @@ import jinja2
 import webapp2
 from handlers import BaseHandler
 from models import Record
-from helpers import QueryHandler
+from helpers import QueryHandler, OrganizationHelper
 from config import enums
 
 NOT_IN_ORG_SCOPE = ["Program", "Service", "Nutrition", "Home-Based Care", "Child Protection", "Health", "Psychosocial Support", "Education", "Mental Health Services"]
@@ -78,8 +78,7 @@ LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('new_record.html')
 
 class NewRecordHandler(BaseHandler.BaseHandler):
   def post(self):
-    # mark 
-    raise Exception(self)
+    OrganizationHelper.save_record(self)
 
   def get(self):
 

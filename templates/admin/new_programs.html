@@ -22,14 +22,28 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/admin/programs/new">
-    <table>
-      <tr>
-        <td>{{ form.name.label }}</td>
-        <td>{{ form.name()|safe }}</td>
-      </tr>
-    </table>
-    <br>
+  <form method="POST" action="/programs/new">
+    Organisation: <select name='org_id'>
+        <option value="">Select one</option>
+        <option value="120">AFIAVIH</option>
+    </select>
+
+    Programme: <select name='program_id'>
+        <option value="">Select one</option>
+        <option value="1">Nutrition</option>
+        <option value="2">Soins ? domicile</option>
+        <option value="3">Abri</option>
+        <option value="4">Protection de l?enfant</option>
+        <option value="5">Sant?</option>
+        <option value="6">Soutien psychosocial</option>
+        <option value="7">Education</option>
+        <option value="8">Services Sante Mentales</option>
+    </select>
+    Date: <input name="date" type="text" />
+    Budget: <input name="budget" type="text" />
+    Autre: <input name="other" type="text" />
+    Types: <input name="types" type="text" />
+    Assistance: <input name="assistance" type="text" />
     <input type=submit value=Submit>
   </form>
 {% endblock %}
