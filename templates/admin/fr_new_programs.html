@@ -23,13 +23,7 @@
     </ul>
   {% endif %}
   <form method="POST" action="/admin/programs/new">
-    <table>
-      <tr>
-        <td>{{ form.name.label }}</td>
-        <td>{{ form.name()|safe }}</td>
-      </tr>
-    </table>
-    <br>
+    
     <input type=submit value=Submit>
   </form>
 {% endblock %}

@@ -115,7 +115,7 @@ words = {
 }
 
 
-def execute_query(query_string):
+def execute_query(query_string, insert=False):
     if (os.getenv('SERVER_SOFTWARE') and
       os.getenv('SERVER_SOFTWARE').startswith('Google App Engine/')):
       db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db='timoun_4_30', user='root', passwd="11oinn")
@@ -125,11 +125,17 @@ def execute_query(query_string):
     cursor = db.cursor()
     cursor.execute(query_string)
 
-    records = [];
-    for row in cursor.fetchall():
-      records.append(row)
-    
-    return encoded_records(records)
+    if insert:
+      db.commit()
+      db.close()
+      return True
+    else:
+
+      records = [];
+      for row in cursor.fetchall():
+        records.append(row)
+      
+      return encoded_records(records)
 
 def get_services_select():
 	services_select_sql = "SELECT DISTINCT `service`.`program_id`, `program`.`name_french` AS `prog_name_fr`, `program`.`name_english` AS `prog_name_en`, `service`.`name_french` AS `service_name_fr`, `service`.`name_english` AS `service_name_en` FROM `service` LEFT JOIN `program` ON `service`.`program_id` = `program`.`id` ORDER BY `program_id` ASC, `service_name_fr` ASC"
@@ -190,8 +196,8 @@ def form_query_total(self, page=None):
   if keywords:
     for word in words:
       keywords = keywords.replace(word, words[word])
-      raise Exception(keywords)
-    full_text_query = "AND MATCH(service_details) AGAINST(\"{0}\")".format(parsed_text)
+      # raise Exception(keywords)
+    full_text_query = "AND MATCH(service_details) AGAINST(\"{0}\")".format(keywords)
 
   sql_statement = """SELECT org_id
         FROM `service`
