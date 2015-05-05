@@ -26,8 +26,8 @@
         {% endfor %}
     </ul>
   {% endif %}
-  <form method="POST" action="/admin/users/new" class="contact-form" id="admin-form">
-    <table>
+  <form method="POST" action="/admin/users/new">
+    <table class="block-table admin">
       <tr>
         <td>{{ form.email.label }}</td>
         <td>{{ form.email()|safe }}</td>
@@ -50,6 +50,6 @@
       </tr>
     </table>
     <br>
-    <input type=submit id="submit" value=Submit>
+    <input type=submit id="submit" class="admin-btn" value=Submit>
   </form>
 {% endblock %}

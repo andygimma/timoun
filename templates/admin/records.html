@@ -14,27 +14,27 @@
 {% block content %}
   <h2>Records</h2>
   <a href="/records/new" class="btn btn-a user">Add Record</a>
-  <a href="#" class="btn btn-b user">Voir Changements</a>
+  <a href="#" class="btn btn-b user">View Changes</a>
     {% if last_page >= 0 %}
-    <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
+    <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Previous Page</a>
     {% endif %}
     <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Next Page</a>
   <a href="/admin/export/records" class="btn btn-a user">CSV</a>
-]
+
 {% if records_length > 0 %}
 
   <h3 class="no-margin">Filter</h3>
     <form action="">
         <table class="inline-table records">
         <tr>
-            <th><label for="keywords">Mots-clés</label></th>
+            <th><label for="keywords">Keywords</label></th>
             <th><label for="service">Service</label></th>
             <th><label for="department">Department</label></th>
         </tr>
         <tr>
             <td><input type="text" name="keywords" value="" id="keywords" placeholder="entrez les termes de recherche ici..."></td>
             <td><select name="service">
-            <option value="" selected>Sélectionnez Service</option>
+            <option value="" selected>Select Service</option>
             <optgroup label="Nutrition (Prog 1)">
                 <option value="Cantine scolaire">Cantine scolaire</option>
                 <option value="Distribution de lait pour bébé">Distribution de lait pour bébé</option>
@@ -178,11 +178,11 @@
         <tr>
             <th><label for="age_start">Age Min:</label></th>
             <th><label for="age_end">Age Max:</label></th>
-            <th><label for="gender">Gender Recherche</label></th>
+            <th><label for="gender">Gender</label></th>
         </tr>
         <tr>
             <td><select name="age_start">
-            <option value="0" selected>Sélectionnez Gamme</option>
+            <option value="0" selected>Select Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -204,7 +204,7 @@
             <option value="18">18</option>
             </select></td>
             <td><select name="age_end">
-            <option value="0" selected>Sélectionnez Gamme</option>
+            <option value="0" selected>Select Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -226,16 +226,16 @@
             <option value="18">18</option>
             </select></td>
             <td><select name="gender">
-            <option value="" selected>Sélectionner une option</option>
-            <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
-            <option {% if gender == "female" %} selected {% endif %}  value="female">Filles</option>
-            <option value="none">Les garçons et les filles</option>
-            <option value="none">P/A</option>
+            <option value="" selected>Select Gender</option>
+            <option {% if gender == "male" %} selected {% endif %} value="male">Boys</option>
+            <option {% if gender == "female" %} selected {% endif %}  value="female">Girls</option>
+            <option value="none">Boys &amp; Girls</option>
+            <option value="none">N/A</option>
             </select></td>
         </tr>    
 </table>
 <div align="left">
-<input type="submit" class="btn btn-d user" align="left" value="Rechercher">    
+<input type="submit" class="btn btn-d user" align="left" value="Search">    
 </div>    
 </form> 
 

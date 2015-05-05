@@ -18,7 +18,7 @@
 {% block content %}
 <div class="top">
   <h1>Search</h1>
-    <p>Search by any of seven services provided, organization name, location, target population or using keywords. The result will be summarized, mapped and available to print or email.</p>
+    <p>Search by any combination of five filters with drop down lists and a keyword feature  that searches a wide range words found in the organization records.  The keyword search is the best way to search by organization name, street or services not found in the drop down filters.  The search results will be mapped and summarized with links to the full record provided.  Search results can also be exported in a CSV file or emailed.</p>
 <form action="/search" method="get">
 <table class="inline-table">
         <tr>
@@ -240,7 +240,7 @@
 <div class="mid" id="search-mid">
 <div id="results-container" align="center">
 <h2>Search Results</h2>
-    <p>The results of your search will be shown on the map and search box below. Clicking an entry will highlight an organization's location on the map.</p>
+    <p class="left">The results of your search will be shown on the map and search box below.</p>
 <div align="center">
 <div id="map" class="search-map"></div>
 <div class="results-box">
@@ -258,11 +258,12 @@
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
         <li><a id="csv_link" href="/admin/export/dashboard" class="btn btn-b user">CSV</a></li>
+        <li><a id="" href="" class="btn btn-c user">Clear Search</a></li>
     </ul>
     <br>
 
-    <p class="search-again">If you would like to perform a new search, simply fill out the fields above again, and click the search button.</p>
-<p class="search-again">For information regarding the definitions of services, please <a href='/about#definitions'>go here.</a></p>    
+    <p class="search-again">To perform a new search, simply fill out the fields above again, and click the search button.</p>
+<p class="search-again"><a href='/about#definitions'>Click here</a> for service definitions and to learn more</p>    
 </div><!-- //#results-container -->
 </div> <!-- //.mid -->
 <div class="bottom">    
