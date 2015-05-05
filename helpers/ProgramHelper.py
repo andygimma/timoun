@@ -8,7 +8,7 @@ from helpers import QueryHandler
 from models import Audit
 
 ATTRIBUTES = ["org_id", "program_id", "date", "budget", "other", "types", "assistance"]
-REQUIRED_ATTRIBUTES = ["org_id"]
+REQUIRED_ATTRIBUTES = ["org_id", "program_id"]
 
 def validate_attributes(data):
 	errors = {}
@@ -21,7 +21,7 @@ def validate_attributes(data):
 	return True, errors
 
 def get_request(self, name):
-	return self.request.get(name)
+	return self.request.get(name).encode("utf-8").replace('"', "'")
 
 def get_attributes(self):
 	data = {}
@@ -33,13 +33,13 @@ def populate_sql_statement(data):
 	sql_statement = """
 		INSERT INTO `org_prog` SET
 		`id` = NULL,
-		`org_id` = '{0}',
-		`program_id` = '{1}',
-		`date` = '{2}',
-		`budget` = '{3}',
-		`other` = '{4}',
-		`types` = '{5}',
-		`assistance` = '{6}';
+		`org_id` = "{0}",
+		`program_id` = "{1}",
+		`date` = "{2}",
+		`budget` = "{3}",
+		`other` = "{4}",
+		`types` = "{5}",
+		`assistance` = "{6}";
 	""".format(data["org_id"], data["program_id"], data["date"], data["budget"], data["other"], data["types"], data["assistance"])
 
 	return sql_statement

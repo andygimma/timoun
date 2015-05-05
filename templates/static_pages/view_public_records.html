@@ -1,0 +1,31 @@
+{% extends "fr_legacy_admin.html" %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
+    <div id="language" style="text-align: right; float:right; margin-right: 20px;">
+      <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <h3>Gathering information on services available to vulnerable children</h3>
+  <p>ID_1: {{ record[2] }}</p>
+  <p>General information on the organization: {{ record[3] }}</p>
+  <p>Organization Name: {{ record[4] }}</p>
+  <p>Department: {{ record[5] }}</p>
+  <p>Commune: {{ record[6] }}</p>
+  <p>Section communale: {{ record[7] }}</p>
+  <p>Address: {{ record[8] }}</p>
+  <p>GPS Location: {{ record[9] }}</p>
+  <p>Latitude: {{ record[10] }}</p>
+  <p>Longitude: {{ record[11] }}</p>
+  <p>Postbox: {{ record[12] }}</p>
+  <p>Phone Number: {{ record[13] }}</p>
+  <p>Contact: {{ record[14] }}</p>
+  <p>Email: {{ record[15] }}</p>
+  <p>Website: {{ record[16] }}</p>
+{% endblock %}
