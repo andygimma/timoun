@@ -21,6 +21,14 @@
 <p><a href="/services/new?record={{ record[0] }}" class="btn btn-b user">Add Service</a></p>
 <p><a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a></p>
 
+<h3>Programs</h3>
+<p>{% for program in programs %} <a href="/programs/{{ program[0] }}/edit"> {{ program[2]}} </a>,{% endfor %}</p>
+
+
+<h3>Services</h3>
+<p>{% for service in services %} <a href="/services/{{ service[1] }}/edit">{{ service[0] }}</a>,{% endfor %}</p>
+
+
 <p>1. Nom de l’organisation: {{ record [4] }}</p>
 
 <p>Département: {{ record[5] }}</p>

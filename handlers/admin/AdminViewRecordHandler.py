@@ -33,12 +33,25 @@ class AdminViewRecordHandler(BaseHandler.BaseHandler):
 
 
     record = QueryHandler.execute_query(sql_statement)
+    sql_services = "SELECT name_french, id  FROM service WHERE org_id = {0};".format(record_id)
 
+    services = QueryHandler.execute_query(sql_services)
+
+
+    sql_programs = """SELECT DISTINCT(`program_id`), `program`.`name_french`, `program`.`name_english`
+      FROM `service`
+      LEFT JOIN `program`
+      ON `service`.`program_id` = `program`.`id`
+      WHERE `service`.`org_id` = {0};
+    """.format(record_id)
+    programs = QueryHandler.execute_query(sql_programs)
 
     template_values = {
       "message": self.request.get("message"),
       "user_session": user_session,
       "record": record[0],
+      "services": services,
+      "programs": programs
     }
     language = None
     if "language" in self.request.cookies:

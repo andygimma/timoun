@@ -285,14 +285,13 @@ def save_record(self):
 		return
 	sql_statement = populate_sql_statement(data)
 
-	# raise Exception(sql_statement)
 	record = QueryHandler.execute_query(sql_statement, insert=True)
 	last_record_sql = "SELECT id FROM organization ORDER BY id DESC LIMIT 1;"
 
 	last = QueryHandler.execute_query(last_record_sql)
 	self.redirect("/records/{0}?message=Saved".format(last[0][0]))
 	
-	record_audit = Audit.save(initiated_by = self.session.get("user"), user_affected = "TEST".encode("utf-8").decode("utf-8"), security_clearance = self.session.get("role"), json_data = "TEST", model= "Organization", action = "Create Organization")
+	record_audit = QueryHandler.create_audit(self, "Organization", data['1_nom'], data, "Create Organization")
 	return 
 
 

@@ -2,8 +2,9 @@
 import os
 import json
 import MySQLdb
-from models import SearchRecord
+from models import SearchRecord, Audit
 import unicodedata
+import json
 
 _INSTANCE_NAME = 'timoun-production:timoun427'
 words = {
@@ -340,3 +341,13 @@ def add_services(records):
 def strip_accents(s):
    return ''.join(c for c in unicodedata.normalize('NFD', s)
                   if unicodedata.category(c) != 'Mn')
+
+def create_audit(self, data_type, name, data, action):
+  for word in words:
+      name = name.replace(word, words[word])
+
+  for item in data:
+    for word in words:
+      data[item] = data[item].replace(word, words[word])
+  a = Audit.save(initiated_by = self.session.get("user"), user_affected = name, security_clearance = self.session.get("role"), json_data = json.dumps(data), model= data_type, action = action)  
+  return

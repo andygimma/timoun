@@ -12,26 +12,49 @@
 {% endblock %}
 
 {% block content %}
-  <h2>{{ program_name }} Profile</h2>
-  {% if form.errors %}
-    <ul class="errors">
-        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
-            {% for error in field_errors %}
-                <li>{{ form[field_name].label }}: {{ error }}</li>
-            {% endfor %}
-        {% endfor %}
-    </ul>
-  {% endif %}
-  <form method="POST" action="/programs/{{ program_key }}/edit">
-    <table>
-      <tr>
-        <td>{{ form.name.label }}</td>
-        <td>{{ form.name()|safe }}</td>
-      </tr>
-    </table>
-    <br>
-    <input type=submit value=Submit>
+  <h2>Edit Program</h2>
+
+  <form method="POST" action="/programs/{{ program[0] }}/edit">
+    <table class="block-table admin">
+         <input type="hidden" name="org_id" value="{{ program[1] }}">
+        <tr>
+            <td><label for="program_id">Programme</label></td> 
+            <td><select name='program_id' autocomplete="off">
+                <option value="">Sélectionnez un</option>
+                <option value="1" {% if program[2] == 1 %}selected{% endif %}>Nutrition</option>
+                <option value="2" {% if program[2] == 2 %}selected{% endif %}>Soins ? domicile</option>
+                <option value="3" {% if program[2] == 3 %}selected{% endif %}>Abri</option>
+                <option value="4" {% if program[2] == 4 %}selected{% endif %}>Protection de l?enfant</option>
+                <option value="5" {% if program[2] == 5 %}selected{% endif %}>Sant?</option>
+                <option value="6" {% if program[2] == 6 %}selected{% endif %}>Soutien psychosocial</option>
+                <option value="7" {% if program[2] == 7 %}selected{% endif %}>Education</option>
+                <option value="8" {% if program[2] == 8 %}selected{% endif %}>Services Sante Mentales</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="date">Date</label></td>
+            <td><input name="date" type="text" value="{{ program[3] }}" /></td>
+        </tr>
+        <tr>
+            <td><label for="budget">Budget</label></td> 
+            <td><input name="budget" type="text" value="{{ program[3] }}"/></td>
+        </tr>
+        <tr>
+            <td><label for="other">Autre</label></td>  
+            <td><input name="other" type="text" value="{{ program[4] }}"/></td>
+        </tr>
+        <tr>
+            <td><label for="types">Types</label></td> 
+            <td><input name="types" type="text" value="{{ program[5] }}"/></td>
+        </tr>
+        <tr><td><label for="assistance">Assistance</label></td> 
+            <td><input name="assistance" type="text" value="{{ program[6] }}"/></td>
+        </tr>
+      </table>
+      <br/>
+    <input type=submit id="submit" class="admin-btn" value=Submit>        
   </form>
-   <a href="/programs/{{ program_key }}/delete" onclick="return confirm('Are you sure you want to delete this program?');">Delete Program</a>
+   <a href="#" onclick="return confirm('Are you sure you want to delete this program?');">Delete Program</a>
 
 {% endblock %}

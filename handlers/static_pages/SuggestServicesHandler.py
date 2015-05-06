@@ -59,11 +59,13 @@ class SuggestServicesHandler(BaseHandler.BaseHandler):
       "thursday": self.request.get("thursday"),
       "friday": self.request.get("friday"),
       "saturday": self.request.get("saturday"),
-      "sunday": self.request.get("sunday")
+      "sunday": self.request.get("sunday"),
+      "telephone": self.request.get("telephone")
     }
 
     confirmation_email(data)
-    self.redirect("/?message='Email sent. Thank you!'")
+    self.redirect("/?message=Merci")
+    return
 
 def confirmation_email(data):
   user_email = ""
@@ -97,13 +99,16 @@ def confirmation_email(data):
 
     Adresse ou coordonnées / Address: {7}
 
+    Telephone: {16}
+
     Details / Détails: {8}
 
     Jour de fontionnement / Day: {9}, {10}, {11}, {12}, {13}, {14}, {15}
 
 
-    """.decode("utf-8").format(data["organization"], data["category"], data["service"], data["age"], data["age_end"], data["gender"], data["department"], data["address"], data["details"], data["monday"], data["tuesday"], data["wednesday"], data["thursday"], data["friday"], data["saturday"], data["sunday"], data["name"])
+    """.decode("utf-8").format(data["organization"], data["category"], data["service"], data["age"], data["age_end"], data["gender"], data["department"], data["address"], data["details"], data["monday"], data["tuesday"], data["wednesday"], data["thursday"], data["friday"], data["saturday"], data["sunday"], data["name"], data["telephone"])
     # raise Exception(message.body)
     message.send()
 
     logging.info("suggest services email sent to " + user.email)
+    return
