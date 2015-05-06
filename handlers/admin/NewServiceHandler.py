@@ -31,6 +31,7 @@ class NewServiceHandler(BaseHandler.BaseHandler):
     template_values = {
       "form": form,
       "user_session": user_session,
+      "org_id": self.request.get("record")
     }
     language = None
     if "language" in self.request.cookies:

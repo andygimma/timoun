@@ -10,6 +10,32 @@ from models import Audit
 ATTRIBUTES = ["org_id", "program_id", "name_french", "name_english", "age_0", "age_1","age_2","age_3","age_4","age_5","age_6","age_7","age_8","age_9","age_10","age_11","age_12","age_13","age_14","age_15","age_16","age_17","age_18", "garcons", "filles", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche", "notes"]
 REQUIRED_ATTRIBUTES = ["org_id", "program_id", "name_french"]
 
+def find_or_create_program(data):
+	sql_statement = """
+			SELECT id FROM org_prog WHERE id="{0}"
+			""".format(data['program_id'])
+	program = QueryHandler.execute_query(sql_statement)
+	if len(program) == 0:
+		sql_statement = """
+		INSERT INTO `org_prog` SET
+		`id` = NULL,
+		`org_id` = "{0}",
+		`program_id` = "{1}"
+		""".format(data['org_id'], data['program_id'])
+
+def check_for_service_duplicate(data):
+	words = QueryHandler.words
+	name_french = data['name_french']
+	if name_french:
+	    for word in words:
+	    	name_french = name_french.replace(word, words[word])
+	sql_statement = """
+		SELECT name_french FROM service WHERE name_french="{0}" AND org_id="{1}"
+		""".format(name_french, data['org_id'])
+	service = QueryHandler.execute_query(sql_statement)
+	if len(service) > 0:
+		raise Exception("Service already exists")
+
 def validate_attributes(data):
 	errors = {}
 	for attr in REQUIRED_ATTRIBUTES:
@@ -95,12 +121,15 @@ def populate_sql_statement(data):
 
 def save_record(self):
 	data = get_attributes(self)
+	# raise Exception(data)
+	find_or_create_program(data)
+	check_for_service_duplicate(data)
 	valid, errors = validate_attributes(data)
 	# raise Exception(len(data))
 
 	sql_statement = populate_sql_statement(data)
 	# raise Exception(sql_statement)
 	record = QueryHandler.execute_query(sql_statement, insert=True)
-	self.redirect("/records/new?message=Saved")
+	self.redirect("/admin/records/" + data['org_id'] + "?message=Service saved")
 	record_audit = Audit.save(initiated_by = self.session.get("user"), user_affected = "TEST", security_clearance = self.session.get("role"), json_data = "TEST", model= "Service", action = "Create Service")
 	return 

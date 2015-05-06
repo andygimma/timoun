@@ -1,5 +1,9 @@
 {% extends "fr_legacy_admin.html" %}
 
+{% block title %}
+<title>Voir Organisation Record: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
@@ -12,7 +16,10 @@
 {% endblock %}
 
 {% block content %}
-  <p><a href="#" class="btn btn-b user">Edit</a></p>
+<p><a href="#" class="btn btn-b user">Edit</a></p>
+<p><a href="/programs/new?record={{ record[0] }}" class="btn btn-b user">Add Program</a></p>
+<p><a href="/services/new?record={{ record[0] }}" class="btn btn-b user">Add Service</a></p>
+<p><a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a></p>
 
 <p>1. Nom de l’organisation: {{ record [4] }}</p>
 

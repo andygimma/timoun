@@ -23,11 +23,9 @@
     </ul>
   {% endif %}
   <form method="POST" action="/services/new">
+  <input type="hidden" name="service_id" value="0">
     <input type=submit value=Submit>
-    Organization: <select name='org_id'>
-            <option value="">Select one</option>
-            <option value="120">AFIAVIH</option>
-        </select>
+        <input type="hidden" name="org_id" value="{{ org_id }}">
         
         Program: <select name='program_id'>
             <option value="">Select one</option>
