@@ -360,3 +360,16 @@ class ExportHandler(BaseHandler.BaseHandler):
       records = QueryHandler.execute_query(sql_statement)
       for record in records:
         writer.writerow(SqlToCsvLine(record, RECORD_CSV_FIELDS))
+
+    if export_type == "view_record":
+      self.response.headers['Content-Disposition'] = \
+          'attachment; filename="timoun_records.csv"'
+      writer = csv.writer(self.response.out)
+      record_id = self.request.get("record_id")
+      writer.writerow(RECORDS_CSV_HEADER)
+      sql_statement = """
+        SELECT * FROM organization WHERE id="{0}";
+        """.format(record_id)
+      records = QueryHandler.execute_query(sql_statement)
+      for record in records:
+        writer.writerow(SqlToCsvLine(record, RECORD_CSV_FIELDS))

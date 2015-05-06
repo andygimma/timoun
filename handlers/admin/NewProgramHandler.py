@@ -26,11 +26,16 @@ class NewProgramHandler(BaseHandler.BaseHandler):
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 
+    org_id = self.request.get("record")
 
+    sql_statement = "SELECT 1_nom FROM organization WHERE id={0} LIMIT 1".format(org_id)
+    org = QueryHandler.execute_query(sql_statement)
     form = Record.RecordForm()
     template_values = {
       "form": form,
       "user_session": user_session,
+      "org_id": self.request.get("record"),
+      "org_name": org[0][0]
     }
     language = None
     if "language" in self.request.cookies:

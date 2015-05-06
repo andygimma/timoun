@@ -11,34 +11,31 @@ JINJA_ENVIRONMENT = jinja2.Environment(
         [os.path.join(os.path.dirname(__file__),"../../templates/admin"),
          os.path.join(os.path.dirname(__file__),"../../templates/layouts")]))
 
-LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('view_records.html')
+LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_view_service.html')
 
-class AdminViewRecordHandler(BaseHandler.BaseHandler):
+class AdminServiceViewHandler(BaseHandler.BaseHandler):
   def get(self, record_id):
 
-    role = self.session.get('role')
+    role = self.session.get('role')  
     user_session = self.session.get("user")
 
     if role != "admin":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 
-    if not self.legacy:
-      self.redirect("/#/admin")
-      return
-
     sql_statement = """
-      SELECT * FROM organization WHERE id='{0}' LIMIT 1
+      SELECT * FROM service WHERE id='{0}' LIMIT 1
     """.format(record_id)
 
+    service = QueryHandler.execute_query(sql_statement)
 
-    record = QueryHandler.execute_query(sql_statement)
-
+    program_name = QueryHandler.execute_query("SELECT name_french FROM program WHERE id={0}".format(service[0][11]))
 
     template_values = {
       "message": self.request.get("message"),
       "user_session": user_session,
-      "record": record[0],
+      "service": service[0],
+      "program": program_name[0][0]
     }
     language = None
     if "language" in self.request.cookies:
@@ -50,7 +47,8 @@ class AdminViewRecordHandler(BaseHandler.BaseHandler):
     language = language.replace('"', '').replace("'", "")
     if language == "fr":
 
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_view_records.html')
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_view_service.html')
     else:
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('view_records.html')
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_view_service.html')
     self.response.write(LEGACY_TEMPLATE.render(template_values))
+

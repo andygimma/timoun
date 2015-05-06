@@ -1,0 +1,69 @@
+{% extends "fr_legacy_base.html" %}
+
+{% block title %}
+<title>Voir Organisation Record: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Acceuille</a>
+    <div id="language" style="text-align: right; float:right; margin-right: 20px;">
+      <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<p><a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a></p>
+
+<div class="container">
+ <h3>Nom de l’organisation: {{ record [4] }}</h3>
+
+<p>Département: {{ record[5] }}</p>
+
+<p>Commune: {{ record[6] }}</p>
+
+<p>Section communale: {{ record[7] }}</p>
+
+<p>Adresse: {{ record [8] }}</p>
+
+<p>Latitude: {{ record[10] }}</p>
+
+<p>Longitude: {{ record[11] }}</p>
+
+<p>Boite Postale: {{ record[12] }}</p>
+
+<p>Téléphone: {{ record[13] }}</p>
+
+<p>Personne Contact: {{ record[14] }}</p>
+
+<p>Email: {{ record[15] }}</p>
+
+<p>Site web: {{ record [16] }}</p>
+
+<p>Type  (plusieurs réponses possibles): {{ record[17] }}</p>
+
+<p>precisez autre structure religieuse: {{ record[18] }}</p>
+
+  
+<p>Jour de fonctionnement: {{ record[22] }}</p>
+
+<p>Heure de fonctionnement: {{ record[23] }}</p>
+  
+
+<p>Objectifs  fondamentaux de votre organisation (la mission): {{ record[24] }}</p>
+
+ <h3>Programs</h3>
+  <p>{% for program in programs %} {{ program[2] }},{% endfor %}</p>
+
+
+ <h3>Services</h3>
+ <p>{% for service in services %} <a href="/services/{{ service[1] }}">{{ service[0] }}</a>,{% endfor %}</p>
+
+
+</div>
+
+
+{% endblock %}

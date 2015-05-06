@@ -1,5 +1,9 @@
 {% extends "fr_legacy_admin.html" %}
 
+{% block title %}
+<title>Nouvelle Organisation Registre: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
@@ -15,14 +19,6 @@
   <h2>Nouvelle Record</h2>
 <form method="POST" action="/records/new">
     <table class="block-table admin records">
-        <tr>
-            <td><label for="id_1">ID_1</label></td>
-            <td><input name='id_1' type='text' /></td>
-        </tr>
-        <tr>
-            <td><label for="informations_generales">General information on the organization</label></td> 
-            <td><input name='informations_generales' type='text' /></td>
-        </tr>
         <tr>    
             <td><label for="1_nom">Organization Name</td> 
             <td><input name='1_nom' type='text' /></td>
@@ -42,10 +38,6 @@
         <tr>
             <td><label for="adresse">Address</label></td> 
             <td><input name='adresse' type='text' /></td>
-        </tr>
-        <tr>        
-            <td><label for="gps_location">GPS Location</label></td> 
-            <td><input name='gps_location' type='text' /></td>
         </tr>
         <tr>
             <td><label for="latitude">Latitude</label></td>
@@ -525,42 +517,6 @@
         <tr>
             <td><label for="question_d">Question d</label></td>
             <td><input name='question_d' type='text' /></td>
-        </tr>
-        <tr>
-            <td><label for="created_date">Created Date</label></td>
-            <td><input name='created_date' type='text' /></td>
-        </tr>
-        <tr>
-            <td><label for="created_by">Created By</label></td>
-            <td><input name='created_by' type='text' /></td>
-        </tr>
-        <tr>
-            <td><label for="created_location">Created Location</label></td>
-            <td> <input name='created_location' type='text' /></td>
-        </tr>
-        <tr>
-            <td><label for="created_device_id">Created Device ID</label></td>
-            <td><input name='created_device_id' type='text' /></td>
-        </tr>
-        <tr>
-            <td><label for="modified_date">Modified Date</label></td>
-            <td><input name='modified_date' type='text' /></td>
-        </tr>
-         <tr>
-            <td><label for="modified_by">Modified By</label></td>
-            <td>  <input name='modified_by' type='text' /></td>
-        </tr>
-         <tr>
-            <td><label for="modified_location">Modified Location</label></td>
-            <td><input name='modified_location' type='text' /></td>
-        </tr>
-         <tr>
-            <td><label for="modified_device_id">Modified Device Id</label></td>
-            <td><input name='modified_device_id' type='text' /></td>
-        </tr>
-         <tr>
-            <td><label for="server_modified">Server Modified Date</label></td>
-            <td><input name='server_modified' type='text' /></td>
         </tr>
          <tr>
             <td><label for="quand_votre_service">When your service started</label></td>

@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_admin" href="/admin">Admin</a> / Edit Service
+    <a id="breadcrumb_admin" href="/admin">Administrateur</a> / Modifier Service
     <div id="language" style="text-align: right; float:right; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
@@ -12,26 +12,61 @@
 {% endblock %}
 
 {% block content %}
-  <h2>{{ service_name }} Profile</h2>
-  {% if form.errors %}
-    <ul class="errors">
-        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
-            {% for error in field_errors %}
-                <li>{{ form[field_name].label }}: {{ error }}</li>
-            {% endfor %}
-        {% endfor %}
-    </ul>
-  {% endif %}
-  <form method="POST" action="/services/{{ service_key }}/edit">
-    <table>
-      <tr>
-        <td>{{ form.name.label }}</td>
-        <td>{{ form.name()|safe }}</td>
-      </tr>
-    </table>
-    <br>
-    <input type=submit value=Submit>
-  </form>
-   <a href="/services/{{ service_key }}/delete" onclick="return confirm('Are you sure you want to delete this service?');">Delete Service</a>
+  <h2>{{ service[1] }}</h2>
 
+   <form method="POST" action="/services/{{service[0]}}/edit" name="service-form">
+    <input type=submit value=Submit>
+    
+             <input type="hidden" name="org_id" value="{{service[3]}}">
+
+        
+        Program: <select name='program_id' autocomplete="off">
+            <option value="">Select one</option>
+            <option value="1" {% if service[11] == 1 %}selected{% endif %}>Nutrition</option>
+            <option value="2" {% if service[11] == 2 %}selected{% endif %}>Home-Based Care</option>
+            <option value="3" {% if service[11] == 3 %}selected{% endif %}>Shelter</option>
+            <option value="4" {% if service[11] == 4 %}selected{% endif %}>Child protection</option>
+            <option value="5" {% if service[11] == 5 %}selected{% endif %}>Health</option>
+            <option value="6" {% if service[11] == 6 %}selected{% endif %}>Psychosocial Support</option>
+            <option value="7" {% if service[11] == 7 %}selected{% endif %}>Education</option>
+            <option value="8" {% if service[11] == 8 %}selected{% endif %}>Mental Health Services</option>
+        </select>
+        Name in French: <input name="name_french" type="text" value="{{ service[1] }}" />
+        Name in English: <input name="name_english" type="text" value="{{ service[2] }}"/>
+        Gender: <input type="hidden" name="garcons" value="0"><!-- Value = 0 if unchecked --> 
+            <input type="checkbox" name="garcons" value="1" {% if service[32] == 1 %} checked {% endif %}> Boys<br/>
+            <input type="hidden" name="filles" value="0"><!-- Value = 0 if unchecked -->
+            <input type="checkbox" name="filles" value="1"> Girls<br/>
+        Ages of Children:
+            <input type="hidden" name="age_0" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_0" value="1"> 0 ys<br />
+        <input type="hidden" name="age_1" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_1" value="1"> 1 yr<br />
+        <input type="hidden" name="age_2" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_2" value="1"> 2 ys<br />
+        <input type="hidden" name="age_3" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_3" value="1"> 3 ys<br />
+        <input type="hidden" name="age_4" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_4" value="1"> 4 ys<br />
+        <input type="hidden" name="age_5" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_5" value="1"> 5 ys<br />
+        <input type="hidden" name="age_6" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_6" value="1"> 6 ys<br />
+        <input type="hidden" name="age_7" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_7" value="1"> 7 ys<br />
+        <input type="hidden" name="age_8" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_8" value="1"> 8 ys<br />
+        <input type="hidden" name="age_9" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_9" value="1"> 9 ys<br />
+        <input type="hidden" name="age_10" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_10" value="1"> 10 ys<br />
+        <input type="hidden" name="age_11" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_11" value="1"> 11 ys<br />
+        <input type="hidden" name="age_12" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_12" value="1"> 12 ys<br />
+        <input type="hidden" name="age_13" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_13" value="1"> 13 ys<br />
+        <input type="hidden" name="age_14" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_14" value="1"> 14 ys<br />
+        <input type="hidden" name="age_15" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_15" value="1"> 15 ys<br />
+        <input type="hidden" name="age_16" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_16" value="1"> 16 ys<br />
+        <input type="hidden" name="age_17" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_17" value="1"> 17 ys<br />
+        <input type="hidden" name="age_18" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_18" value="1"> 18 ys<br />
+        Days: 
+        <input type="hidden" name="lundi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="lundi" value="1"> Monday<br />
+        <input type="hidden" name="mardi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mardi" value="1"> Tuesday<br />
+        <input type="hidden" name="mercredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mercredi" value="1"> Wednesday<br />
+        <input type="hidden" name="jeudi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="jeudi" value="1"> Thursday<br />
+        <input type="hidden" name="vendredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="vendredi" value="1"> Friday<br />
+        <input type="hidden" name="samedi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="samedi" value="1"> Saturday<br />
+        <input type="hidden" name="dimanche" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="dimanche" value="1"> Sunday<br />
+
+        Notes: <textarea name='notes' cols=40 rows=6></textarea>
+  </form>
+   <a href="/services/{{ service_key }}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce service?');">Supprimer Service</a>
 {% endblock %}

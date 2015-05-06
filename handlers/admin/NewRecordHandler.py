@@ -116,7 +116,8 @@ class NewRecordHandler(BaseHandler.BaseHandler):
       "form": form,
       "user_session": user_session,
       "html_string": html_string,
-      "better_html": better_html
+      "better_html": better_html,
+      "message": self.request.get("message")
     }
     language = None
     if "language" in self.request.cookies:

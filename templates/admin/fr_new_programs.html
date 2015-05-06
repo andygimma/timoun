@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-  <h2>Nouvelle Programme</h2>
+  <h2>Nouvelle Programme for {{ org_name }}</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -24,14 +24,7 @@
   {% endif %}
   <form method="POST" action="/programs/new">
     <table class="block-table admin">
-        <tr>
-            <td><label for="org_id">Organisation</label></td>
-            <td><select name='org_id'>
-                <option value="">Sélectionnez un</option>
-                <option value="120">AFIAVIH</option>
-                </select>
-            </td>
-        </tr>
+         <input type="hidden" name="org_id" value="{{ org_id }}">
         <tr>
             <td><label for="program_id">Programme</label></td> 
             <td><select name='program_id'>

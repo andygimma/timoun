@@ -3,8 +3,8 @@ import jinja2
 import os
 from webapp2_extras import routes
 from models import Commune
-from handlers.static_pages import PublicExportHandler, AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler, RecordHandler, LanguageHandler, PublicRecordHandler
-from handlers.admin import SearchRecordHandler, IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewServiceHandler, NewProgramHandler, NewRecordHandler, ExportHandler
+from handlers.static_pages import ViewServiceHandler, PublicExportHandler, AboutHandler, ContactHandler, MainHandler, SearchHandler, ServicesHandler, SuggestServicesHandler, ManualHandler, RecordHandler, LanguageHandler, PublicRecordHandler
+from handlers.admin import AdminServiceViewHandler, SearchRecordHandler, IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewServiceHandler, NewProgramHandler, NewRecordHandler, ExportHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
 from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler, AdminOrgDashboardHandler
@@ -67,14 +67,16 @@ app = webapp2.WSGIApplication([
     (r'/programs/([^/]+)/delete', AdminProgramDeleteHandler.AdminProgramDeleteHandler, "programs_delete"),
     (r'/admin/programs/dashboard', AdminProgramDashboardHandler.AdminProgramDashboardHandler, "programs_dashboard"),
     # ('/admin/services', AdminServiceIndexHandler.AdminServiceIndexHandler),
+    (r'/admin/services/([^/]+)', AdminServiceViewHandler.AdminServiceViewHandler, "admin_service_view"),
     # ('/admin/services/new', AdminServiceNewHandler.AdminServiceNewHandler),
-    # ('/services/([^/]+)/edit', AdminServiceEditHandler.AdminServiceEditHandler),
+    ('/services/([^/]+)/edit', AdminServiceEditHandler.AdminServiceEditHandler),
     # ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
     # ('/admin/services/dashboard', AdminServiceDashboardHandler.AdminServiceDashboardHandler),
     (r'/users/([^/]+)/edit', EditHandler.EditHandler, "users_edit"),
     (r'/records/new', NewRecordHandler.NewRecordHandler, "records_new"),
     (r'/programs/new', NewProgramHandler.NewProgramHandler, "programs_new"),
     (r'/services/new', NewServiceHandler.NewServiceHandler, "services_new"),
+    (r'/services/([^/]+)', ViewServiceHandler.ViewServiceHandler, "services_view"),
     # ('/records/([^/]+)', RecordHandler.RecordHandler),
     (r'/users/([^/]+)/delete', DeleteHandler.DeleteHandler, "users_delete"),
     (r'/users/login', LoginHandler.LoginHandler, "users_login"),
