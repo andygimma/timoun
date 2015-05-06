@@ -33,40 +33,94 @@
         </select>
         Name in French: <input name="name_french" type="text" value="{{ service[1] }}" />
         Name in English: <input name="name_english" type="text" value="{{ service[2] }}"/>
-        Gender: <input type="hidden" name="garcons" value="0"><!-- Value = 0 if unchecked --> 
-            <input type="checkbox" name="garcons" value="1" {% if service[32] == 1 %} checked {% endif %}> Boys<br/>
-            <input type="hidden" name="filles" value="0"><!-- Value = 0 if unchecked -->
-            <input type="checkbox" name="filles" value="1"> Girls<br/>
-        Ages of Children:
-            <input type="hidden" name="age_0" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_0" value="1"> 0 ys<br />
-        <input type="hidden" name="age_1" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_1" value="1"> 1 yr<br />
-        <input type="hidden" name="age_2" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_2" value="1"> 2 ys<br />
-        <input type="hidden" name="age_3" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_3" value="1"> 3 ys<br />
-        <input type="hidden" name="age_4" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_4" value="1"> 4 ys<br />
-        <input type="hidden" name="age_5" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_5" value="1"> 5 ys<br />
-        <input type="hidden" name="age_6" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_6" value="1"> 6 ys<br />
-        <input type="hidden" name="age_7" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_7" value="1"> 7 ys<br />
-        <input type="hidden" name="age_8" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_8" value="1"> 8 ys<br />
-        <input type="hidden" name="age_9" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_9" value="1"> 9 ys<br />
-        <input type="hidden" name="age_10" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_10" value="1"> 10 ys<br />
-        <input type="hidden" name="age_11" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_11" value="1"> 11 ys<br />
-        <input type="hidden" name="age_12" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_12" value="1"> 12 ys<br />
-        <input type="hidden" name="age_13" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_13" value="1"> 13 ys<br />
-        <input type="hidden" name="age_14" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_14" value="1"> 14 ys<br />
-        <input type="hidden" name="age_15" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_15" value="1"> 15 ys<br />
-        <input type="hidden" name="age_16" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_16" value="1"> 16 ys<br />
-        <input type="hidden" name="age_17" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_17" value="1"> 17 ys<br />
-        <input type="hidden" name="age_18" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_18" value="1"> 18 ys<br />
-        Days: 
-        <input type="hidden" name="lundi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="lundi" value="1"> Monday<br />
-        <input type="hidden" name="mardi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mardi" value="1"> Tuesday<br />
-        <input type="hidden" name="mercredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mercredi" value="1"> Wednesday<br />
-        <input type="hidden" name="jeudi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="jeudi" value="1"> Thursday<br />
-        <input type="hidden" name="vendredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="vendredi" value="1"> Friday<br />
-        <input type="hidden" name="samedi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="samedi" value="1"> Saturday<br />
-        <input type="hidden" name="dimanche" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="dimanche" value="1"> Sunday<br />
+        Gender: <input type="hidden" name="garcons" value="0">
+        <!-- Value = 0 if unchecked -->
 
-        Notes: <textarea name='notes' cols=40 rows=6></textarea>
+        <input type="checkbox" name="garcons" value="1" {% if service[32] == 1 %} checked {% endif %}> Boys<br/>
+        <input type="hidden" name="filles" value="0"><!-- Value = 0 if unchecked -->
+        <input type="checkbox" name="filles" value="1" {% if service[33] == 1 %} checked {% endif %}> Girls<br/>
+        Ages of Children:
+        <input type="hidden" name="age_0" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_0" value="1" {% if service[12] == 1 %} checked {% endif %}> 0 ys<br />
+        <input type="hidden" name="age_1" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_1" value="1" {% if service[13] == 1 %} checked {% endif %}> 1 yr<br />
+        <input type="hidden" name="age_2" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_2" value="1" {% if service[14] == 1 %} checked {% endif %}> 2 ys<br />
+        <input type="hidden" name="age_3" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_3" value="1" {% if service[15] == 1 %} checked {% endif %}> 3 ys<br />
+        <input type="hidden" name="age_4" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_4" value="1" {% if service[16] == 1 %} checked {% endif %}> 4 ys<br />
+        <input type="hidden" name="age_5" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_5" value="1" {% if service[17] == 1 %} checked {% endif %}> 5 ys<br />
+        <input type="hidden" name="age_6" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_6" value="1" {% if service[18] == 1 %} checked {% endif %}> 6 ys<br />
+        <input type="hidden" name="age_7" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_7" value="1" {% if service[19] == 1 %} checked {% endif %}> 7 ys<br />
+        <input type="hidden" name="age_8" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_8" value="1" {% if service[20] == 1 %} checked {% endif %}> 8 ys<br />
+        <input type="hidden" name="age_9" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_9" value="1" {% if service[21] == 1 %} checked {% endif %}> 9 ys<br />
+        <input type="hidden" name="age_10" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_10" value="1" {% if service[22] == 1 %} checked {% endif %}> 10 ys<br />
+        <input type="hidden" name="age_11" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_11" value="1" {% if service[23] == 1 %} checked {% endif %}> 11 ys<br />
+        <input type="hidden" name="age_12" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_12" value="1" {% if service[24] == 1 %} checked {% endif %}> 12 ys<br />
+        <input type="hidden" name="age_13" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_13" value="1" {% if service[25] == 1 %} checked {% endif %}> 13 ys<br />
+        <input type="hidden" name="age_14" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_14" value="1" {% if service[26] == 1 %} checked {% endif %}> 14 ys<br />
+        <input type="hidden" name="age_15" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_15" value="1" {% if service[27] == 1 %} checked {% endif %}> 15 ys<br />
+        <input type="hidden" name="age_16" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_16" value="1" {% if service[28] == 1 %} checked {% endif %}> 16 ys<br />
+        <input type="hidden" name="age_17" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_17" value="1" {% if service[29] == 1 %} checked {% endif %}> 17 ys<br />
+        <input type="hidden" name="age_18" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="age_18" value="1" {% if service[30] == 1 %} checked {% endif %}> 18 ys<br />
+        Days: 
+        <input type="hidden" name="lundi" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="lundi" value="1" {% if service[36] == 1 %} checked {% endif %}> Monday<br />
+        <input type="hidden" name="mardi" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="mardi" value="1" {% if service[37] == 1 %} checked {% endif %}> Tuesday<br />
+        <input type="hidden" name="mercredi" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="mercredi" value="1" {% if service[38] == 1 %} checked {% endif %}> Wednesday<br />
+        <input type="hidden" name="jeudi" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="jeudi" value="1" {% if service[39] == 1 %} checked {% endif %}> Thursday<br />
+        <input type="hidden" name="vendredi" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="vendredi" value="1" {% if service[40] == 1 %} checked {% endif %}> Friday<br />
+        <input type="hidden" name="samedi" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="samedi" value="1" {% if service[41] == 1 %} checked {% endif %}> Saturday<br />
+        <input type="hidden" name="dimanche" value="0">
+        <!-- Value = 0 if unchecked -->
+         <input type="checkbox" name="dimanche" value="1" {% if service[42] == 1 %} checked {% endif %}> Sunday<br />
+
+        Notes: <textarea name='notes' cols=40 rows=6 value="{{ service[43] }}"></textarea>
   </form>
-   <a href="/services/{{ service_key }}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce service?');">Supprimer Service</a>
+   <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce service?');">Supprimer Service</a>
 {% endblock %}

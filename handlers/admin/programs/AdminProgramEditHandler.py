@@ -3,6 +3,7 @@ import jinja2
 import webapp2
 from handlers import BaseHandler
 from models import Program
+from helpers import QueryHandler
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -12,7 +13,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 TEMPLATE = JINJA_ENVIRONMENT.get_template('edit_program.html')
 
 class AdminProgramEditHandler(BaseHandler.BaseHandler):
-  def get(self, program_key):
+  def get(self, program_id):
     role = self.session.get('role')
     user_session = self.session.get("user")
 
@@ -20,24 +21,20 @@ class AdminProgramEditHandler(BaseHandler.BaseHandler):
       self.redirect("/programs/login?message={0}".format("You are not authorized to view this page"))
       return
 
-    if not self.legacy:
-      self.redirect("/#/programs/{0}/edit".format(program_key))
-
-    program = Program.Program.get_by_id(int(program_key))
-    if not program:
-      self.response.write(TEMPLATE.render({"form": form, "message": "Unable to find program. Please contact administrator."}))
-
-    form = Program.NewProgramForm()
-    form.name.data = program.name
+    sql_statement = """
+          SELECT * FROM org_prog WHERE id='{0}' LIMIT 1
+        """.format(program_id)
 
 
+    program = QueryHandler.execute_query(sql_statement)
+    if len(program) == 0:
+      self.redirect("/admin?message=That program does not exist")
+      return
     template_values = {
       "role": self.session.get("role"),
       "user_session": user_session,
       "message": self.request.get("message"),
-      "form": form,
-      "program_key": program_key,
-      "program_name": program.name
+      "program": program[0]
     }
     language = None
     if "language" in self.request.cookies:

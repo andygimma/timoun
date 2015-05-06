@@ -13,15 +13,6 @@
 
 {% block content %}
   <h2>Nouvelle Programme for {{ org_name }}</h2>
-  {% if form.errors %}
-    <ul class="errors">
-        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
-            {% for error in field_errors %}
-                <li>{{ form[field_name].label }}: {{ error }}</li>
-            {% endfor %}
-        {% endfor %}
-    </ul>
-  {% endif %}
   <form method="POST" action="/programs/new">
     <table class="block-table admin">
          <input type="hidden" name="org_id" value="{{ org_id }}">

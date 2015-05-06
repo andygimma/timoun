@@ -68,6 +68,40 @@ DASHBOARD_CSV_FIELDS = [
       'created_at'
 ]
 
+PUBLIC_RECORDS_CSV_HEADER = [
+  "Nom",
+  "General Info",
+  "Departement",
+  "Commune",
+  "Section Communal",
+  "Adresse",
+  "GPS",
+  "Latitude",
+  "longitude",
+  "Boite Postal",
+  "Telephone",
+  "Personne Contact",
+  "Email",
+  "Site Web"
+]
+
+PUBLIC_RECORDS_CSV_FIELDS = [
+  "4",
+  "3",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16"
+]
+
 RECORDS_CSV_HEADER = [
   "Nom",
   "General Info",
@@ -373,3 +407,19 @@ class ExportHandler(BaseHandler.BaseHandler):
       records = QueryHandler.execute_query(sql_statement)
       for record in records:
         writer.writerow(SqlToCsvLine(record, RECORD_CSV_FIELDS))
+
+    if export_type == "view_record":
+      self.response.headers['Content-Disposition'] = \
+          'attachment; filename="timoun_records.csv"'
+      writer = csv.writer(self.response.out)
+      record_id = self.request.get("record_id")
+      writer.writerow(RECORDS_CSV_HEADER)
+      sql_statement = """
+        SELECT * FROM organization WHERE id="{0}";
+        """.format(record_id)
+      records = QueryHandler.execute_query(sql_statement)
+      for record in records:
+        writer.writerow(SqlToCsvLine(record, RECORD_CSV_FIELDS))
+
+    if export_type == "search_records":
+      pass

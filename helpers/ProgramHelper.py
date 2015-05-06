@@ -56,9 +56,9 @@ def save_record(self):
 	data = get_attributes(self)
 	valid, errors = validate_attributes(data)
 	sql_statement = populate_sql_statement(data)
-	find_or_create_program(data)
+	# find_or_create_program(data)
 	# raise Exception(sql_statement)
 	record = QueryHandler.execute_query(sql_statement, insert=True)
 	self.redirect("/admin/records/" + data['org_id'] + "?message=Program saved")
-	record_audit = Audit.save(initiated_by = self.session.get("user"), user_affected = "", security_clearance = self.session.get("role"), json_data = str(data), model= "Program", action = "Create Program")
+	record_audit = QueryHandler.create_audit(self, "Program", "Program", data, "Create Program")
 	return 

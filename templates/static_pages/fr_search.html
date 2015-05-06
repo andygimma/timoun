@@ -232,16 +232,30 @@
             </span>
             </td>
             
-            <td><select name="gender">
+            <td>
+            <span id="gender_select">
+            <select name="gender">
             <option value="" selected>Sélectionner une option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Garçons</option>
             <option {% if gender == "female" %} selected {% endif %}  value="female">Filles</option>
             <option value="none">Les garçons et les filles</option>
             <option value="pa">P/A</option>
-            </select></td>
+            </select>
+            </span>
+            </td>
         </tr>    
 </table>
 <div align="center">
+<span id="results_select">
+<select name="results">
+    <option value="">Recherche Total</option>
+    <option value="10">Recherche 10</option>
+    <option value="25">Recherche 25</option>
+    <option value="50">Recherche 50</option>
+    <option value="100">Recherche 100</option>
+</select>
+</span>
+
 <input type="submit" class="btn btn-d user" align="left" value="Rechercher">    
 </div>    
 </form> 
@@ -271,7 +285,7 @@
         <li><a id="total" class="btn btn-a user">Records Returned: {{ total_count }}</a></li>
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
-        <li><a id="csv_link" href="/admin/export/dashboard" class="btn btn-b user">CSV</a></li>
+        <li><a id="csv_link" href="#" class="btn btn-b user">CSV</a></li>
         <li><a id="" href="" class="btn btn-c user">Effacer Recherche</a></li>
     </ul>
 
@@ -352,6 +366,7 @@ $( "form" ).on( "submit", function( event ) {
     var ageStartParam = getURLParameter("age_start");
     var ageEndParam = getURLParameter("age_end");
     var genderParam = getURLParameter("gender");
+    var resultsParam = getURLParameter("results");
 
     // if (keywordsParam == null && serviceParam == null && departmentParam == null && ageStartParam == null && ageEndParam == null && genderParam == null) {
     //     alert("Please enter at least one search term.");
@@ -378,7 +393,11 @@ $( "form" ).on( "submit", function( event ) {
     }
 
     if (genderParam != null) {
-        $('select option[value="' + genderParam + '"]').prop('selected',true);
+        $('#gender_select select option[value="' + genderParam + '"]').prop('selected',true);
+    }
+
+    if (resultsParam != null) {
+        $('#results_select select option[value="' + resultsParam + '"]').prop('selected',true);
     }
     
 </script>

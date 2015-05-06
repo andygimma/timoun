@@ -135,7 +135,7 @@ def authenticate(self, TEMPLATE, form):
     else:
       self.redirect("/users/profile?message={0} logged in successfully".format(user.email))
   else:
-    self.response.write(TEMPLATE.render({"form": form, "message": "User and email combination does not exist"}))
+    self.response.write(TEMPLATE.render({"form": form, "message": "Nom d'utilisateur et de mot de passe ne combinaison existe pas."}))
 
 
 

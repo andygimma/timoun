@@ -131,5 +131,5 @@ def save_record(self):
 	# raise Exception(sql_statement)
 	record = QueryHandler.execute_query(sql_statement, insert=True)
 	self.redirect("/admin/records/" + data['org_id'] + "?message=Service saved")
-	record_audit = Audit.save(initiated_by = self.session.get("user"), user_affected = "TEST", security_clearance = self.session.get("role"), json_data = "TEST", model= "Service", action = "Create Service")
+	record_audit = QueryHandler.create_audit(self, "Service", data['name_french'], data, "Create Service")
 	return 

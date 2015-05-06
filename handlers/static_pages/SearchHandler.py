@@ -37,6 +37,7 @@ class SearchHandler(BaseHandler.BaseHandler):
     if search(self):
       # try: 
       count = QueryHandler.form_query_total(self)
+      # raise Exception(count)
       records = QueryHandler.form_query_builder(self, page, results)
       records = QueryHandler.add_services(records)
       # except:
