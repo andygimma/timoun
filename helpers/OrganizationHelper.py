@@ -127,6 +127,15 @@ ATTRIBUTES =  ['id_1', 'informations_generales', '1_nom', 'departement', 'commun
 
 REQUIRED_ATTRIBUTES = ["1_nom", "departement", "commune", "adresse", "telephone", "personne_contact"]
 
+ORDERED_ATTRIBUTES = [u'id', u'is_deleted', u'id_1', u'informations_generales', u'1_nom', u'departement', u'commune', u'section_communale', u'adresse', u'gps_location', u'latitude', u'longitude', u'boite_postale', u'telephone', u'personne_contact', u'email', u'site_web', u'6_type_plusieurs', u'6a_precisez_autre', u'6c_statut', u'6b_autre_organisation', u'6d_autre_status', u'7_jour', u'7a_heure', u'8_objectifs_fondamentaux', u'9_source_de_financement', u'9b_autre_source', u'9a_lequel_t', u'9a_combien', u'9c_precisez', u'10_comment_votre', u'11_quelle_categorie', u'19_quel_est_le', u'20_etesvous_en', u'21_comment_lorganisation', u'21a_citez_5_defis', u'21b_citez_5_lecons', u'23_connaissezvous', u'23a_noms_des_oganisation', u'23b_citez_les_services', u'23c_si_oui_lesquels', u'quand_votre_service', u'quand_estce_que', u'votre_organisation', u'_17_tranche_dge', u'_18_tranche_dge', u'combien_13', u'autre_assistance13', u'services_fin', u'1_estce_que_votre', u'3_connaissezvous', u'3a', u'3b', u'3c', u'3d', u'4estce_que_votre', u'4a_comment_publicisezvous', u'4b_estce_que_vos', u'5_ces_services', u'6_recevezvous_des', u'7_preciser_lales', u'8_pouvezvous_decrire', u'8a_quel_est_le', u'8b_a_quel_endroit', u'8b1_precisez_', u'8c_offrezvous_des', u'8c1_medication', u'8c2_activites_psychosociales', u'8c3_accompagnement', u'8c4_psychanalyse', u'8c5_musicotherapie', u'8c6_club_denfants', u'8c7_activites_socioculturelles', u'8c8_groupe_dentraide', u'8c9_psychoeducation', u'8c10_therapie_corporelle', u'8c11_therapie_cognitive', u'8c12_therapie_par', u'8c13_autres', u'10_que_faitesvous', u'10a_si_vous_referez', u'11_pouvezvous_dire', u'11a_dechanges_de', u'11b_de_referencement', u'11c_de_formation', u'11d_autres', u'13_quels_sont_les', u'14_quels_obstacles', u'14a_si_autres_', u'15_quels_obstacles', u'16_connaissezvous', u'si_oui_prciser', u'catgories_denfants', u'my_element14', u'quel_endroit', u'les_principaux', u'quels_sont_les', u'question_a', u'question_b', u'question_c', u'question_d', u'created_date', u'created_by', u'created_location', u'created_device_id', u'modified_date', u'modified_by', u'modified_location', u'modified_device_id', u'server_modified']
+
+def get_hash(org):
+	count = 0
+	return_hash = {}
+	for item in org:
+		return_hash[ORDERED_ATTRIBUTES[count]] = item
+		count += 1
+	return return_hash
 def get_int(string):
 	try:
 		return int(string)

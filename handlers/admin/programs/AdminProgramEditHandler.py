@@ -3,7 +3,7 @@ import jinja2
 import webapp2
 from handlers import BaseHandler
 from models import Program
-from helpers import QueryHandler
+from helpers import QueryHandler, ProgramHelper
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -27,6 +27,12 @@ class AdminProgramEditHandler(BaseHandler.BaseHandler):
 
 
     program = QueryHandler.execute_query(sql_statement)
+
+    org_select = """
+        SELECT 1_nom FROM organization WHERE id="{0}"
+    """.format(program[0][1])
+
+    org = QueryHandler.execute_query(org_select)
     if len(program) == 0:
       self.redirect("/admin?message=That program does not exist")
       return
@@ -34,7 +40,8 @@ class AdminProgramEditHandler(BaseHandler.BaseHandler):
       "role": self.session.get("role"),
       "user_session": user_session,
       "message": self.request.get("message"),
-      "program": program[0]
+      "program": program[0],
+      "org": org[0][0]
     }
     language = None
     if "language" in self.request.cookies:
@@ -51,20 +58,24 @@ class AdminProgramEditHandler(BaseHandler.BaseHandler):
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('edit_program.html')
     self.response.write(TEMPLATE.render(template_values))
 
-  def post(self, program_key):
+  def post(self, program_id):
     role = self.session.get('role')
     user_session = self.session.get("user")
+
+    program_id = self.request.get("program_id")
 
     if role != "admin":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 
-    program = Program.Program.get_by_id(int(program_key))
-    if not program:
-      self.response.write(TEMPLATE.render({"form": form, "message": "Unable to find program. Please contact administrator."}))
-
-    form = Program.NewProgramForm(self.request.POST)
-    if form.validate():
-      Program.update(self, TEMPLATE, form, program.name, program_key)
+    sql_statement = """
+      SELECT id FROM org_prog WHERE id="{0}"
+      """.format(program_id)
+    program = QueryHandler.execute_query(sql_statement)
+    if len(program) > 0:
+      ProgramHelper.update_record(self)
+      self.redirect("/programs/" + program_id + "/edit?message=Update complete")
     else:
-      self.response.write(TEMPLATE.render({"form": form}))
+      self.redirect("/admin?message=Program does not exist")
+
+    

@@ -112,12 +112,75 @@ def populate_sql_statement(data):
 		`organization`.`8_objectifs_fondamentaux`, " || ",
 		`organization`.`11_quelle_categorie`, " |")
 		FROM `organization`
-		WHERE `organization`.`id` = "120"
+		WHERE `organization`.`id` = "{0}"
 		),
-		`notes` = "";
+		`notes` = "{32}";
 	""".format(data['org_id'], data['program_id'], data['name_french'], data["name_english"], data['age_0'], data['age_1'], data['age_2'], data['age_3'], data['age_4'], data['age_5'], data['age_6'], data['age_7'], data['age_8'], data['age_9'], data['age_10'], data['age_11'], data['age_12'], data['age_13'], data['age_14'], data['age_15'], data['age_16'], data['age_17'], data['age_18'], data['garcons'], data['filles'], data['lundi'], data['mardi'], data['mercredi'], data['jeudi'], data['vendredi'], data['samedi'], data['dimanche'], data['notes'])
 	return sql_statement
 
+def update_sql_statement(data, service_id):
+	sql_statement = """
+		UPDATE `service` SET
+		`name_french` = "{2}", 
+		`name_english` = "{3}", 
+		`program_id` = "{1}", 
+		`age_0` = "{4}", 
+		`age_1` = "{5}", 
+		`age_2` = "{6}", 
+		`age_3` = "{7}", 
+		`age_4` = "{8}", 
+		`age_5` = "{9}", 
+		`age_6` = "{10}", 
+		`age_7` = "{11}", 
+		`age_8` = "{12}", 
+		`age_9` = "{13}", 
+		`age_10` = "{14}", 
+		`age_11` = "{15}", 
+		`age_12` = "{16}", 
+		`age_13` = "{17}", 
+		`age_14` = "{18}", 
+		`age_15` = "{19}", 
+		`age_16` = "{20}", 
+		`age_17` = "{21}", 
+		`age_18` = "{22}", 
+		`garcons` = "{23}", 
+		`filles` = "{24}", 
+		`lundi` = "{25}", 
+		`mardi` = "{26}", 
+		`mercredi` = "{27}", 
+		`jeudi` = "{28}", 
+		`vendredi` = "{29}", 
+		`samedi` = "{30}", 
+		`dimanche` = "{31}", 
+		`service_details` = 
+		(SELECT CONCAT("| ",
+		"{0}", " || ",
+		"{1}", " || ",
+		`organization`.`1_nom`, " || ",
+		`organization`.`departement`, " || ",
+		`organization`.`commune`, " || ",
+		`organization`.`section_communale`, " || ",
+		`organization`.`adresse`, " || ",
+		`organization`.`boite_postale`, " || ",
+		`organization`.`telephone`, " || ",
+		`organization`.`personne_contact`, " || ",
+		`organization`.`email`, " || ",
+		`organization`.`site_web`, " || ",
+		`organization`.`6_type_plusieurs`, " || ",
+		`organization`.`6a_precisez_autre`, " || ",
+		`organization`.`6c_statut`, " || ",
+		`organization`.`7_jour`, " || ",
+		`organization`.`7a_heure`, " || ",
+		`organization`.`8_objectifs_fondamentaux`, " || ",
+		`organization`.`11_quelle_categorie`, " |")
+		FROM `organization`
+		WHERE `organization`.`id` = "{0}"
+		),
+		`notes` = "{32}"
+		WHERE id= "{33}"
+		LIMIT 1;
+	""".format(data['org_id'], data['program_id'], data['name_french'], data["name_english"], data['age_0'], data['age_1'], data['age_2'], data['age_3'], data['age_4'], data['age_5'], data['age_6'], data['age_7'], data['age_8'], data['age_9'], data['age_10'], data['age_11'], data['age_12'], data['age_13'], data['age_14'], data['age_15'], data['age_16'], data['age_17'], data['age_18'], data['garcons'], data['filles'], data['lundi'], data['mardi'], data['mercredi'], data['jeudi'], data['vendredi'], data['samedi'], data['dimanche'], data['notes'], service_id)
+	return sql_statement
 
 def save_record(self):
 	data = get_attributes(self)
@@ -133,3 +196,11 @@ def save_record(self):
 	self.redirect("/admin/records/" + data['org_id'] + "?message=Service saved")
 	record_audit = QueryHandler.create_audit(self, "Service", data['name_french'], data, "Create Service")
 	return 
+
+def update_record(self, service_id):
+	data = get_attributes(self)
+	valid, errors = validate_attributes(data)
+	sql_statement = update_sql_statement(data, service_id)
+	record = QueryHandler.execute_query(sql_statement, insert=True)
+	record_audit = QueryHandler.create_audit(self, "Service", data['name_french'], data, "Update Service")
+	return

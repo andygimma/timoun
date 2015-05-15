@@ -58,7 +58,7 @@ app = webapp2.WSGIApplication([
     (r'/admin/records', AdminRecordHandler.AdminRecordHandler, "admin_records"),
     (r'/admin/records/([^/]+)', AdminViewRecordHandler.AdminViewRecordHandler, "admin_records_item"),
     # ('/admin/organizations/new', AdminOrgNewHandler.AdminOrgNewHandler),
-    # ('/organizations/([^/]+)/edit', AdminOrgEditHandler.AdminOrgEditHandler),
+    ('/records/([^/]+)/edit', AdminOrgEditHandler.AdminOrgEditHandler),
     # ('/organizations/([^/]+)/delete', AdminOrgDeleteHandler.AdminOrgDeleteHandler),
     # ('/admin/organizations/dashboard', AdminOrgDashboardHandler.AdminOrgDashboardHandler),
     (r'/admin/programs', AdminProgramIndexHandler.AdminProgramIndexHandler, "admin_programs"),

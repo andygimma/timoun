@@ -52,13 +52,39 @@ def populate_sql_statement(data):
 
 	return sql_statement
 
+def populate_update_statement(data):
+	sql_statement = """
+		UPDATE `org_prog` SET
+		`org_id` = "{0}",
+		`program_id` = "{1}",
+		`date` = "{2}",
+		`budget` = "{3}",
+		`other` = "{4}",
+		`types` = "{5}",
+		`assistance` = "{6}"
+		WHERE `id` = "{1}"
+		LIMIT 1;
+	""".format(data["org_id"], data["program_id"], data["date"], data["budget"], data["other"], data["types"], data["assistance"])
+	# raise Exception(sql_statement)
+	return sql_statement
+
+
 def save_record(self):
 	data = get_attributes(self)
 	valid, errors = validate_attributes(data)
 	sql_statement = populate_sql_statement(data)
-	# find_or_create_program(data)
-	# raise Exception(sql_statement)
 	record = QueryHandler.execute_query(sql_statement, insert=True)
 	self.redirect("/admin/records/" + data['org_id'] + "?message=Program saved")
 	record_audit = QueryHandler.create_audit(self, "Program", "Program", data, "Create Program")
 	return 
+
+def update_record(self):
+	data = get_attributes(self)
+	# raise Exception(data)
+	valid, errors = validate_attributes(data)
+	sql_statement = populate_update_statement(data)
+	record = QueryHandler.execute_query(sql_statement, True)
+	record_audit = QueryHandler.create_audit(self, "Program", "Program", data, "Update Program")
+	return
+
+    

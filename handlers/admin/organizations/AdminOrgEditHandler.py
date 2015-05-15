@@ -3,6 +3,8 @@ import jinja2
 import webapp2
 from handlers import BaseHandler
 from models import Organization
+from helpers import QueryHandler, OrganizationHelper
+import json
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -12,7 +14,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 TEMPLATE = JINJA_ENVIRONMENT.get_template('edit_organization.html')
 
 class AdminOrgEditHandler(BaseHandler.BaseHandler):
-  def get(self, org_key):
+  def get(self, org_id):
     role = self.session.get('role')
     user_session = self.session.get("user")
 
@@ -21,23 +23,33 @@ class AdminOrgEditHandler(BaseHandler.BaseHandler):
       return
 
     if not self.legacy:
-      self.redirect("/#/organizations/{0}/edit".format(org_key))
+      self.redirect("/#/organizations/{0}/edit".format(org_id))
 
-    organization = Organization.Organization.get_by_id(int(org_key))
-    if not organization:
-      self.response.write(TEMPLATE.render({"form": form, "message": "Unable to find organization. Please contact administrator."}))
+    sql_statement = """
+          SELECT * FROM organization WHERE id='{0}' LIMIT 1
+        """.format(org_id)
 
-    form = Organization.NewOrganizationForm()
-    form.name.data = organization.name
 
+    org = QueryHandler.execute_query(sql_statement)
+    if len(org) == 0:
+      self.redirect("/admin?message=That organization does not exist")
+      return
+    data = OrganizationHelper.get_hash(org[0])
     template_values = {
       "role": self.session.get("role"),
       "user_session": user_session,
       "message": self.request.get("message"),
-      "form": form,
-      "org_key": org_key,
-      "org_name": organization.name
+      "org": org[0],
+      "data": data
     }
+    # g = "show columns from organization;"
+    # r = QueryHandler.execute_query(g)
+    # attrs = []
+    # # raise Exception(r)
+    # for item in r:
+    #   attrs.append(item[0])
+    # raise Exception(attrs)
+
     language = None
     if "language" in self.request.cookies:
       language = self.request.cookies["language"]

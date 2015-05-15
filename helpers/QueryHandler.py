@@ -131,7 +131,6 @@ def execute_query(query_string, insert=False):
       db.close()
       return True
     else:
-
       records = [];
       for row in cursor.fetchall():
         records.append(row)
