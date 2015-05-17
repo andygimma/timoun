@@ -14,7 +14,7 @@
 {% block content %}
   <h2>Records</h2>
   <a href="/records/new" class="btn btn-a user">Add Record</a>
-  <a href="#" class="btn btn-b user">View Changes</a>
+  <a href="/admin/users/dashboard" class="btn btn-b user">View Changes</a>
     {% if last_page >= 0 %}
     <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Previous Page</a>
     {% endif %}
