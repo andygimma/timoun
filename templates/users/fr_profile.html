@@ -1,4 +1,4 @@
-{% extends "legacy_base.html" %}
+{% extends "fr_legacy_base.html" %}
 
 {% block title %}
 <title>Profil: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
@@ -17,8 +17,7 @@
 {% endblock %}
 
 {% block content %}
-  <h3>Need French Translation</h3>
-  <h1>{{ user_session }} Profil</h1>
+  <h2>{{ user_session }} Profil</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -31,15 +30,15 @@
   <form method="POST" action="/users/profile">
     <table class="block-table contact">
       <tr>
-        <td>{{ form.name.label }}</td>
+        <td>Nom</td>
         <td>{{ form.name()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.organization.label }}</td>
+        <td>Organisation</td>
         <td>{{ form.organization()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.phone.label }}</td>
+        <td>Telephone</td>
         <td>{{ form.phone()|safe }}</td>
       </tr>
       <tr>

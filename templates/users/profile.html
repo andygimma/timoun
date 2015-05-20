@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1>{{ user_session }} Profile</h1>
+  <h2>{{ user_session }} Profile</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}

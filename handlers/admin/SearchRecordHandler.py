@@ -40,7 +40,7 @@ class SearchRecordHandler(BaseHandler.BaseHandler):
   	language = language.replace('"', '').replace("'", "")
   	if language == "fr":
 
-  	  LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('searches.html')
+  	  LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_searches.html')
   	else:
   	  LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('searches.html')
   	self.response.write(LEGACY_TEMPLATE.render(template_values))

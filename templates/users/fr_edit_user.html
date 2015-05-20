@@ -16,8 +16,6 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Need French Translation</h1>
-
   <h2>{{ user_email }} Profil</h2>
   {% if form.errors %}
     <ul class="errors">
@@ -31,19 +29,19 @@
   <form method="POST" action="/users/{{ user_key }}/edit">
     <table class="block-table admin">
       <tr>
-        <td>{{ form.email.label }}</td>
+        <td>Email</td>
         <td>{{ form.email()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.name.label }}</td>
+        <td>Nom</td>
         <td>{{ form.name()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.organization.label }}</td>
+        <td>Organisation</td>
         <td>{{ form.organization()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.phone.label }}</td>
+        <td>Telephone</td>
         <td>{{ form.phone()|safe }}</td>
       </tr>
       <tr>

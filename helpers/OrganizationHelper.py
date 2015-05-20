@@ -287,6 +287,7 @@ def populate_sql_statement(data):
 
 def save_record(self):
 	data = get_attributes(self)
+	# raise Exception(data['1_nom'])
 	# encode_attributes(data)
 	valid, errors = validate_attributes(data)
 	if errors:

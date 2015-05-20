@@ -56,7 +56,7 @@ class AdminProgramEditHandler(BaseHandler.BaseHandler):
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_edit_program.html')
     else:
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('edit_program.html')
-    self.response.write(TEMPLATE.render(template_values))
+    self.response.write(LEGACY_TEMPLATE.render(template_values))
 
   def post(self, program_id):
     role = self.session.get('role')
