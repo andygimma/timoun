@@ -22,7 +22,7 @@
              <input type="hidden" name="org_id" value="{{service[3]}}">
 
         
-        Program: <select name='program_id' autocomplete="off">
+        Programme: <select name='program_id' autocomplete="off">
             <option value="">Select one</option>
             <option value="1" {% if service[11] == 1 %}selected{% endif %}>Nutrition</option>
             <option value="2" {% if service[11] == 2 %}selected{% endif %}>Home-Based Care</option>
@@ -33,12 +33,12 @@
             <option value="7" {% if service[11] == 7 %}selected{% endif %}>Education</option>
             <option value="8" {% if service[11] == 8 %}selected{% endif %}>Mental Health Services</option>
         </select>
-        Name in French: <input name="name_french" type="text" value="{{ service[1] }}" />
-        Name in English: <input name="name_english" type="text" value="{{ service[2] }}"/>
+        Nom  Français: <input name="name_french" type="text" value="{{ service[1] }}" />
+        Nom English: <input name="name_english" type="text" value="{{ service[2] }}"/>
         Gender: 
         <input type="checkbox" name="garcons" value="1" {% if service[31] == 1 %} checked {% endif %}> Boys<br/>
         <input type="checkbox" name="filles" value="1" {% if service[32] == 1 %} checked {% endif %}> Girls<br/>
-        Ages of Children:
+        Ages:
          <input type="checkbox" name="age_0" value="1" {% if service[12] == 1 %} checked {% endif %}> 0 ys<br />
 
          <input type="checkbox" name="age_1" value="1" {% if service[13] == 1 %} checked {% endif %}> 1 yr<br />
@@ -77,19 +77,19 @@
          <input type="checkbox" name="age_18" value="1" {% if service[30] == 1 %} checked {% endif %}> 18 ys<br />
         Days: 
 
-         <input type="checkbox" name="lundi" value="1" {% if service[37] == 1 %} checked {% endif %}> Monday<br />
+         <input type="checkbox" name="lundi" value="1" {% if service[37] == 1 %} checked {% endif %}> Lundi<br />
 
-         <input type="checkbox" name="mardi" value="1" {% if service[38] == 1 %} checked {% endif %}> Tuesday<br />
+         <input type="checkbox" name="mardi" value="1" {% if service[38] == 1 %} checked {% endif %}> Mardi<br />
 
-         <input type="checkbox" name="mercredi" value="1" {% if service[39] == 1 %} checked {% endif %}> Wednesday<br />
+         <input type="checkbox" name="mercredi" value="1" {% if service[39] == 1 %} checked {% endif %}> Mercredi<br />
 
-         <input type="checkbox" name="jeudi" value="1" {% if service[40] == 1 %} checked {% endif %}> Thursday<br />
+         <input type="checkbox" name="jeudi" value="1" {% if service[40] == 1 %} checked {% endif %}> Jeudi<br />
 
-         <input type="checkbox" name="vendredi" value="1" {% if service[41] == 1 %} checked {% endif %}> Friday<br />
+         <input type="checkbox" name="vendredi" value="1" {% if service[41] == 1 %} checked {% endif %}> Vendredi<br />
 
-         <input type="checkbox" name="samedi" value="1" {% if service[42] == 1 %} checked {% endif %}> Saturday<br />
+         <input type="checkbox" name="samedi" value="1" {% if service[42] == 1 %} checked {% endif %}> Samedi<br />
 
-         <input type="checkbox" name="dimanche" value="1" {% if service[43] == 1 %} checked {% endif %}> Sunday<br />
+         <input type="checkbox" name="dimanche" value="1" {% if service[43] == 1 %} checked {% endif %}> Dimanche<br />
 
         Notes: <textarea name='notes' cols=40 rows=6 value="{{ service[45] }}"></textarea>
   </form>

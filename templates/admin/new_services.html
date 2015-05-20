@@ -23,11 +23,9 @@
     </ul>
   {% endif %}
   <form method="POST" action="/services/new">
+  <input type="hidden" name="service_id" value="0">
     <input type=submit value=Submit>
-    Organization: <select name='org_id'>
-            <option value="">Select one</option>
-            <option value="120">AFIAVIH</option>
-        </select>
+        <input type="hidden" name="org_id" value="{{ org_id }}">
         
         Program: <select name='program_id'>
             <option value="">Select one</option>
@@ -40,13 +38,13 @@
             <option value="7">Education</option>
             <option value="8">Mental Health Services</option>
         </select>
-        Name in French: <input name="name_french" type="text" />
-        Name in English: <input name="name_english" type="text" />
+        Frech Name: <input name="name_french" type="text" />
+        English Name: <input name="name_english" type="text" />
         Gender: <input type="hidden" name="garcons" value="0"><!-- Value = 0 if unchecked --> 
             <input type="checkbox" name="garcons" value="1"> Boys<br/>
             <input type="hidden" name="filles" value="0"><!-- Value = 0 if unchecked -->
             <input type="checkbox" name="filles" value="1"> Girls<br/>
-        Ages of Children:
+        Ages:
             <input type="hidden" name="age_0" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_0" value="1"> 0 ys<br />
         <input type="hidden" name="age_1" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_1" value="1"> 1 yr<br />
         <input type="hidden" name="age_2" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_2" value="1"> 2 ys<br />
@@ -66,7 +64,7 @@
         <input type="hidden" name="age_16" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_16" value="1"> 16 ys<br />
         <input type="hidden" name="age_17" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_17" value="1"> 17 ys<br />
         <input type="hidden" name="age_18" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_18" value="1"> 18 ys<br />
-        Days: 
+        Jour: 
         <input type="hidden" name="lundi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="lundi" value="1"> Monday<br />
         <input type="hidden" name="mardi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mardi" value="1"> Tuesday<br />
         <input type="hidden" name="mercredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mercredi" value="1"> Wednesday<br />

@@ -27,24 +27,24 @@
     <input type=submit value=Submit>
         <input type="hidden" name="org_id" value="{{ org_id }}">
         
-        Program: <select name='program_id'>
+        Programme: <select name='program_id'>
             <option value="">Select one</option>
             <option value="1">Nutrition</option>
-            <option value="2">Home-Based Care</option>
-            <option value="3">Shelter</option>
-            <option value="4">Child protection</option>
-            <option value="5">Health</option>
-            <option value="6">Psychosocial Support</option>
+            <option value="2">Soins à domicile</option>
+            <option value="3">Abri</option>
+            <option value="4">Protection de l'enfant</option>
+            <option value="5">Santé</option>
+            <option value="6">Soutien psychosocial</option>
             <option value="7">Education</option>
-            <option value="8">Mental Health Services</option>
+            <option value="8">Services Sante Mentales</option>
         </select>
-        Name in French: <input name="name_french" type="text" />
-        Name in English: <input name="name_english" type="text" />
+        Francais Nom: <input name="name_french" type="text" />
+        English Nom: <input name="name_english" type="text" />
         Gender: <input type="hidden" name="garcons" value="0"><!-- Value = 0 if unchecked --> 
             <input type="checkbox" name="garcons" value="1"> Boys<br/>
             <input type="hidden" name="filles" value="0"><!-- Value = 0 if unchecked -->
             <input type="checkbox" name="filles" value="1"> Girls<br/>
-        Ages of Children:
+        Ages:
             <input type="hidden" name="age_0" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_0" value="1"> 0 ys<br />
         <input type="hidden" name="age_1" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_1" value="1"> 1 yr<br />
         <input type="hidden" name="age_2" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_2" value="1"> 2 ys<br />
@@ -64,14 +64,14 @@
         <input type="hidden" name="age_16" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_16" value="1"> 16 ys<br />
         <input type="hidden" name="age_17" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_17" value="1"> 17 ys<br />
         <input type="hidden" name="age_18" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_18" value="1"> 18 ys<br />
-        Days: 
-        <input type="hidden" name="lundi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="lundi" value="1"> Monday<br />
-        <input type="hidden" name="mardi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mardi" value="1"> Tuesday<br />
-        <input type="hidden" name="mercredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mercredi" value="1"> Wednesday<br />
-        <input type="hidden" name="jeudi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="jeudi" value="1"> Thursday<br />
-        <input type="hidden" name="vendredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="vendredi" value="1"> Friday<br />
-        <input type="hidden" name="samedi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="samedi" value="1"> Saturday<br />
-        <input type="hidden" name="dimanche" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="dimanche" value="1"> Sunday<br />
+        Jour: 
+        <input type="hidden" name="lundi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="lundi" value="1"> Lundi<br />
+        <input type="hidden" name="mardi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mardi" value="1"> Mardi<br />
+        <input type="hidden" name="mercredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mercredi" value="1"> Mercredi<br />
+        <input type="hidden" name="jeudi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="jeudi" value="1"> Jeudi<br />
+        <input type="hidden" name="vendredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="vendredi" value="1"> Vendredi<br />
+        <input type="hidden" name="samedi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="samedi" value="1"> Samedi<br />
+        <input type="hidden" name="dimanche" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="dimanche" value="1"> Dimanche<br />
 
         Notes: <textarea name='notes' cols=40 rows=6></textarea>
   </form>
