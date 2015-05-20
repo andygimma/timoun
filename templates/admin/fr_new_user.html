@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block content %}
-  <h2>New User</h2>
+  <h2>Ajouter Une Utilisateur</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -29,19 +29,19 @@
   <form method="POST" action="/admin/users/new">
     <table class="block-table admin">
       <tr>
-        <td>{{ form.email.label }}</td>
+        <td>Email</td>
         <td>{{ form.email()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.name.label }}</td>
+        <td>Nom</td>
         <td>{{ form.name()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.organization.label }}</td>
+        <td>Org</td>
         <td>{{ form.organization()|safe }}</td>
       </tr>
       <tr>
-        <td>{{ form.phone.label }}</td>
+        <td>Telephone</td>
         <td>{{ form.phone()|safe }}</td>
       </tr>
       <tr>

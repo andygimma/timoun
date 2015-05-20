@@ -239,22 +239,25 @@
 </div>    
 </form> 
 
-    <table class="table records">
-      <thead>
-        <tr>
-          <th>Nom De L'Organization</th>
-        </tr>
-      </thead>
+  <table class="table records">
+    <thead>
+      <tr>
+        <th>Organization Name</th>
+        <th>Department</th>
+      </tr>
+    </thead>
 
-    {% for record in records %}
-        <tbody>
-          <tr>
-            <td><a href="/admin/records/{{ record[1] }}"><i class="ico">✎</i> {{ record[0] }}</a></td>
-          </tr>
-        </tbody>
-    {% endfor %}
-  {% endif %}
-  </table>
+  {% for record in records %}
+      <tbody>
+        <tr>
+          <td><a href="/admin/records/{{ record[1] }}"><i class="ico">✎</i> {{ record[0] }}</a></td>
+          <td>{{ record[2] }}</td>
+        </tr>
+
+      </tbody>
+  {% endfor %}
+{% endif %}
+</table>
        
     {% if last_page >= 0 %}
     <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
