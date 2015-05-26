@@ -37,10 +37,10 @@
  */
 
 .genericon {
-	font-size: 35px;
-	vertical-align: top;
+	font-size: 60px;
+	vertical-align: center;
 	text-align: center;
-    margin: -8px 10px 10px 0;
+    margin: 0;
 	-moz-transition: color .1s ease-in 0;
 	-webkit-transition: color .1s ease-in 0;
 	display: inline-block;

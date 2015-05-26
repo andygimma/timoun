@@ -57,20 +57,20 @@
                 <option value="Abus physique">Abus physique</option>
                 <option value="abus sexuel">abus sexuel</option>
                 <option value="Autres">Autres</option>
-                <option value="formation sur la protection de l’enfant">formation sur la protection de l’enfant</option>   
-                <option value="négligence">négligence</option>       
+                <option value="formation sur la protection de l’enfant">Formation sur la protection de l’enfant</option>   
+                <option value="négligence">Négligence</option>       
                 <option value="Parrainage">Parrainage</option>
-                <option value="placement en famille d’accueil permanente">placement en famille d’accueil permanente</option>
-                <option value="placement en famille d’accueil transitoire">placement en famille d’accueil transitoire</option>
-                <option value="placement en maisons d’enfants en accord avec IBESR">placement en maisons d’enfants en accord avec IBESR</option>
-                <option value="protection légale">protection légale</option>
+                <option value="placement en famille d’accueil permanente">Placement en famille d’accueil permanente</option>
+                <option value="placement en famille d’accueil transitoire">Placement en famille d’accueil transitoire</option>
+                <option value="placement en maisons d’enfants en accord avec IBESR">Placement en maisons d’enfants en accord avec IBESR</option>
+                <option value="protection légale">Protection légale</option>
                 <option value="Réponses aux cas d’abus et exploitation">Réponses aux cas d’abus et exploitation</option>
-                <option value="réunification familiale">réunification familiale</option>
-                <option value="support aux enfants des rues">support aux enfants des rues</option>
-                <option value="support aux enfants en conflit avec la loi">support aux enfants en conflit avec la loi</option>
-                <option value="support aux enfants en domesticité">support aux enfants en domesticité</option>
-                <option value="support aux enfants handicapés">support aux enfants handicapés</option>
-                <option value="support aux enfants victimes de traite">support aux enfants victimes de traite</option>
+                <option value="réunification familiale">Réunification familiale</option>
+                <option value="support aux enfants des rues">Support aux enfants des rues</option>
+                <option value="support aux enfants en conflit avec la loi">Support aux enfants en conflit avec la loi</option>
+                <option value="support aux enfants en domesticité">Support aux enfants en domesticité</option>
+                <option value="support aux enfants handicapés">Support aux enfants handicapés</option>
+                <option value="support aux enfants victimes de traite">Support aux enfants victimes de traite</option>
             </optgroup>
             <optgroup label="Santé (Prog 5)">
                 <option value="Autres">Autres</option>
@@ -283,9 +283,9 @@
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
         <li><a id="total" class="btn btn-a user">Records Returned: {{ total_count }}</a></li>
+        <li><a id="csv_link" href="/admin/export/dashboard" class="btn btn-b user">CSV</a></li>
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
         <li><a id="last_page_link" class="btn btn-d user yellow" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
-        <li><a id="csv_link" href="#" class="btn btn-b user">CSV</a></li>
         <li><a id="" href="" class="btn btn-c user">Effacer Recherche</a></li>
     </ul>
 

@@ -19,24 +19,25 @@ a#breadcrumb_home {margin-left: 20px;}
 /* BRANDING */
 #header {padding: 10px; 0 0 0; background: #fff; height: 150px; background-image: url('../img/timoun-haiti-banner.png'); background-repeat: no-repeat; background-position: 0% 50%;}
 #header h3 {color: #1c6cb4; margin: 0; width: 100%; text-align: center; font-size: 1em;}
-.logo {width: 140px; height: auto; margin: 0 0 0 20px;}
+.logo {width: 140px; height: auto; margin: 0 0 0 30px;}
 .logo img {position: relative; margin-top: -5px; padding: 0; width: 100%; height: auto;}
-.brandname {width: 175px; margin: 0; padding: 0; }
+.brandname {width: 175px; margin: 0 0 0 15px; padding: 0; }
 .french_header h2 {font-size: 1.8em;}
 
-.genericon {color: #f36813; background:}
+.genericon {color: #3c5;}
+.cat {margin: 0px 0 0 9%!important;}
 .icon-box {width:25%; float: left;}
 .icon-box p {text-align:center;}
 .icon-row {clear:both; min-height:175px; width:90%; margin-left: 5%; margin-top:40px;}
 @media (max-width:768px) {
     .icon-box {width: 100%; clear:both;}
-    .icon-row {min-height: 275px;}
+    .icon-row {min-height: 425px;}
 }
 @media (max-width: 669px) {
     #french_icon-row {min-height: 335px;}
 }
 
-#submit {width: 150px!important; background: #302e2c; font-size: 1em; border-radius: 6px; border: 0; color: #fff; cursor: pointer; display: inline-block; margin: 2px 0 0 10%; padding: 12px 30px 14px;}
+#submit {width: 150px!important; background: #3c5; font-size: 1em; border-radius: 6px; border: 0; color: #fff; cursor: pointer; display: inline-block; margin: 2px 0 0 10%; padding: 12px 30px 14px;}
 #submit:hover {background: #888;}
 .admin-btn {margin-left: 0!important;}
 
@@ -60,9 +61,10 @@ p.copy a:hover {color: #e89b55;}
 h1, h2, h3, h4, h5, h6, p {width: 80%; margin-left: 10%;}
 h3 {color: #333;}
 p {color: #302e2c;}
-.top h1 {border-left: 5px solid #f36813; color: #1c6cb4; font-size: 1.8em; padding-left: 10px;}
+.top h1, h1.search-cat {border-left: 5px solid #f36813; color: #1c6cb4; font-size: 1.8em; padding-left: 10px;}
 .top h1 span {display: inline-block;}
-.mid h2 {border-left: 5px solid #f36813; color:#1c6cb4; padding-left: 10px;}
+.mid h2,{border-left: 5px solid #f36813; color:#1c6cb4; padding-left: 10px;}
+#mid-home {margin-top: -50px;}
 .bottom h3 {font-size: 1.2em; padding-top: 40px;}
 
 
@@ -101,7 +103,7 @@ message {
 .mid {margin: -20px 0 0 0; padding: 0;}
 .bottom {margin-top: -19px;}
 .mid-divide {width: 80%; margin-left: 10%;}
-.list {margin-bottom: -10px; margin-top: 30px; text-align: center; font-size: large; color:#333;}
+.list {margin: 10px 0 0 0; text-align: center; font-size: large; color:#333;}
 .detail {text-align: left;}
 #search-mid {margin-top: 40px;}
 #search-mid h2 {margin-left: 0!important; text-align: left;}
@@ -113,6 +115,7 @@ message {
 .inline-table th {text-align: left; margin:0; padding: 0; width: 320px;}
 .inline-table td {padding-bottom: 20px; margin: 0; width: 320px;}
 .inline-table input, .inline-table select {width:100%; background: #fff; height: 40px;}
+#results_select select {background: #3c5; height: 47px; color:#fff; font-size: medium; border-radius: 6px; border:0;}
 
 .block-table {width: 40%; margin-left: 20px;}
 .block-table th {text-align: left; margin:0; padding: 0;}
@@ -120,7 +123,13 @@ message {
 .block-table input, .block-table select {width:100%; background: #fff; height: 40px;}
 .block-table textarea {width: 100%; height: 100px;}
 .contact {margin-left: 10%;}
+.suggest-age {width: 49%!important;}
 
+.phone {width: 40%; padding: 0; float: right;}
+.phone li {list-style-type: none; margin: 0 0 10px 0; padding: 0; display: block;}
+@media (max-width: 767px) {
+    .phone {width: 90%; margin-left: 5%; clear:both;}
+}
 /* Firefox Fix */
 .admin {float: left; width: 100%; margin-left: 0;} 
 .admin input, .admin select {width: 250px;}
@@ -148,9 +157,9 @@ message {
 .footnote_left {width: 70%; float: left;}
 .bottom-cta {width: 30%; float: left;}
 .footnote {background: #eee; padding: 20px 0 30px 0;}
-.footnote h3 {float: left; text-align: left; margin-top: 0; margin-left: 13%;}
-.footnote p {float:left; text-align: left; color: #333; margin-top: 0; margin-left: 13%;}
-.footnote .btn {margin-top: 5px; text-align: center; margin-left: 14%}
+.footnote h3 {float: left; text-align: left; margin: 0 0 0 10%;}
+.footnote p {float:left; text-align: left; color: #333; margin-top: 0; margin-left: 10%;}
+.footnote .btn {margin-top: 5px; text-align: center; margin-left: 13%}
 @media (max-width:992px) {
     .footnote {height: 75px;}
     .footnote .btn {margin-top: 20px;}
@@ -190,6 +199,7 @@ ul.pagination li {display: inline;}
 
 .search-again {text-align: center; clear:both;}
 
+
 @media (max-width: 767px) {
     .search-map {width: 80%!important; margin-left: 10%; clear:both;}
     .results-box {width: 80%; margin-top: 20px; margin-left: 10%;}
@@ -221,7 +231,8 @@ ul.pagination li {display: inline;}
 
 
 /* RECORDS */
-.yellow {background: #f9c700!important; color:#333; margin-top:20px;}
+.yellow {background: #f9c700!important; color:#fff; margin-top:20px; text-shadow: 2px 2px #dbb51d;}
+.yellow:hover {background: #dbb51d!important;}
 .records checkbox {width: 50px;}
 .records tr {width: 100%;}
 .records td {width: 50%;}
