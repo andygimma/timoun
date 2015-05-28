@@ -33,28 +33,26 @@ a#breadcrumb_home {margin-left: 20px;}
     .icon-box {width: 100%; clear:both;}
     .icon-row {min-height: 425px;}
 }
-@media (max-width: 669px) {
-    #french_icon-row {min-height: 335px;}
-}
-
 #submit {width: 150px!important; background: #3c5; font-size: 1em; border-radius: 6px; border: 0; color: #fff; cursor: pointer; display: inline-block; margin: 2px 0 0 10%; padding: 12px 30px 14px;}
-#submit:hover {background: #888;}
+#submit:hover {background: #2b4;}
 .admin-btn {margin-left: 0!important;}
 
 
 /* FOOTER */
-#footer {width: 100%; background: #1f538c; height: 125px; bottom: 0; position: relative; clear:both;}
+#footer {width: 100%; background: #1f538c; height: 230px; bottom: 0; position: relative; clear:both;}
 .clearfooter {height: 125px;}
 p.copy {font-size: 14px; text-align: center!important; padding: 0 0 0 0; margin: 0 0 10px 0; color: #fff;}
 p.copy a {color: #f36813; font-weight: bold; font-size: 14px; line-height: 1.5em;}
 p.copy a:hover {color: #e89b55;}
-@media (max-width: 699px) {
-    #footer {height:150px;}
+p.social {padding:0; margin: 10px 0 0 0;}
+@media (max-width: 858px) {
+    #footer {height:300px;}
 }
 #footer ul {list-style-type: none; margin: 0; padding: 10px 0 0 0;}
 #footer ul li {display:inline; margin-right: 20px; font-size: large;}
 #footer ul li a {color: #f9c700;}
-#footer .social {display: inline;}
+#footer ul.footer-nav li a {color: #dbb51d;}
+#footer hr {width:80%; margin: 10px 0 10px 0;}
 
 
 /* TYPOGRAPHY */
@@ -63,9 +61,10 @@ h3 {color: #333;}
 p {color: #302e2c;}
 .top h1, h1.search-cat {border-left: 5px solid #f36813; color: #1c6cb4; font-size: 1.8em; padding-left: 10px;}
 .top h1 span {display: inline-block;}
-.mid h2,{border-left: 5px solid #f36813; color:#1c6cb4; padding-left: 10px;}
+.mid h2 {border-left: 5px solid #f36813; color:#1c6cb4; padding-left: 10px;}
 #mid-home {margin-top: -50px;}
 .bottom h3 {font-size: 1.2em; padding-top: 40px;}
+.data-heading {background: #ccc; width: 100%;}
 
 
 /* LINKS */
@@ -115,7 +114,7 @@ message {
 .inline-table th {text-align: left; margin:0; padding: 0; width: 320px;}
 .inline-table td {padding-bottom: 20px; margin: 0; width: 320px;}
 .inline-table input, .inline-table select {width:100%; background: #fff; height: 40px;}
-#results_select select {background: #3c5; height: 47px; color:#fff; font-size: medium; border-radius: 6px; border:0;}
+.results {height: 47px!important;}
 
 .block-table {width: 40%; margin-left: 20px;}
 .block-table th {text-align: left; margin:0; padding: 0;}
@@ -128,11 +127,13 @@ message {
 .phone {width: 40%; padding: 0; float: right;}
 .phone li {list-style-type: none; margin: 0 0 10px 0; padding: 0; display: block;}
 @media (max-width: 767px) {
-    .phone {width: 90%; margin-left: 5%; clear:both;}
+    .phone {width: 90%; float: left; margin-left: 10%; clear:both;}
 }
 /* Firefox Fix */
 .admin {float: left; width: 100%; margin-left: 0;} 
 .admin input, .admin select {width: 250px;}
+.admin input[type='checkbox'] {width:25px; height: 15px; margin-bottom: 10px;}
+.admin .notes {width: 250px!important;}
     @media (max-width: 768px) {
         .block-table {width: 80%; margin-left: 10%;}
         .records {width: 100%!important;}
@@ -157,7 +158,7 @@ message {
 .footnote_left {width: 70%; float: left;}
 .bottom-cta {width: 30%; float: left;}
 .footnote {background: #eee; padding: 20px 0 30px 0;}
-.footnote h3 {float: left; text-align: left; margin: 0 0 0 10%;}
+.footnote h3 {float: left; text-align: left; margin: 0 0 5px 10%;}
 .footnote p {float:left; text-align: left; color: #333; margin-top: 0; margin-left: 10%;}
 .footnote .btn {margin-top: 5px; text-align: center; margin-left: 13%}
 @media (max-width:992px) {
@@ -206,7 +207,6 @@ ul.pagination li {display: inline;}
 }
 
 
-
 /* ADMIN BASE */
 .options {width: 100%; height: 27px;}
 .options ul {margin:0; padding: 0;}
@@ -219,9 +219,7 @@ ul.pagination li {display: inline;}
 .table {width: 100%;}
 .table tr {width: 100%;}
 .table th {text-align: left; word-break: keep-all;}
-.table td {width: auto;}
-.table-email {word-break: break-all;}
-.user {margin: 0 10px 20px 0;}
+.table td {width: auto; word-break: break-all;}
 
 
 /* MANUAL */
@@ -231,11 +229,11 @@ ul.pagination li {display: inline;}
 
 
 /* RECORDS */
-.yellow {background: #f9c700!important; color:#fff; margin-top:20px; text-shadow: 2px 2px #dbb51d;}
-.yellow:hover {background: #dbb51d!important;}
+.yellow {background: #dbb51d!important; color:#fff; margin-top:20px; ;}
+.yellow:hover {background: #f9c700!important; text-shadow: 2px 2px #dbb51d}
 .records checkbox {width: 50px;}
 .records tr {width: 100%;}
-.records td {width: 50%;}
+.records td {width: 33%;}
 .records input, .records select, .records textarea {width: 100%!important;}
 .records textarea {height:200px;}
 
