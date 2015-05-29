@@ -15,12 +15,12 @@
   <h2>Records</h2>
   {{ message }}
   <a href="/records/new" class="btn btn-a user">Ajouter une Record</a>
-  <a href="/admin/records/dashboard" class="btn btn-b user">Voir Changements</a>
+  <a href="/admin/records/dashboard" class="btn user yellow">Voir Changements</a>
     {% if last_page >= 0 %}
-    <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
+    <a href="/admin/records?page={{last_page}}" class="btn btn-d user">Page Suivant</a>
     {% endif %}
-    <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Dernière Page</a>
-  <a href="/admin/export/records" class="btn btn-a user">CSV</a>
+    <a href="/admin/records?page={{next_page}}" class="btn btn-d user">Dernière Page</a>
+  <a href="/admin/export/records" class="btn btn-b user">CSV</a>
 {% if records_length > 0 %}
 
   <h3 class="no-margin">Filter</h3>
@@ -60,7 +60,7 @@
             <optgroup label="Protection de l’enfant (Prog 4)">
                 <option value="abus émotionnel">abus émotionnel</option>
                 <option value="Abus physique">Abus physique</option>
-                <option value="abus sexuel">abus sexuel</option>
+                <option value="abus sexuel">Abus sexuel</option>
                 <option value="Autres">Autres</option>
                 <option value="formation sur la protection de l’enfant">formation sur la protection de l’enfant</option>   
                 <option value="négligence">négligence</option>       
@@ -260,9 +260,9 @@
   </table>
        
     {% if last_page >= 0 %}
-    <a href="/admin/records?page={{last_page}}" class="btn btn-b user yellow">Page Suivant</a>
+    <a href="/admin/records?page={{last_page}}" class="btn btn-b user">Page Suivant</a>
     {% endif %}
-    <a href="/admin/records?page={{next_page}}" class="btn btn-b user yellow">Dernière Page</a>
+    <a href="/admin/records?page={{next_page}}" class="btn btn-b user">Dernière Page</a>
 
   {% if records_length == 0 %}
     <p>Aucun</p>

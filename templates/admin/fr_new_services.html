@@ -23,56 +23,108 @@
     </ul>
   {% endif %}
   <form method="POST" action="/services/new">
-  <input type="hidden" name="service_id" value="0">
-    <input type=submit value=Submit>
-        <input type="hidden" name="org_id" value="{{ org_id }}">
-        
-        Programme: <select name='program_id'>
-            <option value="">Select one</option>
-            <option value="1">Nutrition</option>
-            <option value="2">Soins à domicile</option>
-            <option value="3">Abri</option>
-            <option value="4">Protection de l'enfant</option>
-            <option value="5">Santé</option>
-            <option value="6">Soutien psychosocial</option>
-            <option value="7">Education</option>
-            <option value="8">Services Sante Mentales</option>
+  <table class="block-table admin">
+    <tr>
+        <td>Programme:</td> 
+        <td><select name='program_id'>
+            <option value="" selected>Sélectionnez la Programme</option>
+            <option value="nutrition">Nutrition</option>
+            <option value="home_based_care">Soins à domicile</option>
+            <option value="shelter">Abri</option>
+            <option value="child_protection">Protection de l'enfant</option>
+            <option value="pyschosocial">Soutien psychosocial</option>
+            <option value="health">Santé</option>
+            <option value="education">Education</option>
+            <option value="mental_health_services">Services Sante Mentales</option>
         </select>
-        Francais Nom: <input name="name_french" type="text" />
-        English Nom: <input name="name_english" type="text" />
-        Gender: <input type="hidden" name="garcons" value="0"><!-- Value = 0 if unchecked --> 
-            <input type="checkbox" name="garcons" value="1"> Boys<br/>
-            <input type="hidden" name="filles" value="0"><!-- Value = 0 if unchecked -->
-            <input type="checkbox" name="filles" value="1"> Girls<br/>
-        Ages:
-            <input type="hidden" name="age_0" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_0" value="1"> 0 ys<br />
-        <input type="hidden" name="age_1" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_1" value="1"> 1 yr<br />
-        <input type="hidden" name="age_2" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_2" value="1"> 2 ys<br />
-        <input type="hidden" name="age_3" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_3" value="1"> 3 ys<br />
-        <input type="hidden" name="age_4" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_4" value="1"> 4 ys<br />
-        <input type="hidden" name="age_5" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_5" value="1"> 5 ys<br />
-        <input type="hidden" name="age_6" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_6" value="1"> 6 ys<br />
-        <input type="hidden" name="age_7" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_7" value="1"> 7 ys<br />
-        <input type="hidden" name="age_8" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_8" value="1"> 8 ys<br />
-        <input type="hidden" name="age_9" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_9" value="1"> 9 ys<br />
-        <input type="hidden" name="age_10" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_10" value="1"> 10 ys<br />
-        <input type="hidden" name="age_11" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_11" value="1"> 11 ys<br />
-        <input type="hidden" name="age_12" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_12" value="1"> 12 ys<br />
-        <input type="hidden" name="age_13" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_13" value="1"> 13 ys<br />
-        <input type="hidden" name="age_14" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_14" value="1"> 14 ys<br />
-        <input type="hidden" name="age_15" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_15" value="1"> 15 ys<br />
-        <input type="hidden" name="age_16" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_16" value="1"> 16 ys<br />
-        <input type="hidden" name="age_17" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_17" value="1"> 17 ys<br />
-        <input type="hidden" name="age_18" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="age_18" value="1"> 18 ys<br />
-        Jour: 
-        <input type="hidden" name="lundi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="lundi" value="1"> Lundi<br />
-        <input type="hidden" name="mardi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mardi" value="1"> Mardi<br />
-        <input type="hidden" name="mercredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mercredi" value="1"> Mercredi<br />
-        <input type="hidden" name="jeudi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="jeudi" value="1"> Jeudi<br />
-        <input type="hidden" name="vendredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="vendredi" value="1"> Vendredi<br />
-        <input type="hidden" name="samedi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="samedi" value="1"> Samedi<br />
-        <input type="hidden" name="dimanche" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="dimanche" value="1"> Dimanche<br />
-
-        Notes: <textarea name='notes' cols=40 rows=6></textarea>
-  </form>
+        </td>
+    </tr>
+    <tr>
+        <td>Nom Français:</td> 
+        <td><input name="name_french" type="text" /></td>
+    </tr>
+    <tr>
+        <td>Nom Anglais:</td> 
+        <td><input name="name_english" type="text" /></td>
+    </tr>
+    <tr>
+        <td>Sexe:</td>
+        <td><select name='gender'>
+            <option value="" selected>Sélectionnez le Sexe</option>
+            <option value="girls">Filles</option>
+            <option value="boys">Garçons</option>
+            <option value="boys & girls">Filles et Garçons</option>
+       </td>
+    </tr>
+    <tr>
+        <td>Age Min:</td>
+        <td><select name="age_start">
+            <option value="0" selected>Sélectionnez âge</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            </select></td>
+    </tr>
+    <tr>
+        <td>Age Max:</td>
+        <td><select name="age_end">
+            <option value="0" selected>sélectionnez âge</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            </select></td>
+    </tr>
+    <tr>
+        <td>Jour:</td>
+        <td>
+        <input type="hidden" name="lundi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="lundi" value="1"> Lundi<br/>
+        <input type="hidden" name="mardi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mardi" value="1"> Mardi<br/>
+        <input type="hidden" name="mercredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mercredi" value="1"> Mercredi<br/>
+        <input type="hidden" name="jeudi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="jeudi" value="1"> Jeudi<br/>
+        <input type="hidden" name="vendredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="vendredi" value="1"> Vendredi<br/>
+        <input type="hidden" name="samedi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="samedi" value="1"> Samedi<br/>
+        <input type="hidden" name="dimanche" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="dimanche" value="1"> Dimanche
+        </td>
+    </tr>
+    <tr>
+        <td>Notes:</td> 
+        <td><textarea name='notes' cols="40" rows="6" class="notes"></textarea></td>
+    </tr>    
+  </table>
+<div align="left">
+<input type="submit" class="btn btn-b user" align="left" value="Submit">    
+</div> 
+</form>
 {% endblock %}

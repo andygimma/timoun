@@ -14,7 +14,18 @@
 {% endblock %}
 
 {% block content %}
-<!--   <h3>Gathering information on services available to vulnerable children</h3>
+<a href="/programs/new?record={{ record[0] }}" class="btn btn-a user">Add Program</a>
+<a href="/services/new?record={{ record[0] }}" class="btn btn-a user">Add Service</a>
+<a href="#" class="btn user yellow">Edit</a>
+<a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a>
+
+<h3 class="no-margin">Programs</h3>
+<p>{% for program in programs %} <a href="/programs/{{ program[0] }}/edit"> {{ program[2]}} </a>,{% endfor %}</p>
+
+
+<h3 class="no-margin">Services</h3>
+<p>{% for service in services %} <a href="/services/{{ service[1] }}/edit">{{ service[0] }}</a>,{% endfor %}</p>
+
   <p>ID_1: {{ record[2] }}</p>
   <p>General information on the organization: {{ record[3] }}</p>
   <p>Organization Name: {{ record[4] }}</p>
@@ -29,8 +40,8 @@
   <p>Phone Number: {{ record[13] }}</p>
   <p>Contact: {{ record[14] }}</p>
   <p>Email: {{ record[15] }}</p>
-  <p>Website: {{ record[16] }}</p> -->
-<!--   <p>6. Type</p>
+  <p>Website: {{ record[16] }}</p>
+  <p>6. Type</p>
   <p>6.a. Please give details</p>
   <p>6.c. Institution statement</p>
   <p>6.b. Other organization</p>
