@@ -12,8 +12,7 @@
 {% endblock %}
 
 {% block content %}
-{{ data }}
-<form method="POST" action="/records/new">
+<form method="POST" action="/records/{{ data['id']}}/edit">
     <table class="block-table admin records">
         <tr>    
             <td><label for="1_nom">Organization Name</td> 

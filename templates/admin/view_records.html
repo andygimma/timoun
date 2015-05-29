@@ -16,7 +16,7 @@
 {% block content %}
 <a href="/programs/new?record={{ record[0] }}" class="btn btn-a user">Add Program</a>
 <a href="/services/new?record={{ record[0] }}" class="btn btn-a user">Add Service</a>
-<a href="#" class="btn user yellow">Edit</a>
+<a href="/records/{{ record[0] }}/edit" class="btn user yellow">Edit</a>
 <a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a>
 
 <h3 class="no-margin">Programs</h3>
