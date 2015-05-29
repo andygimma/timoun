@@ -16,16 +16,16 @@
 {% endblock %}
 
 {% block content %}
-<p><a href="#" class="btn btn-b user">Edit</a></p>
-<p><a href="/programs/new?record={{ record[0] }}" class="btn btn-b user">Add Program</a></p>
-<p><a href="/services/new?record={{ record[0] }}" class="btn btn-b user">Add Service</a></p>
-<p><a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a></p>
+<a href="/programs/new?record={{ record[0] }}" class="btn btn-a user">Add Program</a>
+<a href="/services/new?record={{ record[0] }}" class="btn btn-a user">Add Service</a>
+<a href="#" class="btn user yellow">Edit</a>
+<a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a>
 
-<h3>Programs</h3>
+<h3 class="no-margin data-heading">Programs</h3>
 <p>{% for program in programs %} <a href="/programs/{{ program[0] }}/edit"> {{ program[2]}} </a>,{% endfor %}</p>
 
 
-<h3>Services</h3>
+<h3 class="no-margin data-heading">Services</h3>
 <p>{% for service in services %} <a href="/services/{{ service[1] }}/edit">{{ service[0] }}</a>,{% endfor %}</p>
 
 
@@ -132,9 +132,9 @@
 
 <p>10. Comment votre organisation définit- elle le mot: enfants vulnérables?: {{ record[57] }}</p>
 
-<p>9.c. How many: {{ record[58] }}</p>
+<p>9.c. Combien: {{ record[58] }}</p>
 
-<p>9.d. Please give details: {{ record[59] }}</p>
+<p>9.d. S'il vous plaît donner des détails: {{ record[59] }}</p>
 
 <p>10. Que faites-vous avec les demandes pour lesquelles vous n’avez pas de spécialité?: {{ record[60] }}
 <p>10.a. Si vous referez, precisez :: {{ record[61] }}</p>
@@ -183,16 +183,12 @@
 
 <p>23.c. Si oui lesquels ( noms et adresse):: {{ record[83] }}</p>
 
-
 <p>Quels sont les organismes qui vous rfrent des demandes : {{ record[84] }}</p>
 
 <p>Question a: {{ record[85] }}</p>
 <p>Question b: {{ record[86] }}</p>
 <p>Question c: {{ record[87] }}</p>
-
 <p>Question d: {{ record[88] }}</p>
-
-
 
 <p>Date de création: {{ record[89] }}</p>
 
@@ -219,10 +215,10 @@
 <p>Si oui prciser  plusieurs rponses possibles: {{ record[101] }}</p>
   
 <p>Catgories denfants vulnrables que vous recevez: {{ record[102] }}</p>
-<p>My element14: {{ record[103] }}</p>
+<p>Mon element14: {{ record[103] }}</p>
   
 <p>Quel endroit: {{ record[104] }}</p>
-<p>The main reason for consultation: {{ record[105] }}</p>
+<p>La principale raison de consultation: {{ record[105] }}</p>
   
-<p>When do your services end: {{ record[106] }}</p>
+<p>Quand vos services ne finissent: {{ record[106] }}</p>
 {% endblock %}
