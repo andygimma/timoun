@@ -213,7 +213,7 @@ def send_reset_password_email(self, form, TEMPLATE):
     Veuillez suivre le lien ci-dessous pour créer un autre mot de passe secret.
     Otherwise, Please follow the link below to reset your password
 
-    http://timoun-production.appspot.com/users/set_password/{1}
+    https://www.bscht.org/users/set_password/{1}
 
     """.decode("utf-8").format(form.email.data, email_endpoint)
 
@@ -237,7 +237,7 @@ def reset_password(self, form, TEMPLATE, email_endpoint):
         "user": "Set password"
       }
       user_json = json.dumps(user_dict)
-      user_audit = Audit.save(initiated_by = "Visitor", user_affected = user.email, security_clearance = "visitor", json_data = user_json, model= "User", action = "User Set Password")
+      user_audit = Audit.save(initiated_by = "Visitor", user_affected = user.email, security_clearance = "public", json_data = user_json, model= "User", action = "User Set Password")
       self.redirect("/users/login?message={0}".format("Email confirmed. You may log in using your password."))
   else:
     self.response.write(TEMPLATE.render({"form": form, "message": "Unable to confirm email. Please contact administrator."}))

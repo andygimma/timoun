@@ -59,11 +59,11 @@ class AdminOrgEditHandler(BaseHandler.BaseHandler):
 
     language = language.replace('"', '').replace("'", "")
     if language == "fr":
-
+      # raise Exception(2)
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_edit_organization.html')
     else:
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('edit_organization.html')
-    self.response.write(TEMPLATE.render(template_values))
+    self.response.write(LEGACY_TEMPLATE.render(template_values))
 
   def post(self, org_key):
     role = self.session.get('role')
@@ -73,12 +73,12 @@ class AdminOrgEditHandler(BaseHandler.BaseHandler):
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 
-    organization = Organization.Organization.get_by_id(int(org_key))
-    if not organization:
-      self.response.write(TEMPLATE.render({"form": form, "message": "Unable to find organization. Please contact administrator."}))
-
-    form = Organization.NewOrganizationForm(self.request.POST)
-    if form.validate():
-      Organization.update(self, TEMPLATE, form, organization.name, org_key)
+    sql_statement = """
+      SELECT id FROM organization WHERE id="{0}"
+      """.format(org_key)
+    organization = QueryHandler.execute_query(sql_statement)
+    if len(organization) > 0:
+      OrganizationHelper.update_record(self, org_key)
+      self.redirect("/records/" + org_key + "/edit?message=Update complete")
     else:
-      self.response.write(TEMPLATE.render({"form": form}))
+      self.redirect("/admin?message=Program does not exist")
