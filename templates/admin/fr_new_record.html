@@ -20,11 +20,11 @@
 <form method="POST" action="/records/new">
     <table class="block-table admin records">
         <tr>    
-            <td><label for="1_nom">Organization Name</td> 
-            <td><input name='1_nom' type='text' /></td>
+            <td><label for="1_nom">Nom de l’organisation</td> 
+            <td><input name='1_nom' type='text' required /></td>
         </tr>
         <tr>
-            <td><label for="department">Department</label></td> 
+            <td><label for="department">Departement</label></td> 
             <td><input name='departement' type='text' /></td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@
             <td><input name='section_communale' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="adresse">Address</label></td> 
+            <td><label for="adresse">Adresse</label></td> 
             <td><input name='adresse' type='text' /></td>
         </tr>
         <tr>
@@ -48,11 +48,11 @@
             <td><input name='longitude' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="boite_postale">Postbox</label></td>
+            <td><label for="boite_postale">Boîte Postale</label></td>
             <td><input name='boite_postale' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="telephone">Phone Number</label></td> 
+            <td><label for="telephone">Telephone</label></td> 
             <td><input name='telephone' type='text' /></td>
         </tr>
         <tr>
@@ -64,15 +64,15 @@
             <td><input name='email' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="site_web">Website</label></td> 
+            <td><label for="site_web">Site Web</label></td> 
             <td><input name='site_web' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="1_estce_que_votre">1. Does your organization offer pathological type of mental health services?</label></td>
+            <td><label for="1_estce_que_votre">1. Est-ce que votre organisation offre des services de type pathologique en santé mentale?</label></td>
             <td><input name='1_estce_que_votre' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="3_connaissezvous">3. Do you know a center offering mental health services in the region? (private, public, NGOs, etc.)</label></td> 
+            <td><label for="3_connaissezvous">3. Connaissez-vous un autre centre offrant des services en santé mentale dans la région? (privé, publique, ONG, etc.)</label></td> 
             <td><input name='3_connaissezvous' type='text' /></td>
         </tr>
         <tr>
@@ -92,11 +92,12 @@
             <td><input name='3d' type='text' /></td>
         </tr>        
         <tr>
-            <td><label for="4estce_que_votre">4. Does your organization provide psychosocial services?</label></td> 
+            <td><label for="4estce_que_votre">4. Est-ce que votre organisation offre des services de types psychosociaux?</label></td> 
             <td><input name='4estce_que_votre' type='text' /></td>
         </tr>    
         <tr>
-            <td><label for="4a_comment_publicisezvous">4.a. How do you publicize your services (multiple answers possible)</label></td> 
+            <td><label for="4a_comment_publicisezvous">4.a.Comment publicisez-vous vos services
+(Plusieurs réponses possibles)</label></td> 
             <td><select name='4a_comment_publicisezvous'>
                     <option value="">Select one</option>
                     <option value='Autres'>Autres</option>
@@ -109,10 +110,10 @@
             </td>
         </tr>
         <tr>
-            <td><label for="4b_estce_que_vos">4.b. Are your services free?</label></td>                         <td><input name='4b_estce_que_vos' type='text' /></td>
+            <td><label for="4b_estce_que_vos">4.b. Est-ce que vos services sont gratuits?</label></td>                         <td><input name='4b_estce_que_vos' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="5_ces_services">5. Are these services are available to vulnerable children or their parents / guardians? Multiple answers possible</label></td>
+            <td><label for="5_ces_services">5. Ces services sont-ils disponibles pour les enfants vulnérables ou leurs parents/tuteurs? Plusieurs réponses possibles</label></td>
             <td><select name="5_ces_services">
                 <option value="">Select one</option>
                 <option value='Enfants vulnérables et parents/tuteurs'>Enfants vulnérables et parents/tuteurs</option>
@@ -122,7 +123,7 @@
             </td>
         </tr>
         <tr>
-            <td><label for="6_recevezvous_des">6. Do you get vulnerable children or their parents / guardians to these service? How often?</label></td> 
+            <td><label for="6_recevezvous_des">6. Avez-vous des enfants vulnérables ou leurs parents / tuteurs à ces services? Combien de fois?</label></td> 
             <td><input name='6_recevezvous_des' type='text' /></td>
         </tr>
         <tr>
@@ -146,15 +147,15 @@
             </td>
         </tr>
         <tr>
-            <td><label for="6a_precisez_autre">6.a. Please give details</label></td>
+            <td><label for="6a_precisez_autre">6.a. S'il vous plaît donner de détails</label></td>
             <td><input name='6a_precisez_autre' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="6b_autre_organisation">6.b. Other organization</label></td> 
+            <td><label for="6b_autre_organisation">6.b. Autre organisation</label></td> 
             <td><input name='6b_autre_organisation' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="6c_statut">6.c. Institution statement</label></td> 
+            <td><label for="6c_statut">6.c. Déclaration institution</label></td> 
             <td><select name='6c_statut'>
                 <option value="">Select one</option>
                 <option value='Permis de fonctionnement'>Permis de fonctionnement</option>
@@ -166,11 +167,11 @@
             </td>
         </tr>
         <tr>
-            <td><label for="6c_statut">6.d. Other status</label></td>
+            <td><label for="6c_statut">6.d. Autre status</label></td>
             <td><input name='6d_autre_status' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="7_jour">7. Days of operation</label></td> 
+            <td><label for="7_jour">7. Jours de fonctionnement</label></td> 
             <td><select name='7_jour'>
                 <option value="">Select one</option>
                 <option value='Mardi'>Mardi</option>
@@ -185,7 +186,7 @@
             </td>
         </tr>  
         <tr>
-            <td><label for="7_preciser_lales">7. Specify the category(ies) of vulnerable children that you receive. (multiple answers possible)</label></td> 
+            <td><label for="7_preciser_lales">7. Spécifiez les catégories d'enfants vulnérables que vous recevez</label></td> 
             <td><select name="4a_comment_publicisezvous">
                 <option value="">Select one</option>
                 <option value='enfants affectés par le VIH'>enfants affectés par le VIH</option>
@@ -210,7 +211,7 @@
             </td>
         </tr>
         <tr>
-            <td><label for="7a_heure">7.a. Hours of operation</label></td>
+            <td><label for="7a_heure">7.a. Heures d'ouverture</label></td>
             <td><select name='7a_heure'>
                 <option value="">Select one</option>
                 <option value='Temps partiel'>Temps partiel</option>
@@ -220,11 +221,11 @@
             </td>
         </tr>
         <tr>
-            <td><label for="8_objectifs_fondamentaux">8. Fundamental objectives of your organization</label></td>
+            <td><label for="8_objectifs_fondamentaux">8. Objectifs fondamentaux de votre organisation (la mission)</label></td>
             <td><textarea name='8_objectifs_fondamentaux' cols=40 rows=6></textarea></td>
         </tr>
         <tr>
-            <td><label for="8_pouvezvous_decrire">8. Can you describe the stakeholder categories (multiple answers possible)</label></td>
+            <td><label for="8_pouvezvous_decrire">8. Pouvez-vous décrire les catégories d’intervenants (Plusieurs réponses possibles)</label></td>
             <td><select name='8_pouvezvous_decrire'>
                 <option value="">Select one</option>
                 <option value='Autres'>Autres</option>
@@ -240,7 +241,7 @@
             </td>
         </tr>            
         <tr>
-            <td><label for="8a_quel_est_le">8.a. What is the level of training of stakeholders? (Multiple answers possible)</label></td>
+            <td><label for="8a_quel_est_le">8.a. Quel est le niveau de formation des intervenants? (Plusieurs réponses possibles)</label></td>
             <td><select name='8a_quel_est_le'>
                 <option value="">Select one</option>
                 <option value='Formation spécialisées en santé mentale'>Formation spécialisées en santé mentale</option>
@@ -254,65 +255,65 @@
             </td>
         </tr>
         <tr>
-            <td><label for="8b1_precisez_">8.b.1. Please give details</label></td> 
+            <td><label for="8b1_precisez_">8.b.1. S'il vous plaît donner de détails</label></td> 
             <td><input name='8b1_precisez_' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="8c_offrezvous_des">8.c. Do you offer training to improve participants' skills?</label></td> 
+            <td><label for="8c_offrezvous_des">8.c. Offrez-vous des formations pour améliorer les compétences des intervenants?</label></td> 
             <td><input name='8c_offrezvous_des' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="8c1_medication">8.c.1. Medication</label></td>
+            <td><label for="8c1_medication">8.c.1. Médication</label></td>
             <td><input name='8c1_medication' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="8c2_activites_psychosociales">8.c.2. Psychosocial activities</label></td> 
+            <td><label for="8c2_activites_psychosociales">8.c.2. Activités psychosociales</label></td> 
             <td><input name='8c2_activites_psychosociales' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="8c3_accompagnement">8.c.3. Psychosocial support</label></td>
+            <td><label for="8c3_accompagnement">8.c.3. Accompagnement psychosocial</label></td>
             <td><input name='8c3_accompagnement' type='text' /></td>
         </tr>      
         <tr>
-            <td><label for="8c4_psychanalyse">8.c.4. Psychoanalysis</label></td> 
+            <td><label for="8c4_psychanalyse">8.c.4. Psychanalyse</label></td> 
             <td><input name='8c4_psychanalyse' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="8c5_musicotherapie">8.c.5. Music Therapy</label></td> 
+            <td><label for="8c5_musicotherapie">8.c.5. Musicothérapie</label></td> 
             <td><input name='8c5_musicotherapie' type='text' /></td>
         </tr>        
         <tr>
-            <td><label for="8c6_club_denfants">8.c.6. Children's club</label></td>                   <td><input name='8c6_club_denfants' type='text' /></td>
+            <td><label for="8c6_club_denfants">8.c.6. Club enfants</label></td>                   <td><input name='8c6_club_denfants' type='text' /></td>
         </tr>      
         <tr>
-            <td><label for="8c7_activites_socioculturelles">8.c.7. Socio-cultural activities</label></td> 
+            <td><label for="8c7_activites_socioculturelles">8.c.7. Activités socio-culturelles</label></td> 
             <td><input name='8c7_activites_socioculturelles' type='text' /></td>
         </tr>      
         <tr>
-            <td><label for="8c8_groupe_dentraide">8.c.8. Self-help group</label></td>
+            <td><label for="8c8_groupe_dentraide">8.c.8. Groupe d’entraide</label></td>
             <td><input name='8c8_groupe_dentraide' type='text' /></td>
         </tr>      
         <tr>
-            <td><label for="8c9_psychoeducation"> 8.c.9. Psychoeducation</label></td>      
+            <td><label for="8c9_psychoeducation"> 8.c.9. Psycho-éducation</label></td>      
             <td><input name='8c9_psychoeducation' type='text' /></td>
         </tr>     
         <tr>
-            <td><label for="8c10_therapie_corporelle">8.c.10. Physical Therapy</label></td>                 <td><input name='8c10_therapie_corporelle' type='text' /></td>
+            <td><label for="8c10_therapie_corporelle">8.c.10. Thérapie physique</label></td>                 <td><input name='8c10_therapie_corporelle' type='text' /></td>
         </tr>      
         <tr>
-            <td><label for="8c11_therapie_cognitive">8.c.11. Cognitive behavioral therapy</label></td>
+            <td><label for="8c11_therapie_cognitive">8.c.11. Thérapie cognitive et comportementale</label></td>
             <td><input name='8c11_therapie_cognitive' type='text' /></td>
         </tr>      
         <tr>
-            <td><label for="8c12_therapie_par">8.c.12. Drama Therapy</label></td> 
+            <td><label for="8c12_therapie_par">8.c.12. Thérapie par le théâtre</label></td> 
             <td><input name='8c12_therapie_par' type='text' /></td>
         </tr>      
         <tr>
-            <td><label for="8c13_autres">8.c.13. Other</label></td> 
+            <td><label for="8c13_autres">8.c.13. Autre</label></td> 
             <td><input name='8c13_autres' type='text' /></td>
         </tr>  
         <tr>
-            <td><label for="9_source_de_financement">9. Funding Source</label></td> 
+            <td><label for="9_source_de_financement">9. Source de financement</label></td> 
             <td><select name='9_source_de_financement'>
                 <option value="">Select one</option>
                 <option value='Bailleur international'>Bailleur international</option>
@@ -333,27 +334,27 @@
             </td>
         </tr>
         <tr>
-            <td><label for="9a_lequel_t">9.a. Which one?</label></td> 
+            <td><label for="9a_lequel_t">9.a. Laquelle?</label></td> 
             <td><input name='9a_lequel_t' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="9b_autre_source">9.b. Other Source</label></td> 
+            <td><label for="9b_autre_source">9.b. Autre Source</label></td> 
             <td><input name='9b_autre_source' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="10_comment_votre">10. How does your organization define: vulnerable children?</label></td> 
+            <td><label for="10_comment_votre">10. Comment votre organisation à définir: les enfants vulnérables?</label></td> 
             <td><textarea name='10_comment_votre' cols="" rows=""></textarea></td>
         </tr>
         <tr>
-            <td><label for="9a_combien">9.c. How many</label></td> 
+            <td><label for="9a_combien">9.c. Combien?</label></td> 
             <td><input name='9a_combien' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="9c_precisez">9.d. Please give details</label></td>
+            <td><label for="9c_precisez">9.d. S'il vous plaît donner de détails</label></td>
             <td><input name='9c_precisez' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="10_que_faitesvous">10. What do you do with requests for which you do not have a specialty?</label></td> 
+            <td><label for="10_que_faitesvous">10. Que faites-vous avec des demandes pour lesquels vous ne disposez pas une spécialité?</label></td> 
             <td><select name='10_que_faitesvous'>
                 <option value="">Select one</option>
                 <option value='Vous référez'>Vous référez</option>
@@ -364,11 +365,11 @@
             </td>
         </tr>
         <tr>
-            <td><label for="10a_si_vous_referez">10.a. If you provide referrals, please give details</label></td> 
+            <td><label for="10a_si_vous_referez">10.a.Si vous fournissez des références, s'il vous plaît donner de détails</label></td> 
             <td><input name='10a_si_vous_referez' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="11_quelle_categorie">11. Which category of vulnerable children is supported by the program?</label></td> 
+            <td><label for="11_quelle_categorie">11. Quelle catégorie d'enfants vulnérables est soutenu par le programme?</label></td> 
             <td><select name='11_quelle_categorie'>
                 <option value="">Select one</option>
                 <option value='Enfant parents'>Enfant parents</option>
@@ -399,7 +400,7 @@
             </td>
         </tr>
         <tr>
-            <td><label for="11_pouvezvous_dire">11. Can you tell which organizations refer requests that you can not answer?</label></td> 
+            <td><label for="11_pouvezvous_dire">11. Pouvez-vous dire que les organisations renvoie les demandes que vous ne pouvez pas répondre?</label></td> 
             <td><input name='11_pouvezvous_dire' type='text' /></td>
         </tr>
         <tr>
@@ -415,23 +416,23 @@
             <td><input name='11c_de_formation' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="11d_autres">11.d. Other</label></td> 
+            <td><label for="11d_autres">11.d. Autre</label></td> 
             <td><input name='11d_autres' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="13_quels_sont_les">13. To what other agencies do you make referrals?</label></td> 
+            <td><label for="13_quels_sont_les">13. Pour quelles autres agences ne vous faites références?</label></td> 
             <td><input name='13_quels_sont_les' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="combien_13">How</label></td> 
+            <td><label for="combien_13">Comment</label></td> 
             <td><input name='combien_13' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="autre_assistance13">Other assistance</label></td> 
+            <td><label for="autre_assistance13">Autre assistance</label></td> 
             <td><input name='autre_assistance13' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="14_quels_obstacles">14. What obstacles do you face in the delivery of services?</label></td> 
+            <td><label for="14_quels_obstacles">14. Quels sont les obstacles que vous rencontrez dans la prestation de services?</label></td> 
             <td><select name='14_quels_obstacles'>
                 <option value="">Select one</option>
                 <option value='Autres'>Autres</option>
@@ -444,62 +445,62 @@
             </td>
         </tr>
         <tr>
-            <td><label for="14a_si_autres_">14.a. If Other, please explain</label></td> 
+            <td><label for="14a_si_autres_">14.a. Si autre, s'il vous plaît expliquer</label></td> 
             <td><input name='14a_si_autres_' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="15_quels_obstacles">15. What barriers do patients face to access mental health services?</label></td> 
+            <td><label for="15_quels_obstacles">15. Quels obstacles ne patients face à accéder aux services de santé mentale?</label></td> 
             <td><textarea name='15_quels_obstacles' cols=40 rows=6></textarea></td>
         </tr>
         <tr>
-            <td><label for="16_connaissezvous">16. Do you know people in the community who have an academic background in mental health elsewhere?</label></td> 
+            <td><label for="16_connaissezvous">16. Savez-vous les gens de la communauté qui ont une formation universitaire en santé mentale ailleurs?</label></td> 
             <td><input name='16_connaissezvous' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="_17_tranche_dge">17. dge portion of the boys children benefits programm</label></td>
+            <td><label for="_17_tranche_dge">17. dge partie des garçons les enfants programme profite</label></td>
             <td><input name='_17_tranche_dge' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="_18_tranche_dge">18. dge slice of girls benefits year 20 programs</label></td>
+            <td><label for="_18_tranche_dge">18. dge tranche de filles profite année, 20 programmes</label></td>
             <td><input name='_18_tranche_dge' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="19_quel_est_le">19. What is the estimated monthly budget for these programs?</label></td>
+            <td><label for="19_quel_est_le">19. Quel est le budget prévisionnel mensuel de ces programmes??</label></td>
             <td><input name='19_quel_est_le' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="20_etesvous_en">20. Are you able to fill all costs allocated for the program(s)?</label> 
+            <td><label for="20_etesvous_en">20. Êtes-vous en mesure de remplir tous les coûts alloués pour le programme (s)?</label> 
                 <td><input name='20_etesvous_en' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="21_comment_lorganisation">21. How did or does the organization evaluate activities or programs? Cite and show supporting documents.</label></td> 
+            <td><label for="21_comment_lorganisation">21. Comment avez-ou l'organisation évalue les activités ou programmes? Cité et de montrer des pièces justificatives.</label></td> 
             <td><textarea name='21_comment_lorganisation' cols=40 rows=6></textarea></td>
         </tr>
         <tr>
-            <td><label for="21a_citez_5_defis">21.a. List 5 challenges in working with the most vulnerable children. (separate with commas)</label></td> 
+            <td><label for="21a_citez_5_defis">21.a. Liste 5 défis en travaillant avec les enfants les plus vulnérables. (séparer par des virgules)</label></td> 
             <td><textarea name='21a_citez_5_defis' cols=40 rows=6></textarea></td>
         </tr>
         <tr>
-            <td><label for="21b_citez_5_lecons">21.b. List 5 lessons learned in working with the most vulnerable children. (separate with commas)</label></td> 
+            <td><label for="21b_citez_5_lecons">21.b. Liste 5 leçons apprises dans le travail avec les enfants les plus vulnérables. (séparer par des virgules)</label></td> 
             <td><textarea name='21b_citez_5_lecons' cols=40 rows=6></textarea></td>
         </tr>
         <tr>
-            <td><label for="23_connaissezvous">23. Do you know of other organizations in the region offering services for vulnerable children</label></td> 
+            <td><label for="23_connaissezvous">23. Savez-vous d'autres organisations dans la région offrant des services pour les enfants vulnérables</label></td> 
             <td><input name='23_connaissezvous' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="23a_noms_des_oganisation">23.a. Oganization names and addresses (separate list by comma)</label></td> 
+            <td><label for="23a_noms_des_oganisation">23.a. Les noms de l'Organisation et adresses (liste séparée par une virgule)</label></td> 
             <td><textarea name='23a_noms_des_oganisation' cols=40 rows=6></textarea></td>
         </tr>
         <tr>
-            <td><label for="23b_citez_les_services">23.b. List the services you believe these organizations offer</label></td>
+            <td><label for="23b_citez_les_services">23.b. Dressez la liste des services que vous croyez ces organisations offrent</label></td>
             <td><textarea name='23b_citez_les_services' cols=40 rows=6></textarea></td>
         </tr>
         <tr>
-            <td><label for="23c_si_oui_lesquels">23.c. If so, which (name and address)</label></td>             <td><input name='23c_si_oui_lesquels' type='text' /></td>
+            <td><label for="23c_si_oui_lesquels">23.c. Si oui, laquelle (nom et adresse)</label></td>             <td><input name='23c_si_oui_lesquels' type='text' /></td>
         </tr>
         <tr>
-            <td><label for="quels_sont_les">What are the organizations to whom you refer requests?</label></td> 
+            <td><label for="quels_sont_les">Quelles sont les organisations dont vous parlez demandes?</label></td> 
             <td><input name='quels_sont_les' type='text' /></td>
         </tr>
         <tr>
@@ -519,7 +520,7 @@
             <td><input name='question_d' type='text' /></td>
         </tr>
          <tr>
-            <td><label for="quand_votre_service">When your service started</label></td>
+            <td><label for="quand_votre_service">Lorsque votre service a commencé</label></td>
             <td><input name='quand_votre_service' type='text' /></td>
         </tr>
          <tr>
@@ -527,11 +528,11 @@
             <td><input name='quand_estce_que' type='text' /></td>
         </tr>
          <tr>
-            <td><label for="votre_organisation">Does your organization support girls and boys</label></td>
+            <td><label for="votre_organisation">Votre organisation filles et les garçons soutien</label></td>
             <td><input name='votre_organisation' type='text' /></td>
         </tr>
          <tr>
-            <td><label for="votre_organisation">If so please give several possible answers</label></td>
+            <td><label for="votre_organisation">Si oui s'il vous plaît donner plusieurs réponses possibles</label></td>
             <td><select name='si_oui_prciser'>
                 <option value="">Select one</option>
                 <option value='counseling'>counseling</option>
@@ -545,7 +546,7 @@
             </td>
         </tr>
         <tr>
-            <td><label for="catgories_denfants">Categories of vulnerable children you receive</label></td> 
+            <td><label for="catgories_denfants">Catégories d'enfants vulnérables que vous recevez</label></td> 
             <td><select name='catgories_denfants'>
                 <option value="">Select one</option>
                 <option value='enfants affects par le vih'>enfants affects par le vih</option>
@@ -586,7 +587,7 @@
             </td>
         </tr>
         <tr>
-            <td><label for='quel_endroit'>What place</label></td> 
+            <td><label for='quel_endroit'>Quelle place</label></td> 
             <td><select name='quel_endroit'>
                 <option value="">Select one</option>
                 <option value='autres'>autres</option>
@@ -597,7 +598,7 @@
             </td>
         </tr>
         <tr>
-            <td><label for='les_principaux'>The main reason for consultation</label></td> 
+            <td><label for='les_principaux'>La principale raison de consultation</label></td> 
             <td><select name='les_principaux'>
                 <option value="">Select one</option>
                 <option value='dpression'>dpression</option>
@@ -616,7 +617,7 @@
             </td>
         </tr>
         <tr>
-            <td><label for='services_fin'>When do your services end</label></td>
+            <td><label for='services_fin'>Lorsque vos services ne finissent</label></td>
             <td><input name='services_fin' type='text' /></td>
         </tr>
 </table>

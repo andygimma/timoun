@@ -169,6 +169,14 @@ def get_attributes(self):
 		data[attr] = get_request(self, attr)
 	return data
 
+def record_exists(data):
+	sql_statement = """SELECT * FROM organization WHERE 1_nom = '{0}'""".format(data["1_nom"])
+	record = QueryHandler.execute_query(sql_statement)
+	if len(record) > 0:
+		return True
+	return False
+
+
 def populate_sql_statement(data):
 	sql_statement = """
 		INSERT INTO `organization` SET
@@ -287,12 +295,15 @@ def populate_sql_statement(data):
 
 def save_record(self):
 	data = get_attributes(self)
-	# raise Exception(data['1_nom'])
-	# encode_attributes(data)
 	valid, errors = validate_attributes(data)
 	if errors:
 		self.redirect("/records/new?message=Please review errors")
 		return
+	if record_exists(data):
+
+		self.redirect("/records/new?message=Record already exists")
+		return
+
 	sql_statement = populate_sql_statement(data)
 
 	record = QueryHandler.execute_query(sql_statement, insert=True)
@@ -305,3 +316,13 @@ def save_record(self):
 	return 
 
 
+def update_record(self):
+	data = get_attributes(self)
+	# raise Exception(data)
+	valid, errors = validate_attributes(data)
+	# sql_statement = populate_update_statement(data)
+	# record = QueryHandler.execute_query(sql_statement, True)
+	# record_audit = QueryHandler.create_audit(self, "Program", "Program", data, "Update Program")
+	return
+
+    
