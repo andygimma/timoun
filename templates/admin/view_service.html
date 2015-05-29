@@ -1,0 +1,55 @@
+{% extends "fr_legacy_admin.html" %}
+
+{% block title %}
+<title>View Service: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="container">
+  <div class="breadcrumbs">
+    <a id="breadcrumb_home" href="/">Welcome</a>
+    <div id="language" style="text-align: right; float:right; margin-right: 20px;">
+      <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<p><a href="/admin/records/{{ service[3] }}" class="btn btn-b user">Back to {{ service[4] }}</a></p>
+	<p><a href="/services/{{ service[0] }}/edit" class="btn btn-a user">Edit</a></p>
+
+	<h2>{{ service[1] }}</h2>
+	<p>Program: {{ program }}</p>
+	<h3>Ages</h3>
+	<p>{% if service[12] %} 0, {% endif %}
+	<p>{% if service[13] %} 1, {% endif %}{% if service[14] %} 2, {% endif %}{% if service[15] %} 3, {% endif %}{% if service[16] %} 4, {% endif %}{% if service[17] %} 5, {% endif %}{% if service[18] %} 6, {% endif %}{% if service[19] %} 7, {% endif %}{% if service[20] %} 8, {% endif %}{% if service[21] %} 9, {% endif %}{% if service[22] %} 10, {% endif %}{% if service[23] %} 11, {% endif %}{% if service[24] %} 12, {% endif %}{% if service[25] %} 13, {% endif %}{% if service[26] %} 14, {% endif %}{% if service[27] %} 15, {% endif %}{% if service[28] %} 16, {% endif %}{% if service[29] %} 17, {% endif %}{% if service[30] %} 18 {% endif %}</p>
+
+	<h3>Gender</h3>
+	<p>{% if service[31] %} Garcons, {% endif %}{% if service[32] %} Filles {% endif %}</p>
+
+	<h3>Days</h3>
+	<p>{% if service[35] %} Lunes, {% endif %}{% if service[36] %} Mardi, {% endif %}{% if service[37] %} Mercredi, {% endif %}{% if service[38] %} Jeudi, {% endif %}{% if service[38] %} Vendredi, {% endif %}{% if service[38] %} Samedi, {% endif %}{% if service[41] %} Dimanche {% endif %}</p>
+
+	<h3>Notes</h3>
+	<p>{{ service[43] }}</p>
+
+
+	<h3>Organisation</h3>
+	<p>Org nom: {{ service[4] }}</p>
+	<p>Org adresse: {{ service[5] }}</p>
+	<p>Org commune: {{ service[7] }}</p>
+	<p>Org departement: {{ service[8] }}</p>
+	<p>Org section communale: {{ service[6] }}</p>
+	<p>Org email: {{ service[7] }}</p>
+	<p>Org phone: {{ service[8] }}</p>
+	<p>Org latitude: {{ service[9] }}</p>
+	<p>Org longitude: {{ service[10] }}</p>
+
+
+
+</div>
+
+
+{% endblock %}
