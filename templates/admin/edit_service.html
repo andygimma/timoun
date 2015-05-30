@@ -20,7 +20,7 @@
              <input type="hidden" name="org_id" value="{{service[3]}}">
 
         
-        Program: <select name='program_id' autocomplete="off">
+        Program: <select name='program_id' autocomplete="off" required>
             <option value="">Select one</option>
             <option value="1" {% if service[11] == 1 %}selected{% endif %}>Nutrition</option>
             <option value="2" {% if service[11] == 2 %}selected{% endif %}>Home-Based Care</option>
@@ -31,7 +31,7 @@
             <option value="7" {% if service[11] == 7 %}selected{% endif %}>Education</option>
             <option value="8" {% if service[11] == 8 %}selected{% endif %}>Mental Health Services</option>
         </select>
-        Name in French: <input name="name_french" type="text" value="{{ service[1] }}" />
+        Name in French: <input name="name_french" type="text" value="{{ service[1] }}"  required/>
         Name in English: <input name="name_english" type="text" value="{{ service[2] }}"/>
         Gender: 
         <input type="checkbox" name="garcons" value="1" {% if service[31] == 1 %} checked {% endif %}> Boys<br/>

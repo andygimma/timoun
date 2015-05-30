@@ -17,6 +17,10 @@
 {% block content %}
   <h2>Dashboard</h2>
 <a href="/admin/export/dashboard" class="btn btn-b user">CSV</a>
+<a href="/admin/records/dashboard" class="btn user yellow">View Record Changes</a>
+<a href="/admin/programs/dashboard" class="btn user yellow">View Program Changes</a>
+<a href="/admin/services/dashboard" class="btn user yellow">View Service Changes</a>
+
 
   {% if audits.count() > 0 %}
     <table class="table">

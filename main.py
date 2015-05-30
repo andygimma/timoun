@@ -7,11 +7,12 @@ from handlers.static_pages import ViewServiceHandler, PublicExportHandler, About
 from handlers.admin import AdminServiceViewHandler, SearchRecordHandler, IndexHandler, UsersIndexHandler, NewUserHandler, EmailEndpointHandler, DashboardHandler, DashboardItemHandler, UserDashboardHandler, UserDashboardItemHandler, AdminIFormBuilderHandler, AdminRecordHandler, AdminViewRecordHandler, EditRecordHandler, NewServiceHandler, NewProgramHandler, NewRecordHandler, ExportHandler
 from handlers.users import EditHandler, LoginHandler, LogoutHandler, ProfileHandler, ResetPasswordHandler, SetPasswordHandler, DeleteHandler
 from handlers.api.users import ApiLoginHandler
-from handlers.admin.organizations import AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler, AdminOrgDashboardHandler
+from handlers.admin.organizations import AdminRecordDashboardHandler, AdminOrgIndexHandler, AdminOrgNewHandler, AdminOrgEditHandler, AdminOrgDeleteHandler, AdminOrgDashboardHandler
 from handlers.admin.programs import AdminProgramIndexHandler, AdminProgramNewHandler, AdminProgramEditHandler, AdminProgramDeleteHandler, AdminProgramDashboardHandler
 from handlers.admin.services import AdminServiceIndexHandler, AdminServiceNewHandler, AdminServiceEditHandler, AdminServiceDeleteHandler, AdminServiceDashboardHandler
 from handlers.schema_updates import UpdateHandler
 from handlers.site_test import SiteTest
+from helpers import QueryHandler
 
 config = {}
 config['webapp2_extras.sessions'] = {
@@ -30,6 +31,10 @@ class Route(routes.RedirectRoute):
 
 def handle_404(request, response, exception):
     response.write('Page not found')
+    # if request.url[-1:] == "/":
+    #     redirect_url = request.url[:-1]
+        # webapp2.RequestHandler.redirect(webapp2.RequestHandler, "e")
+        # return
     response.set_status(404)
 
 def handle_500(request, response, exception):
@@ -56,6 +61,7 @@ app = webapp2.WSGIApplication([
     (r'/admin/dashboard/([^/]+)', DashboardItemHandler.DashboardItemHandler, "admin_dashboard_item"),
     # ('/admin/organizations', AdminOrgIndexHandler.AdminOrgIndexHandler),
     (r'/admin/records', AdminRecordHandler.AdminRecordHandler, "admin_records"),
+    (r'/admin/records/dashboard', AdminRecordDashboardHandler.AdminRecordDashboardHandler, "admin_records_dashboard"),
     (r'/admin/records/([^/]+)', AdminViewRecordHandler.AdminViewRecordHandler, "admin_records_item"),
     # ('/admin/organizations/new', AdminOrgNewHandler.AdminOrgNewHandler),
     ('/records/([^/]+)/edit', AdminOrgEditHandler.AdminOrgEditHandler),
@@ -66,12 +72,13 @@ app = webapp2.WSGIApplication([
     (r'/programs/([^/]+)/edit', AdminProgramEditHandler.AdminProgramEditHandler, "programs_edit"),
     (r'/programs/([^/]+)/delete', AdminProgramDeleteHandler.AdminProgramDeleteHandler, "programs_delete"),
     (r'/admin/programs/dashboard', AdminProgramDashboardHandler.AdminProgramDashboardHandler, "programs_dashboard"),
+    (r'/admin/services/dashboard', AdminServiceDashboardHandler.AdminServiceDashboardHandler),
+
     # ('/admin/services', AdminServiceIndexHandler.AdminServiceIndexHandler),
     (r'/admin/services/([^/]+)', AdminServiceViewHandler.AdminServiceViewHandler, "admin_service_view"),
     # ('/admin/services/new', AdminServiceNewHandler.AdminServiceNewHandler),
     ('/services/([^/]+)/edit', AdminServiceEditHandler.AdminServiceEditHandler),
     # ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
-    # ('/admin/services/dashboard', AdminServiceDashboardHandler.AdminServiceDashboardHandler),
     (r'/users/([^/]+)/edit', EditHandler.EditHandler, "users_edit"),
     (r'/records/new', NewRecordHandler.NewRecordHandler, "records_new"),
     (r'/programs/new', NewProgramHandler.NewProgramHandler, "programs_new"),
@@ -99,4 +106,56 @@ app = webapp2.WSGIApplication([
 ], config=config, debug=True)
 
 app.error_handlers[404] = handle_404
-#app.error_handlers[500] = handle_500
+# app.error_handlers[500] = handle_500
+
+# def update_gps():
+#     sql_statement = "SELECT * FROM organization WHERE latitude IS NULL"
+#     records = QueryHandler.execute_query(sql_statement)
+#     # raise Exception(len(records))
+#     others = []
+#     # for r in records:
+#     #     print others.append(r[9])
+
+#     # raise Exception(others)
+#     for r in records:
+#         try:
+#             first_index = r[9].index(",")
+#             longitude = r[9][:first_index] 
+#             second_index = r[9][first_index + 1:].index(",")
+#             latitude = r[9][first_index + 1:second_index + first_index + 1]
+#             record_id = r[0]
+#             # raise Exception(latitude, longitude)
+#             # update lat and long and save
+#             sql_statement = """
+#                 UPDATE `organization` SET
+#                 `latitude` = "{0}",
+#                 `longitude` = "{1}"
+#                 WHERE `id` = "{2}"
+#                 LIMIT 1;
+#             """.format(latitude, longitude, record_id)
+#             # raise Exception(sql_statement)
+#             QueryHandler.execute_query(sql_statement, True)
+#         except:
+#             others.append(r)
+
+#     for r in others:
+#         try:
+#             first_index = r[9].index(":")
+#             latitude = r[9][:first_index]
+#             longitude = r[9][first_index + 1:]
+#             record_id = r[0]
+#             sql_statement = """
+#                     UPDATE `organization` SET
+#                     `latitude` = "{0}",
+#                     `longitude` = "{1}"
+#                     WHERE `id` = "{2}"
+#                     LIMIT 1;
+#             """.format(latitude, longitude, record_id)
+#             # raise Exception(sql_statement)
+#             QueryHandler.execute_query(sql_statement, True)
+
+#         except:
+#           pass
+
+# update_gps()
+

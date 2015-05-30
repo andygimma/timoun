@@ -191,7 +191,7 @@ def save_record(self):
 	# raise Exception(len(data))
 
 	sql_statement = populate_sql_statement(data)
-	# raise Exception(sql_statement)
+	raise Exception(sql_statement)
 	record = QueryHandler.execute_query(sql_statement, insert=True)
 	self.redirect("/admin/records/" + data['org_id'] + "?message=Service saved")
 	record_audit = QueryHandler.create_audit(self, "Service", data['name_french'], data, "Create Service")

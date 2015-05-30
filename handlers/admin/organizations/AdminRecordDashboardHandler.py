@@ -9,10 +9,10 @@ JINJA_ENVIRONMENT = jinja2.Environment(
         [os.path.join(os.path.dirname(__file__),"../../../templates/admin"),
          os.path.join(os.path.dirname(__file__),"../../../templates/layouts")]))
 
-LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('program_dashboard.html')
 
-class AdminProgramDashboardHandler(BaseHandler.BaseHandler):
+class AdminRecordDashboardHandler(BaseHandler.BaseHandler):
   def get(self):
+
     role = self.session.get('role')
     user_session = self.session.get("user")
     if role != "admin":
@@ -22,7 +22,7 @@ class AdminProgramDashboardHandler(BaseHandler.BaseHandler):
     if not self.legacy:
       self.redirect("/#/admin")
 
-    audits = Audit.Audit.query(Audit.Audit.model_affected == "Program").order(Audit.Audit.created_at)
+    audits = Audit.Audit.query(Audit.Audit.model_affected == "Organization").order(Audit.Audit.created_at)
 
 
     template_values = {
@@ -40,7 +40,7 @@ class AdminProgramDashboardHandler(BaseHandler.BaseHandler):
     language = language.replace('"', '').replace("'", "")
     if language == "fr":
 
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_program_dashboard.html')
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_organization_dashboard.html')
     else:
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('program_dashboard.html')
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('organization_dashboard.html')
     self.response.write(LEGACY_TEMPLATE.render(template_values))
