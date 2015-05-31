@@ -21,7 +21,9 @@ class NewServiceHandler(BaseHandler.BaseHandler):
   def get(self):
     role = self.session.get('role')
     user_session = self.session.get("user")
-
+    s = self.request.referrer[-5:]
+    index = s.index("/")
+    record_id = self.request.referrer[-5:][index + 1:]
     if role != "admin":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
@@ -31,7 +33,8 @@ class NewServiceHandler(BaseHandler.BaseHandler):
     template_values = {
       "form": form,
       "user_session": user_session,
-      "org_id": self.request.get("record")
+      "org_id": self.request.get("record"),
+      "record_id": record_id
     }
     language = None
     if "language" in self.request.cookies:

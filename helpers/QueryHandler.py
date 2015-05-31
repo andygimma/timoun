@@ -117,6 +117,7 @@ words = {
 
 
 def execute_query(query_string, insert=False):
+    # raise Exception(query_string)
     if (os.getenv('SERVER_SOFTWARE') and
       os.getenv('SERVER_SOFTWARE').startswith('Google App Engine/')):
       db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db='timoun_4_30', user='root', passwd="11oinn")

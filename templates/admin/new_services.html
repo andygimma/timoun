@@ -23,6 +23,8 @@
     </ul>
   {% endif %}
   <form method="POST" action="/services/new">
+  <input type="hidden" name="record_id" value="{{ record_id }}">
+
   <table class="block-table admin">
     <tr>
         <td>Program:</td> 

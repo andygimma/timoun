@@ -7,7 +7,7 @@ import unicodedata
 from helpers import QueryHandler
 from models import Audit
 
-ATTRIBUTES = ["org_id", "program_id", "name_french", "name_english", "age_0", "age_1","age_2","age_3","age_4","age_5","age_6","age_7","age_8","age_9","age_10","age_11","age_12","age_13","age_14","age_15","age_16","age_17","age_18", "garcons", "filles", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche", "notes"]
+ATTRIBUTES = ["org_id", "program_id", "name_french", "name_english", "age_0", "age_1","age_2","age_3","age_4","age_5","age_6","age_7","age_8","age_9","age_10","age_11","age_12","age_13","age_14","age_15","age_16","age_17","age_18", "garcons", "filles", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche", "notes", "record_id"]
 REQUIRED_ATTRIBUTES = ["org_id", "program_id", "name_french"]
 
 def find_or_create_program(data):
@@ -115,7 +115,7 @@ def populate_sql_statement(data):
 		WHERE `organization`.`id` = "{0}"
 		),
 		`notes` = "{32}";
-	""".format(data['org_id'], data['program_id'], data['name_french'], data["name_english"], data['age_0'], data['age_1'], data['age_2'], data['age_3'], data['age_4'], data['age_5'], data['age_6'], data['age_7'], data['age_8'], data['age_9'], data['age_10'], data['age_11'], data['age_12'], data['age_13'], data['age_14'], data['age_15'], data['age_16'], data['age_17'], data['age_18'], data['garcons'], data['filles'], data['lundi'], data['mardi'], data['mercredi'], data['jeudi'], data['vendredi'], data['samedi'], data['dimanche'], data['notes'])
+	""".format(data['record_id'], data['program_id'], data['name_french'], data["name_english"], data['age_0'], data['age_1'], data['age_2'], data['age_3'], data['age_4'], data['age_5'], data['age_6'], data['age_7'], data['age_8'], data['age_9'], data['age_10'], data['age_11'], data['age_12'], data['age_13'], data['age_14'], data['age_15'], data['age_16'], data['age_17'], data['age_18'], data['garcons'], data['filles'], data['lundi'], data['mardi'], data['mercredi'], data['jeudi'], data['vendredi'], data['samedi'], data['dimanche'], data['notes'])
 	return sql_statement
 
 def update_sql_statement(data, service_id):
@@ -191,7 +191,7 @@ def save_record(self):
 	# raise Exception(len(data))
 
 	sql_statement = populate_sql_statement(data)
-	raise Exception(sql_statement)
+	# raise Exception(sql_statement)
 	record = QueryHandler.execute_query(sql_statement, insert=True)
 	self.redirect("/admin/records/" + data['org_id'] + "?message=Service saved")
 	record_audit = QueryHandler.create_audit(self, "Service", data['name_french'], data, "Create Service")
