@@ -26,7 +26,7 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
       offset = int(page) * 100
       offset_string = "OFFSET {0}".format(offset)
 
-    if role != "admin":
+    if role != "admin" and role != "staff":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 
@@ -74,10 +74,16 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
 
     language = language.replace('"', '').replace("'", "")
     if language == "fr":
-
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_records.html')
+      if role == "admin":
+        LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_records.html')
+      else:
+        LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_records.html')
     else:
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('records.html')
+      if role == "staff":
+        LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('records.html')
+      else:
+        LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('records.html')
+        
     self.response.write(LEGACY_TEMPLATE.render(template_values))
 
 def humanize_text(string):
