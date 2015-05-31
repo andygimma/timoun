@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*- 
+
+
 import webapp2
 import jinja2
 import os
@@ -159,3 +162,6 @@ app.error_handlers[404] = handle_404
 
 # update_gps()
 
+name = "Distribution de nourriture pour l'enfant adapté à son âge".decode("utf-8")
+s = """ INSERT INTO `program` (`id`, `name_french`, `name_english`, `name_safe`) VALUES (NULL, "{0}", "{0}", 'test');""".format(name).decode("utf-8")
+QueryHandler.execute_query(s, True)
