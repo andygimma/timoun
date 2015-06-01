@@ -50,13 +50,13 @@
       </tr>
     </table>
     {% if role == "admin" %}
-      <input type=submit id="submit" class="admin-btn" value="Soumettre">
+      <input type=submit id="submit" class="admin-btn" value="Submit">
     {% endif %}
   </form>
 <br/>
   {% if role == "admin" %}
-    <a href="/admin/users" class="btn btn-d user">Annuler</a>
-    <a id="delete-user" class="btn btn-c user" href="/users/{{ user_key }}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?');">Supprimer User</a>
+    <a href="/admin/users" class="btn btn-d user">Cancel</a>
+    <a id="delete-user" class="btn btn-c user" href="/users/{{ user_key }}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?');">Delete User</a>
   {% endif %}
 
 {% endblock %}
