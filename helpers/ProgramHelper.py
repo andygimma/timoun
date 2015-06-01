@@ -49,7 +49,7 @@ def populate_sql_statement(data):
 		`types` = "{5}",
 		`assistance` = "{6}";
 	""".format(data["org_id"], data["program_id"], data["date"], data["budget"], data["other"], data["types"], data["assistance"])
-
+	# raise Exception(sql_statement)
 	return sql_statement
 
 def populate_update_statement(data):

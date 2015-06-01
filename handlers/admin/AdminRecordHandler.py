@@ -101,48 +101,6 @@ def select_info(record):
   if record[2]:
     return record[2]        
 
-def format_html(records):
-  last_header = ""
-  html_string = ""
-  added_list = []
-  all_layers_array = []
-  record_id = records[0][0]
-  form_dict = get_record_info(record_id)
-  level_ids = []
-  errors_count = 0
-
-  for record in records:
-    # raise Exception(record)
-    lev_0 = record[2]
-    lev_1 = record[5]
-    lev_2 = record[10]
-    lev_3 = record[15]
-    if lev_0 != last_header:
-      html_string += "<h3>{}</h3>".format(lev_0)
-      last_header = lev_0
-      added_list.append(lev_0)
-
-    all_layers_array = get_layers_array(lev_0, lev_1, lev_2, lev_3)
-    for layer in all_layers_array:
-      if layer not in added_list:
-        # raise Exception(form_dict[get_level_id(record, all_layers_array.index(layer))])
-        html_string += ("<p>{0}| {1}".format(all_layers_array.index(layer), layer))  
-        if get_level_id(record, all_layers_array.index(layer)) in form_dict:
-          level_ids.append(get_level_id(record, all_layers_array.index(layer)))
-          try:
-            html_string += ": <u><strong>{0}</u></strong></p>".format(form_dict[get_level_id(record, all_layers_array.index(layer))])
-          except:
-            info = form_dict[get_level_id(record, all_layers_array.index(layer))]
-            html_string += ":{0}</p>".format(info.encode("latin-1"))
-
-          
-        else:
-          html_string += "</p>"
-          # raise Exception(1)
-        added_list.append(layer)
-  # raise Exception(errors_count)
-  return html_string   
-
 def get_outer_layer(record):
   records_array = []
   if record[15]:
