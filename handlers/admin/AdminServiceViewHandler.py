@@ -19,7 +19,7 @@ class AdminServiceViewHandler(BaseHandler.BaseHandler):
     role = self.session.get('role')  
     user_session = self.session.get("user")
 
-    if role != "admin":
+    if role != "admin" and role != "staff":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 
@@ -35,7 +35,8 @@ class AdminServiceViewHandler(BaseHandler.BaseHandler):
       "message": self.request.get("message"),
       "user_session": user_session,
       "service": service[0],
-      "program": program_name[0][0]
+      "program": program_name[0][0],
+      "role": role
     }
     language = None
     if "language" in self.request.cookies:
@@ -49,6 +50,6 @@ class AdminServiceViewHandler(BaseHandler.BaseHandler):
 
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_view_service.html')
     else:
-      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_view_service.html')
+      LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('view_service.html')
     self.response.write(LEGACY_TEMPLATE.render(template_values))
 

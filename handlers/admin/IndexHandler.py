@@ -16,7 +16,7 @@ class IndexHandler(BaseHandler.BaseHandler):
     role = self.session.get('role')
     user_session = self.session.get("user")
 
-    if role != "admin":
+    if role != "admin" and role != "staff":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 

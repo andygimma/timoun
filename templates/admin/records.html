@@ -13,8 +13,11 @@
 
 {% block content %}
   <h2>Records</h2>
-  <a href="/records/new" class="btn btn-a user">Add Record</a>
-  <a href="/admin/users/dashboard" class="btn user yellow">View Changes</a>
+  
+  {% if role == "admin" %}
+      <a href="/records/new" class="btn btn-a user">Add Record</a>
+      <a href="/admin/users/dashboard" class="btn user yellow">View Changes</a>
+  {% endif %}
     {% if last_page >= 0 %}
     <a href="/admin/records?page={{last_page}}" class="btn btn-d user">Previous Page</a>
     {% endif %}

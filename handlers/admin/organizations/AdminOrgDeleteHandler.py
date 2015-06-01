@@ -13,7 +13,7 @@ class AdminOrgDeleteHandler(BaseHandler.BaseHandler):
 
     role = self.session.get('role')
 
-    if role != "admin":
+    if role != "admin" and role != "staff":
       self.redirect("/users/login?message=Unauthorized action")
       return
     else:

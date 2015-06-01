@@ -49,10 +49,14 @@
         <td>{{ form.role()|safe }}</td>
       </tr>
     </table>
-    <input type=submit id="submit" class="admin-btn" value=Submit>
+    {% if role == "admin" %}
+      <input type=submit id="submit" class="admin-btn" value="Soumettre">
+    {% endif %}
   </form>
 <br/>
-   <a href="/admin/users" class="btn user yellow">Cancel</a>
-   <a id="delete-user" class="btn btn-c user" href="/users/{{ user_key }}/delete" onclick="return confirm('Are you sure you want to delete this user?');">Delete User</a>
+  {% if role == "admin" %}
+    <a href="/admin/users" class="btn btn-d user">Annuler</a>
+    <a id="delete-user" class="btn btn-c user" href="/users/{{ user_key }}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?');">Supprimer User</a>
+  {% endif %}
 
 {% endblock %}

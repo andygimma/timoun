@@ -21,13 +21,14 @@ class NewServiceHandler(BaseHandler.BaseHandler):
   def get(self):
     role = self.session.get('role')
     user_session = self.session.get("user")
-    s = self.request.referrer[-5:]
-    index = s.index("/")
-    record_id = self.request.referrer[-5:][index + 1:]
-    if role != "admin":
+
+    if role != "admin" and role != "staff":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
-
+      
+    url = self.request.url
+    index = url.index("=")
+    record_id = url[index + 1:]
 
     form = Record.RecordForm()
     template_values = {

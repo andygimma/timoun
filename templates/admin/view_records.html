@@ -14,9 +14,11 @@
 {% endblock %}
 
 {% block content %}
-<a href="/programs/new?record={{ record[0] }}" class="btn btn-a user">Add Program</a>
-<a href="/services/new?record={{ record[0] }}" class="btn btn-a user">Add Service</a>
-<a href="#" class="btn user yellow">Edit</a>
+{% if role == "admin" %}
+  <a href="/programs/new?record={{ record[0] }}" class="btn btn-a user">Add Program</a>
+  <a href="/services/new?record={{ record[0] }}" class="btn btn-a user">Add Service</a>
+  <a href="#" class="btn user yellow">Edit</a>
+{% endif %}
 <a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a>
 
 <h3 class="no-margin gray">Programs</h3>
@@ -24,16 +26,12 @@
 
 
 <h3 class="no-margin gray">Services</h3>
-<p>{% for service in services %} <a href="/services/{{ service[1] }}/edit">{{ service[0] }}</a>,{% endfor %}</p>
-
-  <p>ID_1: {{ record[2] }}</p>
-  <p>General information on the organization: {{ record[3] }}</p>
+<p>{% for service in services %} <a href="/admin/services/{{ service[1] }}">{{ service[0] }}</a>,{% endfor %}</p>
   <p>Organization Name: {{ record[4] }}</p>
   <p>Department: {{ record[5] }}</p>
   <p>Commune: {{ record[6] }}</p>
   <p>Section communale: {{ record[7] }}</p>
   <p>Address: {{ record[8] }}</p>
-  <p>GPS Location: {{ record[9] }}</p>
   <p>Latitude: {{ record[10] }}</p>
   <p>Longitude: {{ record[11] }}</p>
   <p>Postbox: {{ record[12] }}</p>

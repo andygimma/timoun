@@ -15,7 +15,7 @@ class UsersIndexHandler(BaseHandler.BaseHandler):
   def get(self):
     role = self.session.get('role')
     user_session = self.session.get("user")
-    if role != "admin":
+    if role != "admin" and role != "staff":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 
@@ -27,7 +27,8 @@ class UsersIndexHandler(BaseHandler.BaseHandler):
     template_values = {
       "users": users,
       "message": self.request.get("message"),
-      "user_session": user_session
+      "user_session": user_session,
+      "role": role
     }
 
     language = None

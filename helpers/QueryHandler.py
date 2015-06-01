@@ -331,7 +331,7 @@ def add_services(records):
       GROUP_CONCAT(`service`.`name_english`) AS `all_services_en`
       FROM `service`
       WHERE `service`.`org_id` = {0};
-    """.format(record[0])
+    """.format(record[2])
 
     services = execute_query(sql_statement)
     record.append(services)

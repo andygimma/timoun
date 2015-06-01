@@ -13,7 +13,9 @@
 
 {% block content %}
 <div class="container">
-	<p><a href="/admin/records/{{ service[3] }}" class="btn btn-b user">Back to {{ service[4] }}</a></p>
+	{% if role == "admin" %}
+		<p><a href="/admin/records/{{ service[3] }}" class="btn btn-b user">Back to {{ service[4] }}</a></p>
+	{% endif %}
 	<p><a href="/services/{{ service[0] }}/edit" class="btn btn-a user">Edit</a></p>
 
 	<h2>{{ service[1] }}</h2>

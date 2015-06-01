@@ -19,7 +19,7 @@ class AdminViewRecordHandler(BaseHandler.BaseHandler):
     role = self.session.get('role')
     user_session = self.session.get("user")
 
-    if role != "admin":
+    if role != "admin" and role != "staff":
       self.redirect("/users/login?message={0}".format("You are not authorized to view this page"))
       return
 
@@ -51,7 +51,8 @@ class AdminViewRecordHandler(BaseHandler.BaseHandler):
       "user_session": user_session,
       "record": record[0],
       "services": services,
-      "programs": programs
+      "programs": programs,
+      "role": role
     }
     language = None
     if "language" in self.request.cookies:
