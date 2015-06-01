@@ -16,7 +16,7 @@
 
 
   {% if audits.count() > 0 %}
-    <table class="table">
+    <table class="table admin">
       <thead>
         <tr>
           <th>Initiated By</th>
@@ -45,7 +45,7 @@
     {% endfor %}
   {% endif %}
   </table>
-
+<p></p>
 
   {% if audits.count() == 0 %}
     <p>No audits added</p>

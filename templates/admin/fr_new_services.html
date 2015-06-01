@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-  <h2>Nouvelle </h2>
+  <h2>Nouvelle Service</h2>
   {% if form.errors %}
     <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -23,11 +23,10 @@
     </ul>
   {% endif %}
   <form method="POST" action="/services/new">
-  <input type="hidden" name="record_id" value="{{ record_id }}">
   <table class="block-table admin">
     <tr>
         <td>Programme:</td> 
-        <td><select name='program_id' required>
+        <td><select name='program_id'>
             <option value="" selected>Sélectionnez la Programme</option>
             <option value="nutrition">Nutrition</option>
             <option value="home_based_care">Soins à domicile</option>
@@ -36,13 +35,13 @@
             <option value="pyschosocial">Soutien psychosocial</option>
             <option value="health">Santé</option>
             <option value="education">Education</option>
-            <option value="mental_health_services">Services Sante Mentales</option>
+            <option value="mental_health_services">Services sante mentales</option>
         </select>
         </td>
     </tr>
     <tr>
         <td>Nom Français:</td> 
-        <td><input name="name_french" type="text" required></td>
+        <td><input name="name_french" type="text" /></td>
     </tr>
     <tr>
         <td>Nom Anglais:</td> 
@@ -51,7 +50,7 @@
     <tr>
         <td>Sexe:</td>
         <td><select name='gender'>
-            <option value="" selected>Sélectionnez le Sexe</option>
+            <option value="" selected>Sélectionnez le sexe</option>
             <option value="girls">Filles</option>
             <option value="boys">Garçons</option>
             <option value="boys & girls">Filles et Garçons</option>
