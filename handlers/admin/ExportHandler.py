@@ -335,9 +335,14 @@ def SqlToCsvLine(record, fields):
       
 class ExportHandler(BaseHandler.BaseHandler):
   def get(self, export_type):
+    role = self.session.get('role')
+    user_session = self.session.get("user")
     self.response.headers['Content-Type'] = 'text/csv'
 
     if export_type == "searches":
+      if role != "admin" and role != "staff":
+        self.redirect("/?message=You are not authorized to view this page")
+        return
       self.response.headers['Content-Disposition'] = \
         'attachment; filename="timoun_search_records.csv"'
 
@@ -350,6 +355,9 @@ class ExportHandler(BaseHandler.BaseHandler):
 
 
     if export_type == "user_dashboard":
+      if role != "admin" and role != "staff":
+        self.redirect("/?message=You are not authorized to view this page")
+        return
       self.response.headers['Content-Disposition'] = \
         'attachment; filename="timoun_user_dashboard.csv"'
 
@@ -363,6 +371,9 @@ class ExportHandler(BaseHandler.BaseHandler):
 
 
     if export_type == "users":
+      if role != "admin" and role != "staff":
+        self.redirect("/?message=You are not authorized to view this page")
+        return
       self.response.headers['Content-Disposition'] = \
           'attachment; filename="timoun_users.csv"'
       writer = csv.writer(self.response.out)
@@ -374,6 +385,9 @@ class ExportHandler(BaseHandler.BaseHandler):
           writer.writerow(ToCsvLine(user, USER_CSV_FIELDS))
 
     if export_type == "dashboard":
+      if role != "admin" and role != "staff":
+        self.redirect("/?message=You are not authorized to view this page")
+        return
       self.response.headers['Content-Disposition'] = \
           'attachment; filename="timoun_users.csv"'
       writer = csv.writer(self.response.out)
@@ -385,6 +399,9 @@ class ExportHandler(BaseHandler.BaseHandler):
 
 
     if export_type == "records":
+      if role != "admin" and role != "staff":
+        self.redirect("/?message=You are not authorized to view this page")
+        return
       self.response.headers['Content-Disposition'] = \
           'attachment; filename="timoun_records.csv"'
       writer = csv.writer(self.response.out)

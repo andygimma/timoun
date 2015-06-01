@@ -16,9 +16,11 @@
 {% endblock %}
 
 {% block content %}
-<a href="/programs/new?record={{ record[0] }}" class="btn btn-a user">Ajouter un programme</a>
-<a href="/services/new?record={{ record[0] }}" class="btn btn-a user">Ajouter un service</a>
-<a href="#" class="btn user yellow">Edit</a>
+{% if role == "admin" %}
+	<a href="/programs/new?record={{ record[0] }}" class="btn btn-a user">Ajouter un programme</a>
+	<a href="/services/new?record={{ record[0] }}" class="btn btn-a user">Ajouter un service</a>
+	<a href="#" class="btn user yellow">Edit</a>
+{% endif %}
 <a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a>
 
 <h3 class="no-margin gray">Programs</h3>
@@ -26,7 +28,7 @@
 
 
 <h3 class="no-margin gray">Services</h3>
-<p>{% for service in services %} <a href="/services/{{ service[1] }}/edit">{{ service[0] }}</a>,{% endfor %}</p>
+<p>{% for service in services %} <a href="/admin/services/{{ service[1] }}">{{ service[0] }}</a>,{% endfor %}</p>
 
 
 <p>1. Nom de l’organisation: {{ record [4] }}</p>
