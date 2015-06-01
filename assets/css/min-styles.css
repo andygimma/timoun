@@ -64,7 +64,6 @@ p {color: #302e2c;}
 .mid h2 {border-left: 5px solid #f36813; color:#1c6cb4; padding-left: 10px;}
 #mid-home {margin-top: -50px;}
 .bottom h3 {font-size: 1.2em; padding-top: 40px;}
-.data-heading {background: #ccc; width: 100%;}
 
 
 /* LINKS */
@@ -211,7 +210,8 @@ ul.pagination li {display: inline;}
 .options {width: 100%; height: 27px;}
 .options ul {margin:0; padding: 0;}
 .options ul li {list-style-type: none; display: inline; margin: 0 5px 0 0;}
-.no-margin {margin-left: 0!important;}
+.no-margin {margin-left: 0!important; width: 100%;}
+.gray {background-color: #ccc; clear:both;}
 
 
 /* USERS */

@@ -34,11 +34,11 @@
         </tr>
         <tr>
             <td><label for="department">Department</label></td> 
-            <td><input name='departement' type='text' required></td>
+            <td><input name='departement' type='text'></td>
         </tr>
         <tr>
             <td><label for="commune">Commune</label></td> 
-            <td><input name='commune' type='text' required></td>
+            <td><input name='commune' type='text'></td>
         </tr>
         <tr>
             <td><label for="section_communale">Section communale</label></td> 
@@ -46,7 +46,7 @@
         </tr>
         <tr>
             <td><label for="adresse">Address</label></td> 
-            <td><input name='adresse' type='text' required></td>
+            <td><input name='adresse' type='text'></td>
         </tr>
         <tr>        
             <td><label for="gps_location">GPS Location</label></td> 
@@ -66,11 +66,11 @@
         </tr>
         <tr>
             <td><label for="telephone">Phone Number</label></td> 
-            <td><input name='telephone' type='text' required></td>
+            <td><input name='telephone' type='text'></td>
         </tr>
         <tr>
             <td><label for="personne_contact">Contact</label></td> 
-            <td><input name='personne_contact' type='text' required></td>
+            <td><input name='personne_contact' type='text'></td>
         </tr>
         <tr>
             <td><label for="email">Email</label></td> 
@@ -109,15 +109,15 @@
             <td><input name='4estce_que_votre' type='text'></td>
         </tr>    
         <tr>
-            <td><label for="4a_comment_publicisezvous">4.a. How do you publicize your services</label></td> 
+            <td><label for="4a_comment_publicisezvous">4.a. How do you publicize your services (multiple answers possible)</label></td> 
             <td><select name='4a_comment_publicisezvous'>
                     <option value="">Select one</option>
-                    <option value='Autres'>Autres</option>
-                    <option value='AffichesAffiches'>Affiches</option>
-                    <option value='Réunions communautaires'>Réunions communautaires</option>
-                    <option value='Dépliants'>Dépliants</option>
+                    <option value='AffichesAffiches'>Posters</option>
+                    <option value='Réunions communautaires'>Community meetings</option>
+                    <option value='Dépliants'>Pamphlets</option>
                     <option value='Radio'>Radio</option>
-                    <option value='Télévision'>Télévision</option>
+                    <option value='Télévision'>Television</option>
+                    <option value='Autres'>Other</option>
                     </select>
             </td>
         </tr>
@@ -129,7 +129,7 @@
             <td><select name="5_ces_services">
                 <option value="">Select one</option>
                 <option value='Enfants vulnérables et parents/tuteurs'>Enfants vulnérables et parents/tuteurs</option>
-                <option value='Enfants Vulnérables seulement'>Enfants Vulnérables seulement</option>
+                <option value='Enfants Vulnérables seulement'>Enfants vulnérables seulement</option>
                 <option value='Parents/tuteurs seulement'>Parents/tuteurs seulement</option>
                 </select>
             </td>
@@ -186,19 +186,18 @@
             <td><label for="7_jour">7. Days of operation</label></td> 
             <td><select name='7_jour'>
                 <option value="">Select one</option>
-                <option value='Mardi'>Mardi</option>
-                <option value='Mercredi'>Mercredi</option>
-                <option value='Vendre'>Vendre</option>
-                <option value='Jeudi'>Jeudi</option>
-                <option value='Lundi'>Lundi</option>
-                <option value='Vendredi'>Vendredi</option>
-                <option value='Dimanche'>Dimanche</option>
-                <option value='Samedi'>Samedi</option>
+                <option value='Lundi'>Monday</option>
+                <option value='Mardi'>Tuesday</option>
+                <option value='Mercredi'>Wednesday</option>
+                <option value='Jeudi'>Thursday</option>
+                <option value='Vendredi'>Friday</option>
+                <option value='Samedi'>Saturday</option>
+                <option value='Dimanche'>Sunday</option>
                 </select>
             </td>
         </tr>  
         <tr>
-            <td><label for="7_preciser_lales">7. Specify the category(ies) of vulnerable children that you receive.</label></td> 
+            <td><label for="7_preciser_lales">7. Specify the category(ies) of vulnerable children that you receive. (multiple answers possible)</label></td> 
             <td><select name="4a_comment_publicisezvous">
                 <option value="">Select one</option>
                 <option value='enfants affectés par le VIH'>enfants affectés par le VIH</option>
@@ -237,7 +236,7 @@
             <td><textarea name='8_objectifs_fondamentaux' cols=40 rows=6></textarea></td>
         </tr>
         <tr>
-            <td><label for="8_pouvezvous_decrire">8. Can you describe the stakeholder categories</label></td>
+            <td><label for="8_pouvezvous_decrire">8. Can you describe the stakeholder categories (multiple answers possible)</label></td>
             <td><select name='8_pouvezvous_decrire'>
                 <option value="">Select one</option>
                 <option value='Autres'>Autres</option>
@@ -253,7 +252,7 @@
             </td>
         </tr>            
         <tr>
-            <td><label for="8a_quel_est_le">8.a. What is the level of training of stakeholders? </label></td>
+            <td><label for="8a_quel_est_le">8.a. What is the level of training of stakeholders? (Multiple answers possible)</label></td>
             <td><select name='8a_quel_est_le'>
                 <option value="">Select one</option>
                 <option value='Formation spécialisées en santé mentale'>Formation spécialisées en santé mentale</option>

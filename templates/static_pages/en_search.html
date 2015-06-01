@@ -19,6 +19,7 @@
 <div class="top">
   <h1>Search</h1>
     <p>Search by any combination of five filters with drop down lists and a keyword feature  that searches a wide range words found in the organization records.  The keyword search is the best way to search by organization name, street or services not found in the drop down filters.  The search results will be mapped and summarized with links to the full record provided.  Search results can also be exported in a CSV file or emailed.</p>
+    <p><em>While these instructions are in English, the resource information is primarily in French. Please enter keywords in French.</em></p>
 <form action="/search" method="get">
 <table class="inline-table">
         <tr>
@@ -30,29 +31,29 @@
             <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here..."></td>
             <td><select name="service">
             <option value="" selected>Select Service</option>
-            <optgroup label="Nutrition (Prog 1)">
-                <option value="Cantine scolaire">School Canteen</option>
+            <optgroup label="Nutrition">
+                <option value="Cantine scolaire">School canteen</option>
                 <option value="Distribution de lait pour bébé">Distribution of milk for baby</option>
                 <option value="Distribution de nourriture pour l’enfant adapté à son âge">Distribution of food to children age-appropriate</option>
                 <option value="Distribution ration sèche">Distribution dry ration</option>
                 <option value="Education nutritionnelle">Nutritional education</option>
-                <option value="Jardins potagers">Vegetable Gardens</option>
-                <option value="Sécurité alimentaire">Food Security</option>
+                <option value="Jardins potagers">Vegetable gardens</option>
+                <option value="Sécurité alimentaire">Food security</option>
             </optgroup>
-            <optgroup label="Home Based Care (Prog 2)">
+            <optgroup label="Home Based Care">
                 <option value="Distribution de kits d’hygiène">Distribution of hygiene kits</option>
                 <option value="Distribution de produit pour le traitement de l’eau">Product distribution for the treatment of water</option>
                 <option value="Vêtements">Clothing</option>
-                <option value="Autres à spécifier">Other, specify</option>
+                <option value="Autres à spécifier">Other</option>
             </optgroup>
             <optgroup label="Shelter">
-                <option value="Abri permanent">Permanent Shelter</option>
-                <option value="Abri provisoire">Temporary Shelter</option>
-                <option value="Réparation de maison">Home Repair</option>
-                <option value="Autres à spécifier">Other, specify</option>
-                <option value="spécifier quel type_____________">specify which type</option>
+                <option value="Abri permanent">Permanent shelter</option>
+                <option value="Abri provisoire">Temporary shelter</option>
+                <option value="Réparation de maison">Home repair</option>
+                <option value="Autres à spécifier">Other</option>
+                <!--option value="spécifier quel type_____________">specify which type_____________</option-->
             </optgroup>
-            <optgroup label="Child Protection (Prog 4)">
+            <optgroup label="Child Protection">
                 <option value="abus émotionnel">Emotional abuse</option>
                 <option value="Abus physique">Physical abuse</option>
                 <option value="abus sexuel">Sexual abuse</option>
@@ -62,9 +63,9 @@
                 <option value="placement en famille d’accueil permanente">Investment in permanent foster family</option>
                 <option value="placement en famille d’accueil transitoire">Family of investment transitional home</option>
                 <option value="placement en maisons d’enfants en accord avec IBESR">Houses for placement of children in accordance with IBESR</option>
-                <option value="protection légale">Legal Protection</option>
+                <option value="protection légale">Legal protection</option>
                 <option value="Réponses aux cas d’abus et exploitation">Answers to abuse and exploitation</option>
-                <option value="réunification familiale">Family Reunification</option>
+                <option value="réunification familiale">Family reunification</option>
                 <option value="support aux enfants des rues">Support for street children</option>
                 <option value="support aux enfants en conflit avec la loi">Support to children in conflict with the law</option>
                 <option value="support aux enfants en domesticité">Support for children in domestic</option>
@@ -72,34 +73,34 @@
                 <option value="support aux enfants victimes de traite">Support to trafficked children</option>
                 <option value="Autres">Other</option>
             </optgroup>
-            <optgroup label="Health (Prog 5)">
-                <option value="Consultation pour enfants">Child Consultation</option>
+            <optgroup label="Health">
+                <option value="Consultation pour enfants">Child consultation</option>
                 <option value="Déparasitage">Deworming</option>
                 <option value="Distribution de vitamine A etc…">Distribution of vitamin A etc ...</option>
                 <option value="Education sanitaires des parents / tuteurs">Health education of parents / guardians</option>
-                <option value="Poste de rassemblement/Vaccination">Assembly Position / Vaccination</option>
+                <option value="Poste de rassemblement/Vaccination">Assembly position / vaccination</option>
                 <option value="Service de réadaptation et de stimulation pour les handicapés">Rehabilitation and stimulation services for disabled</option>
                 <option value="Soins aux enfants affectés/ infectés par  le VIH/SIDA">Care of children affected / infected by HIV / AIDS</option>
                 <option value="Autres">Other</option>
             </optgroup>
-            <optgroup label="Psychosocial Support (Prog 6)">
+            <optgroup label="Psychosocial Support">
                 <option value="Activités culturelles">Cultural activites</option>
                 <option value="Activités ludiques">Fun activities</option>
                 <option value="Art floral">Floristry</option>
                 <option value="Counselling">Counselling</option>
                 <option value="Autres">Autres</option>
             </optgroup>
-            <optgroup label="Education (Prog 7)">
-                <option value="Ecole spécialisée pour handicapés">Specialized School for disabled</option>
-                <option value="Formation non formelle">Non-formal Education</option>
-                <option value="Formation professionnelle Spécifier">Training, specify</option>
+            <optgroup label="Education">
+                <option value="Ecole spécialisée pour handicapés">Specialized school for disabled</option>
+                <option value="Formation non formelle">Non-formal education</option>
+                <option value="Formation professionnelle Spécifier">Training</option>
                 <option value="Préscolaire">Preschool</option>
                 <option value="Primaire">Primary</option>
                 <option value="Secondaire">Secondary</option>
                 <option value="Autres">Other</option>
             </optgroup>
-            <optgroup label="Mental Health Services (Prog 8)">
-                <option value="Services Sante Mentales">Mental Health Services</option>
+            <optgroup label="Mental Health Services">
+                <option value="Services Sante Mentales">Mental health services</option>
             </optgroup>
         </select></td>
             <td><select name="department">
@@ -224,7 +225,7 @@
             <option value="" selected>Select Option</option>
             <option {% if gender == "male" %} selected {% endif %} value="male">Boys</option>
             <option {% if gender == "female" %} selected {% endif %}  value="female">Girls</option>
-            <option value="either">Boys &amp; Girls</option>
+            <option value="either">Boys &amp; girls</option>
             <option value="none">N/A</option>
             </select></td>
         </tr>    
@@ -265,7 +266,7 @@
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
         <li><a id="total" class="btn btn-a user">Records Returned: {{ total_count }}</a></li>
-        <li><a id="csv_link" class="btn btn-b user">CSV</a></li>
+        <li><a id="csv_link" href="/admin/export/dashboard" class="btn btn-b user">CSV</a></li>
         <li><a id="last_page_link" class="btn btn-d user" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
         <li><a id="last_page_link" class="btn btn-d user" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
         <li><a id="" href="" class="btn btn-c user">Clear Search</a></li>
@@ -293,12 +294,6 @@ $( "form" ).on( "submit", function( event ) {
       return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
     }
 
-    $( "#csv_link" ).click(function() {
-      var queryString = $( "form" ).serialize();
-      var url = "/export/map_search?" + queryString + "#search-mid"
-      console.log(url)
-      window.location = url;
-    });
     var pageParam = getURLParameter("page");
 
     if (pageParam == "0" || pageParam == null) {
