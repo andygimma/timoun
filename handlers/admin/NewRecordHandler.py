@@ -158,7 +158,6 @@ def form_builder(records):
         if record[12] in form_enums:
           this_enum = form_enums[record[12]]
           for item in this_enum:
-            # encoded_item = item.encode("latin-1").decode("utf-8")
             html_string += "<option>{0}</option>".format(item.encode('ascii', 'ignore'))
 
         html_string += "</select>\n"
