@@ -31,6 +31,7 @@ class AdminOrgEditHandler(BaseHandler.BaseHandler):
 
 
     org = QueryHandler.execute_query(sql_statement)
+    
     if len(org) == 0:
       self.redirect("/admin?message=That organization does not exist")
       return

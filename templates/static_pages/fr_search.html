@@ -1,6 +1,13 @@
 {% extends "fr_legacy_base.html" %}
 
 {% block title %}
+<style type="text/css">
+.optionGroup
+{
+    font-weight:bold;
+    font-style:italic;
+}
+</style>
 <title>Recherche: Cartographie des services disponibles pour enfants et familles vulnérables en Haïti</title>
 {% endblock %}
 
@@ -24,7 +31,7 @@
         <tr>
             <th><label for="keywords">Mots-clés</label></th>
             <th><label for="service">Service</label></th>
-            <th><label for="department">Departement</label></th>
+            <th><label for="department">Departement/Commune</label></th>
         </tr>
         <tr>
             <td><input type="text" name="keywords" value="" id="keywords" placeholder="entrez les termes de recherche ici..."></td>
@@ -101,17 +108,15 @@
             <optgroup label="Services Sante Mentales">
                 <option value="Services Sante Mentales">Services Sante Mentales</option>
             </optgroup>
-        </select></td>
-            <td><select name="department">
-            <option value="" selected>Sélectionnez Department</option>
-            <optgroup label="Artibonite">
+        <td><select name="department">
+            <option value="" selected>Department/Commune</option>
+                <option value="Artibonite" class="optionGroup">Artibonite</option>
                 <option value="Anse rouge">Anse rouge</option>
                 <option value="Ennery">Ennery</option>
                 <option value="Gonaives">Gonaives</option>
                 <option value="Saint-michel">Saint-michel</option>
                 <option value="Terre neuve">Terre neuve</option>
-            </optgroup>
-            <optgroup label="Centre">
+                <option value="Centre" class="optionGroup">Centre</option>
                 <option value="Belladere">Belladere</option>
                 <option value="Ceca la source">Ceca la source</option>
                 <option value="Cerca carvajal">Cerca carvajal</option>
@@ -121,23 +126,19 @@
                 <option value="Saut-d'eau">Saut-d'eau</option>
                 <option value="Thomassique">Thomassique</option>
                 <option value="Thomonde">Thomonde</option>
-            </optgroup>
-            <optgroup label="Grand Anse">
+                <option value="Grand Anse" class="optionGroup">Grand Anse</option>
                 <option value="Dame-marie">Dame-marie</option>
                 <option value="Jeremie">Jeremie</option>
-            </optgroup>
-            <option value="Nippes">Nippes</option>
-            <optgroup label="Nord">
+                <option value="Nippes">Nippes</option>
+                <option value="Nord" class="optionGroup">Nord</option>
                 <option value="Pignon">Pignon</option>
-            </optgroup>
-            <option value="Nord-Est">Nord-Est</option>
-            <option value="Nord-Ouest">Nord-Ouest</option>
-            <optgroup label="Ouest">
+                <option value="Nord-Est">Nord-Est</option>
+                <option value="Nord-Ouest">Nord-Ouest</option>
+                <option value="Ouest" class="optionGroup">Ouest</option>
                 <option value="Delmas">Delmas</option>
                 <option value="Leogane">Leogane</option>
                 <option value="Petit-goave">Petit-goave</option>
-            </optgroup>
-            <optgroup label="Sud">
+                <option value="Sud" class="optionGroup">Sud</option>
                 <option value="Aquin">Aquin</option>
                 <option value="Arniquet">Arniquet</option>
                 <option value="Camp perrin">Camp perrin</option>
@@ -154,8 +155,7 @@
                 <option value="St. Louis du sud">St. Louis du sud</option>
                 <option value="Tiburon">Tiburon</option>
                 <option value="Torbeck">Torbeck</option>
-            </optgroup>
-            <optgroup label="Sud-Est">
+                <option value="Sud-Est" class="optionGroup">Sud-Est</option>
                 <option value="Anse-a-pitre">Anse-a-pitre</option>
                 <option value="Bainet">Bainet</option>
                 <option value="Belle anse">Belle anse</option>
@@ -166,8 +166,7 @@
                 <option value="La vallee">La vallee</option>
                 <option value="Marigot">Marigot</option>
                 <option value="Thiotte">Thiotte</option>
-            </optgroup>
-            <option value="none">P/A</option>
+            <option value="none">N/A</option>
             </select></td>
         </tr>
         <tr>
@@ -275,14 +274,14 @@
         <p style="color: black;">Nom de l'organisation: <a href='/records/{{record[2]}}' target='_blank'>{{ record[5] }}</a></p>
         <p style="color: black;">Adresse: {{ record[9] }}</p>
         <p style="color: black;">Numéro de téléphone: {{ record[13] }}</p>
-        <p style="color: black;">Services: {{ record[17][0][0] }}</p>
+        <p style="color: black;">Services: {{ record[18][0][0] }}</p>
     </div>
   {% endfor %}
 </div>    
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
         <li><a id="total" class="btn btn-a user">Records Returned: {{ total_count }}</a></li>
-        <!-- <li><a id="csv_link" href="/admin/export" class="btn btn-b user">CSV</a></li> -->
+        <li><a id="csv_link" id="csv_link" class="btn btn-b user">CSV</a></li>
         <li><a id="last_page_link" class="btn btn-d user" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
         <li><a id="last_page_link" class="btn btn-d user" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
         <li><a id="" href="" class="btn btn-c user">Effacer Recherche</a></li>
