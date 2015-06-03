@@ -198,7 +198,8 @@ ul.pagination li {display: inline;}
 */
 
 .search-again {text-align: center; clear:both;}
-
+.optionGroup {font-weight:bold;}
+.optionChild {padding-left:15px;}
 
 @media (max-width: 767px) {
     .search-map {width: 80%!important; margin-left: 10%; clear:both;}
