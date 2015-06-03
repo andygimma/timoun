@@ -75,10 +75,12 @@ class PublicExportHandler(BaseHandler.BaseHandler):
       writer.writerow(RECORDS_CSV_HEADER)
       records_string = ""
       for record in records:
-        records_string += "{0},".format(record[0])
+        s = '"' + record[5].encode("utf-8") + '"'
+        records_string += '{0},'.format(s)
       records_string = records_string[:-1]
 
-      sql_statement = "SELECT * FROM organization WHERE id IN ({0});".format(records_string)
+      sql_statement = "SELECT * FROM organization WHERE 1_nom IN ({0});".format(records_string)
+      # raise Exception(sql_statement)
       org_records = QueryHandler.execute_query(sql_statement)
       for record in org_records:
         writer.writerow(SqlToCsvLine(record, RECORD_CSV_FIELDS))

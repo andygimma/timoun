@@ -7,6 +7,8 @@ import unicodedata
 import json
 import env
 
+PROGRAMS = ["Nutrition", "Home Based Care", "Shelter", "Child Protection", "Health", "Psychosocial Support", "Education", "Mental Health Services"]
+DEPARTMENTS = ["Artibonite", "Centre", "Grand Anse", "Nord", "Ouest", "Sud", "Sud-Est"]
 _INSTANCE_NAME = 'timoun-production:timoun427'
 words = {
 "Š": "S",
@@ -230,6 +232,8 @@ def form_query_builder(self, page=None, limit=25):
   keywords = self.request.get("keywords").encode("utf-8")
   record_search(keywords, service, department, age_start, age_end, gender)
 
+  program_or_service = "service"
+
   service_query = ""
   department_query = ""
   gender_query = ""
@@ -248,8 +252,10 @@ def form_query_builder(self, page=None, limit=25):
     service_query = "AND `service`.`name_french` = '{0}'".format(service)
 
   if department:
-    department_query = "AND `commune` = \"{0}\"".format(department.encode("utf-8"))
-
+    if department in DEPARTMENTS:
+      department_query = "AND `departement` = \"{0}\"".format(department.encode("utf-8"))
+    else:
+      department_query = "AND `commune` = \"{0}\"".format(department.encode("utf-8"))
   if gender:
     if gender == "male":
       gender_query = "AND `filles` = 1"
