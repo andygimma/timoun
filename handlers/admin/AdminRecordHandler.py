@@ -63,7 +63,8 @@ class AdminRecordHandler(BaseHandler.BaseHandler):
       "records_length": len(records),
       "next_page": next_page,
       "last_page": last_page,
-      "role": role
+      "role": role,
+      "search": search(self)
     }
 
     language = None

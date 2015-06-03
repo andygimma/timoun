@@ -253,8 +253,13 @@
   {% for record in records %}
       <tbody>
         <tr>
-          <td><a href="/admin/records/{{ record[1] }}"><i class="ico">✎</i> {{ record[0] }}</a></td>
-          <td>{{ record[2] }}</td>
+          {% if search %}
+              <td><a href="/admin/records/{{ record[0] }}"><i class="ico">✎</i> {{ record[5] }}</a></td>
+          {% else %}
+              <td><a href="/admin/records/{{ record[1] }}"><i class="ico">✎</i> {{ record[0] }}</a></td>
+          {% endif %}
+          <td>{{ record[6] }}</td>
+        
         </tr>
 
       </tbody>
