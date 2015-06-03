@@ -109,7 +109,7 @@
             <td><input name='4estce_que_votre' type='text'></td>
         </tr>    
         <tr>
-            <td><label for="4a_comment_publicisezvous">4.a. How do you publicize your services (multiple answers possible)</label></td> 
+            <td><label for="4a_comment_publicisezvous">4.a. How do you publicize your services </label></td> 
             <td><select name='4a_comment_publicisezvous'>
                     <option value="">Select one</option>
                     <option value='AffichesAffiches'>Posters</option>
@@ -185,19 +185,18 @@
         <tr>
             <td><label for="7_jour">7. Days of operation</label></td> 
             <td><select name='7_jour'>
-                <option value="">Select one</option>
-                <option value='Lundi'>Monday</option>
-                <option value='Mardi'>Tuesday</option>
-                <option value='Mercredi'>Wednesday</option>
-                <option value='Jeudi'>Thursday</option>
-                <option value='Vendredi'>Friday</option>
-                <option value='Samedi'>Saturday</option>
-                <option value='Dimanche'>Sunday</option>
+        <input type="hidden" name="lundi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="lundi" value="1"> Monday<br/>
+        <input type="hidden" name="mardi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mardi" value="1"> Tuesday<br/>
+        <input type="hidden" name="mercredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="mercredi" value="1"> Wednesday<br/>
+        <input type="hidden" name="jeudi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="jeudi" value="1"> Thursday<br/>
+        <input type="hidden" name="vendredi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="vendredi" value="1"> Friday<br/>
+        <input type="hidden" name="samedi" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="samedi" value="1"> Saturday<br/>
+        <input type="hidden" name="dimanche" value="0"><!-- Value = 0 if unchecked --> <input type="checkbox" name="dimanche" value="1"> Sunday
                 </select>
             </td>
         </tr>  
         <tr>
-            <td><label for="7_preciser_lales">7. Specify the category(ies) of vulnerable children that you receive. (multiple answers possible)</label></td> 
+            <td><label for="7_preciser_lales">7. Specify the category(ies) of vulnerable children that you receive. </label></td> 
             <td><select name="4a_comment_publicisezvous">
                 <option value="">Select one</option>
                 <option value='enfants affectés par le VIH'>enfants affectés par le VIH</option>
@@ -227,7 +226,7 @@
                 <option value="">Select one</option>
                 <option value='Temps partiel'>Temps partiel</option>
                 <option value='Temps Plein'>Temps Plein</option>
-                <option value='24/24'>24/24</option>
+                <option value='24/24'>24/7</option>
                 </select> 
             </td>
         </tr>
@@ -236,7 +235,7 @@
             <td><textarea name='8_objectifs_fondamentaux' cols=40 rows=6></textarea></td>
         </tr>
         <tr>
-            <td><label for="8_pouvezvous_decrire">8. Can you describe the stakeholder categories (multiple answers possible)</label></td>
+            <td><label for="8_pouvezvous_decrire">8. Can you describe the stakeholder categories </label></td>
             <td><select name='8_pouvezvous_decrire'>
                 <option value="">Select one</option>
                 <option value='Autres'>Autres</option>
@@ -252,7 +251,7 @@
             </td>
         </tr>            
         <tr>
-            <td><label for="8a_quel_est_le">8.a. What is the level of training of stakeholders? (Multiple answers possible)</label></td>
+            <td><label for="8a_quel_est_le">8.a. What is the level of training of stakeholders? </label></td>
             <td><select name='8a_quel_est_le'>
                 <option value="">Select one</option>
                 <option value='Formation spécialisées en santé mentale'>Formation spécialisées en santé mentale</option>
@@ -332,12 +331,10 @@
                 <option value='lequel ?______________________'>lequel</option>
                 <option value='Structure religieuse'>Structure religieuse</option>
                 <option value='Privée'>Privée</option>
-                <option value='Autres'>Autres</option>
-                <option value='Levée de fonds auprès de _____ préciser___________'>Levée de fonds auprès de _____ préciser___________</option>
+                <option value='Autres'>Autres</option>            
                 <option value='Levée de fonds'>Levée de fonds</option>
                 <option value='Cotisations de membres'>Cotisations de membres</option>
                 <option value='Bailleur privé (veuillez ne pas citer de nom)'>Bailleur privé (veuillez ne pas citer de nom)</option>
-                <option value='Combien ?_______________'>Combien ?_______________</option>
                 <option value='Services payants'>Services payants</option>
                 <option value='Gouvernement'>Gouvernement</option>
                 <option value='ministère'>ministère</option>

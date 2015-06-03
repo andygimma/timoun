@@ -38,7 +38,7 @@
             <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here..."></td>
             <td><select name="service">
             <option value="" selected>Select Service</option>
-            <optgroup label="Nutrition (Prog 1)">
+            <optgroup label="Nutrition">
                 <option value="Cantine scolaire">School canteen</option>
                 <option value="Distribution de lait pour bébé">Distribution of milk for baby</option>
                 <option value="Distribution de nourriture pour l’enfant adapté à son âge">Distribution of food to children age-appropriate</option>
@@ -47,7 +47,7 @@
                 <option value="Jardins potagers">Vegetable gardens</option>
                 <option value="Sécurité alimentaire">Food security</option>
             </optgroup>
-            <optgroup label="Home Based Care (Prog 2)">
+            <optgroup label="Home Based Care">
                 <option value="Distribution de kits d’hygiène">Distribution of hygiene kits</option>
                 <option value="Distribution de produit pour le traitement de l’eau">Product distribution for the treatment of water</option>
                 <option value="Vêtements">Clothing</option>
@@ -60,7 +60,7 @@
                 <option value="Autres à spécifier">Other</option>
                 <!--option value="spécifier quel type_____________">specify which type_____________</option-->
             </optgroup>
-            <optgroup label="Child Protection (Prog 4)">
+            <optgroup label="Child Protection">
                 <option value="abus émotionnel">Emotional abuse</option>
                 <option value="Abus physique">Physical abuse</option>
                 <option value="abus sexuel">Sexual abuse</option>
@@ -80,7 +80,7 @@
                 <option value="support aux enfants victimes de traite">Support to trafficked children</option>
                 <option value="Autres">Other</option>
             </optgroup>
-            <optgroup label="Health (Prog 5)">
+            <optgroup label="Health">
                 <option value="Consultation pour enfants">Child consultation</option>
                 <option value="Déparasitage">Deworming</option>
                 <option value="Distribution de vitamine A etc…">Distribution of vitamin A etc ...</option>
@@ -90,14 +90,14 @@
                 <option value="Soins aux enfants affectés/ infectés par  le VIH/SIDA">Care of children affected / infected by HIV / AIDS</option>
                 <option value="Autres">Other</option>
             </optgroup>
-            <optgroup label="Psychosocial Support (Prog 6)">
+            <optgroup label="Psychosocial Support">
                 <option value="Activités culturelles">Cultural activites</option>
                 <option value="Activités ludiques">Fun activities</option>
                 <option value="Art floral">Floristry</option>
                 <option value="Counselling">Counselling</option>
                 <option value="Autres">Autres</option>
             </optgroup>
-            <optgroup label="Education (Prog 7)">
+            <optgroup label="Education">
                 <option value="Ecole spécialisée pour handicapés">Specialized school for disabled</option>
                 <option value="Formation non formelle">Non-formal education</option>
                 <option value="Formation professionnelle Spécifier">Training</option>
@@ -106,7 +106,7 @@
                 <option value="Secondaire">Secondary</option>
                 <option value="Autres">Other</option>
             </optgroup>
-            <optgroup label="Mental Health Services (Prog 8)">
+            <optgroup label="Mental Health Services">
                 <option value="Services Sante Mentales">Mental health services</option>
             </optgroup>
         </select></td>
@@ -263,7 +263,7 @@
 </table>
        
     {% if last_page >= 0 %}
-    <a href="/admin/records?page={{last_page}}" class="btn btn-d user">Next Suivant</a>
+    <a href="/admin/records?page={{last_page}}" class="btn btn-d user">Previous Page</a>
     {% endif %}
     <a href="/admin/records?page={{next_page}}" class="btn btn-d user">Next Page</a>
 
