@@ -190,7 +190,10 @@ def form_query_total(self, page=None):
     service_query = "AND `service`.`name_french` = '{0}'".format(service)
 
   if department:
-    department_query = "AND `commune` = \"{0}\"".format(department.encode("utf-8"))
+    if department in DEPARTMENTS:
+      department_query = "AND `departement` = \"{0}\"".format(department.encode("utf-8"))
+    else:
+      department_query = "AND `commune` = \"{0}\"".format(department.encode("utf-8"))
 
   if gender:
     if gender == "male":
