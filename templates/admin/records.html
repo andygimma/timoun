@@ -1,13 +1,6 @@
 {% extends "legacy_admin.html" %}
 
 {% block breadcrumbs %}
-<style type="text/css">
-.optionGroup
-{
-    font-weight:bold;
-    font-style:italic;
-}
-</style>
 <div class="container">
   <div class="breadcrumbs">
     <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
@@ -118,64 +111,64 @@
             </optgroup>
         </select></td>
             <td><select name="department">
-            <option value="" selected>Department/Commune</option>
-                <option value="Artibonite" class="optionGroup">Artibonite</option>
-                <option value="Anse rouge">Anse rouge</option>
-                <option value="Ennery">Ennery</option>
-                <option value="Gonaives">Gonaives</option>
-                <option value="Saint-michel">Saint-michel</option>
-                <option value="Terre neuve">Terre neuve</option>
+            <option value="" selected>Sélectionnez Dep't/Commune</option>            
+            <option value="Artibonite" class="optionGroup">Artibonite</option>
+                <option value="Anse rouge" class="optionChild">Anse rouge</option>
+                <option value="Ennery" class="optionChild">Ennery</option>
+                <option value="Gonaives" class="optionChild">Gonaives</option>
+                <option value="Saint-michel" class="optionChild">Saint-michel</option>
+                <option value="Terre neuve" class="optionChild">Terre neuve</option>
                 <option value="Centre" class="optionGroup">Centre</option>
-                <option value="Belladere">Belladere</option>
-                <option value="Ceca la source">Ceca la source</option>
-                <option value="Cerca carvajal">Cerca carvajal</option>
-                <option value="Hinche">Hinche</option>
-                <option value="Lascahobas">Lascahobas</option>
-                <option value="Maissade">Maissade</option>
-                <option value="Saut-d'eau">Saut-d'eau</option>
-                <option value="Thomassique">Thomassique</option>
-                <option value="Thomonde">Thomonde</option>
-                <option value="Grand Anse" class="optionGroup">Grand Anse</option>
-                <option value="Dame-marie">Dame-marie</option>
-                <option value="Jeremie">Jeremie</option>
-                <option value="Nippes">Nippes</option>
-                <option value="Nord" class="optionGroup">Nord</option>
-                <option value="Pignon">Pignon</option>
-                <option value="Nord-Est">Nord-Est</option>
-                <option value="Nord-Ouest">Nord-Ouest</option>
-                <option value="Ouest" class="optionGroup">Ouest</option>
-                <option value="Delmas">Delmas</option>
-                <option value="Leogane">Leogane</option>
-                <option value="Petit-goave">Petit-goave</option>
-                <option value="Sud" class="optionGroup">Sud</option>
-                <option value="Aquin">Aquin</option>
-                <option value="Arniquet">Arniquet</option>
-                <option value="Camp perrin">Camp perrin</option>
-                <option value="Cavaillon">Cavaillon</option>
-                <option value="Chantal">Chantal</option>
-                <option value="Coteaux">Coteaux</option>
-                <option value="Les anglais">Les anglais</option>
-                <option value="Les cayes">Les cayes</option>
-                <option value="Maniche">Maniche</option>
-                <option value="Port-a-piment">Port-a-piment</option>
-                <option value="Port-salut">Port-salut</option>
-                <option value="Roche-a-bateau">Roche-a-bateau</option>
-                <option value="St. Jean du sud">St. Jean du sud</option>
-                <option value="St. Louis du sud">St. Louis du sud</option>
-                <option value="Tiburon">Tiburon</option>
-                <option value="Torbeck">Torbeck</option>
-                <option value="Sud-Est" class="optionGroup">Sud-Est</option>
-                <option value="Anse-a-pitre">Anse-a-pitre</option>
-                <option value="Bainet">Bainet</option>
-                <option value="Belle anse">Belle anse</option>
-                <option value="Cayes-jacmel">Cayes-jacmel</option>
-                <option value="Cote-de-fer">Cote-de-fer</option>
-                <option value="Grand gosier">Grand gosier</option>
-                <option value="Jacmel">Jacmel</option>
-                <option value="La vallee">La vallee</option>
-                <option value="Marigot">Marigot</option>
-                <option value="Thiotte">Thiotte</option>
-            <option value="none">N/A</option>
+                <option value="Belladere" class="optionChild">Belladere</option>
+                <option value="Ceca la source" class="optionChild">Ceca la source</option>
+                <option value="Cerca carvajal" class="optionChild">Cerca carvajal</option>
+                <option value="Hinche" class="optionChild">Hinche</option>
+                <option value="Lascahobas" class="optionChild">Lascahobas</option>
+                <option value="Maissade" class="optionChild">Maissade</option>
+                <option value="Saut-d'eau" class="optionChild">Saut-d'eau</option>
+                <option value="Thomassique" class="optionChild">Thomassique</option>
+                <option value="Thomonde" class="optionChild">Thomonde</option>
+            <option value="Grand Anse" class="optionGroup">Grand Anse</option>
+                <option value="Dame-marie" class="optionChild">Dame-marie</option>
+                <option value="Jeremie" class="optionChild">Jeremie</option>
+            <option value="Nippes" class="optionGroup">Nippes</option>    
+            <option value="Nord" class="optionGroup">Nord</option>
+                <option value="Pignon" class="optionChild">Pignon</option>
+            <option value="Nord-Est" class="optionGroup">Nord-Est</option>
+            <option value="Nord-Ouest" class="optionGroup">Nord-Ouest</option>
+            <option value="Quest" class="optionGroup">Ouest</option>
+                <option value="Delmas" class="optionChild">Delmas</option>
+                <option value="Leogane" class="optionChild">Leogane</option>
+                <option value="Petit-goave" class="optionChild">Petit-goave</option>
+            <option value="Sud" class="optionGroup">Sud</option>
+                <option value="Aquin" class="optionChild">Aquin</option>
+                <option value="Arniquet" class="optionChild">Arniquet</option>
+                <option value="Camp perrin" class="optionChild">Camp perrin</option>
+                <option value="Cavaillon" class="optionChild">Cavaillon</option>
+                <option value="Chantal" class="optionChild">Chantal</option>
+                <option value="Coteaux" class="optionChild">Coteaux</option>
+                <option value="Les anglais" class="optionChild">Les anglais</option>
+                <option value="Les cayes" class="optionChild">Les cayes</option>
+                <option value="Maniche" class="optionChild">Maniche</option>
+                <option value="Port-a-piment" class="optionChild">Port-a-piment</option>
+                <option value="Port-salut" class="optionChild">Port-salut</option>
+                <option value="Roche-a-bateau" class="optionChild">Roche-a-bateau</option>
+                <option value="St. Jean du sud" class="optionChild">St. Jean du sud</option>
+                <option value="St. Louis du sud" class="optionChild">St. Louis du sud</option>
+                <option value="Tiburon" class="optionChild">Tiburon</option>
+                <option value="Torbeck" class="optionChild">Torbeck</option>
+            <option value="Sud-Est" class="optionGroup">Sud-Est</option>
+                <option value="Anse-a-pitre" class="optionChild">Anse-a-pitre</option>
+                <option value="Bainet" class="optionChild">Bainet</option>
+                <option value="Belle anse" class="optionChild">Belle anse</option>
+                <option value="Cayes-jacmel" class="optionChild">Cayes-jacmel</option>
+                <option value="Cote-de-fer" class="optionChild">Cote-de-fer</option>
+                <option value="Grand gosier" class="optionChild">Grand gosier</option>
+                <option value="Jacmel" class="optionChild">Jacmel</option>
+                <option value="La vallee" class="optionChild">La vallee</option>
+                <option value="Marigot" class="optionChild">Marigot</option>
+                <option value="Thiotte" class="optionChild">Thiotte</option>
+            <option value="none">P/A</option>
             </select></td>
         </tr>
         <tr>
