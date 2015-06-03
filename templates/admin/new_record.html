@@ -20,33 +20,25 @@
 <h2>New Record</h2>
 <form method="POST" action="/records/new">
     <table class="block-table admin records">
-        <tr>
-            <td><label for="id_1">ID_1</label></td>
-            <td><input name='id_1' type='text'></td>
-        </tr>
-        <tr>
-            <td><label for="informations_generales">General information on the organization</label></td> 
-            <td><input name='informations_generales' type='text'></td>
-        </tr>
         <tr>    
             <td><label for="1_nom">Organization Name*</td> 
             <td><input type="text" name="1_nom" value="" id="1_nom" placeholder="" required></td>
         </tr>
         <tr>
-            <td><label for="department">Department</label></td> 
-            <td><input name='departement' type='text'></td>
+            <td><label for="department">Department*</label></td> 
+            <td><input name='departement' type='text' required></td>
         </tr>
         <tr>
-            <td><label for="commune">Commune</label></td> 
-            <td><input name='commune' type='text'></td>
+            <td><label for="commune">Commune*</label></td> 
+            <td><input name='commune' type='text' required></td>
         </tr>
         <tr>
             <td><label for="section_communale">Section communale</label></td> 
             <td><input name='section_communale' type='text'></td>
         </tr>
         <tr>
-            <td><label for="adresse">Address</label></td> 
-            <td><input name='adresse' type='text'></td>
+            <td><label for="adresse">Address*</label></td> 
+            <td><input name='adresse' type='text' required></td>
         </tr>
         <tr>        
             <td><label for="gps_location">GPS Location</label></td> 
@@ -65,12 +57,12 @@
             <td><input name='boite_postale' type='text'></td>
         </tr>
         <tr>
-            <td><label for="telephone">Phone Number</label></td> 
-            <td><input name='telephone' type='text'></td>
+            <td><label for="telephone">Phone Number*</label></td> 
+            <td><input name='telephone' type='text' required></td>
         </tr>
         <tr>
-            <td><label for="personne_contact">Contact</label></td> 
-            <td><input name='personne_contact' type='text'></td>
+            <td><label for="personne_contact">Contact*</label></td> 
+            <td><input name='personne_contact' type='text' required></td>
         </tr>
         <tr>
             <td><label for="email">Email</label></td> 
