@@ -282,7 +282,8 @@ def form_query_builder(self, page=None, limit=25):
         `organization`.`telephone`, 
         `organization`.`personne_contact`, 
         `organization`.`email`, 
-        `organization`.`site_web`
+        `organization`.`site_web`,
+        `organization`.`vetted`
         FROM `service`
         LEFT JOIN `organization`
         ON `service`.`org_id` = `organization`.`id`

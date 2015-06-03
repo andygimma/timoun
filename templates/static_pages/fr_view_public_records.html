@@ -60,7 +60,11 @@
 
 
  <h3>Services</h3>
- <p>{% for service in services %} <a href="/services/{{ service[1] }}">{{ service[0] }}</a>,{% endfor %}</p>
+ {% if record[110] == 0 %}
+   <p>Service d'information restreinte jusqu'à approuvée</p>
+ {% else %}
+ 	<p>{% for service in services %} <a href="/services/{{ service[1] }}">{{ service[0] }}</a>,{% endfor %}</p>
+ {% endif %}
 
 
 </div>

@@ -259,7 +259,7 @@
         <p style="color:black;">Organization Name: <a href='/records/{{record[3]}}' target='_blank'>{{ record[5] }}</a></p>
         <p style="color:black;">Address: {{ record[9] }}</p>
         <p style="color:black;">Phone Number: {{ record[13] }}</p>
-        <p style="color:black;">Services: {{ record[17][0][0] }}</p>
+        <p style="color:black;">Services: {% if record[17] == 1 %} {{ record[18][0][0] }} {% else %} Service information restricted until approved  {% endif %}</p>
     </div>
   {% endfor %}
 </div>    

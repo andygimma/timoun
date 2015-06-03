@@ -19,8 +19,11 @@
   <h2>Nouvelle Record</h2>
 <form method="POST" action="/records/new">
     <table class="block-table admin records">
+        <tr>
+            <td><label for="vetted">Vetted</label></td>
+            <td><input type="checkbox" name="vetted" value="1"></td>
         <tr>    
-            <td><label for="1_nom">Nom de l’organisation*</td> 
+            <td><label for="1_nom">Nom de l’organisation*</label></td> 
             <td><input type="text" name="1_nom" value="" id="1_nom" placeholder="" required></td>
         </tr>
         <tr>

@@ -14,6 +14,10 @@
 {% block content %}
 <form method="POST" action="/records/{{ data['id']}}/edit">
     <table class="block-table admin records">
+        <tr>
+            <td><label for="vetted">Vetted</label></td>
+            <td><input type="checkbox" name="vetted" value="1" {% if org[110] == 1 %} checked {% endif %}></td>
+        <tr>    
         <tr>    
             <td><label for="1_nom">Organization Name</td> 
             <td><input name='1_nom' type='text' value="{{data['1_nom']}}"  required></td>

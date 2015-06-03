@@ -161,4 +161,3 @@ app.error_handlers[404] = handle_404
 #           pass
 
 # update_gps()
-
