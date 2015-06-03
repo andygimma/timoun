@@ -21,8 +21,8 @@
 
 <div class="top"> 
 <div style="clear:both;">
-    <h1>Les organisations et programmes du PAM - Une nouvelle façon de découvrir les programmes pour enfants orphelins et vulnérables</h1>
-        <p>Commencez par choisir un emplacement et un programme pour trouver les organismes qui desservent les orphelins et les enfants vulnérables à travers Haïti. Affiner les résultats de recherche en utilisant une combinaison de filtres et de mots-clés. Par exemple, les mots clés recommandées comprennent le nom de l'organisation, ville, rue.</p>
+    <h1>Une carte des organisations et programmes - Une nouvelle façon de découvrir les programmes pour enfants orphelins et vulnérables</h1>
+        <p>Commencez par choisir un emplacement et un programme pour trouver les organismes qui desservent les orphelins et les enfants vulnérables à travers Haïti. Affiner les résultats de recherche en utilisant une combinaison de filtres et de mots-clés. Par exemple, les mots-clés recommandées comprennent le nom de l'organisation, ville, rue.</p>
 </div>    
         <div class="haiti-map">
             <img src="../../assets/img/IBERS_Map5_kraked.jpg" width="" height="" alt="map of haiti" />
@@ -46,7 +46,7 @@
                 <option value="Jardins potagers">Jardins potagers</option>
                 <option value="Sécurité alimentaire">Sécurité alimentaire</option>
             </optgroup>
-            <optgroup label="Soins2 à domicile">
+            <optgroup label="Soins à domicile">
                 <option value="Autres à spécifier">Autres à spécifier</option>
                 <option value="Distribution de kits d’hygiène">Distribution de kits d’hygiène</option>
                 <option value="Distribution de produit pour le traitement de l’eau">Distribution de produit pour le traitement de l’eau</option>
@@ -277,30 +277,5 @@
 </div>
 
 <!-- Scripts Go Here -->
-<script>
-  var map = L.map('map').setView([18.533, -72.333], 7);
-    map.scrollWheelZoom.disable();
 
-  // add an OpenStreetMap tile layer
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-
-
-  {% for record in records %}
-  // add a marker in the given location, attach some popup content to it and open the popup
-  try {
- L.marker([{{ record.latitude }}, {{ record.longitude }}]).addTo(map)
-        .bindPopup("<p style='color:black'><a href='/records/{{record.nom_de_lorganisation}}'>{{ record.nom_de_lorganisation }}</a></p>")
-        .openPopup();
-  }
-  catch(err) {
-    console.log("none");
-
-  }
-
-
-  {% endfor %}
-</script>
 {% endblock %}

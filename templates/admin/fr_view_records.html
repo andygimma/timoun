@@ -23,7 +23,7 @@
 {% endif %}
 <a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a>
 
-<h3 class="no-margin gray">Programs</h3>
+<h3 class="no-margin gray">Programmes</h3>
 <p>{% for program in programs %} <a href="/programs/{{ program[0] }}/edit"> {{ program[2]}} </a>,{% endfor %}</p>
 
 
@@ -73,11 +73,11 @@
 
 <p>4.b. Est-ce que vos services sont gratuits ?: {{ record[25] }}</p>
 
-<p>5. Ces services sont-ils disponibles pour les enfants vulnérables ou leurs parents/tuteurs? Plusieurs réponses possibles: {{ record[26] }}</p>
+<p>5. Ces services sont-ils disponibles pour les enfants vulnérables ou leurs parents/tuteurs? {{ record[26] }}</p>
 
 <p>6. Recevez-vous des enfants vulnérables ou leurs parents/tuteurs à ces service ? A quel rythme?: {{ record[27] }}</p>
        
-<p>6. Type  (plusieurs réponses possibles): {{ record[28] }}</p>
+<p>6. Type: {{ record[28] }}</p>
 
 <p>6.a. precisez autre structure religieuse: {{ record[29] }}</p>
 <p>6.b. Autre organisation: {{ record[30] }}</p>
@@ -86,15 +86,15 @@
 
 <p>6.d. Autre status: {{ record[32] }}</p>
 
-<p>7. Préciser la/les catégorie(s) d’enfants vulnérables que vous recevez ? (plusieurs réponses possibles): {{ record[34] }}</p>
+<p>7. Préciser la/les catégorie(s) d’enfants vulnérables que vous recevez?: {{ record[34] }}</p>
 
 <p>7.a. Heure de fonctionnement: {{ record[35] }}</p>
   
-<p>8. Objectifs  fondamentaux de votre organisation (la mission): {{ record[36] }}</p>
+<p>8. Objectifs fondamentaux de votre organisation (la mission): {{ record[36] }}</p>
 
-<p>8. Pouvez-vous décrire les catégories d’intervenants (Plusieurs réponses possibles): {{ record[37] }}</p>
+<p>8. Pouvez-vous décrire les catégories d’intervenants: {{ record[37] }}</p>
   
-<p>8.a. Quel est le niveau de formation des intervenants? (Plusieurs réponses possibles): {{ record[38] }}</p>
+<p>8.a. Quel est le niveau de formation des intervenants?: {{ record[38] }}</p>
 
 <p>8.b.1 Precisez :: {{ record[39] }}</p>
 
@@ -130,7 +130,7 @@
 
 <p>9.a. Lequel ?: {{ record[55] }}</p>
 
-<p>9.b. autre source: {{ record[56] }}</p>
+<p>9.b. Autre source: {{ record[56] }}</p>
 
 <p>10. Comment votre organisation définit- elle le mot: enfants vulnérables?: {{ record[57] }}</p>
 
@@ -139,9 +139,9 @@
 <p>9.d. S'il vous plaît donner des détails: {{ record[59] }}</p>
 
 <p>10. Que faites-vous avec les demandes pour lesquelles vous n’avez pas de spécialité?: {{ record[60] }}
-<p>10.a. Si vous referez, precisez :: {{ record[61] }}</p>
+<p>10.a. Si vous referez, precisez: {{ record[61] }}</p>
 
-<p>11. Quelle catégorie d’enfants vulnérables est soutenue par le programme ?: {{ record[62] }}</p>
+<p>11. Quelle catégorie d’enfants vulnérables est soutenue par le programme?: {{ record[62] }}</p>
 
 <p>11. Pouvez-vous dire à quels organismes vous référez les demandes auxquelles vous ne pouvez pas répondre?: {{ record[63] }}</p>
 
@@ -153,19 +153,19 @@
 
 <p>11.d. Autres: {{ record[67] }}</p>
 
-<p>13. Quels sont les organismes qui vous réfèrent des demandes ?: {{ record[68] }}</p>
+<p>13. Quels sont les organismes qui vous réfèrent des demandes?: {{ record[68] }}</p>
 
 <p>14. Quels obstacles rencontrez-vous dans la dispensation des services?: {{ record[69] }}</p>
 
 <p>14.a. Si Autres, precisez: {{ record[70] }}</p>
 
-<p>15. Quels obstacles rencontrent les patients pour accéder au service en santé mentale ?: {{ record[71] }}</p>
+<p>15. Quels obstacles rencontrent les patients pour accéder au service en santé mentale?: {{ record[71] }}</p>
 
-<p>16. Connaissez-vous des gens dans la communauté ayant une formation académique en santé mentale qui exercent ailleurs ?: {{ record[72] }}</p>
+<p>16. Connaissez-vous des gens dans la communauté ayant une formation académique en santé mentale qui exercent ailleurs?: {{ record[72] }}</p>
 
-<p>17 tranche dge des garons enfants bnficiant des programm: {{ record[73] }}</p>
+<p>17. Quel est le pourcentage de bénéficiaires du programme sont les garçons?: {{ record[73] }}</p>
 
-<p>18 tranche dge des filles bnficiant des programmes anne 20: {{ record[74] }}</p>
+<p>18. Quel est le pourcentage de bénéficiaires du programme sont les filles?: {{ record[74] }}</p>
 
 <p>19. Quel est le budget estimatif  mensuel de ces  programmes?: {{ record[75] }}</p>
 
@@ -183,9 +183,9 @@
 
 <p>23.b. Citez les services que vous supposez être offerts par ces organisations: {{ record[82] }}</p>
 
-<p>23.c. Si oui lesquels ( noms et adresse):: {{ record[83] }}</p>
+<p>23.c. Si oui lesquels ( noms et adresse): {{ record[83] }}</p>
 
-<p>Quels sont les organismes qui vous rfrent des demandes : {{ record[84] }}</p>
+<p>Quels sont les organismes qui vous rfrent des demandes: {{ record[84] }}</p>
 
 <p>Question a: {{ record[85] }}</p>
 <p>Question b: {{ record[86] }}</p>
@@ -212,9 +212,9 @@
 <p>Quand votre service a t il commenc: {{ record[98] }}</p>
 <p>Quand estce que ce ou ces services atil cess dexister  : {{ record[99] }}</p>
 
-<p>Votre organisation supportetelle les filles et les garons  s: {{ record[100] }}</p>
+<p>Votre organisation supportetelle les filles et les garons: {{ record[100] }}</p>
 
-<p>Si oui prciser  plusieurs rponses possibles: {{ record[101] }}</p>
+<p>Si oui fournir plusieurs rponses possibles: {{ record[101] }}</p>
   
 <p>Catgories denfants vulnrables que vous recevez: {{ record[102] }}</p>
 <p>Mon element14: {{ record[103] }}</p>
