@@ -222,7 +222,7 @@ def form_query_total(self, page=None):
   return len(total)
 
 
-def form_query_builder(self, page=None, limit=25):
+def form_query_builder(self, page=None, limit=25, kind="None"):
   keywords = self.request.get("keywords").encode("utf-8")
   service = self.request.get("service").encode("utf-8")
   department = self.request.get("department").encode("utf-8")

@@ -419,11 +419,12 @@ class ExportHandler(BaseHandler.BaseHandler):
       record_id = self.request.get("record_id")
       writer.writerow(RECORDS_CSV_HEADER)
       sql_statement = """
-        SELECT * FROM organization WHERE id="{0}";
+        SELECT * FROM organization WHERE id="{0}" LIMIT 1;
         """.format(record_id)
       records = QueryHandler.execute_query(sql_statement)
       for record in records:
         writer.writerow(SqlToCsvLine(record, RECORD_CSV_FIELDS))
+      return
 
     if export_type == "view_record":
       self.response.headers['Content-Disposition'] = \

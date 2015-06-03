@@ -4,6 +4,13 @@
 <style>
 .static-map img {width: 80%;}
 </style>
+<style type="text/css">
+.optionGroup
+{
+    font-weight:bold;
+    font-style:italic;
+}
+</style>
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -111,17 +118,16 @@
         </select></td>
         </tr>
         <tr>
-            <th><label for="department">Department</label></th>            
+            <th><label for="department">Department/Commune</label></th>            
             <td><select name="department">
-            <option value="" selected>Select Department</option>
-            <optgroup label="Artibonite">
+            <option value="" selected>Department/Commune</option>
+                <option value="Artibonite" class="optionGroup">Artibonite</option>
                 <option value="Anse rouge">Anse rouge</option>
                 <option value="Ennery">Ennery</option>
                 <option value="Gonaives">Gonaives</option>
                 <option value="Saint-michel">Saint-michel</option>
                 <option value="Terre neuve">Terre neuve</option>
-            </optgroup>
-            <optgroup label="Centre">
+                <option value="Centre" class="optionGroup">Centre</option>
                 <option value="Belladere">Belladere</option>
                 <option value="Ceca la source">Ceca la source</option>
                 <option value="Cerca carvajal">Cerca carvajal</option>
@@ -131,23 +137,19 @@
                 <option value="Saut-d'eau">Saut-d'eau</option>
                 <option value="Thomassique">Thomassique</option>
                 <option value="Thomonde">Thomonde</option>
-            </optgroup>
-            <optgroup label="Grand Anse">
+                <option value="Grand Anse" class="optionGroup">Grand Anse</option>
                 <option value="Dame-marie">Dame-marie</option>
                 <option value="Jeremie">Jeremie</option>
-            </optgroup>
-            <option value="Nippes">Nippes</option>
-            <optgroup label="Nord">
+                <option value="Nippes">Nippes</option>
+                <option value="Nord" class="optionGroup">Nord</option>
                 <option value="Pignon">Pignon</option>
-            </optgroup>
-            <option value="Nord-Est">Nord-Est</option>
-            <option value="Nord-Ouest">Nord-Ouest</option>
-            <optgroup label="Ouest">
+                <option value="Nord-Est">Nord-Est</option>
+                <option value="Nord-Ouest">Nord-Ouest</option>
+                <option value="Ouest" class="optionGroup">Ouest</option>
                 <option value="Delmas">Delmas</option>
                 <option value="Leogane">Leogane</option>
                 <option value="Petit-goave">Petit-goave</option>
-            </optgroup>
-            <optgroup label="Sud">
+                <option value="Sud" class="optionGroup">Sud</option>
                 <option value="Aquin">Aquin</option>
                 <option value="Arniquet">Arniquet</option>
                 <option value="Camp perrin">Camp perrin</option>
@@ -164,8 +166,7 @@
                 <option value="St. Louis du sud">St. Louis du sud</option>
                 <option value="Tiburon">Tiburon</option>
                 <option value="Torbeck">Torbeck</option>
-            </optgroup>
-            <optgroup label="Sud-Est">
+                <option value="Sud-Est" class="optionGroup">Sud-Est</option>
                 <option value="Anse-a-pitre">Anse-a-pitre</option>
                 <option value="Bainet">Bainet</option>
                 <option value="Belle anse">Belle anse</option>
@@ -176,7 +177,6 @@
                 <option value="La vallee">La vallee</option>
                 <option value="Marigot">Marigot</option>
                 <option value="Thiotte">Thiotte</option>
-            </optgroup>
             <option value="none">N/A</option>
             </select></td>
         </tr>                        
