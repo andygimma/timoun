@@ -93,6 +93,6 @@
 
         Notes: <textarea name='notes' cols=40 rows=6 value="{{ service[45] }}"></textarea>
   </form>
-   <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce service?');">Supprimer Service</a>
+   <a href="/services/{{service[0]}}/edit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce service?');">Supprimer Service</a>
 {% endblock %}
     

@@ -276,7 +276,7 @@
         <li><a id="csv_link" id="csv_link" class="btn btn-b user">CSV</a></li>
         <li><a id="last_page_link" class="btn btn-d user" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
         <li><a id="last_page_link" class="btn btn-d user" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
-        <li><a id="" href="" class="btn btn-c user">Effacer Recherche</a></li>
+        <li><a id="" href="/search" class="btn btn-c user">Effacer Recherche</a></li>
     </ul>
 
     <p class="search-again">Pour effectuer une nouvelle recherche, il suffit de remplir les champs ci-dessus à nouveau, et cliquez sur le bouton de recherche.</p>
@@ -306,7 +306,7 @@
   // add a marker in the given location, attach some popup content to it and open the popup
   try {
  L.marker([{{ record[10]}}, {{ record[11] }}]).addTo(map)
-        .bindPopup("<p style='color:black'><a href='/records/{{record[0]}}' target='_blank'>{{ record[5] }}</a></p>")
+        .bindPopup("<p style='color:black'><a href='/records/{{record[3]}}' target='_blank'>{{ record[5] }}</a></p>")
         .openPopup();
   }
   catch(err) {

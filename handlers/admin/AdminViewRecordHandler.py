@@ -28,7 +28,7 @@ class AdminViewRecordHandler(BaseHandler.BaseHandler):
       return
 
     sql_statement = """
-      SELECT * FROM organization WHERE id='{0}' LIMIT 1
+      SELECT * FROM organization WHERE id='{0}' AND is_deleted=0 LIMIT 1
     """.format(record_id)
 
 

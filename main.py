@@ -81,7 +81,7 @@ app = webapp2.WSGIApplication([
     (r'/admin/services/([^/]+)', AdminServiceViewHandler.AdminServiceViewHandler, "admin_service_view"),
     # ('/admin/services/new', AdminServiceNewHandler.AdminServiceNewHandler),
     ('/services/([^/]+)/edit', AdminServiceEditHandler.AdminServiceEditHandler),
-    # ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
+    ('/services/([^/]+)/delete', AdminServiceDeleteHandler.AdminServiceDeleteHandler),
     (r'/users/([^/]+)/edit', EditHandler.EditHandler, "users_edit"),
     (r'/records/new', NewRecordHandler.NewRecordHandler, "records_new"),
     (r'/programs/new', NewProgramHandler.NewProgramHandler, "programs_new"),

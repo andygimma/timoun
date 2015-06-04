@@ -30,7 +30,7 @@ class AdminServiceViewHandler(BaseHandler.BaseHandler):
     service = QueryHandler.execute_query(sql_statement)
 
     program_name = QueryHandler.execute_query("SELECT name_french FROM program WHERE id={0}".format(service[0][11]))
-
+    
     template_values = {
       "message": self.request.get("message"),
       "user_session": user_session,

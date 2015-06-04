@@ -55,6 +55,6 @@
       <br/>
     <input type=submit id="submit" class="admin-btn" value=Submit>        
   </form>
-   <a href="#" onclick="return confirm('Are you sure you want to delete this program?');">Delete Program</a>
+   <a href="/programs/{{ program[0] }}/delete" onclick="return confirm('Are you sure you want to delete this program?');">Delete Program</a>
 
 {% endblock %}

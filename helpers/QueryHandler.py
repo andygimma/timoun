@@ -186,6 +186,14 @@ def form_query_total(self, page=None):
     age_start, age_end = order_age(age_start, age_end)
     age_query = sql_age_string(age_start, age_end)
 
+  if age_start and not age_end:
+    age_end = 18
+    age_query = sql_age_string(age_start, age_end)
+
+  if age_end and not age_start:
+    age_start = 0
+    age_query = sql_age_string(age_start, age_end)
+
   if service:
     service_query = "AND `service`.`name_french` = '{0}'".format(service)
 
