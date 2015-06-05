@@ -94,22 +94,22 @@ body {
 
 @media screen and (min-width: 40em) {
   .nav-collapse li {
-    width: 16.66%;
-    *width: 16%; /* IE7 Hack */
-    _width: 15%; /* IE6 Hack */
+    width: 20%;
+    *width: 20%; /* IE7 Hack */
+    _width: 19%; /* IE6 Hack */
   }
 }
 
 .nav-collapse a {
   color: #fff;
   text-decoration: none;
-  width: 85%;
+  width: 88%;
   background: #f36813;
   padding: 0.7em 1em;
   float: left;
 }
 @media (max-width: 1149px) {
-    .nav-collapse a {width: 84%;}
+    .nav-collapse a {width: 86%;}
     .nav-collapse li a {min-height: 45px;}
 }
 

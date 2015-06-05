@@ -20,222 +20,21 @@
 {% block content %}
 
 <div class="top">
-<div style="clear:both;">
-<h1>Organizations &amp; Programs Map - A New Way to Discover Programs for Orphaned and Vulnerable Children</h1>    
-<p>Begin by choosing a location and program to find the organizations that serve orphans and vulnerable children throughout Haiti.  Refine your search results by using any combination of filters and keywords.  For example, recommended keywords include organization name, city, street.</p>
+<h1>Welcome to “Sèvis Pwoteksyon timoun an Ayiti” website.</h1>    
+<div id="map" class="home-map"></div>
+<p>Under  the Institute of Social Welfare and Research’ s coordination and leadership , this website provides an online directory of resources, projects, and services available for vulnerable children across the country.</p>
+<p>It is also an excellent tool for the public, to identify and locate the organizations offering the services. This site includes organizations/programs that provide food and nutritional support, temporary shelter and care, psycho social support, formal and informal education, legal services, health care with a focus on mental health services for vulnerable children and their families.</p>
+
+<p>It offers also the possibility of adding a newly created institution or who has not been yet identified.</p>  
+<div class="headnote">
+<div class="headnote_left">
+<h3>Search for programs and services</h3>
+    <p><strong>Identify key agencies and the programs.</strong> Collect and share data to better serve children of Haiti.</p>
 </div>
-        <div class="haiti-map">
-            <img src="../../assets/img/IBERS_Map5_kraked.jpg" width="" height="" alt="map of haiti" />
-        </div>
-<form>
-<table class="block-table index">
-    <tr>
-        <th><label for="keywords">Keywords</label></th>
-            <td><input type="text" name="keywords" value="" id="keywords" placeholder="enter search terms here..."></td>
-    </tr>
-    <tr>
-        <th><label for="service">Service</label></th>
-            <td><select name="service">
-            <option value="" selected>Select Service</option>
-            <optgroup label="Nutrition">
-                <option value="Cantine scolaire">School canteen</option>
-                <option value="Distribution de lait pour bébé">Distribution of milk for baby</option>
-                <option value="Distribution de nourriture pour l’enfant adapté à son âge">Distribution of food to children age-appropriate</option>
-                <option value="Distribution ration sèche">Distribution dry ration</option>
-                <option value="Education nutritionnelle">Nutritional education</option>
-                <option value="Jardins potagers">Vegetable gardens</option>
-                <option value="Sécurité alimentaire">Food security</option>
-            </optgroup>
-            <optgroup label="Home Based Care">
-                <option value="Distribution de kits d’hygiène">Distribution of hygiene kits</option>
-                <option value="Distribution de produit pour le traitement de l’eau">Product distribution for the treatment of water</option>
-                <option value="Vêtements">Clothing</option>
-                <option value="Autres à spécifier">Other</option>
-            </optgroup>
-            <optgroup label="Shelter">
-                <option value="Abri permanent">Permanent shelter</option>
-                <option value="Abri provisoire">Temporary shelter</option>
-                <option value="Réparation de maison">Home repair</option>
-                <option value="Autres à spécifier">Other</option>
-            </optgroup>
-            <optgroup label="Child Protection">
-                <option value="abus émotionnel">Emotional abuse</option>
-                <option value="Abus physique">Physical abuse</option>
-                <option value="abus sexuel">Sexual abuse</option>
-                <option value="formation sur la protection de l’enfant">Training on child protection</option>   
-                <option value="négligence">Negligence</option>       
-                <option value="Parrainage">Sponsorship</option>
-                <option value="placement en famille d’accueil permanente">Investment in permanent foster family</option>
-                <option value="placement en famille d’accueil transitoire">Family of investment transitional home</option>
-                <option value="placement en maisons d’enfants en accord avec IBESR">Houses for placement of children in accordance with IBESR</option>
-                <option value="protection légale">Legal protection</option>
-                <option value="Réponses aux cas d’abus et exploitation">Answers to abuse and exploitation</option>
-                <option value="réunification familiale">Family reunification</option>
-                <option value="support aux enfants des rues">Support for street children</option>
-                <option value="support aux enfants en conflit avec la loi">Support to children in conflict with the law</option>
-                <option value="support aux enfants en domesticité">Support for children in domestic</option>
-                <option value="support aux enfants handicapés">Support for disabled children</option>
-                <option value="support aux enfants victimes de traite">Support to trafficked children</option>
-                <option value="Autres">Other</option>
-            </optgroup>
-            <optgroup label="Health">
-                <option value="Consultation pour enfants">Child consultation</option>
-                <option value="Déparasitage">Deworming</option>
-                <option value="Distribution de vitamine A etc…">Distribution of vitamin A etc ...</option>
-                <option value="Education sanitaires des parents / tuteurs">Health education of parents / guardians</option>
-                <option value="Poste de rassemblement/Vaccination">Assembly position / vaccination</option>
-                <option value="Service de réadaptation et de stimulation pour les handicapés">Rehabilitation and stimulation services for disabled</option>
-                <option value="Soins aux enfants affectés/ infectés par  le VIH/SIDA">Care of children affected / infected by HIV / AIDS</option>
-                <option value="Autres">Other</option>
-            </optgroup>
-            <optgroup label="Psychosocial Support">
-                <option value="Activités culturelles">Cultural activites</option>
-                <option value="Activités ludiques">Fun activities</option>
-                <option value="Art floral">Floristry</option>
-                <option value="Counselling">Counselling</option>
-                <option value="Autres">Autres</option>
-            </optgroup>
-            <optgroup label="Education">
-                <option value="Ecole spécialisée pour handicapés">Specialized school for disabled</option>
-                <option value="Formation non formelle">Non-formal education</option>
-                <option value="Formation professionnelle Spécifier">Training</option>
-                <option value="Préscolaire">Preschool</option>
-                <option value="Primaire">Primary</option>
-                <option value="Secondaire">Secondary</option>
-                <option value="Autres">Other</option>
-            </optgroup>
-            <optgroup label="Mental Health Services">
-                <option value="Services Sante Mentales">Mental health services</option>
-            </optgroup>
-        </select></td>
-        </tr>
-        <tr>
-            <th><label for="department">Departement/Commune</label></th>            
-            <td><select name="department">
-            <option value="" selected>Sélectionnez Dep't/Commune</option>            
-            <option value="Artibonite" class="optionGroup">Artibonite</option>
-                <option value="Anse rouge" class="optionChild">Anse rouge</option>
-                <option value="Ennery" class="optionChild">Ennery</option>
-                <option value="Gonaives" class="optionChild">Gonaives</option>
-                <option value="Saint-michel" class="optionChild">Saint-michel</option>
-                <option value="Terre neuve" class="optionChild">Terre neuve</option>
-                <option value="Centre" class="optionGroup">Centre</option>
-                <option value="Belladere" class="optionChild">Belladere</option>
-                <option value="Ceca la source" class="optionChild">Ceca la source</option>
-                <option value="Cerca carvajal" class="optionChild">Cerca carvajal</option>
-                <option value="Hinche" class="optionChild">Hinche</option>
-                <option value="Lascahobas" class="optionChild">Lascahobas</option>
-                <option value="Maissade" class="optionChild">Maissade</option>
-                <option value="Saut-d'eau" class="optionChild">Saut-d'eau</option>
-                <option value="Thomassique" class="optionChild">Thomassique</option>
-                <option value="Thomonde" class="optionChild">Thomonde</option>
-            <option value="Grand Anse" class="optionGroup">Grand Anse</option>
-                <option value="Dame-marie" class="optionChild">Dame-marie</option>
-                <option value="Jeremie" class="optionChild">Jeremie</option>
-            <option value="Nippes" class="optionGroup">Nippes</option>    
-            <option value="Nord" class="optionGroup">Nord</option>
-                <option value="Pignon" class="optionChild">Pignon</option>
-            <option value="Nord-Est" class="optionGroup">Nord-Est</option>
-            <option value="Nord-Ouest" class="optionGroup">Nord-Ouest</option>
-            <option value="Quest" class="optionGroup">Ouest</option>
-                <option value="Delmas" class="optionChild">Delmas</option>
-                <option value="Leogane" class="optionChild">Leogane</option>
-                <option value="Petit-goave" class="optionChild">Petit-goave</option>
-            <option value="Sud" class="optionGroup">Sud</option>
-                <option value="Aquin" class="optionChild">Aquin</option>
-                <option value="Arniquet" class="optionChild">Arniquet</option>
-                <option value="Camp perrin" class="optionChild">Camp perrin</option>
-                <option value="Cavaillon" class="optionChild">Cavaillon</option>
-                <option value="Chantal" class="optionChild">Chantal</option>
-                <option value="Coteaux" class="optionChild">Coteaux</option>
-                <option value="Les anglais" class="optionChild">Les anglais</option>
-                <option value="Les cayes" class="optionChild">Les cayes</option>
-                <option value="Maniche" class="optionChild">Maniche</option>
-                <option value="Port-a-piment" class="optionChild">Port-a-piment</option>
-                <option value="Port-salut" class="optionChild">Port-salut</option>
-                <option value="Roche-a-bateau" class="optionChild">Roche-a-bateau</option>
-                <option value="St. Jean du sud" class="optionChild">St. Jean du sud</option>
-                <option value="St. Louis du sud" class="optionChild">St. Louis du sud</option>
-                <option value="Tiburon" class="optionChild">Tiburon</option>
-                <option value="Torbeck" class="optionChild">Torbeck</option>
-            <option value="Sud-Est" class="optionGroup">Sud-Est</option>
-                <option value="Anse-a-pitre" class="optionChild">Anse-a-pitre</option>
-                <option value="Bainet" class="optionChild">Bainet</option>
-                <option value="Belle anse" class="optionChild">Belle anse</option>
-                <option value="Cayes-jacmel" class="optionChild">Cayes-jacmel</option>
-                <option value="Cote-de-fer" class="optionChild">Cote-de-fer</option>
-                <option value="Grand gosier" class="optionChild">Grand gosier</option>
-                <option value="Jacmel" class="optionChild">Jacmel</option>
-                <option value="La vallee" class="optionChild">La vallee</option>
-                <option value="Marigot" class="optionChild">Marigot</option>
-                <option value="Thiotte" class="optionChild">Thiotte</option>
-            <option value="none">P/A</option>
-            </select></td>
-        </tr>                       
-            <th><label for="age_start">Age Min:</label></th>
-            <td><select name="age_start">
-            <option value="" selected>Select Range</option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            </select></td>
-        </tr>
-        <tr>
-            <th><label for="age_end">Age Max:</label></th>
-            <td><select name="age_end">
-            <option value="" selected>Select Range</option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            </select></td>
-        </tr>
-        <tr>
-            <th><label for="gender">Gender</label></th>
-            <td><select name="gender">
-            <option value="" selected>Select Option</option>
-            <option {% if gender == "male" %} selected {% endif %} value="male">Boys</option>
-            <option {% if gender == "female" %} selected {% endif %}  value="female">Girls</option>
-            <option value="either">Boys &amp; girls</option>
-            <option value="none">N/A</option>
-            </select></td>
-        </tr>    
-</table>
-        <div align="right">
-            <input type="submit" class="btn btn-d button-left" align="center" value="Search Now"> 
-        </div>
-</form>
+<div class="top-cta">
+    <a href="/search"><div class="btn">Search</div></a>
+</div>
+</div>    
 </div> <!-- //.top -->
 
 <div class="mid" id="mid-home">
@@ -256,7 +55,6 @@
 
         <div class="icon-box" align="center"><span class="genericon genericon-checkmark"></span><p class="list"><strong>Make better decisions.</strong></p></div>
     </div>
-</div>
 
 <div class="footnote">
 <div class="footnote_left">
@@ -267,15 +65,52 @@
     <a href="/suggest_services"><div class="btn">Suggest Services</div></a>
 </div>
 </div>
+<div style="clear:both;"></div>    
+<a name="definitions"><h1 class="search-cat">Search Categories and Definitions</h1></a>
+    <span class="genericon genericon-aside cat"></span><p><strong>Food and nutrition support</strong></p>
+    <p>These services have the desired outcome of enhancing nutritional status and preventing deaths due to malnutrition among vulnerable children.</p>
+    <p>This site includes organizations that provide food and /or nutritional support to vulnerable children.   Nutrition services will vary depending on whether the child is an infant, breastfeeding, receiving complementary feeding or more than 2 years old.  Both the type of food and the age range that the support will be focused at will be documented in this document.</p>
+    <p><em>Impact areas: Children in households below the poverty line, Street children; abandoned children, Refugee and displaced children.</em></p>
+    <span class="genericon genericon-home cat"></span><p><strong>Shelter and care</strong></p>
+    <p>These services have the desired outcome of ensuring that no child goes without shelter, clothing, access to clean safe water or basic personal hygiene, and that children have at least one adult who provides them with love and support.</p>
+    <p>This site includes organizations that assist families with vulnerable children by providing temporary shelters, rehabilitation of current shelters, or blankets and other essential toiletries.</p>
+    <p><em>Impact areas: Children in households below the poverty line, Children in households headed by children, youth, the elderly or women, Children in households where an adult is chronically ill, Children affected or infected by HIV/AIDS, Refugee and displaced children, Street children; abandoned children</em></p>
+    <span class="genericon genericon-lock cat"></span><p><strong>Protection</strong></p>
+    <p>These services either prevent or respond to child sexual and physical abuse.  Protection services for vulnerable children can also look at services that support better placement of children in orphanages, reunification of children in orphanages back with their families and reunification of siblings.</p>
+    <p>This site includes organizations with interventions such as facilitating basic birth registration and identification necessary for long-term access to education, health care and social services; removing children from abusive situations into safe, temporary or permanent placements </p>
+    <p><em>Impact areas: Children victims of violence, Children victims of sexual abuse and exploitation, Children victims of trafficking, Child sex workers, Refugee and displaced children.</em></p>        
+    <span class="genericon genericon-summary cat"></span><p><strong>Healthcare</strong></p>
+    <p>These services have the desired outcome of meeting the health needs of vulnerable children according to their age.</p>
+    <p>This site includes organizations that offer to vulnerable children for free or at a reduced cost.  Health services might include immunizations, growth monitoring or care taker education on topics like breastfeeding and complimentary feeding for children under-fives.  Other services that might exist are sick child health services or pediatric HIV treatment and care.</p>
+    <p><em>Impact areas: Children in households below the poverty line, Children in households where an adult is chronically ill, Children affected or infected by HIV/AIDS, Street children; abandoned children, Children with disabilities, Children victims of violence, Children victims of sexual abuse and exploitation, Children victims of trafficking, Children victims of the worst forms of child labor, Child sex workers, Refugee and displaced children.</em></p>          
+    <span class="genericon genericon-heart cat"></span><p><strong>Psychosocial support services (PSS)</strong></p>
+    <p>These services have the desired outcome of ensuring that children have the human attachments necessary for normal development and that children can participate cooperatively in activities such as school, recreation and work with other children and adults.  PSS also looks to support children beyond the normal development process.  PSS supports vulnerable children and caretakers who have had strains on their lives.  Examples of strains could include living with HIV, a family member with a chronic disease, a traumatic experience or abandonment.</p>
+    <p>This site will eventually include organizations that assist with referral to counseling where available and appropriate to include activities specific to HIV-positive youth; and rehabilitation/re-integration for children who are living outside of family care, support groups for caretakers such as mother feeding groups or a group of vulnerable teens getting together to discuss issues and have fun together. Organizations that provide training and support to frontline workers who are the “gatekeepers” – those most likely to come into contact with highly vulnerable children, including local NGO field staff, local volunteers, social workers, police brigade, school counselors and nurses, and staff of child residential care facilities; assist police in how to constructively and appropriately deal with highly vulnerable children who are in violation of the law.</p>
+    <p><em>Impact areas: Children in households below the poverty line, Children affected or infected by HIV/AIDS, Street children; abandoned children, Children with disabilities, Children victims of violence, Children victims of sexual abuse and exploitation, Children victims of trafficking, Children victims of the worst forms of child labor, Child sex workers, Refugee and displaced children,     Children living in institutions (ex: orphanages, prisons, mental health facilities), Children in conflict with the law</em></p>    
+    <span class="genericon genericon-book cat"></span><p><strong>Formal and informal education</strong></p>
+    <p>These services have the desired outcome of ensuring that vulnerable children receive educational and vocational opportunities in accord with community norms and market-driven employment options.</p>
+    <p>This site includes that encourage access to all to formal education system for highly vulnerable children; and provide short-term, direct assistance to subsidize school-related costs (e.g., fees, books, uniforms), that have a school feeding program.</p>
+    <p><em>Impact areas: Children in households below the poverty line, Children who are married before the legally defined age, Refugee and displaced children.</em></p>
+    <span class="genericon genericon-category cat"></span><p><strong>Legal services</strong></p>
+    <p>Protection, legal and otherwise, represents the wall of security needed by adolescents to enable them access to the provisions that ensure basic freedoms and rights.</p>
+    <p>This site includes organizations that provide legal and paralegal services for vulnerable children and caretakers.  This would map legal assistance or support to access legal assistance to vulnerable children and their caretakers.  Examples include for those in conflict with the law, for sexual or physical abuse cases, obtaining birth registration and certificate, or reporting a legal claim about child abduction or trafficking. </p>
+    <p><em>Impact areas: Children in conflict with the law, Children victims of violence, Children victims of sexual abuse and exploitation, Children victims of trafficking, Children victims of the worst forms of child labor, Child sex workers</em></p>
+    <span class="genericon genericon-info cat"></span><p><strong>Other services</strong></p>
+    <p>If other key services are found during mapping activities or via another vulnerable children actor, they will be included.</p>   
+</div>
 
 <!-- Scripts Go Here -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-$( "form" ).on( "submit", function( event ) {
-  event.preventDefault();
-  var queryString = $( this ).serialize();
-  console.log(queryString);
-  window.location = "/search?" + queryString + "#search-mid";
-});
+    function getURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+    }
+  var map = L.map('map').setView([18.733, -72.733], 7);
+    map.scrollWheelZoom.disable();
+
+  // add an OpenStreetMap tile layer
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
 </script>
 {% endblock %}

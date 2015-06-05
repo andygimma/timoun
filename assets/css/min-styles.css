@@ -25,10 +25,10 @@ a#breadcrumb_home {margin-left: 20px;}
 .french_header h2 {font-size: 1.8em;}
 
 .genericon {color: #3c5;}
-.cat {margin: 0px 0 0 9%!important;}
-.icon-box {width:25%; float: left;}
+.cat {margin: 0px 0 0 9.3%!important;}
+.icon-box {width:24.5%; float: left;}
 .icon-box p {text-align:center;}
-.icon-row {clear:both; min-height:175px; width:90%; margin-left: 5%; margin-top:40px;}
+.icon-row {clear:both; min-height:175px; width:85%; margin-left: 8%; margin-top:40px;}
 @media (max-width:768px) {
     .icon-box {width: 100%; clear:both;}
     .icon-row {min-height: 425px;}
@@ -62,7 +62,7 @@ p {color: #302e2c;}
 .top h1, h1.search-cat {border-left: 5px solid #f36813; color: #1c6cb4; font-size: 1.8em; padding-left: 10px;}
 .top h1 span {display: inline-block;}
 .mid h2 {border-left: 5px solid #f36813; color:#1c6cb4; padding-left: 10px;}
-#mid-home {margin-top: -50px;}
+#mid-home {clear:both;}
 .bottom h3 {font-size: 1.2em; padding-top: 40px;}
 
 
@@ -143,46 +143,36 @@ message {
 .records {margin-left: 0!important;}
 
 /* HOME */
-.haiti-map {width: 80%; margin: 0 0 0 10%; padding: 0;}
-.haiti-map img {width: 50%; float: left; height: auto; margin: 0 0 40px 0; padding: 0;}
-    @media (max-width: 768px) {
-        .haiti-map img {clear: both; width: 90%!important; margin-left: 5%;}
-        .home-search-form {width: 80%!important; margin-left: 10%; clear:both;}
-    }
-.map-spacing {height: 40px; clear: both;}
+.home-map {width: 38%!important; float: left!important; height: 300px!important; margin: 0 2% 0 0; padding: 0;}
+@media (max-width: 767px) {
+    .home-map {width: 80%!important; float: left!important; height: 300px!important; margin: 0 0 20px 10%; padding: 0;}
+}
 
-.footnote {width: 100%; height:60px; margin-bottom: -125px;}
-#french_footnote {height: 70px;}
-.footnote .french {height: 70px!important;}
-.footnote_left {width: 70%; float: left;}
-.bottom-cta {width: 30%; float: left;}
-.footnote {background: #eee; padding: 20px 0 30px 0;}
-.footnote h3 {float: left; text-align: left; margin: 0 0 5px 10%;}
-.footnote p {float:left; text-align: left; color: #333; margin-top: 0; margin-left: 10%;}
-.footnote .btn {margin-top: 5px; text-align: center; margin-left: 13%}
+.headnote, .footnote {float: left; clear: both; width: 80%; margin: 10px 0 40px 10%; background: #eee; padding: 20px 0 20px 0;}
+.footnote {padding-bottom:25px;}
+.headnote_left, .footnote_left {width: 70%; float: left;}
+.top-cta, .bottom-cta {width: 30%; float: left;}
+.headnote h3, .footnote h3 {float: left; text-align: left; margin: 0 0 5px 10%; padding-top:0;}
+.headnote p, .footnote p {float:left; text-align: left; color: #333; margin-top: 0; margin-left: 10%;}
+.headnote .btn, .footnote .btn {margin-top: 10px; text-align: center; margin-left: 20%}
+
+@media (min-width:993px) {
+    .headnote .btn {width: 35%;}
+}
 @media (max-width:992px) {
-    .footnote {height: 75px;}
-    .footnote .btn {margin-top: 20px;}
-    #french_bottom-cta .btn {margin-top:0;}
 }
 @media (max-width: 882px) {
-    #french_footnote {height: 95px}
 }
 @media (max-width:777px) {
-    .footnote {height: 100px;}
 }
 @media (max-width: 662px) {
-    #french_footnote {height: 125px;}
-}
-@media (max-width:475px) {
-    .footnote {height: 175px; margin-top: 40px;}
-    #french_footnote {height: 185px}
-    .footnote_left {width: 100%; clear:both;}
-    .footnote p, .footnote h3 {text-align: center;}
-    .bottom-cta {text-align: center; width: 100%; clear:both;}
-    .footnote .btn {margin-left: auto; margin-right: auto; margin-top: 0;}
+    .footnote_left, .headnote_left {width: 100%; clear:both;}
+    .footnote p, .footnote h3, .headnote h3, .headnote p {text-align: center;}
+    .bottom-cta, .top-cta {text-align: center; width: 100%; clear:both;}
+    .footnote .btn, .headnote .btn {margin-left: auto; margin-right: auto; margin-top: 0;}
 }
 
+.children {width: 80%; margin-left: 10%;}
 /* SEARCH */
 .left {text-align: left;}
 .search-map {width: 40%!important; float: left!important; height: 400px!important; margin: 0; padding: 0;}
