@@ -8,7 +8,7 @@ import json
 import env
 
 PROGRAMS = ["Nutrition", "Home Based Care", "Shelter", "Child Protection", "Health", "Psychosocial Support", "Education", "Mental Health Services"]
-DEPARTMENTS = ["Artibonite", "Centre", "Grand Anse", "Nord", "Ouest", "Sud", "Sud-Est"]
+DEPARTMENTS = ["Artibonite", "Centre", "Grand Anse", "Nord", "Ouest", "Sud", "Sud-Est", "Nord-Est"]
 _INSTANCE_NAME = 'timoun-production:timoun427'
 words = {
 "Š": "S",
