@@ -19,7 +19,7 @@
 <div class="top">
   <h1 id="search-header">Recherche</h1>
     <p>Recherche par toute combinaison de cinq filtres avec des listes déroulantes et une fonctionnalité de mot-clé qui recherche une large gamme de mots trouvés dans les archives de l'organisation. La recherche par mot clé est la meilleure façon d'effectuer une recherche par nom de l'organisation, de la rue ou des services ne figurent pas dans le menu déroulant des filtres. Les résultats de la recherche seront cartographiés et résumés avec des liens vers la fiche complète fournie. Résultats de la recherche peuvent également être exportés dans un fichier CSV ou par courriel.</p>    
-<form action="/search">
+<form>
 <table class="inline-table">
         <tr>
             <th><label for="keywords">Mots-clés</label></th>
@@ -288,8 +288,7 @@
         <p style="color: black;">Nom de l'organisation: <a href='/records/{{record[2]}}' target='_blank'>{{ record[5] }}</a></p>
         <p style="color: black;">Adresse: {{ record[9] }}</p>
         <p style="color: black;">Numéro de téléphone: {{ record[13] }}</p>
-        <p style="color: black;">Services: {{ record[18][0][0] }}</p>
-    </div>
+        <p style="color:black;">Services: {% if record[17] == 1 %} {{ record[18][0][0] }} {% else %} Service d'information restreinte jusqu'à approuvée {% endif %}</p>    </div>
   {% endfor %}
 </div>    
 </div><!-- //.results-box -->
@@ -373,6 +372,14 @@
     if (pageParam == "0" || pageParam == null) {
         $("#last_page_link").hide();
     } 
+
+    $( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      var queryString = $( this ).serialize();
+      console.log(queryString);
+      window.location = "/search?" + queryString + "#search-mid";
+    });
+</script>
 </script>
 
 {% endblock %}

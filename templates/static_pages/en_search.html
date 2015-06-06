@@ -21,7 +21,7 @@
     <p>Search by any combination of five filters with drop down lists and a keyword feature  that searches a wide range words found in the organization records.  The keyword search is the best way to search by organization name, street or services not found in the drop down filters.  The search results will be mapped and summarized with links to the full record provided.  Search results can also be exported in a CSV file or emailed.</p>
     <p><em>While these instructions are in English, the resource information is primarily in French. Please enter keywords in French.</em></p>
     <p>To find more results enter fewer search criteria. To find fewer results, enter additional search criteria.</p>
-<form action="/search" method="get">
+<form>
 <table class="inline-table">
         <tr>
             <th><label for="keywords">Keywords</label></th>
@@ -194,7 +194,7 @@
             <td>
             <span id="age-start">
             <select name="age_start">
-            <option value="0" selected>Select Range</option>
+            <option value="" selected>Select Range</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -220,7 +220,7 @@
             <td>
             <span id="age-end">
             <select name="age_end">
-            <option value="0" selected>Select Range</option>
+            <option value="" selected>Select Range</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -277,11 +277,10 @@
 <div class="results-box">
   {% for record in records %}
     <div class="result">
-        <p style="color:black;">Organization Name: <a href='/records/{{record[3]}}' target='_blank'>{{ record[5] }}</a></p>
+        <p style="color:black;">Organization Name: <a href='/records/{{record[2]}}' target='_blank'>{{ record[5] }}</a></p>
         <p style="color:black;">Address: {{ record[9] }}</p>
         <p style="color:black;">Phone Number: {{ record[13] }}</p>
-        <p style="color:black;">Services: {% if record[17] == 1 %} {{ record[18][0][0] }} {% else %} Service information restricted until approved  {% endif %}</p>
-    </div>
+        <p style="color:black;">Services: {% if record[17] == 1 %} {{ record[18][0][0] }} {% else %} Service information restricted until approved {% endif %}</p>    </div>
   {% endfor %}
 </div>    
 </div><!-- //.results-box -->
@@ -322,7 +321,7 @@
   // add a marker in the given location, attach some popup content to it and open the popup
   try {
  L.marker([{{ record[10]}}, {{ record[11] }}]).addTo(map)
-        .bindPopup("<p style='color:black'><a href='/records/{{record[3]}}' target='_blank'>{{ record[5] }}</a></p>")
+        .bindPopup("<p style='color:black'><a href='/records/{{record[2]}}' target='_blank'>{{ record[5] }}</a></p>")
         .openPopup();
   }
   catch(err) {
@@ -368,5 +367,12 @@
     if (pageParam == "0" || pageParam == null) {
         $("#last_page_link").hide();
     } 
+
+    $( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      var queryString = $( this ).serialize();
+      console.log(queryString);
+      window.location = "/search?" + queryString + "#search-mid";
+    });
 </script>
 {% endblock %}

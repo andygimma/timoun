@@ -195,8 +195,11 @@ def form_query_total(self, page=None):
     age_query = sql_age_string(age_start, age_end)
 
   if service:
-    service_query = "AND `service`.`name_french` = '{0}'".format(service)
-
+    if service in PROGRAMS:
+      # raise Exception(1)
+      service_query = "AND `service`.`program_id` = '{0}'".format(PROGRAMS.index(service) + 1)
+    else: 
+      service_query = "AND `service`.`name_french` = '{0}'".format(service)
   if department:
     if department in DEPARTMENTS:
       department_query = "AND `departement` = \"{0}\"".format(department.encode("utf-8"))
@@ -260,8 +263,11 @@ def form_query_builder(self, page=None, limit=25, kind="None"):
     age_query = sql_age_string(age_start, age_end)
 
   if service:
-    service_query = "AND `service`.`name_french` = '{0}'".format(service)
-
+    if service in PROGRAMS:
+      # raise Exception(1)
+      service_query = "AND `service`.`program_id` = '{0}'".format(PROGRAMS.index(service) + 1)
+    else: 
+      service_query = "AND `service`.`name_french` = '{0}'".format(service)
   if department:
     if department in DEPARTMENTS:
       department_query = "AND `departement` = \"{0}\"".format(department.encode("utf-8"))
@@ -283,6 +289,7 @@ def form_query_builder(self, page=None, limit=25, kind="None"):
     full_text_query = "AND MATCH(service_details) AGAINST(\"{0}\")".format(keywords)
 
 
+  
   sql_statement = """SELECT `service`.`id`, 
         `service`.`name_french`, 
         `service`.`org_id`, 
