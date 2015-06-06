@@ -288,7 +288,7 @@
         <p style="color: black;">Nom de l'organisation: <a href='/records/{{record[2]}}' target='_blank'>{{ record[5] }}</a></p>
         <p style="color: black;">Adresse: {{ record[9] }}</p>
         <p style="color: black;">Numéro de téléphone: {{ record[13] }}</p>
-        <p style="color:black;">Services: {% if record[17] == 1 %} {{ record[18][0][0] }} {% else %} Service d'information restreinte jusqu'à approuvée {% endif %}</p>    </div>
+        <p style="color:black;">Services: {% if record[17] == 1 %} {{ record[18] }} {% else %} Service d'information restreinte jusqu'à approuvée {% endif %}</p>    </div>
   {% endfor %}
 </div>    
 </div><!-- //.results-box -->

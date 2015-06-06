@@ -360,7 +360,13 @@ def add_services(records):
     """.format(record[2])
 
     services = execute_query(sql_statement)
-    record.append(services)
+    arr = services[0]
+    string = ""
+    for x in arr:
+      string += x.encode("utf-8").decode("utf-8")
+    string = string.replace(",", ", ")
+
+    record.append(string)
   return records
 
   # raise Exception(department_query)
