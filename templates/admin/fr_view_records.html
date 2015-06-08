@@ -19,7 +19,7 @@
 {% if role == "admin" %}
 	<a href="/programs/new?record={{ record[0] }}" class="btn btn-a user">Ajouter un programme</a>
 	<a href="/services/new?record={{ record[0] }}" class="btn btn-a user">Ajouter un service</a>
-	<a href="/records/{{ record[0] }}/edit" class="btn user yellow">Edit</a>
+	<a href="/records/{{ record[0] }}/edit" class="btn user yellow">Éditer</a>
 {% endif %}
 <a href="/admin/export/view_record?record_id={{record[0]}}" class="btn btn-b user">CSV</a>
 

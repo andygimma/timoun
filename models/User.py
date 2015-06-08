@@ -86,7 +86,10 @@ def update(self, TEMPLATE, form, user_session, user_key=None):
     user.name = form.name.data
     user.organization = form.organization.data
     user.phone = form.phone.data
-    user.role = form.role.data
+    try:
+      user.role = form.role.data
+    except:
+      pass
     if user.put():
       user_dict = {
         "name": user.name,

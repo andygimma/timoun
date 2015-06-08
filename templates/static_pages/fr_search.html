@@ -379,6 +379,12 @@
       console.log(queryString);
       window.location = "/search?" + queryString + "#search-mid";
     });
+
+    $( "#csv_link" ).click(function() {
+      var queryString = $( "form" ).serialize();
+      window.location = "/export/map_search?" + queryString + "#search-mid";
+    });
+
 </script>
 </script>
 

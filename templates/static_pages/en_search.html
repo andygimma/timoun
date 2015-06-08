@@ -286,7 +286,7 @@
 </div><!-- //.results-box -->
     <ul class="pagination" align="center">
         <li><a id="total" class="btn btn-a user">Records Returned: {{ total_count }}</a></li>
-        <!-- <li><a id="csv_link" href="/admin/export" class="btn btn-b user">CSV</a></li> -->
+        <li><a id="csv_link" href="/admin/export" class="btn btn-b user">CSV</a></li>
         <li><a id="last_page_link" class="btn btn-d user" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page - 1}}#search-mid">Last Page</a></li>
         <li><a id="last_page_link" class="btn btn-d user" href="search?keywords={{ keywords }}&service={{ service }}&department={{ department }}&age_start={{age_start}}&age_end={{age_end}}&gender={{ gender }}&page={{page + 1}}#search-mid">Next Page</a></li>
         <li><a href="/search" class="btn btn-c user">Clear Search</a></li>
@@ -374,5 +374,11 @@
       console.log(queryString);
       window.location = "/search?" + queryString + "#search-mid";
     });
+
+    $( "#csv_link" ).click(function() {
+      var queryString = $( "form" ).serialize();
+      window.location = "/export/map_search?" + queryString + "#search-mid";
+    });
+
 </script>
 {% endblock %}
