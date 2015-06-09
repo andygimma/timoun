@@ -91,7 +91,7 @@
          <input type="checkbox" name="dimanche" value="1" {% if service[43] == 1 %} checked {% endif %}> Dimanche<br />
 
         Notes: <textarea name='notes' cols=40 rows=6 value="{{ service[45] }}"></textarea>
-       <input type=submit class="btn btn-c user" align="left" value="Soumettre">
+       <input type=submit class="btn btn-b user" align="left" value="Soumettre">
   </form>
    <a href="/services/{{service[0]}}/edit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce service?');">Supprimer Service</a>
 {% endblock %}
