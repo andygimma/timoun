@@ -12,7 +12,7 @@ import json
 
 ORIGIN_EMAIL = "ibesr@bscht.org"
 
-ROLES = ["admin", "staff","public"]
+ROLES = ["admin", "staff"]
 class User(ndb.Model):
   """Models an User."""
   name = ndb.StringProperty(required=True)
@@ -182,7 +182,7 @@ def confirmation_email(user_email, email_endpoint, user_name):
   Veuillez suivre le lien pour créer votre mot de passe et confirmer votre compte.
   Please follow the email below to set your password and confirm your account.
 
-  http://timoun-production.appspot.com/admin/users/{1}
+  https://www.bscht.org/admin/users/{1}
 
   """.decode("utf-8").format(user_name, email_endpoint)
 

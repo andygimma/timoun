@@ -44,7 +44,7 @@ class EmailEndpointHandler(BaseHandler.BaseHandler):
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('fr_email_endpoint.html')
     else:
       LEGACY_TEMPLATE = JINJA_ENVIRONMENT.get_template('email_endpoint.html')
-    self.response.write(TEMPLATE.render(template_values))
+    self.response.write(LEGACY_TEMPLATE.render(template_values))
 
   def post(self, email_endpoint):
     form = User.UserConfirmationForm(self.request.POST)

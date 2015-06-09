@@ -24,8 +24,12 @@
         {% endfor %}
     </ul>
   {% endif %}
+  <br>
+  <br>
+  <div>
+
   <form method="POST" action="/admin/users/{{ email_endpoint }}">
-    <table>
+    <table class="block-table admin records">
       <tr>
         <td>{{ form.email.label }}</td>
         <td>{{ form.email()|safe }}</td>
@@ -42,4 +46,5 @@
     <br>
     <input type=submit value=Submit>
   </form>
+  </div>
 {% endblock %}
