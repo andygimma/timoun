@@ -15,7 +15,6 @@
 
 
    <form method="POST" action="/services/{{service[0]}}/edit" name="service-form">
-    <input type=submit value=Submit>
     
              <input type="hidden" name="org_id" value="{{service[3]}}">
 
@@ -90,6 +89,7 @@
          <input type="checkbox" name="dimanche" value="1" {% if service[41] == 1 %} checked {% endif %}> Sunday<br />
 
         Notes: <textarea name='notes' cols=40 rows=6>{{ service[43] }}</textarea>
+       <input type=submit class="btn btn-c user" align="left" value="Submit">
   </form>
    <a href="/services/{{service[0]}}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce service?');">Supprimer Service</a>
 {% endblock %}
