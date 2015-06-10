@@ -7,7 +7,7 @@
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_admin" href="/admin">Admin</a> / New Record
+    <a id="breadcrumb_admin" href="/admin">Admin</a> / Nouveau enregistrement
     <div id="language" style="text-align: right; float:right; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
@@ -16,11 +16,11 @@
 {% endblock %}
 
 {% block content %}
-  <h2>Nouvelle Record</h2>
+  <h2>Nouveau Enregistrement</h2>
 <form method="POST" action="/records/new">
     <table class="block-table admin records">
         <tr>
-            <td><label for="vetted">Vetted</label></td>
+            <td><label for="vetted">Verifié</label></td>
             <td><input type="checkbox" name="vetted" value="1"></td>
         <tr>    
             <td><label for="1_nom">Nom de l’organisation*</label></td> 

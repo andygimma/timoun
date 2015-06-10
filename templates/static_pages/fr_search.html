@@ -18,7 +18,10 @@
 {% block content %}
 <div class="top">
   <h1 id="search-header">Recherche</h1>
-    <p>Recherche par toute combinaison de cinq filtres avec des listes déroulantes et une fonctionnalité de mot-clé qui recherche une large gamme de mots trouvés dans les archives de l'organisation. La recherche par mot clé est la meilleure façon d'effectuer une recherche par nom de l'organisation, de la rue ou des services ne figurent pas dans le menu déroulant des filtres. Les résultats de la recherche seront cartographiés et résumés avec des liens vers la fiche complète fournie. Résultats de la recherche peuvent également être exportés dans un fichier CSV ou par courriel.</p>    
+    <p>Vous pouvez faire des recherches à l’aide des filtres  pré- définis. Ces derniers peuvent etre combinés entre eux  ainsi qu’ avec la recherche par mots clés. La recherche par mot clé est la meilleure façon d'effectuer une recherche à partir du nom de l'organisation, de l’addresse physique, des services.</p>
+<p>Insertez une information dans le critère de recherche. Les résultats seront affinés à mesure que vous tapez. Pour préciser votre recherche, introduisez plusieurs  mots en critères de recherche. Les résultats de la recherche seront cartographiés et résumés avec des liens vers la fiche complète fournie ou  encore ils  peuvent également être exportés dans un fichier CSV ou par courriel.</p>
+<p>Bien que ces instructions sont en anglais, les informations de ressources est principalement en français. S'il vous plaît entrer les mots clés en français.</p>
+<p>Pour trouver plus de résultats tapez moins critères de recherche. Pour trouver moins de résultats, entrer des critères de recherche supplémentaires</p>    
 <form>
 <table class="inline-table">
         <tr>
@@ -193,7 +196,7 @@
             <td>
             <span id="age-start">
             <select name="age_start">
-            <option class=""  value="" selected>Sélectionnez Gamme</option>
+            <option class=""  value="" selected>Sélectionnez Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -221,7 +224,7 @@
             <td>
             <span id="age-end">
             <select name="age_end">
-            <option selected value="">Sélectionnez Gamme</option>
+            <option selected value="">Sélectionnez Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -278,7 +281,7 @@
 <div class="mid" id="search-mid">
 <div id="results-container" align="center"> 
     <a name="search-results"><h2>Résultats de la recherche</h2></a>
-    <p class="left">Les résultats de la recherche apparaîtront sur la carte et les résultats ci-dessous.
+    <p class="left">Les resultats de la recherche apparaitront sur la carte ci–dessous.
 </p>
 <div align="center">
 <div id="map" class="search-map" ></div>
