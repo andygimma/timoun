@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Records</a>
+    <a id="breadcrumb_home" href="/">Acceuille</a> / <a id="breadcrumb_admin" href="/admin">Administrateur</a> / <a id="breadcrumb_admin_organizations" href="/admin/records">Enregistrements</a>
     <div id="language" style="text-align: right; float:right; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
@@ -15,7 +15,7 @@
   <h2>Records</h2>
   {{ message }}
   {% if role == "admin" %}
-      <a href="/records/new" class="btn btn-a user">Ajouter une Record</a>
+      <a href="/records/new" class="btn btn-a user">Ajouter une Enregistrements</a>
       <a href="/admin/records/dashboard" class="btn user yellow">Voir Changements</a>
   {% endif %}
     {% if last_page >= 0 %}
@@ -197,7 +197,7 @@
         </tr>
         <tr>
             <td><select name="age_start">
-            <option value="0" selected>Sélectionnez Gamme</option>
+            <option value="0" selected>Sélectionnez Age</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -219,7 +219,7 @@
             <option value="18">18</option>
             </select></td>
             <td><select name="age_end">
-            <option value="0" selected>Sélectionnez Gamme</option>
+            <option value="0" selected>Sélectionnez Age</option>
            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
