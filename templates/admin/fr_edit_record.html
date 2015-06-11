@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
 <div class="container">
   <div class="breadcrumbs">
-    <a id="breadcrumb_admin" href="/admin">Administrateur</a> / Modifier Record
+    <a id="breadcrumb_admin" href="/admin">Administrateur</a> / Modifier enregistrement
     <div id="language" style="text-align: right; float:right; margin-right: 20px;">
       <a href="/language?language='fr">Français</a> / <a href="/language?language='en'">English </a>
     </div>
@@ -38,5 +38,5 @@
     <br>
     <input type=submit class="btn btn-b user" align="left" value="Soumettre">
   </form>
-<a href="/records/{{ record.key.id() }}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce record?');">Supprimer Record</a>
+<a href="/records/{{ record.key.id() }}/delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce record?');">Supprimer enregistrement</a>
 {% endblock %}
